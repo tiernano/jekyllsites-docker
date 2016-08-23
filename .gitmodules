@@ -1,0 +1,3 @@
+[submodule "www.tiernanotoole.ie"]
+	path = www.tiernanotoole.ie
+	url = git@github.com:tiernano/www.tiernanotoole.ie.git
