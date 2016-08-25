@@ -1,3 +1,6 @@
 [submodule "www.tiernanotoole.ie"]
 	path = www.tiernanotoole.ie
 	url = git@github.com:tiernano/www.tiernanotoole.ie.git
+[submodule "www.geekphotographer.com"]
+	path = www.geekphotographer.com
+	url = git@github.com:tiernano/www.geekphotographer.com.git
