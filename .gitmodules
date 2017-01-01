@@ -1,6 +1,6 @@
 [submodule "www.tiernanotoole.ie"]
 	path = www.tiernanotoole.ie
-	url = https://github.com:/tiernano/www.tiernanotoole.ie.git
+	url = https://github.com/tiernano/www.tiernanotoole.ie.git
 [submodule "www.geekphotographer.com"]
 	path = www.geekphotographer.com
 	url = https://github.com/tiernano/www.geekphotographer.com.git
