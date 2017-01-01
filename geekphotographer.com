@@ -1,1 +1,0 @@
-docker run --rm -v "$(pwd):/src" -w /src ruby sh -c 'bundle install --path vendor/bundle && exec jekyll build -s www.geekphotographer.com/ -d www.geekphotographer.com/_site/'
