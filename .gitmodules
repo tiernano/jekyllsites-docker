@@ -4,3 +4,15 @@
 [submodule "www.geekphotographer.com"]
 	path = www.geekphotographer.com
 	url = git@github.com:tiernano/www.geekphotographer.com.git
+[submodule "blog.lotas-smartman.net"]
+	path = blog.lotas-smartman.net
+	url = git@github.com:tiernano/blog.lotas-smartman.net.git
+[submodule "tiernanotoolephotography.com"]
+	path = tiernanotoolephotography.com
+	url = git@github.com:tiernano/tiernanotoolephotography.com.git
+[submodule "podcast.tiernanotoole.ie"]
+	path = podcast.tiernanotoole.ie
+	url = git@github.com:tiernano/podcast.tiernanotoole.ie.git
+[submodule "www.tiernanotoole.com"]
+	path = www.tiernanotoole.com
+	url = git@github.com:tiernano/www.tiernanotoole.com.git
