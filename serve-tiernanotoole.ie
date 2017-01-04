@@ -1,1 +1,0 @@
-docker run -p 4000:4000 --rm -v "$(pwd):/src" -w /src ruby sh -c 'bundle install --path vendor/bundle && exec jekyll serve -H 0.0.0.0 -s www.tiernanotoole.ie/ -d www.tiernanotoole.ie/_site/'
