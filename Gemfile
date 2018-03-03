@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
-gem 'json', '1.8.3'
+gem 'json', '1.8.5'
 gem 'github-pages'
 gem 's3_website'
 gem 'jekyll-seo-tag'
 gem 'redcarpet'
+gem 'jekyll-algoia'
