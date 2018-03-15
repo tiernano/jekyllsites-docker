@@ -1,3 +1,3 @@
-docker run --rm -v "$(pwd):/src" -w /src ruby:2.3 sh -c 'bundle install --path vendor/bundle && exec jekyll build -s www.geekphotographer.com/ -d www.geekphotographer.com/_site/'
+docker run --rm -v "$(pwd):/src" -w /src ruby:2.4 sh -c 'bundle install --path vendor/bundle && exec jekyll build -s www.geekphotographer.com/ -d www.geekphotographer.com/_site/'
 docker run --name geekphotographer-nginx -v "$(pwd)/www.geekphotographer.com/_site/:/usr/share/nginx/html:ro" -d nginx
 docker run --rm -it --link geekphotographer-nginx wernight/ngrok ngrok http geekphotographer-nginx:80

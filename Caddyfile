@@ -1,29 +1,29 @@
 *:2015 {
 gzip
-root /home/docker/caddy-sites/folders/caddyserver/jekyllsites-docker/www.tiernanotoole.ie/_site/
+root /files/www.tiernanotoole.ie/_site/
 }
 
 *:2016 {
 gzip
-root /home/docker/caddy-sites/folders/caddyserver/jekyllsites-docker/www.tiernanotoole.net/_site/
+root /files/www.tiernanotoole.net/_site/
 }
 
 *:2017 {
 gzip
-root /home/docker/caddy-sites/folders/caddyserver/jekyllsites-docker/podcast.tiernanotoole.ie/_site/
+root /files/podcast.tiernanotoole.ie/_site/
 }
 
 *:2018 {
 gzip
-root /home/docker/caddy-sites/folders/caddyserver/jekyllsites-docker/www.geekphotographer.com/_site/
+root /files/www.geekphotographer.com/_site/
 }
 
 *:2019 {
 gzip
-root /home/docker/caddy-sites/folders/caddyserver/jekyllsites-docker/www.tiernanotoole.com/_site/
+root /files/www.tiernanotoole.com/_site/
 }
 
 *:2020 {
 gzip
-root /home/docker/caddy-sites/folders/caddyserver/jekyllsites-docker/blog.lotas-smartman.net/_site/
+root /files/blog.lotas-smartman.net/_site/
 }

@@ -1,1 +1,1 @@
-docker run --rm -v "$(pwd):/src" -w /src ruby:2.3 sh -c 'bundle install --path vendor/bundle && exec jekyll build -s podcast.tiernanotoole.ie/ -d podcast.tiernanotoole.ie/_site/'
+docker run --rm -v "$(pwd):/src" -w /src ruby:2.4 sh -c 'bundle install --path vendor/bundle && exec jekyll build -s podcast.tiernanotoole.ie/ -d podcast.tiernanotoole.ie/_site/'
