@@ -1,3 +1,3 @@
 docker run --rm -v "$(pwd):/src" -w /src ruby:2.3 sh -c 'bundle install --path vendor/bundle && exec jekyll build -s www.tiernanotoole.com/ -d www.tiernanotoole.com/_site/'
-docker run --name tiernanotoolecom -v "$(pwd)/www.tiernanotoole.com/_site/:/usr/share/nginx/html:ro" -d nginx
-docker run --rm -it --link tiernanotoolecom wernight/ngrok ngrok http tiernanotoolecom:80
+docker run --name tiernanotoolecom-nginx -v "$(pwd)/www.tiernanotoole.com/_site/:/usr/share/nginx/html:ro" -d nginx
+docker run --rm -it --link tiernanotoolecom-nginx wernight/ngrok ngrok http tiernanotoolecom-nginx:80
