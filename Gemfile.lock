@@ -235,7 +235,7 @@ GEM
       html-pipeline (~> 2.2)
       jekyll (>= 3.0, < 5.0)
     jmespath (1.6.1)
-    json (1.8.5)
+    json (2.6.1)
     kramdown (2.3.2)
       rexml
     kramdown-parser-gfm (1.1.0)
@@ -309,7 +309,7 @@ DEPENDENCIES
   jekyll-paginate
   jekyll-redirect-from
   jekyll-seo-tag
-  json
+  json (> 2.3.0)
   redcarpet
   s3_website
 
