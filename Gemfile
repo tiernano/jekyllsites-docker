@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'json'
+gem 'json', "> 2.3.0"
 gem 'github-pages'
 gem 's3_website'
 gem 'jekyll-seo-tag'
