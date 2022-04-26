@@ -1,1 +1,1 @@
-docker run --rm --volume="$PWD/www.tiernanotoole.ie:/srv/jekyll" -e "TZ=Europe/Dublin" -it jekyll/jekyll:$JEKYLL_VERSION jekyll build -s /srv/jekyll -d /srv/jekyll/_site
+docker run --rm -v "$(pwd):/src" -w /src jekyll/jekyll sh -c 'bundle config set --local path vendor/bundle && bundle install && bundle exec jekyll build  -s www.tiernanotoole.ie/ -d www.tiernanotoole.ie/_site/'
