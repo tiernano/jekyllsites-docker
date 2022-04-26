@@ -1,1 +1,1 @@
-docker run --rm -v "$(pwd):/src" -w /src ruby:2.4 sh -c 'bundle install --path vendor/bundle && exec jekyll build -s tiernanotoolephotography.com/ -d tiernanotoolephotography.com/_site/'
+docker run --rm -v "$(pwd):/src" -w /src ruby sh -c 'bundle install --path vendor/bundle && exec jekyll build -s tiernanotoolephotography.com/ -d tiernanotoolephotography.com/_site/'
