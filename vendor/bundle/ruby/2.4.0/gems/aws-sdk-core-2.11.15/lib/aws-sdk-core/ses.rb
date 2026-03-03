@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:93f4ebb4fe54776c421617d742e04be85650c3fdab8062b102b400d5a7b4dc36
-size 331
+Aws.add_service(:SES, {
+  api: "#{Aws::API_DIR}/email/2010-12-01/api-2.json",
+  docs: "#{Aws::API_DIR}/email/2010-12-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/email/2010-12-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/email/2010-12-01/paginators-1.json",
+  waiters: "#{Aws::API_DIR}/email/2010-12-01/waiters-2.json",
+})

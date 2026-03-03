@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e3daec021d6c9b5557358ad6c481f512f77d843d26da9fa66e37636e7ec1741d
-size 450
+AC_DEFUN([GCC_AS_CFI_PSEUDO_OP],
+[AC_CACHE_CHECK([assembler .cfi pseudo-op support],
+    gcc_cv_as_cfi_pseudo_op, [
+    gcc_cv_as_cfi_pseudo_op=unknown
+    AC_TRY_COMPILE([asm (".cfi_startproc\n\t.cfi_endproc");],,
+		   [gcc_cv_as_cfi_pseudo_op=yes],
+		   [gcc_cv_as_cfi_pseudo_op=no])
+ ])
+ if test "x$gcc_cv_as_cfi_pseudo_op" = xyes; then
+    AC_DEFINE(HAVE_AS_CFI_PSEUDO_OP, 1,
+	      [Define if your assembler supports .cfi_* directives.])
+ fi
+])

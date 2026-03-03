@@ -1,3 +1,64 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:04a0fcb5d8a9a734d14ad9677d6d4fd611f964169c0bf4fc8084db86ff9525c4
-size 1740
+{
+  "pagination": {
+    "DescribeSchedule": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "ScheduleActions"
+    },
+    "ListChannels": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "Channels"
+    },
+    "ListInputSecurityGroups": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "InputSecurityGroups"
+    },
+    "ListInputs": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "Inputs"
+    },
+    "ListOfferings": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "Offerings"
+    },
+    "ListReservations": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "Reservations"
+    },
+    "ListMultiplexPrograms": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "MultiplexPrograms"
+    },
+    "ListMultiplexes": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "Multiplexes"
+    },
+    "ListInputDevices": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "InputDevices"
+    },
+    "ListInputDeviceTransfers": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "InputDeviceTransfers"
+    }
+  }
+}

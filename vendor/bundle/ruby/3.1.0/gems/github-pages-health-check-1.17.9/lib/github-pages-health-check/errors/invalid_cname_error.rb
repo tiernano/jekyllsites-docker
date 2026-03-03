@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6318a5c3e225de6b2246462500c584184f7c3fb5c2feb1d55d7896efb8f8d3cc
-size 564
+# frozen_string_literal: true
+
+module GitHubPages
+  module HealthCheck
+    module Errors
+      class InvalidCNAMEError < GitHubPages::HealthCheck::Error
+        DOCUMENTATION_PATH = "/articles/setting-up-a-custom-domain-with-github-pages/"
+
+        def message
+          <<-MSG
+             Your site's DNS settings are using a custom subdomain, #{domain.host},
+             that's not set up with a correct CNAME record.  We recommend you set this
+             CNAME record to point at #{username}.github.io.
+          MSG
+        end
+      end
+    end
+  end
+end

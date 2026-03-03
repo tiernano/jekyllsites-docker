@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:03a4bf178dd166f5d07509df2b13393a3706dc513cb0ec0bc89e772382b814de
-size 365
+# -*- coding: utf-8 -*- #
+# frozen_string_literal: true
+
+module Rouge
+  module Formatters
+    # A formatter which renders nothing.
+    class Null < Formatter
+      tag 'null'
+
+      def initialize(*)
+      end
+
+      def stream(tokens, &b)
+        tokens.each do |tok, val|
+          yield "#{tok.qualname} #{val.inspect}\n"
+        end
+      end
+    end
+  end
+end

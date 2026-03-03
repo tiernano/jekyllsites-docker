@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:df7a0a7ebc45b2500a168c4aac07269d337d77e617b3b25c7dd3b325d5f91df2
-size 335
+module Octokit
+
+  # Class to extract options from Ruby arguments for
+  # Repository-related methods
+  class RepoArguments < Arguments
+
+    # !@attribute [r] repo
+    #   @return [Repository]
+    attr_reader :repo
+
+    def initialize(args)
+      arguments = super(args)
+      @repo = arguments.shift
+
+      arguments
+    end
+
+  end
+end

@@ -1,3 +1,94 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bc1f30f6ca79ec8f7e08eef149aa28bebe4e0f21ce7f14899ce21470af3e83c1
-size 2609
+{
+  "pagination": {
+    "GetProvisionedProductOutputs": {
+      "input_token": "PageToken",
+      "output_token": "NextPageToken",
+      "limit_key": "PageSize"
+    },
+    "ListAcceptedPortfolioShares": {
+      "input_token": "PageToken",
+      "output_token": "NextPageToken",
+      "limit_key": "PageSize"
+    },
+    "ListBudgetsForResource": {
+      "input_token": "PageToken",
+      "output_token": "NextPageToken",
+      "limit_key": "PageSize"
+    },
+    "ListConstraintsForPortfolio": {
+      "input_token": "PageToken",
+      "output_token": "NextPageToken",
+      "limit_key": "PageSize"
+    },
+    "ListLaunchPaths": {
+      "input_token": "PageToken",
+      "output_token": "NextPageToken",
+      "limit_key": "PageSize"
+    },
+    "ListOrganizationPortfolioAccess": {
+      "input_token": "PageToken",
+      "output_token": "NextPageToken",
+      "limit_key": "PageSize"
+    },
+    "ListPortfolioAccess": {
+      "input_token": "PageToken",
+      "output_token": "NextPageToken",
+      "limit_key": "PageSize"
+    },
+    "ListPortfolios": {
+      "input_token": "PageToken",
+      "output_token": "NextPageToken",
+      "limit_key": "PageSize"
+    },
+    "ListPortfoliosForProduct": {
+      "input_token": "PageToken",
+      "output_token": "NextPageToken",
+      "limit_key": "PageSize"
+    },
+    "ListPrincipalsForPortfolio": {
+      "input_token": "PageToken",
+      "output_token": "NextPageToken",
+      "limit_key": "PageSize"
+    },
+    "ListProvisioningArtifactsForServiceAction": {
+      "input_token": "PageToken",
+      "output_token": "NextPageToken",
+      "limit_key": "PageSize"
+    },
+    "ListResourcesForTagOption": {
+      "input_token": "PageToken",
+      "output_token": "PageToken",
+      "limit_key": "PageSize"
+    },
+    "ListServiceActions": {
+      "input_token": "PageToken",
+      "output_token": "NextPageToken",
+      "limit_key": "PageSize"
+    },
+    "ListServiceActionsForProvisioningArtifact": {
+      "input_token": "PageToken",
+      "output_token": "NextPageToken",
+      "limit_key": "PageSize"
+    },
+    "ListTagOptions": {
+      "input_token": "PageToken",
+      "output_token": "PageToken",
+      "limit_key": "PageSize"
+    },
+    "SearchProducts": {
+      "input_token": "PageToken",
+      "output_token": "NextPageToken",
+      "limit_key": "PageSize"
+    },
+    "SearchProductsAsAdmin": {
+      "input_token": "PageToken",
+      "output_token": "NextPageToken",
+      "limit_key": "PageSize"
+    },
+    "SearchProvisionedProducts": {
+      "input_token": "PageToken",
+      "output_token": "NextPageToken",
+      "limit_key": "PageSize"
+    }
+  }
+}

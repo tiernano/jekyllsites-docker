@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:73cac91a68c1841f3b503c9c3655ceb62a916ed65f1ffbd77425f891ece7aa4f
-size 261
+Aws.add_service(:WAF, {
+  api: "#{Aws::API_DIR}/waf/2015-08-24/api-2.json",
+  docs: "#{Aws::API_DIR}/waf/2015-08-24/docs-2.json",
+  examples: "#{Aws::API_DIR}/waf/2015-08-24/examples-1.json",
+  paginators: "#{Aws::API_DIR}/waf/2015-08-24/paginators-1.json",
+})

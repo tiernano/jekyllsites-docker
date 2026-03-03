@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:544e60014556420ad6f58fe5445bc784ca95dbc28372100e615272f10c35087d
-size 386
+require File.join(File.expand_path(File.dirname(__FILE__)), 'test_utils.rb')
+
+# Use a zoneinfo directory containing files needed by the tests.
+# The symlinks in this directory are set up in test_utils.rb.
+TZInfo::DataSource.set(:zoneinfo, File.join(File.expand_path(File.dirname(__FILE__)), 'zoneinfo').untaint)
+
+require File.join(File.expand_path(File.dirname(__FILE__)), 'ts_all.rb')

@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2ecbfa4c5f166a3e7bae64834ce7ed025d3ab4b65dc72f3bf28485b21be5ce22
-size 197
+#*
+ There is multi-line comment.
+ see this text because the Velocity Templating Engine will ignore it.
+*#
+<h3>List</h3>
+## This is a single line comment.
+#if( $allProducts )
+<p>not found.</p>
+#end

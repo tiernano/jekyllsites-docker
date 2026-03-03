@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:afc08ed58a16e2182d2017b5eed84ac1ce42d3d96e74b1fd62514828c43fa01d
-size 323
+# Rails 3.0.0.beta.2+, < 3.1
+if defined?(ActiveSupport) && ActiveSupport.public_methods.include?(:on_load) &&
+    !Sass::Util.ap_geq?('3.1.0.beta')
+  require 'sass/plugin/configuration'
+  ActiveSupport.on_load(:before_configuration) do
+    require 'sass'
+    require 'sass/plugin'
+    require 'sass/plugin/rails'
+  end
+end

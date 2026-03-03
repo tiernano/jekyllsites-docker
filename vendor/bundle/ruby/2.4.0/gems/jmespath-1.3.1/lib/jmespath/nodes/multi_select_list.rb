@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:322a91c6cb49a4f3339dafe3bc71c1114bc6dc4dd25573f91540474f6ee1d0ef
-size 393
+module JMESPath
+  # @api private
+  module Nodes
+    class MultiSelectList < Node
+      def initialize(children)
+        @children = children
+      end
+
+      def visit(value)
+        if value.nil?
+          value
+        else
+          @children.map { |n| n.visit(value) }
+        end
+      end
+
+      def optimize
+        self.class.new(@children.map(&:optimize))
+      end
+    end
+  end
+end

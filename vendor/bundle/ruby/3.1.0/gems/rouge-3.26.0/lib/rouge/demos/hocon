@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:87958f12cfda7f4cc782b7a098a0e92980a43fefee41a5c32f8079ea893bb467
-size 281
+# These are our own config values defined by the app
+simple-app {
+    answer = 42
+}
+
+# Here we override some values used by a library
+simple-lib.foo = "This value comes from simple-app's application.conf"
+simple-lib.whatever = "This value comes from simple-app's application.conf"

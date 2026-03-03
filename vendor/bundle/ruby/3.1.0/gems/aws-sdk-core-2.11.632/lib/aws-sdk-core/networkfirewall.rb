@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f029dcf2c679e3b57a819d0679dfb4fe9b4a7d31ef3a17c91d6101dc00dad504
-size 325
+Aws.add_service(:NetworkFirewall, {
+  api: "#{Aws::API_DIR}/network-firewall/2020-11-12/api-2.json",
+  docs: "#{Aws::API_DIR}/network-firewall/2020-11-12/docs-2.json",
+  examples: "#{Aws::API_DIR}/network-firewall/2020-11-12/examples-1.json",
+  paginators: "#{Aws::API_DIR}/network-firewall/2020-11-12/paginators-1.json",
+})

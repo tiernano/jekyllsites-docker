@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f4a62c1ab3c15577e913ddd570baf071e754f8abd097e9ee3ef645b234513d04
-size 321
+Aws.add_service(:SSM, {
+  api: "#{Aws::API_DIR}/ssm/2014-11-06/api-2.json",
+  docs: "#{Aws::API_DIR}/ssm/2014-11-06/docs-2.json",
+  examples: "#{Aws::API_DIR}/ssm/2014-11-06/examples-1.json",
+  paginators: "#{Aws::API_DIR}/ssm/2014-11-06/paginators-1.json",
+  waiters: "#{Aws::API_DIR}/ssm/2014-11-06/waiters-2.json",
+})

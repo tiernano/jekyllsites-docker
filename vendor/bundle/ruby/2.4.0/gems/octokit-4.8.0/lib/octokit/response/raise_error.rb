@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1557bf3d86cc2a5d3d32a1881bceca277d46879766efc49f2e99c8809cc3477b
-size 434
+require 'faraday'
+require 'octokit/error'
+
+module Octokit
+  # Faraday response middleware
+  module Response
+
+    # This class raises an Octokit-flavored exception based
+    # HTTP status codes returned by the API
+    class RaiseError < Faraday::Response::Middleware
+
+      private
+
+      def on_complete(response)
+        if error = Octokit::Error.from_response(response)
+          raise error
+        end
+      end
+    end
+  end
+end

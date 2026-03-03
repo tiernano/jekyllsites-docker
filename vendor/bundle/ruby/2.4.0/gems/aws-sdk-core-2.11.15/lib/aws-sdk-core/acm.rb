@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d63db5c0ed137592a238d684cb5be7b59d79c7bbb300fd00e1324313bcb4d55f
-size 261
+Aws.add_service(:ACM, {
+  api: "#{Aws::API_DIR}/acm/2015-12-08/api-2.json",
+  docs: "#{Aws::API_DIR}/acm/2015-12-08/docs-2.json",
+  examples: "#{Aws::API_DIR}/acm/2015-12-08/examples-1.json",
+  paginators: "#{Aws::API_DIR}/acm/2015-12-08/paginators-1.json",
+})

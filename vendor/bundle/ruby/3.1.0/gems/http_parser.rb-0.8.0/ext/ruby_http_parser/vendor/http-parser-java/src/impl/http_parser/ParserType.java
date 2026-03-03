@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:35d4f3157478e3e8f7f37e6a9967c6d10df03527c0de877b357ecad40b0bce4b
-size 420
+package http_parser;
+
+public enum ParserType {
+HTTP_REQUEST, HTTP_RESPONSE, HTTP_BOTH;
+
+	public static ParserType parse(String s) {
+		     if ("HTTP_REQUEST".equalsIgnoreCase(s))  { return HTTP_REQUEST; }
+		else if ("HTTP_RESPONSE".equalsIgnoreCase(s)) { return HTTP_RESPONSE; }
+		else if ("HTTP_BOTH".equalsIgnoreCase(s))     { return HTTP_BOTH; }
+		else                                          { return null; }
+	}
+}
+

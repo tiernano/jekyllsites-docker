@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4d99bf31fdc913f931fdbdc6197a09b8171de5c236a2c1aeb2119a925195406b
-size 399
+Aws.add_service(:ElasticBeanstalk, {
+  api: "#{Aws::API_DIR}/elasticbeanstalk/2010-12-01/api-2.json",
+  docs: "#{Aws::API_DIR}/elasticbeanstalk/2010-12-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/elasticbeanstalk/2010-12-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/elasticbeanstalk/2010-12-01/paginators-1.json",
+  waiters: "#{Aws::API_DIR}/elasticbeanstalk/2010-12-01/waiters-2.json",
+})

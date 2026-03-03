@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6dd121a34e03f2b0f240308f34bac5323d4bd9980e5c05e31621f818d9a99215
-size 731
+{
+  "pagination": {
+    "ListApplications": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults",
+      "result_key": "applications"
+    },
+    "ListAssociatedAttributeGroups": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults",
+      "result_key": "attributeGroups"
+    },
+    "ListAssociatedResources": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults",
+      "result_key": "resources"
+    },
+    "ListAttributeGroups": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults",
+      "result_key": "attributeGroups"
+    }
+  }
+}

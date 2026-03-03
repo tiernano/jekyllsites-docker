@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e1702f0b7b86fb697cb5f86434e4ec112ca498baca6a35243d0db977559eb274
-size 313
+Aws.add_service(:CognitoIdentityProvider, {
+  api: "#{Aws::API_DIR}/cognito-idp/2016-04-18/api-2.json",
+  docs: "#{Aws::API_DIR}/cognito-idp/2016-04-18/docs-2.json",
+  examples: "#{Aws::API_DIR}/cognito-idp/2016-04-18/examples-1.json",
+  paginators: "#{Aws::API_DIR}/cognito-idp/2016-04-18/paginators-1.json",
+})

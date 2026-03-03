@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8a003cd307e47847a1fd127d8a2531a8a8583e9a71db0bd438364de2b9f6ff0c
-size 476
+.libs
+.deps
+*.o
+*.lo
+.dirstamp
+*.la
+Makefile
+!testsuite/libffi.bhaible/Makefile
+Makefile.in
+aclocal.m4
+compile
+!.travis/compile
+configure
+depcomp
+doc/libffi.info
+*~
+fficonfig.h.in
+fficonfig.h
+include/ffi.h
+include/ffitarget.h
+install-sh
+libffi.pc
+libtool
+libtool-ldflags
+ltmain.sh
+m4/libtool.m4
+m4/lt*.m4
+mdate-sh
+missing
+stamp-h1
+libffi*gz
+autom4te.cache
+libffi.xcodeproj/xcuserdata
+libffi.xcodeproj/project.xcworkspace
+build_*/
+darwin_*/
+src/arm/trampoline.S
+**/texinfo.tex

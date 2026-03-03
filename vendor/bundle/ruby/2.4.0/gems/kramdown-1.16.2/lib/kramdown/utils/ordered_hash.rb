@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bdf85dc5c21da54f3813cfd456128be521b6713b8147b22ca5c46c803d762e17
-size 232
+# -*- coding: utf-8 -*-
+#
+#--
+# Copyright (C) 2009-2016 Thomas Leitner <t_leitner@gmx.at>
+#
+# This file is part of kramdown which is licensed under the MIT.
+#++
+#
+
+module Kramdown
+
+  module Utils
+
+    OrderedHash = Hash
+
+  end
+
+end

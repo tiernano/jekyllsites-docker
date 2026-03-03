@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5ddd14887c42618620e4bf2d4f0015e811bfe934a5872cd943e6bd049bd6ed3a
-size 426
+# -*- coding: utf-8 -*- #
+# frozen_string_literal: true
+
+module Rouge
+  module Lexers
+    load_lexer 'javascript.rb'
+    load_lexer 'typescript/common.rb'
+
+    class Typescript < Javascript
+      extend TypescriptCommon
+
+      title "TypeScript"
+      desc "TypeScript, a superset of JavaScript"
+
+      tag 'typescript'
+      aliases 'ts'
+
+      filenames '*.ts', '*.d.ts'
+
+      mimetypes 'text/typescript'
+    end
+  end
+end

@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:911ec93dfc752dd40d82dfa6bb77fd9f28c07b9fb0ea4ade1e229129471f71b2
-size 286
+Aws.add_service(:Textract, {
+  api: "#{Aws::API_DIR}/textract/2018-06-27/api-2.json",
+  docs: "#{Aws::API_DIR}/textract/2018-06-27/docs-2.json",
+  examples: "#{Aws::API_DIR}/textract/2018-06-27/examples-1.json",
+  paginators: "#{Aws::API_DIR}/textract/2018-06-27/paginators-1.json",
+})

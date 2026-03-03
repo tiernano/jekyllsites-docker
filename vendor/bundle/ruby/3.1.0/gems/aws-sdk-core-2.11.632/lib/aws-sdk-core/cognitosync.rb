@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1bdf13afc3cd4446ba934e2f86587e321545609edc0e7b09892799ae632bbbbf
-size 159
+Aws.add_service(:CognitoSync, {
+  api: "#{Aws::API_DIR}/cognito-sync/2014-06-30/api-2.json",
+  docs: "#{Aws::API_DIR}/cognito-sync/2014-06-30/docs-2.json",
+})

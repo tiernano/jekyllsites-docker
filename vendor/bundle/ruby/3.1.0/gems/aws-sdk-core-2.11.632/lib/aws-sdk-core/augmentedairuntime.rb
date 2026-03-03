@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f32168532354e745afe0b95ef690314b3a92d636fe5a71711fc42a2a87aff9da
-size 348
+Aws.add_service(:AugmentedAIRuntime, {
+  api: "#{Aws::API_DIR}/sagemaker-a2i-runtime/2019-11-07/api-2.json",
+  docs: "#{Aws::API_DIR}/sagemaker-a2i-runtime/2019-11-07/docs-2.json",
+  examples: "#{Aws::API_DIR}/sagemaker-a2i-runtime/2019-11-07/examples-1.json",
+  paginators: "#{Aws::API_DIR}/sagemaker-a2i-runtime/2019-11-07/paginators-1.json",
+})

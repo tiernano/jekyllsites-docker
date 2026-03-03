@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6e6bb98e184b77ca2feb54266a6fcc8d524a6739d71dc1539f34f926fe69a070
-size 403
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "ListVaults",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "ListVaults",
+            "input": {
+                "accountId": "abcmnoxyz"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

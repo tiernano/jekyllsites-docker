@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:949ca9de5351946d2390c0d370c1a8b4d3e1878978b6b3ecc1e7ab71a2938f92
-size 548
+require 'thread'
+
+module JMESPath
+  class CachingParser
+
+    def initialize(options = {})
+      @parser = options[:parser] || Parser.new(options)
+      @mutex = Mutex.new
+      @cache = {}
+    end
+
+    def parse(expression)
+      if cached = @cache[expression]
+        cached
+      else
+        cache_expression(expression)
+      end
+    end
+
+    private
+
+    def cache_expression(expression)
+      @mutex.synchronize do
+        @cache.clear if @cache.size > 1000
+        @cache[expression] = @parser.parse(expression)
+      end
+    end
+
+  end
+end

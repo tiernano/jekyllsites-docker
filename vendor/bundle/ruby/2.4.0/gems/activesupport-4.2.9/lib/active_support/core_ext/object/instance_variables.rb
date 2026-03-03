@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:aaa3a732dc7dc107156ba6bfd3c64ffd2baed265fd7560219444f485adbdd26c
-size 720
+class Object
+  # Returns a hash with string keys that maps instance variable names without "@" to their
+  # corresponding values.
+  #
+  #   class C
+  #     def initialize(x, y)
+  #       @x, @y = x, y
+  #     end
+  #   end
+  #
+  #   C.new(0, 1).instance_values # => {"x" => 0, "y" => 1}
+  def instance_values
+    Hash[instance_variables.map { |name| [name[1..-1], instance_variable_get(name)] }]
+  end
+
+  # Returns an array of instance variable names as strings including "@".
+  #
+  #   class C
+  #     def initialize(x, y)
+  #       @x, @y = x, y
+  #     end
+  #   end
+  #
+  #   C.new(0, 1).instance_variable_names # => ["@y", "@x"]
+  def instance_variable_names
+    instance_variables.map { |var| var.to_s }
+  end
+end

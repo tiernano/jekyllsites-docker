@@ -1,3 +1,40 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:327b9d2937f51885d349f3cd8ea5e6a125aec8f01b8843494e20bc8cefbf48f2
-size 307
+* not a para
+  here
+
+    > blockquote
+
+* and not
+    here
+
+    >blockquote
+
+* this is a para
+
+* > blockquote
+
+* this too
+
+^
+
+A paragraph
+  1. followed not by ol
+- followed not by ul
+
+A compact list:
+
+* compact
+* list
+* items
+
+A normal list:
+
+* not
+
+* compact
+
+* but here
+
+List item without content:
+
+* 
+* a

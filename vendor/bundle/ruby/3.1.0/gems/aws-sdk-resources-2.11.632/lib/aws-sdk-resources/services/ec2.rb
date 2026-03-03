@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f0ad8434cb892cac91d8e8c67a1e6ae65691050aa13f1e88471bfd32f028456b
-size 475
+module Aws
+  module EC2
+
+    require 'aws-sdk-resources/services/ec2/instance'
+
+    class Resource
+
+      def create_tags(options)
+        resp = @client.create_tags(options)
+        tags = []
+        options[:resources].each do |resource_id|
+          options[:tags].each do |tag|
+            tags << Tag.new(resource_id, tag[:key], tag[:value], client: @client)
+          end
+        end
+        Resources::Batch.new(Tag, tags, response: resp)
+      end
+
+    end
+  end
+end

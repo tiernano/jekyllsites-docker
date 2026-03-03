@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:46b596ac27df3d14c650466856a1bff83a5ac401403a3fb73123b78daf69c7c1
-size 366
+Aws.add_service(:ResourceGroupsTaggingAPI, {
+  api: "#{Aws::API_DIR}/resourcegroupstaggingapi/2017-01-26/api-2.json",
+  docs: "#{Aws::API_DIR}/resourcegroupstaggingapi/2017-01-26/docs-2.json",
+  examples: "#{Aws::API_DIR}/resourcegroupstaggingapi/2017-01-26/examples-1.json",
+  paginators: "#{Aws::API_DIR}/resourcegroupstaggingapi/2017-01-26/paginators-1.json",
+})

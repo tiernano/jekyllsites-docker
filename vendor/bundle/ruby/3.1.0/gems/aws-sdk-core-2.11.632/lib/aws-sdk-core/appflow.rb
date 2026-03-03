@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cdecbc7c382a5270693884204a888242b1cf40d969c481e0f202b44732ecf102
-size 281
+Aws.add_service(:Appflow, {
+  api: "#{Aws::API_DIR}/appflow/2020-08-23/api-2.json",
+  docs: "#{Aws::API_DIR}/appflow/2020-08-23/docs-2.json",
+  examples: "#{Aws::API_DIR}/appflow/2020-08-23/examples-1.json",
+  paginators: "#{Aws::API_DIR}/appflow/2020-08-23/paginators-1.json",
+})

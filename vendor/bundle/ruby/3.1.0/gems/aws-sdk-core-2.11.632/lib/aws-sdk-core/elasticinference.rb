@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9098346a0e5cc272e9a7252e758f7cf92756a628249d6ad7df06c279f0da383f
-size 330
+Aws.add_service(:ElasticInference, {
+  api: "#{Aws::API_DIR}/elastic-inference/2017-07-25/api-2.json",
+  docs: "#{Aws::API_DIR}/elastic-inference/2017-07-25/docs-2.json",
+  examples: "#{Aws::API_DIR}/elastic-inference/2017-07-25/examples-1.json",
+  paginators: "#{Aws::API_DIR}/elastic-inference/2017-07-25/paginators-1.json",
+})

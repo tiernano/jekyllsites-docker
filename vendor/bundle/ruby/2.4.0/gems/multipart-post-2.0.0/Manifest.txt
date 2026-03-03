@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8260efc417ee98061e9553976ed536cbbe14891183ba0dc432a8da47afdc9b4b
-size 181
+lib/composite_io.rb
+lib/multipartable.rb
+lib/parts.rb
+lib/net/http/post/multipart.rb
+Manifest.txt
+Rakefile
+README.txt
+test/test_composite_io.rb
+test/net/http/post/test_multipart.rb

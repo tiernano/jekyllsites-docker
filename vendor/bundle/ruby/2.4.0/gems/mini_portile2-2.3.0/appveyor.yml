@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:66238e9aa7d92973928808b9c631fa177a52a7c26d7a79688dc77053237cb14f
-size 612
+---
+install:
+  - ps: ((New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/bagder/ca-bundle/master/ca-bundle.crt', "$env:TMP\ca-bundle.crt"))
+  - SET SSL_CERT_FILE=%TMP%\ca-bundle.crt
+  - SET PATH=C:\Ruby%ruby_version%\bin;%PATH%
+  - SET RAKEOPT=-rdevkit
+  - ruby --version
+  - gem --version
+  - bundle install
+  - gpg --version
+
+build: off
+
+test_script:
+  - bundle exec rake
+
+environment:
+  matrix:
+    - ruby_version: "22-x64"
+    - ruby_version: "22"
+    - ruby_version: "21-x64"
+    - ruby_version: "21"
+    - ruby_version: "200-x64"
+    - ruby_version: "200"
+    - ruby_version: "193"

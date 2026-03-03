@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:11017818d35db33bbe49df202dd77ae1b3ca887a3defac57deae6c244c16959d
-size 267
+require 'test_helper'
+class InflaterTest < MiniTest::Test
+  include DecompressorTests
+
+  def setup
+    super
+    @file = File.new('test/data/file1.txt.deflatedData', 'rb')
+    @decompressor = ::Zip::Inflater.new(@file)
+  end
+
+  def teardown
+    @file.close
+  end
+end

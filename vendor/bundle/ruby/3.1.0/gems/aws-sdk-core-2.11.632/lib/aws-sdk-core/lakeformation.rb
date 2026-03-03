@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f2525ab672b81db47edc84177bf0002a5d5c742d25c1c4e793859a1129addf58
-size 311
+Aws.add_service(:LakeFormation, {
+  api: "#{Aws::API_DIR}/lakeformation/2017-03-31/api-2.json",
+  docs: "#{Aws::API_DIR}/lakeformation/2017-03-31/docs-2.json",
+  examples: "#{Aws::API_DIR}/lakeformation/2017-03-31/examples-1.json",
+  paginators: "#{Aws::API_DIR}/lakeformation/2017-03-31/paginators-1.json",
+})

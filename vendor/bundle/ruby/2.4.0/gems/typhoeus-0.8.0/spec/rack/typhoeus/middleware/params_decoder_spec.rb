@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b35d561ef8d5e55e5e18013f4c033cc249f16a7393a38bab73b537ef0b83282f
-size 532
+require 'spec_helper'
+
+describe "Rack::Typhoeus::Middleware::ParamsDecoder" do
+
+  before(:all) do
+    require "rack/typhoeus"
+  end
+
+  let(:app) do
+    double
+  end
+
+  let(:env) do
+    double
+  end
+
+  let(:klass) do
+    Rack::Typhoeus::Middleware::ParamsDecoder
+  end
+
+  describe "#call" do
+  end
+
+  context "when requesting" do
+    let(:response) { Typhoeus.get("localhost:3001", :params => {:x => [:a]}) }
+
+    it "transforms parameters" do
+      expect(response.body).to include("query_hash\":{\"x\":[\"a\"]}")
+    end
+  end
+end

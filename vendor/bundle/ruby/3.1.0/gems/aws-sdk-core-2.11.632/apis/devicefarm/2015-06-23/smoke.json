@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ca3833683fe5ecf782c7c852cf68bc6b26219a406e91cbd0364a57b8c765efa0
-size 457
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "ListDevices",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "GetDevice",
+            "input": {
+                "arn": "arn:aws:devicefarm:us-west-2::device:000000000000000000000000fake-arn"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

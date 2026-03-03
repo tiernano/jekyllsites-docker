@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e9f03d24e5516c5eb83c8adad667a28c3e7773715d9f819f37a798c1eaf9e984
-size 294
+{
+  "pagination": {
+    "ListMemberAccounts": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults"
+    },
+    "ListS3Resources": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults"
+    }
+  }
+}

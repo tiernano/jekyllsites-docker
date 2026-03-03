@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:78923019fcba660023045a21305414486af1cb4fe2ce34f0fd757b7d79d642f6
-size 316
+Aws.add_service(:Route53Domains, {
+  api: "#{Aws::API_DIR}/route53domains/2014-05-15/api-2.json",
+  docs: "#{Aws::API_DIR}/route53domains/2014-05-15/docs-2.json",
+  examples: "#{Aws::API_DIR}/route53domains/2014-05-15/examples-1.json",
+  paginators: "#{Aws::API_DIR}/route53domains/2014-05-15/paginators-1.json",
+})

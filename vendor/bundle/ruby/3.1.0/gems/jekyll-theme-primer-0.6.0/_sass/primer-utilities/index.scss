@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:693f8786b2aa70a54079a966d182b0dc6fd48b030ef258f8a960b1c43e687c14
-size 516
+@import "primer-support/index.scss";
+// utilities
+@import "./lib/animations.scss";
+@import "./lib/borders.scss";
+@import "./lib/box-shadow.scss";
+@import "./lib/colors.scss";
+@import "./lib/details.scss";
+@import "./lib/flexbox.scss";
+@import "./lib/layout.scss";
+@import "./lib/margin.scss";
+@import "./lib/padding.scss";
+@import "./lib/typography.scss";
+// Visibility and display should always come last in the imports so that they override other utilities with !important
+@import "./lib/visibility-display.scss";

@@ -1,3 +1,39 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a7002b8bf73a5622eb403bc7d6d880f98403ae91ca604486ecde9b1dc54c61fd
-size 843
+# = Public Suffix
+#
+# Domain name parser based on the Public Suffix List.
+#
+# Copyright (c) 2009-2017 Simone Carletti <weppos@weppos.net>
+
+module PublicSuffix
+
+  class Error < StandardError
+  end
+
+  # Raised when trying to parse an invalid name.
+  # A name is considered invalid when no rule is found in the definition list.
+  #
+  # @example
+  #
+  #   PublicSuffix.parse("nic.test")
+  #   # => PublicSuffix::DomainInvalid
+  #
+  #   PublicSuffix.parse("http://www.nic.it")
+  #   # => PublicSuffix::DomainInvalid
+  #
+  class DomainInvalid < Error
+  end
+
+  # Raised when trying to parse a name that matches a suffix.
+  #
+  # @example
+  #
+  #   PublicSuffix.parse("nic.do")
+  #   # => PublicSuffix::DomainNotAllowed
+  #
+  #   PublicSuffix.parse("www.nic.do")
+  #   # => PublicSuffix::Domain
+  #
+  class DomainNotAllowed < DomainInvalid
+  end
+
+end

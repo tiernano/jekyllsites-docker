@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:eaa888adc713886d42c22582b30d0fc007e80891b82c96035707c788963e4aad
-size 291
+Aws.add_service(:CodeBuild, {
+  api: "#{Aws::API_DIR}/codebuild/2016-10-06/api-2.json",
+  docs: "#{Aws::API_DIR}/codebuild/2016-10-06/docs-2.json",
+  examples: "#{Aws::API_DIR}/codebuild/2016-10-06/examples-1.json",
+  paginators: "#{Aws::API_DIR}/codebuild/2016-10-06/paginators-1.json",
+})

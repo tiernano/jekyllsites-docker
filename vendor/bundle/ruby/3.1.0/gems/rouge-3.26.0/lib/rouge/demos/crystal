@@ -1,3 +1,45 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c7e145d9d3bb1fa31f17bc58ae212f0bee992d3b488e37c5fb75eb6b4536ad64
-size 717
+lib LibC
+  WNOHANG = 0x00000001
+
+  @[ReturnsTwice]
+  fun fork : PidT
+  fun getpgid(pid : PidT) : PidT
+  fun kill(pid : PidT, signal : Int) : Int
+  fun getpid : PidT
+  fun getppid : PidT
+  fun exit(status : Int) : NoReturn
+
+  ifdef x86_64
+    alias ClockT = UInt64
+  else
+    alias ClockT = UInt32
+  end
+
+  SC_CLK_TCK = 3
+
+  struct Tms
+    utime : ClockT
+    stime : ClockT
+    cutime : ClockT
+    cstime : ClockT
+  end
+
+  fun times(buffer : Tms*) : ClockT
+  fun sysconf(name : Int) : Long
+end
+
+class Process
+  def self.exit(status = 0)
+    LibC.exit(status)
+  end
+
+  def self.pid
+    LibC.getpid
+  end
+
+  def self.getpgid(pid : Int32)
+    ret = LibC.getpgid(pid)
+    raise Errno.new(ret) if ret < 0
+    ret
+  end
+end

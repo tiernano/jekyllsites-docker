@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0806c653da19bb7fa2cf334fd878ba8865e3aad0b5d659ca0a29502d32da0858
-size 666
+module Aws
+  module Plugins
+
+    # @seahorse.client.option [Boolean] :validate_params (true)
+    #   When `true`, request parameters are validated before
+    #   sending the request.
+    class ParamValidator < Seahorse::Client::Plugin
+
+      option(:validate_params, true)
+
+      def add_handlers(handlers, config)
+        if config.validate_params
+          handlers.add(Handler, step: :validate, priority: 50)
+        end
+      end
+
+      class Handler < Seahorse::Client::Handler
+
+        def call(context)
+          Aws::ParamValidator.validate!(context.operation.input, context.params)
+          @handler.call(context)
+        end
+
+      end
+
+    end
+  end
+end

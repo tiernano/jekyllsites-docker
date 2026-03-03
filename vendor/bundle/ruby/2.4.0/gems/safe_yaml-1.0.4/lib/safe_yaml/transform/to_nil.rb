@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:12197f16aa7ea5d21c59a326cc9e1add3d1373df794c2bfbe812bfd1ca410ef3
-size 366
+module SafeYAML
+  class Transform
+    class ToNil
+      include TransformationMap
+
+      set_predefined_values({
+        ""      => nil,
+        "~"     => nil,
+        "null"  => nil
+      })
+
+      def transform?(value)
+        return false if value.length > 4
+        return PREDEFINED_VALUES.include?(value), PREDEFINED_VALUES[value]
+      end
+    end
+  end
+end

@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fd4966af7e19a5fe826e4c1376e1b9b0269a86b88912696299cecc8f1957bde3
-size 523
+#ifndef CMARK_CMARK_CTYPE_H
+#define CMARK_CMARK_CTYPE_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include "cmark-gfm_export.h"
+
+/** Locale-independent versions of functions from ctype.h.
+ * We want cmark to behave the same no matter what the system locale.
+ */
+
+CMARK_GFM_EXPORT
+int cmark_isspace(char c);
+
+CMARK_GFM_EXPORT
+int cmark_ispunct(char c);
+
+CMARK_GFM_EXPORT
+int cmark_isalnum(char c);
+
+CMARK_GFM_EXPORT
+int cmark_isdigit(char c);
+
+CMARK_GFM_EXPORT
+int cmark_isalpha(char c);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif

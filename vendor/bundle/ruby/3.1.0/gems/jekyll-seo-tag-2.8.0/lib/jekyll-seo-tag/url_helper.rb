@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9da8735f222a1c219c18d0ef0d775bc1d92f828dbcf090dabd974d7d2dc09ca9
-size 577
+# frozen_string_literal: true
+
+module Jekyll
+  class SeoTag
+    # Mixin to share common URL-related methods between class
+    module UrlHelper
+      private
+
+      # Determines if the given string is an absolute URL
+      #
+      # Returns true if an absolute URL
+      # Returns false if it's a relative URL
+      # Returns nil if it is not a string or can't be parsed as a URL
+      def absolute_url?(string)
+        return unless string
+
+        Addressable::URI.parse(string).absolute?
+      rescue Addressable::URI::InvalidURIError
+        nil
+      end
+    end
+  end
+end

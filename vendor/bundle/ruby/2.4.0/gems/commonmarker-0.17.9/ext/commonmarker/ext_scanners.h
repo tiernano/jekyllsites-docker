@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d82badd09c532a8ed2fd31056aad84a100ef31924612c05d1ca10f483e353a71
-size 776
+#include "chunk.h"
+#include "cmark.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+bufsize_t _ext_scan_at(bufsize_t (*scanner)(const unsigned char *),
+                       unsigned char *ptr, int len, bufsize_t offset);
+bufsize_t _scan_table_start(const unsigned char *p);
+bufsize_t _scan_table_cell(const unsigned char *p);
+bufsize_t _scan_table_cell_end(const unsigned char *p);
+bufsize_t _scan_table_row_end(const unsigned char *p);
+
+#define scan_table_start(c, l, n) _ext_scan_at(&_scan_table_start, c, l, n)
+#define scan_table_cell(c, l, n) _ext_scan_at(&_scan_table_cell, c, l, n)
+#define scan_table_cell_end(c, l, n) _ext_scan_at(&_scan_table_cell_end, c, l, n)
+#define scan_table_row_end(c, l, n) _ext_scan_at(&_scan_table_row_end, c, l, n)
+
+#ifdef __cplusplus
+}
+#endif

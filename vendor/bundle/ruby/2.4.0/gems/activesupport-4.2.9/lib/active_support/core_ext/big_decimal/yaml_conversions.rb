@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4355b3bccfed9f1be2df582c654abcaec2fdd07573cc0c2c99a556ea4c80542f
-size 473
+require 'active_support/deprecation'
+
+ActiveSupport::Deprecation.warn 'core_ext/big_decimal/yaml_conversions is deprecated and will be removed in the future.'
+
+require 'bigdecimal'
+require 'yaml'
+require 'active_support/core_ext/big_decimal/conversions'
+
+class BigDecimal
+  YAML_MAPPING = { 'Infinity' => '.Inf', '-Infinity' => '-.Inf', 'NaN' => '.NaN' }
+
+  def encode_with(coder)
+    string = to_s
+    coder.represent_scalar(nil, YAML_MAPPING[string] || string)
+  end
+end

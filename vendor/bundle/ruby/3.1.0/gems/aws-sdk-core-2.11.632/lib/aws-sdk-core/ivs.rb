@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c0908c504a4a132e7bfbdd43404b453613a73b20c0e6f1ce999e7ea3d99c56de
-size 261
+Aws.add_service(:IVS, {
+  api: "#{Aws::API_DIR}/ivs/2020-07-14/api-2.json",
+  docs: "#{Aws::API_DIR}/ivs/2020-07-14/docs-2.json",
+  examples: "#{Aws::API_DIR}/ivs/2020-07-14/examples-1.json",
+  paginators: "#{Aws::API_DIR}/ivs/2020-07-14/paginators-1.json",
+})

@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d01a7110cf07f14b22d1e142ba05ec7ebcb4fb916cfd64ca1e130d71bddfff16
-size 351
+# frozen_string_literal: true
+
+module Nokogiri
+  module XML
+    class ElementDecl < Nokogiri::XML::Node
+      undef_method :namespace
+      undef_method :namespace_definitions
+      undef_method :line if method_defined?(:line)
+
+      def inspect
+        "#<#{self.class.name}:#{format("0x%x", object_id)} #{to_s.inspect}>"
+      end
+    end
+  end
+end

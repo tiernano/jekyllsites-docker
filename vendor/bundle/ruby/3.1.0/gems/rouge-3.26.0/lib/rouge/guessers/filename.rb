@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0cb756f223c465a7b943566a214ba6a08932bc3a37f4d2e345128f64584c446a
-size 805
+# frozen_string_literal: true
+
+module Rouge
+  module Guessers
+    class Filename < Guesser
+      attr_reader :fname
+      def initialize(filename)
+        @filename = filename
+      end
+
+      # returns a list of lexers that match the given filename with
+      # equal specificity (i.e. number of wildcards in the pattern).
+      # This helps disambiguate between, e.g. the Nginx lexer, which
+      # matches `nginx.conf`, and the Conf lexer, which matches `*.conf`.
+      # In this case, nginx will win because the pattern has no wildcards,
+      # while `*.conf` has one.
+      def filter(lexers)
+        mapping = {}
+        lexers.each do |lexer|
+          mapping[lexer.name] = lexer.filenames || []
+        end
+
+        GlobMapping.new(mapping, @filename).filter(lexers)
+      end
+    end
+  end
+end

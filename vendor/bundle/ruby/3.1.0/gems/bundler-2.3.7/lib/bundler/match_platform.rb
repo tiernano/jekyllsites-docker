@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fea40c405378ebd03241db51377bcd8c1519df7fa01195de9d21d6715869470f
-size 660
+# frozen_string_literal: true
+
+require_relative "gem_helpers"
+
+module Bundler
+  module MatchPlatform
+    include GemHelpers
+
+    def match_platform(p)
+      MatchPlatform.platforms_match?(platform, p)
+    end
+
+    def self.platforms_match?(gemspec_platform, local_platform)
+      return true if gemspec_platform.nil?
+      return true if Gem::Platform::RUBY == gemspec_platform
+      return true if local_platform == gemspec_platform
+      gemspec_platform = Gem::Platform.new(gemspec_platform)
+      return true if GemHelpers.generic(gemspec_platform) === local_platform
+      return true if gemspec_platform === local_platform
+
+      false
+    end
+  end
+end

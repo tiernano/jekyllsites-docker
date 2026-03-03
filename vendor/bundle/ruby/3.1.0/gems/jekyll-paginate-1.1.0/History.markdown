@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4910ffb24c8df374bc2ece5c37b9d786efb5b21c904c07729261bea78b9a7da9
-size 171
+## 1.1.0 / 2014-10-14
+
+### Minor Enhancements
+
+  * Filter out posts that have `hidden: true` in front matter (#13)
+
+### Development Fixes
+
+  * Fix tests for rspec 3. (#9)

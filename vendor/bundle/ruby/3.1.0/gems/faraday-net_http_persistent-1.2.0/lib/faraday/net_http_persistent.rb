@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f19307cf6bed07ee6ed9d3737364cd5727acd53f79cddb353ed2216afc32fb8c
-size 792
+# frozen_string_literal: true
+
+require_relative "adapter/net_http_persistent"
+require_relative "net_http_persistent/version"
+
+module Faraday
+  module NetHttpPersistent
+    # Faraday allows you to register your middleware for easier configuration.
+    # This step is totally optional, but it basically allows users to use a custom symbol (in this case, `:net_http_persistent`),
+    # to use your adapter in their connections.
+    # After calling this line, the following are both valid ways to set the adapter in a connection:
+    # * conn.adapter Faraday::Adapter::NetNttpPersistent
+    # * conn.adapter :net_http_persistent
+    # Without this line, only the former method is valid.
+    Faraday::Adapter.register_middleware(net_http_persistent: Faraday::Adapter::NetHttpPersistent)
+  end
+end

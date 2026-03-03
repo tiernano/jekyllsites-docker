@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d8d40a0135f3a1e0969ab7946897bc10607432fbbd5356ec574dd07be82f43fb
-size 291
+Aws.add_service(:S3Control, {
+  api: "#{Aws::API_DIR}/s3control/2018-08-20/api-2.json",
+  docs: "#{Aws::API_DIR}/s3control/2018-08-20/docs-2.json",
+  examples: "#{Aws::API_DIR}/s3control/2018-08-20/examples-1.json",
+  paginators: "#{Aws::API_DIR}/s3control/2018-08-20/paginators-1.json",
+})

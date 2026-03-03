@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:15e7ef19f1a7408a49f1ee4f92aafdddb59e686ad6b9c4476f9d18eef6386372
-size 299
+class String
+  # The inverse of <tt>String#include?</tt>. Returns true if the string
+  # does not include the other string.
+  #
+  #   "hello".exclude? "lo" # => false
+  #   "hello".exclude? "ol" # => true
+  #   "hello".exclude? ?h   # => false
+  def exclude?(string)
+    !include?(string)
+  end
+end

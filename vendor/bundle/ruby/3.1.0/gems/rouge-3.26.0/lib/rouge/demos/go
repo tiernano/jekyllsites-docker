@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2f2cc6596d0d01a467dec7ff38e37318ca87f607938bf904ba77c2c1d045dd9e
-size 74
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, 世界")
+}

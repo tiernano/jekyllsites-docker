@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:aae001191a526fec1d94a0bd3d75a69398f0153bdc5b475713d1b3e178361f7b
-size 182
+#--
+# Copyright (c) 2007-2013 Nick Sieger.
+# See the file README.txt included with the distribution for
+# software license details.
+#++
+
+module MultipartPost
+  VERSION = "2.1.1"
+end

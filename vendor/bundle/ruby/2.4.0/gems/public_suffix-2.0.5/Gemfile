@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6ab88f5942db7a0a33c7881a5da6e28acd5cdae4f3a163b23fde804f0811a94b
-size 216
+source "http://rubygems.org"
+
+gemspec
+
+gem "coveralls", require: false
+gem "minitest"
+gem "minitest-reporters"
+gem "rubocop", require: false
+
+gem "memory_profiler", require: false if !RUBY_VERSION.start_with?("2.0")

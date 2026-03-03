@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7f91f16a43f752fa54c9a497c7b1434f721e4ec8db043e55003860df86c73848
-size 291
+Aws.add_service(:AppConfig, {
+  api: "#{Aws::API_DIR}/appconfig/2019-10-09/api-2.json",
+  docs: "#{Aws::API_DIR}/appconfig/2019-10-09/docs-2.json",
+  examples: "#{Aws::API_DIR}/appconfig/2019-10-09/examples-1.json",
+  paginators: "#{Aws::API_DIR}/appconfig/2019-10-09/paginators-1.json",
+})

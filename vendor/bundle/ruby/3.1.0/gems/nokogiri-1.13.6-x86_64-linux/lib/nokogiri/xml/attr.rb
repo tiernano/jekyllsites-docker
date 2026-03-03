@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4b306e2788844737ea3700f7d88eecdadc933fa8bf9c193baae24f61069883fa
-size 300
+# frozen_string_literal: true
+
+module Nokogiri
+  module XML
+    class Attr < Node
+      alias_method :value, :content
+      alias_method :to_s, :content
+      alias_method :content=, :value=
+
+      private
+
+      def inspect_attributes
+        [:name, :namespace, :value]
+      end
+    end
+  end
+end

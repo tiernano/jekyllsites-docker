@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:27f028553cc678d8f03bde87cfc0fee16786b13000d713bee4ef56254d076f09
-size 786
+module ActiveSupport
+  module Testing
+    module Declarative
+      unless defined?(Spec)
+        # Helper to define a test method using a String. Under the hood, it replaces
+        # spaces with underscores and defines the test method.
+        #
+        #   test "verify something" do
+        #     ...
+        #   end
+        def test(name, &block)
+          test_name = "test_#{name.gsub(/\s+/,'_')}".to_sym
+          defined = method_defined? test_name
+          raise "#{test_name} is already defined in #{self}" if defined
+          if block_given?
+            define_method(test_name, &block)
+          else
+            define_method(test_name) do
+              flunk "No implementation provided for #{name}"
+            end
+          end
+        end
+      end
+    end
+  end
+end

@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:17d6888794f9ca441635c11478de32ab3ed2e85fdfd9bad942f63dafc6df795c
-size 225
+require "rspec/expectations"
+require File.expand_path("../lib/jekyll-commonmark-ghpages.rb", File.dirname(__FILE__))
+
+RSpec.configure do |config|
+  config.run_all_when_everything_filtered = true
+  config.order = "random"
+end

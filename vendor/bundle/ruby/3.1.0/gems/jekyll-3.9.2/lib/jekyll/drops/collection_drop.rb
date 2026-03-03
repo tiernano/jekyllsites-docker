@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3fd89fcfaa67dc407c47c3251341c3b503020a79d018379a4ab9c5d9201f7573
-size 418
+# frozen_string_literal: true
+
+module Jekyll
+  module Drops
+    class CollectionDrop < Drop
+      extend Forwardable
+
+      mutable false
+
+      def_delegator :@obj, :write?, :output
+      def_delegators :@obj, :label, :docs, :files, :directory,
+                            :relative_directory
+
+      private def_delegator :@obj, :metadata, :fallback_data
+
+      def to_s
+        docs.to_s
+      end
+    end
+  end
+end

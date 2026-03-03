@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:13d47de5b5e84ca7a7e899494d529d0347dcb78645ddc5b17f60d30b92a0ebfe
-size 411
+module Nokogiri
+  module XML
+    module PP
+      module CharacterData
+        def pretty_print pp # :nodoc:
+          nice_name = self.class.name.split('::').last
+          pp.group(2, "#(#{nice_name} ", ')') do
+            pp.pp text
+          end
+        end
+
+        def inspect # :nodoc:
+          "#<#{self.class.name}:#{sprintf("0x%x",object_id)} #{text.inspect}>"
+        end
+      end
+    end
+  end
+end

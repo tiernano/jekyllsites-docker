@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:49218629e6cc437aacd07e17825a637cc1f645c6a11a391d0deb587d31618524
-size 314
+language: ruby
+cache: bundler
+
+matrix:
+  include:
+    - rvm: 2.3
+    - rvm: 2.4
+    - rvm: 2.5
+    - rvm: 2.6
+    - rvm: jruby
+    - rvm: truffleruby
+    - rvm: jruby-head
+    - rvm: ruby-head
+  allow_failures:
+    - rvm: truffleruby
+    - rvm: jruby
+    - rvm: ruby-head
+    - rvm: jruby-head
+  fast_finish: true

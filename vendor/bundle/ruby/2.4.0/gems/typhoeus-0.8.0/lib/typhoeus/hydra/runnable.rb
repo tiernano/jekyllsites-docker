@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9a6d58ded605e4f10bd6add83752cb40b909b65747edf3150e2b520df5033f25
-size 345
+module Typhoeus
+  class Hydra
+
+    # This module contains logic to run a hydra.
+    module Runnable
+
+      # Start the hydra run.
+      #
+      # @example Start hydra run.
+      #   hydra.run
+      #
+      # @return [ Symbol ] Return value from multi.perform.
+      def run
+        dequeue_many
+        multi.perform
+      end
+    end
+  end
+end

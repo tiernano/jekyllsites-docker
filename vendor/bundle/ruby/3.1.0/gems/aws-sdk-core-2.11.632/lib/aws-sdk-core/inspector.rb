@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1ed2906b21dcaa9d8ffce7ef95b92ce980d26a82e7e9f9cb6a219a6cfafd405b
-size 291
+Aws.add_service(:Inspector, {
+  api: "#{Aws::API_DIR}/inspector/2016-02-16/api-2.json",
+  docs: "#{Aws::API_DIR}/inspector/2016-02-16/docs-2.json",
+  examples: "#{Aws::API_DIR}/inspector/2016-02-16/examples-1.json",
+  paginators: "#{Aws::API_DIR}/inspector/2016-02-16/paginators-1.json",
+})

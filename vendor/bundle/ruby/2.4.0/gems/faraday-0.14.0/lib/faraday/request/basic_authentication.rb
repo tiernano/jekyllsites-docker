@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4e32c81fdedbd005b8fdd1d4674dc3e898b7daec79095452cc68b69ed6ec7f92
-size 287
+require 'base64'
+
+module Faraday
+  class Request::BasicAuthentication < Request.load_middleware(:authorization)
+    # Public
+    def self.header(login, pass)
+      value = Base64.encode64([login, pass].join(':'))
+      value.gsub!("\n", '')
+      super(:Basic, value)
+    end
+  end
+end
+

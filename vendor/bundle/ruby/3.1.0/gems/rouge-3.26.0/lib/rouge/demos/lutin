@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f315395f32de4fccd9d9eb390180a9d8fb965ed78d1c13eb133a06bd9ecf818c
-size 497
+node gen_x_v1() returns (x:real) = loop 0.0<x and x<42.0
+
+node gen_x_v2() returns (x:real) = 
+  loop { 0.0<x and x<42.0 fby loop [20] x = pre x }
+
+node gen_x_v3() returns (target:real; x:real=0.0) =
+  run target := gen_x_v2() in
+  loop { x = (pre x + target) / 2.0 }
+
+let inertia=0.6
+
+node gen_x_v4()  returns (target:real; x:real=0.0) =
+  run target := gen_x_v2() in
+  exist px,ppx : real = 0.0 in
+  loop { 
+      px = pre x and ppx = pre px and
+      x = (px+target) / 2.0+inertia*(px-ppx) 
+  }

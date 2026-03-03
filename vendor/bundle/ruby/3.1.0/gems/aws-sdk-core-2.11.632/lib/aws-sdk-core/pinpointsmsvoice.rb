@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f19933ecba08460f13cda975a5142e591d0eeb5c367cbd3e3f39c8321321bbb7
-size 158
+Aws.add_service(:PinpointSMSVoice, {
+  api: "#{Aws::API_DIR}/sms-voice/2018-09-05/api-2.json",
+  docs: "#{Aws::API_DIR}/sms-voice/2018-09-05/docs-2.json",
+})

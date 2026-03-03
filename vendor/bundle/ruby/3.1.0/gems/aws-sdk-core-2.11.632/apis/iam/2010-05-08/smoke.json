@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0bc7b35e91a0c39f1cc8b75bbd9714e9de3416bd1a7a0d8f7b868d0d4ed966b7
-size 398
+{
+    "version": 1,
+    "defaultRegion": "us-east-1",
+    "testCases": [
+        {
+            "operationName": "ListUsers",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "GetUser",
+            "input": {
+                "UserName": "fake_user"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

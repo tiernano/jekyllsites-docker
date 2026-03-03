@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:02c5dd9125a2fcc8264f226a32d80b70340567d9dfa2a0cfb1a9ddd1602888c5
-size 197
+require 'ffi'
+
+module Foo
+  extend FFI::Library
+  ffi_lib FFI::Library::LIBC
+  attach_function("cputs", "puts", [ :string ], :int)
+end
+Foo.cputs("Hello, World via libc puts using FFI on MRI ruby")

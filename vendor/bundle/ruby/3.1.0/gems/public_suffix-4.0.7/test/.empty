@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e27c270c3c5ceb525791b18dd2806e78fddbb6c31b00ac578110eda2984e4455
-size 92
+# This is an empty file I use to force a non-empty commit when I only need to store notes
+..

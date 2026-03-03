@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e74deafc26913ece93ae38b0eb54d0c4a413b3867d01123a9dbb7f7188b4ae94
-size 483
+require 'test_helper'
+
+class ForTagUnitTest < Minitest::Test
+  def test_for_nodelist
+    template = Liquid::Template.parse('{% for item in items %}FOR{% endfor %}')
+    assert_equal ['FOR'], template.root.nodelist[0].nodelist.map(&:nodelist).flatten
+  end
+
+  def test_for_else_nodelist
+    template = Liquid::Template.parse('{% for item in items %}FOR{% else %}ELSE{% endfor %}')
+    assert_equal ['FOR', 'ELSE'], template.root.nodelist[0].nodelist.map(&:nodelist).flatten
+  end
+end

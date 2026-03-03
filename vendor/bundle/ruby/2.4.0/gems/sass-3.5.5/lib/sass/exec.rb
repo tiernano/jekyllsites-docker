@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c3e32ea456ed31f02e19be021534c6f847ab23835616103ff400a1f2c4d8f6b9
-size 199
+module Sass
+  # This module handles the Sass executables (`sass` and `sass-convert`).
+  module Exec
+  end
+end
+
+require 'sass/exec/base'
+require 'sass/exec/sass_scss'
+require 'sass/exec/sass_convert'

@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:838eb8305717cd9b6803e33049633c769aad8125b44e3043b08133d0c997df0e
-size 305
+pragma solidity ~0.4.15;
+
+interface IMirror {
+    function reflect() external payable returns(bool /* ain't I pretty?.. */);
+}
+
+contract Mirror is IMirror {
+    event logMessage(address indexed sender, uint256 value, uint256 gas, bytes data);
+
+    function () { // no funny stuff
+       revert();
+    }
+}

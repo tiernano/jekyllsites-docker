@@ -1,3 +1,73 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ae9a88bbee4cf6a1b69ec32dbd623e2a43b6a8e6a2bb868318f069a53a1489fd
-size 1931
+{
+  "pagination": {
+    "DescribeCodeCoverages": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "codeCoverages"
+    },
+    "DescribeTestCases": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "testCases"
+    },
+    "ListBuildBatches": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "ids"
+    },
+    "ListBuildBatchesForProject": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "ids"
+    },
+    "ListBuilds": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "result_key": "ids"
+    },
+    "ListBuildsForProject": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "result_key": "ids"
+    },
+    "ListProjects": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "result_key": "projects"
+    },
+    "ListReportGroups": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "reportGroups"
+    },
+    "ListReports": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "reports"
+    },
+    "ListReportsForReportGroup": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "reports"
+    },
+    "ListSharedProjects": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "projects"
+    },
+    "ListSharedReportGroups": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "reportGroups"
+    }
+  }
+}

@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ad2c7ab232cdae9b9969fdae7e31f5c29b56db149ccd1a85416d7a4cc2f1602a
-size 478
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "GetDomainNames",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "CreateUsagePlanKey",
+            "input": {
+                "usagePlanId": "foo",
+                "keyId": "bar",
+                "keyType": "fixx"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ea7f6d005e9b90118efd52bd6ddbce1f0d5f1dc729ba848fe16319d6d699551d
-size 281
+# frozen_string_literal: true
+
+<%- config[:constant_array].each_with_index do |c, i| -%>
+<%= "  " * i %>module <%= c %>
+<%- end -%>
+<%= "  " * config[:constant_array].size %>VERSION = "0.1.0"
+<%- (config[:constant_array].size-1).downto(0) do |i| -%>
+<%= "  " * i %>end
+<%- end -%>

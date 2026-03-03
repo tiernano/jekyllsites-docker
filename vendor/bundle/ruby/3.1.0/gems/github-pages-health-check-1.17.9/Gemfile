@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:21b3dc860f8c6117fadf17e616cb35b5f98c304515c1295e421a908e1a5b82d3
-size 271
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+group :development do
+  gem "dotenv", "~> 2.7"
+  gem "gem-release", "~> 2.1"
+  gem "pry", "~> 0.10"
+  gem "pry-byebug"
+  gem "rspec", "~> 3.0"
+  gem "rubocop", "~> 0.52"
+  gem "webmock", "~> 3.8"
+end
+
+gemspec

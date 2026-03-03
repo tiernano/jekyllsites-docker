@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:55056beda16052a1328a2403bb410d22a131deacb653ae694c7b31c2af89d05d
-size 118
+# frozen_string_literal: true
+
+Dir.glob(File.expand_path("core_ext/*.rb", __dir__)).each do |path|
+  require path
+end

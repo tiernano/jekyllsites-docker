@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:afcafda43a86eacdba3412900c3be1eb79bbee0f67a802b742e042c6cd8fea95
-size 283
+<ul>
+  <li>This is a simple list item</li>
+  <li>
+    <p>Followed by another</p>
+  </li>
+  <li>
+    <p>Followed by</p>
+
+    <p>a para list item</p>
+  </li>
+  <li>and a normal one</li>
+  <li>
+    <p>and</p>
+
+    <p>a para</p>
+  </li>
+</ul>
+
+<ul>
+  <li>multi line
+list item</li>
+</ul>

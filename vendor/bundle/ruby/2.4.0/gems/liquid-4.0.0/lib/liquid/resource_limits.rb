@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d864399322a18d266175d9fe1f285f641022910e4550ceb039d37c0d8853f79a
-size 718
+module Liquid
+  class ResourceLimits
+    attr_accessor :render_length, :render_score, :assign_score,
+      :render_length_limit, :render_score_limit, :assign_score_limit
+
+    def initialize(limits)
+      @render_length_limit = limits[:render_length_limit]
+      @render_score_limit = limits[:render_score_limit]
+      @assign_score_limit = limits[:assign_score_limit]
+      reset
+    end
+
+    def reached?
+      (@render_length_limit && @render_length > @render_length_limit) ||
+        (@render_score_limit && @render_score > @render_score_limit) ||
+        (@assign_score_limit && @assign_score > @assign_score_limit)
+    end
+
+    def reset
+      @render_length = @render_score = @assign_score = 0
+    end
+  end
+end

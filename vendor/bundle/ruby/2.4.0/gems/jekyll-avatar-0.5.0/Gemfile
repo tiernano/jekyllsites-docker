@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b0e3ef6c41dac6ecc1a2643138ed004b322aaf531bccbced3814250429383b0a
-size 129
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+# Specify your gem's dependencies in jekyll-avatar.gemspec
+gemspec

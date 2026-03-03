@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3d77fdae5ccdb7e91b7eeb392a42a233552713c8debe522beaf1cdd7c37182e6
-size 493
+module JekyllRedirectFrom
+  # A stubbed layout for our default redirect template
+  # We cannot use the standard Layout class because of site.in_source_dir
+  class Layout < Jekyll::Layout
+    def initialize(site)
+      @site = site
+      @base = File.dirname(__FILE__)
+      @name = "redirect.html"
+      @path = File.expand_path(@name, @base)
+      @relative_path = "_layouts/redirect.html"
+
+      self.data = {}
+      self.ext = "html"
+      self.content = File.read(@path)
+    end
+  end
+end

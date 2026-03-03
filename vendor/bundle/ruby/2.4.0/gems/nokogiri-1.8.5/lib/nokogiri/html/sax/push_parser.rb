@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6f262e010b72e38d430ca839e4692ae2c6945b01c9261c15fa4b3db5b5d205d1
-size 1048
+module Nokogiri
+  module HTML
+    module SAX
+      class PushParser
+        
+        # The Nokogiri::HTML::SAX::Document on which the PushParser will be
+        # operating
+        attr_accessor :document
+        
+        def initialize(doc = HTML::SAX::Document.new, file_name = nil, encoding = 'UTF-8')
+          @document = doc
+          @encoding = encoding
+          @sax_parser = HTML::SAX::Parser.new(doc, @encoding)
+
+          ## Create our push parser context
+          initialize_native(@sax_parser, file_name, encoding)
+        end
+        
+        ###
+        # Write a +chunk+ of HTML to the PushParser.  Any callback methods
+        # that can be called will be called immediately.
+        def write chunk, last_chunk = false
+          native_write(chunk, last_chunk)
+        end
+        alias :<< :write
+
+        ###
+        # Finish the parsing.  This method is only necessary for
+        # Nokogiri::HTML::SAX::Document#end_document to be called.
+        def finish
+          write '', true
+        end
+      end
+    end
+  end
+end

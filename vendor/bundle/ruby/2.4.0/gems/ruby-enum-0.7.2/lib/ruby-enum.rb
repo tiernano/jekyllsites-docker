@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c065a0e323db995440080e07bedd1bba6c90a995c8181d50ab289937a870e7d3
-size 338
+require 'i18n'
+
+require 'ruby-enum/version'
+require 'ruby-enum/enum'
+
+I18n.load_path << File.join(File.dirname(__FILE__), 'config', 'locales', 'en.yml')
+
+require 'ruby-enum/errors/base'
+require 'ruby-enum/errors/uninitialized_constant_error'
+require 'ruby-enum/errors/duplicate_key_error'
+require 'ruby-enum/errors/duplicate_value_error'

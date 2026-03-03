@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:db393c2fc3405e20964e81c6787346a43e66c591324bc9b715369b4ea54ce927
-size 342
+module Dotenv
+  class Environment < Hash
+
+    def initialize(filename)
+      @filename = filename
+      load
+    end
+
+    def load
+      update Parser.call(read)
+    end
+
+    def read
+      File.read(@filename)
+    end
+
+    def apply
+      each { |k,v| ENV[k] ||= v }
+    end
+
+    def apply!
+      each { |k,v| ENV[k] = v }
+    end
+  end
+end

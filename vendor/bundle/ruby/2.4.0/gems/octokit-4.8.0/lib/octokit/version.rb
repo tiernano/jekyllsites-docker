@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5340ed3020fd6ff89b6860b3e359fcf0978b57175b4101640a230bc4e682a03b
-size 301
+module Octokit
+  # Current major release.
+  # @return [Integer]
+  MAJOR = 4
+
+  # Current minor release.
+  # @return [Integer]
+  MINOR = 8
+
+  # Current patch level.
+  # @return [Integer]
+  PATCH = 0
+
+  # Full release version.
+  # @return [String]
+  VERSION = [MAJOR, MINOR, PATCH].join('.').freeze
+end

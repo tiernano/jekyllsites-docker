@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d50505a7d46a8e5be0006d2db5053c80cbc110aac320c65dc23264be90c107db
-size 385
+Aws.add_service(:IAM, {
+  api: "#{Aws::API_DIR}/iam/2010-05-08/api-2.json",
+  docs: "#{Aws::API_DIR}/iam/2010-05-08/docs-2.json",
+  examples: "#{Aws::API_DIR}/iam/2010-05-08/examples-1.json",
+  paginators: "#{Aws::API_DIR}/iam/2010-05-08/paginators-1.json",
+  resources: "#{Aws::API_DIR}/iam/2010-05-08/resources-1.json",
+  waiters: "#{Aws::API_DIR}/iam/2010-05-08/waiters-2.json",
+})

@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:778d3c6df59e5bd54cbf366c51703e6c6cbef84374ca50692e43150e14843bc4
-size 773
+# frozen_string_literal: true
+
+class Kramdown::Parser::SmartyPants < Kramdown::Parser::Kramdown
+  def initialize(source, options)
+    super
+    @block_parsers = [:block_html]
+    @span_parsers =  [:smart_quotes, :html_entity, :typographic_syms, :span_html]
+  end
+end
+
+module Jekyll
+  module Converters
+    class SmartyPants < Converter
+      safe true
+      priority :low
+
+      def initialize(config)
+        Jekyll::External.require_with_graceful_fail "kramdown"
+        @config = config["kramdown"].dup || {}
+        @config[:input] = :SmartyPants
+      end
+
+      def matches(_)
+        false
+      end
+
+      def output_ext(_)
+        nil
+      end
+
+      def convert(content)
+        Kramdown::Document.new(content, @config).to_html.chomp
+      end
+    end
+  end
+end

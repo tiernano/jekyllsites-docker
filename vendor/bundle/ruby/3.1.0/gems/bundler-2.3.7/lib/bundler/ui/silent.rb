@@ -1,3 +1,69 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:00a3e74da10b8e7a4926f689465cb4a1c3c8e5e4732f09420f942a9768e789bf
-size 1037
+# frozen_string_literal: true
+
+module Bundler
+  module UI
+    class Silent
+      attr_writer :shell
+
+      def initialize
+        @warnings = []
+      end
+
+      def add_color(string, color)
+        string
+      end
+
+      def info(message, newline = nil)
+      end
+
+      def confirm(message, newline = nil)
+      end
+
+      def warn(message, newline = nil)
+        @warnings |= [message]
+      end
+
+      def error(message, newline = nil)
+      end
+
+      def debug(message, newline = nil)
+      end
+
+      def debug?
+        false
+      end
+
+      def quiet?
+        false
+      end
+
+      def ask(message)
+      end
+
+      def yes?(msg)
+        raise "Cannot ask yes? with a silent shell"
+      end
+
+      def no?
+        raise "Cannot ask no? with a silent shell"
+      end
+
+      def level=(name)
+      end
+
+      def level(name = nil)
+      end
+
+      def trace(message, newline = nil, force = false)
+      end
+
+      def silence
+        yield
+      end
+
+      def unprinted_warnings
+        @warnings
+      end
+    end
+  end
+end

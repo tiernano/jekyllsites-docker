@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:43ed535f475be0112c5645fefc6482bd5d42e2327db54c62bd3aafc14b76be39
-size 616
+require "helper"
+
+module Nokogiri
+  class TestSlop < Nokogiri::TestCase
+    def test_description_tag
+      doc = Nokogiri.Slop(<<-eoxml)
+        <item>
+          <title>foo</title>
+          <description>this is the foo thing</description>
+        </item>
+      eoxml
+
+      assert doc.item.respond_to?(:title)
+      assert_equal 'foo', doc.item.title.text
+
+      assert doc.item.respond_to?(:_description), 'should have description'
+      assert_equal 'this is the foo thing', doc.item._description.text
+
+      assert !doc.item.respond_to?(:foo)
+      assert_raise(NoMethodError) { doc.item.foo }
+    end
+  end
+end

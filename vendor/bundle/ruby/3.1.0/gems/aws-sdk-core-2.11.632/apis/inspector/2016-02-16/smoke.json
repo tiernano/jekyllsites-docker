@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:030909d96be9a96aedbaa9a328e3dfba3aeb3028132a09f61ba09b72fea75a53
-size 426
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "ListAssessmentTemplates",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "ListTagsForResource",
+            "input": {
+                "resourceArn": "fake-arn"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

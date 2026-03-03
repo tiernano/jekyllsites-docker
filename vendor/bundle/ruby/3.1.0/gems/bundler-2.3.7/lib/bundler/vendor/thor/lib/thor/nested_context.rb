@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f997a9a18298c3bc2f9961a718b03ba01b9e5341e76024ae05ce855473bfac66
-size 299
+class Bundler::Thor
+  class NestedContext
+    def initialize
+      @depth = 0
+    end
+
+    def enter
+      push
+
+      yield
+    ensure
+      pop
+    end
+
+    def entered?
+      @depth > 0
+    end
+
+    private
+
+    def push
+      @depth += 1
+    end
+
+    def pop
+      @depth -= 1
+    end
+  end
+end

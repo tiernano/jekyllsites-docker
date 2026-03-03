@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fcf4e23d651175e79d77e23d75a9acc74081a6c2eb5b488b1716acdf9ab0f646
-size 425
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "ListClusters",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "StopTask",
+            "input": {
+                "task": "xxxxxxxxxxx-xxxxxxxxxxxx-xxxxxxxxxxx"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

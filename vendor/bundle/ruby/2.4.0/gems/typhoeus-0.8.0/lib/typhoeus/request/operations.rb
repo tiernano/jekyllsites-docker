@@ -1,3 +1,40 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3eb6987b6df02d088d76a556e3a912dd4f7ec02a0cccdf73a5a687a1b149b193
-size 1037
+module Typhoeus
+  class Request
+
+    # This module contains everything what is necessary
+    # to make a single request.
+    module Operations
+
+      # Run a request.
+      #
+      # @example Run a request.
+      #  Typhoeus::Request.new("www.example.com").run
+      #
+      # @return [ Response ] The response.
+      def run
+        easy = EasyFactory.new(self).get
+        easy.perform
+        response
+      end
+
+      # Sets a response, the request on the response
+      # and executes the callbacks.
+      #
+      # @param [Typhoeus::Response] response The response.
+      # @param [Boolean] bypass_memoization Wether to bypass
+      #   memoization or not. Decides how the response is set.
+      #
+      # @return [Typhoeus::Response] The response.
+      def finish(response, bypass_memoization = nil)
+        if bypass_memoization
+          @response = response
+        else
+          self.response = response
+        end
+        self.response.request = self
+        execute_callbacks
+        response
+      end
+    end
+  end
+end

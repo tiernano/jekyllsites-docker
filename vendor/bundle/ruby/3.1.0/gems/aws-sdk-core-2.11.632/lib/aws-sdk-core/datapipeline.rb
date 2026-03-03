@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:065eb6f19afc784965d8cd7bf55863917311545391ea30d0050c5836c77a078c
-size 235
+Aws.add_service(:DataPipeline, {
+  api: "#{Aws::API_DIR}/datapipeline/2012-10-29/api-2.json",
+  docs: "#{Aws::API_DIR}/datapipeline/2012-10-29/docs-2.json",
+  paginators: "#{Aws::API_DIR}/datapipeline/2012-10-29/paginators-1.json",
+})

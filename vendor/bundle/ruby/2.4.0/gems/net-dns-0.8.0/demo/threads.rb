@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2b99b30f47198ec1f5ffa72e7d5de486fadc83ea8a180c9a5502395581294525
-size 389
+require 'rubygems' if "#{RUBY_VERSION}" < "1.9.0"
+require 'net/dns'
+
+a = ["ibm.com", "sun.com", "redhat.com"]
+
+threads = []
+
+for dom in a
+  threads << Thread.new(dom) do |domain|
+    res = Net::DNS::Resolver.new
+    res.query(domain, Net::DNS::NS).each_nameserver do |ns|
+      puts "Domain #{domain} has nameserver #{ns}"
+    end
+    puts ""
+  end
+end
+
+threads.each do |t|
+  t.join
+end
+
+

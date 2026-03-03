@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fc708190d75a5a4c94517ebd4cc10a1e88b729457ffa16bf325d9166aef758ba
-size 296
+Aws.add_service(:Synthetics, {
+  api: "#{Aws::API_DIR}/synthetics/2017-10-11/api-2.json",
+  docs: "#{Aws::API_DIR}/synthetics/2017-10-11/docs-2.json",
+  examples: "#{Aws::API_DIR}/synthetics/2017-10-11/examples-1.json",
+  paginators: "#{Aws::API_DIR}/synthetics/2017-10-11/paginators-1.json",
+})

@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:61ee51ee7cb2ba6ee3f1c047bc62649e7b5b29d8bd4acf38903e05a656a6303d
-size 590
+#ifndef UNF_TRIE_NODE_HH
+#define UNF_TRIE_NODE_HH
+
+namespace UNF {
+  namespace Trie {
+    class Node {
+    public:
+      unsigned jump(unsigned char ch) const { return base() + ch; }
+      unsigned value() const { return base(); }
+      unsigned check_char() const { return data>>24; }
+      unsigned to_uint() const { return data; }
+
+      static const Node* from_uint_array(const unsigned* node_uints)
+      { return reinterpret_cast<const Node*>(node_uints); }
+
+    private:
+      unsigned base() const { return data & 0xFFFFFF; }
+
+    private:
+      unsigned data;
+    };
+  }
+}
+
+#endif

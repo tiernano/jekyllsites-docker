@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2597651cd8d24c112fd5a077d1dfa58bf412729db5d375e5862e4e6e995facf5
-size 290
+Aws.add_service(:IoTDataPlane, {
+  api: "#{Aws::API_DIR}/iot-data/2015-05-28/api-2.json",
+  docs: "#{Aws::API_DIR}/iot-data/2015-05-28/docs-2.json",
+  examples: "#{Aws::API_DIR}/iot-data/2015-05-28/examples-1.json",
+  paginators: "#{Aws::API_DIR}/iot-data/2015-05-28/paginators-1.json",
+})

@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a8f027f55d3340071d79a1b607354dbc8e125277c37f9a37b0876b6993aa970c
-size 796
+# -*- coding: utf-8 -*- #
+# frozen_string_literal: true
+
+module Rouge
+  module Lexers
+    load_lexer 'sass/common.rb'
+
+    class Scss < SassCommon
+      title "SCSS"
+      desc "SCSS stylesheets (sass-lang.com)"
+      tag 'scss'
+      filenames '*.scss'
+      mimetypes 'text/x-scss'
+
+      state :root do
+        rule %r/\s+/, Text
+        rule %r(//.*?$), Comment::Single
+        rule %r(/[*].*?[*]/)m, Comment::Multiline
+        rule %r/@import\b/, Keyword, :value
+
+        mixin :content_common
+
+        rule(/(?=[^;{}][;}])/) { push :attribute }
+        rule(/(?=[^;{}:\[]+:[^a-z])/) { push :attribute }
+
+        rule(//) { push :selector }
+      end
+
+      state :end_section do
+        rule %r/\n/, Text
+        rule(/[;{}]/) { token Punctuation; reset_stack }
+      end
+    end
+  end
+end

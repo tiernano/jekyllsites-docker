@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a8f713cf8f6ea5e800e2d0275713b8a205d47bc9f4d9a253eb86dfb45094e43d
-size 151
+r0 = *(u8 *)skb[23]
+*(u32 *)(r10 - 4) = r0
+r1 = *(u32 *)(r6 + 4)
+r1 = 0 ll
+call 1	/* lookup */
+if r0 == 0 goto +2 <LBB0_3>
+lock *(u64 *)(r0 + 0) += r1

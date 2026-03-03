@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cc0bcc7d0291fb69a70035c86f7976a10bf294ddf76551856c4be9d7ea206b4d
-size 536
+module Aws
+  module Sigv4
+    module Errors
+
+      class MissingCredentialsError < ArgumentError
+        def initialize(msg = nil)
+          super(msg || <<-MSG.strip)
+missing credentials, provide credentials with one of the following options:
+  - :access_key_id and :secret_access_key
+  - :credentials
+  - :credentials_provider
+          MSG
+        end
+      end
+
+      class MissingRegionError < ArgumentError
+        def initialize(*args)
+          super("missing required option :region")
+        end
+      end
+
+    end
+  end
+end
+

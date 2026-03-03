@@ -1,3 +1,54 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1eb4a0879b37964f85cbd0e73aa62e092c3e19ef6fe3fc14a0a43759eceb7a4d
-size 1075
+require 'em_test_helper'
+require 'socket'
+
+class TestSockOpt < Test::Unit::TestCase
+  def setup
+    assert(!EM.reactor_running?)
+    @port = next_port
+  end
+
+  def teardown
+    assert(!EM.reactor_running?)
+  end
+
+  def test_set_sock_opt
+    omit_if(windows?)
+    omit_if(!EM.respond_to?(:set_sock_opt))
+
+    val = nil
+    test_module = Module.new do
+      define_method :post_init do
+        val = set_sock_opt Socket::SOL_SOCKET, Socket::SO_BROADCAST, true
+        EM.stop
+      end
+    end
+
+    EM.run do
+      EM.start_server '127.0.0.1', @port
+      EM.connect '127.0.0.1', @port, test_module
+    end
+
+    assert_equal 0, val
+  end
+
+  def test_get_sock_opt
+    omit_if(windows?)
+    omit_if(!EM.respond_to?(:set_sock_opt))
+
+    val = nil
+    test_module = Module.new do
+      define_method :connection_completed do
+        val = get_sock_opt Socket::SOL_SOCKET, Socket::SO_ERROR
+        EM.stop
+      end
+    end
+
+    EM.run do
+      EM.start_server '127.0.0.1', @port
+      EM.connect '127.0.0.1', @port, test_module
+    end
+
+    assert_equal "\0\0\0\0", val
+  end
+
+end

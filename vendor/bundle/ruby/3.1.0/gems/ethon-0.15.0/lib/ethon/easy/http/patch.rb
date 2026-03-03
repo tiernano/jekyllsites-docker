@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b1bd43fdce45b0cab806a348801567d0afa05f74058a380cd63e7d5b3d8bbacf
-size 538
+# frozen_string_literal: true
+module Ethon
+  class Easy
+    module Http
+
+      # This class knows everything about making PATCH requests.
+      class Patch
+        include Ethon::Easy::Http::Actionable
+        include Ethon::Easy::Http::Postable
+
+        # Setup easy to make a PATCH request.
+        #
+        # @example Setup.
+        #   patch.setup(easy)
+        #
+        # @param [ Easy ] easy The easy to setup.
+        def setup(easy)
+          super
+          easy.customrequest = "PATCH"
+        end
+      end
+    end
+  end
+end

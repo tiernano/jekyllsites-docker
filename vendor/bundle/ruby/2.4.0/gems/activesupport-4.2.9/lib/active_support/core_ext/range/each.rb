@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c9ce7ca7c0f1628fd395523c0e3c067f560275179170e88f26aa9dbd4b703de7
-size 544
+require 'active_support/core_ext/module/aliasing'
+
+class Range #:nodoc:
+
+  def each_with_time_with_zone(&block)
+    ensure_iteration_allowed
+    each_without_time_with_zone(&block)
+  end
+  alias_method_chain :each, :time_with_zone
+
+  def step_with_time_with_zone(n = 1, &block)
+    ensure_iteration_allowed
+    step_without_time_with_zone(n, &block)
+  end
+  alias_method_chain :step, :time_with_zone
+
+  private
+  def ensure_iteration_allowed
+    if first.is_a?(Time)
+      raise TypeError, "can't iterate from #{first.class}"
+    end
+  end
+end

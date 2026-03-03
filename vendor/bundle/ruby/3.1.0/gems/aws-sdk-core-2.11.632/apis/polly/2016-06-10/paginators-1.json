@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b5fcc1c26165d8392190b786425c90acbe1fd1bb7c38ca33d93fe81ab08799a0
-size 167
+{
+  "pagination": {
+    "ListSpeechSynthesisTasks": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    }
+  }
+}

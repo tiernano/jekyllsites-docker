@@ -1,3 +1,41 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c3eb7002cff0d1e1f5f6855baf2a3536cb0bfc4ca65c3f4fd31c55b75bc7efa8
-size 1049
+require 'listen/adapter'
+require 'listen/adapter/base'
+require 'listen/adapter/config'
+
+# This class just aggregates configuration object to avoid Listener specs
+# from exploding with huge test setup blocks
+module Listen
+  class Backend
+    def initialize(directories, queue, silencer, config)
+      adapter_select_opts = config.adapter_select_options
+
+      adapter_class = Adapter.select(adapter_select_opts)
+
+      # Use default from adapter if possible
+      @min_delay_between_events = config.min_delay_between_events
+      @min_delay_between_events ||= adapter_class::DEFAULTS[:wait_for_delay]
+      @min_delay_between_events ||= 0.1
+
+      adapter_opts = config.adapter_instance_options(adapter_class)
+
+      aconfig = Adapter::Config.new(directories, queue, silencer, adapter_opts)
+      @adapter = adapter_class.new(aconfig)
+    end
+
+    def start
+      adapter.start
+    end
+
+    def stop
+      adapter.stop
+    end
+
+    def min_delay_between_events
+      @min_delay_between_events
+    end
+
+    private
+
+    attr_reader :adapter
+  end
+end

@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6709b4d83b291f9ba2fddd341c8e09eb77a32061b7393b7ccb2b95fe57be3cd1
-size 495
+# frozen_string_literal: true
+
+module Bundler
+  module Plugin
+    class Installer
+      class Rubygems < Bundler::Source::Rubygems
+        def version_message(spec)
+          "#{spec.name} #{spec.version}"
+        end
+
+        private
+
+        def requires_sudo?
+          false # Will change on implementation of project level plugins
+        end
+
+        def rubygems_dir
+          Plugin.root
+        end
+
+        def cache_path
+          Plugin.cache
+        end
+      end
+    end
+  end
+end

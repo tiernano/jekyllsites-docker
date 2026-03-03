@@ -1,3 +1,48 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:891d96215e6838b3346e8a9a23aeed7ed4d46288551ba9802eecf537f449fd2f
-size 1215
+{
+  "pagination": {
+    "DescribeImageScanFindings": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "non_aggregate_keys": [
+        "registryId",
+        "repositoryName",
+        "imageId",
+        "imageScanStatus",
+        "imageScanFindings"
+      ],
+      "output_token": "nextToken",
+      "result_key": "imageScanFindings.findings"
+    },
+    "DescribeImages": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "imageDetails"
+    },
+    "DescribeRepositories": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "repositories"
+    },
+    "GetLifecyclePolicyPreview": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "non_aggregate_keys": [
+        "registryId",
+        "repositoryName",
+        "lifecyclePolicyText",
+        "status",
+        "summary"
+      ],
+      "output_token": "nextToken",
+      "result_key": "previewResults"
+    },
+    "ListImages": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "imageIds"
+    }
+  }
+}

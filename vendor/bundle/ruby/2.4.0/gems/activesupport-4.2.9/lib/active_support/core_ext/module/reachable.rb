@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5cf1f2010548ab37b64a244a607f5c06d36d7af6d8486efbf13ed8fbcfb60da7
-size 208
+require 'active_support/core_ext/module/anonymous'
+require 'active_support/core_ext/string/inflections'
+
+class Module
+  def reachable? #:nodoc:
+    !anonymous? && name.safe_constantize.equal?(self)
+  end
+end

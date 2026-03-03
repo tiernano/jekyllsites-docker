@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d0d4fc01af82cfbfa1ebf0d7a669ccc6a10fc738dce6b156fd1447442d3282fd
-size 586
+// Orange theme
+
+$orange: #fa8224;
+$orange-dark: #DF6D16;
+$gray: #767676;
+$white: #fff;
+$black: #181818;
+
+$color-background: $orange !default;
+$color-dot-accent: $black !default;
+$color-foreground: $black !default;
+$color-title: $white !default;
+$color-body-text: $black !default;
+$color-text-accent: $orange-dark !default;
+$color-code: $gray !default;
+$color-nav-link: $white !default;
+$color-primary-link: $orange !default;
+$color-border: $orange;
+
+
+// Import sass partials (used in all themes)
+@import
+        "variables",
+        "base",
+        "components",
+        "utilities"
+;

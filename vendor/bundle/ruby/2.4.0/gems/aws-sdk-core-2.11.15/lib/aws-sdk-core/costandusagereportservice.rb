@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1e50b80e7a74608eaa63dc2aa8cd7ff56c95a6c2ea7db7448bf2a8ff443b53d5
-size 283
+Aws.add_service(:CostandUsageReportService, {
+  api: "#{Aws::API_DIR}/cur/2017-01-06/api-2.json",
+  docs: "#{Aws::API_DIR}/cur/2017-01-06/docs-2.json",
+  examples: "#{Aws::API_DIR}/cur/2017-01-06/examples-1.json",
+  paginators: "#{Aws::API_DIR}/cur/2017-01-06/paginators-1.json",
+})

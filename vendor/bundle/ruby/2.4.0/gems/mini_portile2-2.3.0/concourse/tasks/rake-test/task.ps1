@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5b2babbfc063c6236edeebc3649ec50b1010e27b1fb5aa62819fff03932c36a6
-size 318
+. "nokogiri-ci\concourse\shared\common.ps1"
+. "c:\var\vcap\packages\windows-ruby-dev-tools\prelude.ps1"
+
+prepend-path $ruby23_bin_path
+$env:RUBYOPT = "-rdevkit"
+
+push-location mini_portile
+
+    stream-cmd "gem" "install bundler"
+    stream-cmd "bundle" "install"
+    stream-cmd "bundle" "exec rake test"
+
+pop-location

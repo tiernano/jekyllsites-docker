@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6ee956211bcefaa3fc7144511bafdb512fc6e0a13f7186ca684ff9826a11d024
-size 343
+# frozen_string_literal: true
+
+module GitHubPages
+  module HealthCheck
+    module Errors
+      class InvalidDomainError < GitHubPages::HealthCheck::Error
+        DOCUMENTATION_PATH = "/articles/setting-up-a-custom-domain-with-github-pages/"
+
+        def message
+          "Domain is not a valid domain"
+        end
+      end
+    end
+  end
+end

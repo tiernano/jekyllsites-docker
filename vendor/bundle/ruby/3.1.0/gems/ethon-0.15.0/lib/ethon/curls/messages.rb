@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9bd013c6973f4e97551325d9a4511afa756fd33d7a4504ebc6995d26369ee2a3
-size 373
+# frozen_string_literal: true
+module Ethon
+  module Curls
+
+    # This module contains available message codes.
+    module Messages
+
+      # Return message codes.
+      #
+      # @example Return message codes.
+      #   Ethon::Curl.msg_codes
+      #
+      # @return [ Array ] The messages codes.
+      def msg_codes
+        [:none, :done, :last]
+      end
+    end
+  end
+end

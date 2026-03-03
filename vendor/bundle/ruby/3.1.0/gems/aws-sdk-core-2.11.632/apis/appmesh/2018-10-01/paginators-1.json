@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:470b89e4823dd3d4e0f9f7322b72e95d98aa5ffc62f5556d7cdba35bfde25a66
-size 664
+{
+  "pagination": {
+    "ListMeshes": {
+      "input_token": "nextToken",
+      "limit_key": "limit",
+      "output_token": "nextToken",
+      "result_key": "meshes"
+    },
+    "ListRoutes": {
+      "input_token": "nextToken",
+      "limit_key": "limit",
+      "output_token": "nextToken",
+      "result_key": "routes"
+    },
+    "ListVirtualNodes": {
+      "input_token": "nextToken",
+      "limit_key": "limit",
+      "output_token": "nextToken",
+      "result_key": "virtualNodes"
+    },
+    "ListVirtualRouters": {
+      "input_token": "nextToken",
+      "limit_key": "limit",
+      "output_token": "nextToken",
+      "result_key": "virtualRouters"
+    }
+  }
+}

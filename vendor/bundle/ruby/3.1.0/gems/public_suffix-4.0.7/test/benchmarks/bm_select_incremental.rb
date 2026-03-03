@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:39be7d439cfdea9045bef9c565dfa9550df0e39070af9d6ae94f4b0067d59499
-size 603
+require 'benchmark'
+require_relative "../../lib/public_suffix"
+
+JP   = "www.yokoshibahikari.chiba.jp"
+
+TIMES = (ARGV.first || 50_000).to_i
+
+# Initialize
+class PublicSuffix::List
+  public :select
+end
+PublicSuffixList = PublicSuffix::List.default
+PublicSuffixList.select("example.jp")
+
+Benchmark.bmbm(25) do |x|
+  x.report("select jp") do
+    TIMES.times { PublicSuffixList.select("jp") }
+  end
+  x.report("select example.jp") do
+    TIMES.times { PublicSuffixList.select("example.jp") }
+  end
+  x.report("select www.example.jp") do
+    TIMES.times { PublicSuffixList.select("www.example.jp") }
+  end
+end

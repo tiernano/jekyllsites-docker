@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:32b32d557c19d18c30b8fa01a5b8475f910a3fae48ef78fbde4e089c48f1e216
-size 164
+#ifndef CMARK_GFM_AUTOLINK_H
+#define CMARK_GFM_AUTOLINK_H
+
+#include "cmark-gfm-core-extensions.h"
+
+cmark_syntax_extension *create_autolink_extension(void);
+
+#endif

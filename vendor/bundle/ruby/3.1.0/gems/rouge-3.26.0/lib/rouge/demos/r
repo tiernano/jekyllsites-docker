@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6644323520ab47f10b3b04e9eae0f97a05dd9972be18c0ef1c1ae22d09c8c869
-size 136
+dbenford <- function(x){
+    log10(1 + 1/x)
+}
+
+pbenford <- function(q){
+    cumprobs <- cumsum(dbenford(1:9))
+    return(cumprobs[q])
+}

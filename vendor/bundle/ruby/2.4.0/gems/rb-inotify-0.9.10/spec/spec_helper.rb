@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4885589e418fe1bfff59506b1802c2d3bbfc82552b20b206fbd236bd1e51e71d
-size 259
+
+require "bundler/setup"
+require "rb-inotify"
+
+RSpec.configure do |config|
+	# Enable flags like --only-failures and --next-failure
+	config.example_status_persistence_file_path = ".rspec_status"
+
+	config.expect_with :rspec do |c|
+		c.syntax = :expect
+	end
+end

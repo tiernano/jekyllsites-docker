@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d20db9b366c47e6a7412688253621425d81224df83c3793e4e2f76e8dde662ce
-size 305
+#ifndef NOKOGIRI_XML_NODE
+#define NOKOGIRI_XML_NODE
+
+#include <nokogiri.h>
+
+void init_xml_node();
+
+extern VALUE cNokogiriXmlNode ;
+extern VALUE cNokogiriXmlElement ;
+
+VALUE Nokogiri_wrap_xml_node(VALUE klass, xmlNodePtr node) ;
+void Nokogiri_xml_node_properties(xmlNodePtr node, VALUE attr_hash) ;
+#endif

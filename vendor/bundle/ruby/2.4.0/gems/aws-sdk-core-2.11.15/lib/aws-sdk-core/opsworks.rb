@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3a72de7ac2af885977274c7a15708318650d359bd121e94843ab9524ec9002b8
-size 420
+Aws.add_service(:OpsWorks, {
+  api: "#{Aws::API_DIR}/opsworks/2013-02-18/api-2.json",
+  docs: "#{Aws::API_DIR}/opsworks/2013-02-18/docs-2.json",
+  examples: "#{Aws::API_DIR}/opsworks/2013-02-18/examples-1.json",
+  paginators: "#{Aws::API_DIR}/opsworks/2013-02-18/paginators-1.json",
+  resources: "#{Aws::API_DIR}/opsworks/2013-02-18/resources-1.json",
+  waiters: "#{Aws::API_DIR}/opsworks/2013-02-18/waiters-2.json",
+})

@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b3459247cbd4fd652318ccde1743c947715ea2db3c887c22fc99f39f3218d76e
-size 386
+Aws.add_service(:MarketplaceCommerceAnalytics, {
+  api: "#{Aws::API_DIR}/marketplacecommerceanalytics/2015-07-01/api-2.json",
+  docs: "#{Aws::API_DIR}/marketplacecommerceanalytics/2015-07-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/marketplacecommerceanalytics/2015-07-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/marketplacecommerceanalytics/2015-07-01/paginators-1.json",
+})

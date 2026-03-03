@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:03b5d60fc3821770d1650b4f0e0d0d83e4cd73e1e4d12a3fef0bd32eb5de51ba
-size 276
+Aws.add_service(:Braket, {
+  api: "#{Aws::API_DIR}/braket/2019-09-01/api-2.json",
+  docs: "#{Aws::API_DIR}/braket/2019-09-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/braket/2019-09-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/braket/2019-09-01/paginators-1.json",
+})

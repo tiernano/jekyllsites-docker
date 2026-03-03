@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:197ae599ae3a541381027d3083a81956eabbbcd7c579c94c7e2791094edcbf68
-size 400
+#ifndef CMARK_FOOTNOTES_H
+#define CMARK_FOOTNOTES_H
+
+#include "map.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+struct cmark_footnote {
+  cmark_map_entry entry;
+  cmark_node *node;
+  unsigned int ix;
+};
+
+typedef struct cmark_footnote cmark_footnote;
+
+void cmark_footnote_create(cmark_map *map, cmark_node *node);
+cmark_map *cmark_footnote_map_new(cmark_mem *mem);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif

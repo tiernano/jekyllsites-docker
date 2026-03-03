@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bfc6c54dea5f73f457f7386e14422d598497b7a22361550c907f3cbb86bd66c1
-size 316
+Aws.add_service(:ServiceCatalog, {
+  api: "#{Aws::API_DIR}/servicecatalog/2015-12-10/api-2.json",
+  docs: "#{Aws::API_DIR}/servicecatalog/2015-12-10/docs-2.json",
+  examples: "#{Aws::API_DIR}/servicecatalog/2015-12-10/examples-1.json",
+  paginators: "#{Aws::API_DIR}/servicecatalog/2015-12-10/paginators-1.json",
+})

@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bd68ec287b0f7691a26d9df229d50ba927004bbd4325602f9ee7bb9440d92d80
-size 145
+#!/usr/bin/env ruby
+
+require 'dotenv'
+
+begin
+  Dotenv.load!
+rescue Errno::ENOENT => e
+  abort e.message
+else
+  exec *ARGV unless ARGV.empty?
+end

@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6aa292d251001252681c5cfd22bc3ee5d1e86d9899bdc7b9d6a1fd98a1f9bf72
-size 215
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "ListBuilds",
+            "input": {},
+            "errorExpectedFromService": false
+        }
+    ]
+}

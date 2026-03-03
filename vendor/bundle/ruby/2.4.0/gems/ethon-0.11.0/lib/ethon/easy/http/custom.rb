@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2067f40971e5bb45d2f9b544e7e6d18ad2e6026bb184bb154854d9b7dfcb3542
-size 632
+module Ethon
+  class Easy
+    module Http
+
+      # This class knows everything about making requests for custom HTTP verbs.
+      class Custom
+        include Ethon::Easy::Http::Actionable
+        include Ethon::Easy::Http::Postable
+
+        def initialize(verb, url, options)
+          @verb = verb
+          super(url, options)
+        end
+
+        # Setup easy to make a request.
+        #
+        # @example Setup.
+        #   custom.set_params(easy)
+        #
+        # @param [ Easy ] easy The easy to setup.
+        def setup(easy)
+          super
+          easy.customrequest = @verb
+        end
+      end
+    end
+  end
+end

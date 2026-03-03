@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7726dbf19ea0196a3af0e61ffa26b33798ef38c9d04ed6759ce3230213bfa7e6
-size 519
+# -*- coding: utf-8 -*- #
+
+module Rouge
+  module Lexers
+    class Conf < RegexLexer
+      tag 'conf'
+      aliases 'config', 'configuration'
+
+      title "Config File"
+      desc 'A generic lexer for configuration files'
+      filenames '*.conf', '*.config'
+
+      # short and sweet
+      state :root do
+        rule /#.*?\n/, Comment
+        rule /".*?"/, Str::Double
+        rule /'.*?'/, Str::Single
+        rule /[a-z]\w*/i, Name
+        rule /\d+/, Num
+        rule /[^\d\w#"']+/, Text
+      end
+    end
+  end
+end

@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6a8459abf81fdf50e7e9301313cdd49392e2d13a190fe69fca008af4900df936
-size 520
+module Aws
+  module Stubbing
+    module Protocols
+      class RestJson < Rest
+
+        def body_for(_, _, rules, data)
+          Aws::Json::Builder.new(rules).serialize(data)
+        end
+
+        def stub_error(error_code)
+          http_resp = Seahorse::Client::Http::Response.new
+          http_resp.status_code = 400
+          http_resp.body = <<-JSON.strip
+{
+  "code": #{error_code.inspect},
+  "message": "stubbed-response-error-message"
+}
+          JSON
+          http_resp
+        end
+
+      end
+    end
+  end
+end

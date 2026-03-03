@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1aeefd17fc7b5b769c7f1e556d153acb3be8750fe45f67d974cc2439d0bf23b4
-size 545
+require File.expand_path('../../lib/em-websocket', __FILE__)
+
+EM.run {
+  EM::WebSocket.run(:host => "0.0.0.0", :port => 8080, :debug => false) do |ws|
+    ws.onopen { |handshake|
+      puts "WebSocket opened #{{
+        :path => handshake.path,
+        :query => handshake.query,
+        :origin => handshake.origin,
+      }}"
+
+      ws.send "Hello Client!"
+    }
+    ws.onmessage { |msg|
+      ws.send "Pong: #{msg}"
+    }
+    ws.onclose {
+      puts "WebSocket closed"
+    }
+    ws.onerror { |e|
+      puts "Error: #{e.message}"
+    }
+  end
+}

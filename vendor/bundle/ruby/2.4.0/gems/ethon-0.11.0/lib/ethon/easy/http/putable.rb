@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:32b6209579637b98187487690f6c07177444a87a90f4dd8bccf1f86e1f3ec45a
-size 605
+module Ethon
+  class Easy
+    module Http
+
+      # This module contains logic about setting up a PUT body.
+      module Putable
+        # Set things up when form is provided.
+        # Deals with multipart forms.
+        #
+        # @example Setup.
+        #   put.set_form(easy)
+        #
+        # @param [ Easy ] easy The easy to setup.
+        def set_form(easy)
+          easy.upload = true
+          form.escape = true
+          form.params_encoding = params_encoding
+          easy.infilesize = form.to_s.bytesize
+          easy.set_read_callback(form.to_s)
+        end
+      end
+    end
+  end
+end

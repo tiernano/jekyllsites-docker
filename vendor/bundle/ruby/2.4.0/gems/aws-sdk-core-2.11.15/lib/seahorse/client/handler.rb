@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fdaa0ec2e1aae3718dcd86916e8ea72cd05856a6c598967deb959a119404fb41
-size 635
+module Seahorse
+  module Client
+    class Handler
+
+      # @param [Handler] handler (nil) The next handler in the stack that
+      #   should be called from within the {#call} method.  This value
+      #   must only be nil for send handlers.
+      def initialize(handler = nil)
+        @handler = handler
+      end
+
+      # @return [Handler, nil]
+      attr_accessor :handler
+
+      # @param [RequestContext] context
+      # @return [Response]
+      def call(context)
+        @handler.call(context)
+      end
+
+      def inspect
+        "#<#{self.class.name||'UnnamedHandler'} @handler=#{@handler.inspect}>"
+      end
+    end
+  end
+end

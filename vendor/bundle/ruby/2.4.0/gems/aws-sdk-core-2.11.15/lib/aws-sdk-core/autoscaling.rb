@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fefa7bbf96d29d651854f9ecf8ce4854f0dfff2c042513e4af9cdb624aebd1d1
-size 441
+Aws.add_service(:AutoScaling, {
+  api: "#{Aws::API_DIR}/autoscaling/2011-01-01/api-2.json",
+  docs: "#{Aws::API_DIR}/autoscaling/2011-01-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/autoscaling/2011-01-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/autoscaling/2011-01-01/paginators-1.json",
+  resources: "#{Aws::API_DIR}/autoscaling/2011-01-01/resources-1.json",
+  waiters: "#{Aws::API_DIR}/autoscaling/2011-01-01/waiters-2.json",
+})

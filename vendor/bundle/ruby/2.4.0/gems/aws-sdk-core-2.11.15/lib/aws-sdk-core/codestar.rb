@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3af4fb910a9ba2e02197ff92702ee2475f27b91a29d58631b622d26aeb5922dd
-size 286
+Aws.add_service(:CodeStar, {
+  api: "#{Aws::API_DIR}/codestar/2017-04-19/api-2.json",
+  docs: "#{Aws::API_DIR}/codestar/2017-04-19/docs-2.json",
+  examples: "#{Aws::API_DIR}/codestar/2017-04-19/examples-1.json",
+  paginators: "#{Aws::API_DIR}/codestar/2017-04-19/paginators-1.json",
+})

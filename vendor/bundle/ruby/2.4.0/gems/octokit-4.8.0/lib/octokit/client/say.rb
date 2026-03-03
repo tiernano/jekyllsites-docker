@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e6a223e4cfdadd51dcb40f41ff82bd651b6aa3e05a8d8c0016b6563bda1f339d
-size 363
+module Octokit
+  class Client
+
+    # Methods for the unpublished Octocat API
+    module Say
+
+      # Return a nifty ASCII Octocat with GitHub wisdom
+      # or your own
+      #
+      # @return [String]
+      def say(text = nil, options = {})
+        options[:s] = text if text
+        get "octocat", options
+      end
+      alias :octocat :say
+
+    end
+  end
+end

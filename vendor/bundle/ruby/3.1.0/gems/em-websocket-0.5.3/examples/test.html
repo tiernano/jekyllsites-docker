@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c1a35a593dee82d0a2d74379bf9adf9d36c040e11b797c19866ce74a4b8c043e
-size 927
+<html>
+  <head>
+    <script>
+      function init() {
+        function debug(string) {
+          var element = document.getElementById("debug");
+          var p = document.createElement("p");
+          p.appendChild(document.createTextNode(string));
+          element.appendChild(p);
+        }
+
+        var Socket = "MozWebSocket" in window ? MozWebSocket : WebSocket;
+        var ws = new Socket("ws://localhost:8080/foo/bar?hello=world");
+        ws.onmessage = function(evt) { debug("Received: " + evt.data); };
+        ws.onclose = function(event) {
+          debug("Closed - code: " + event.code + ", reason: " + event.reason + ", wasClean: " + event.wasClean);
+        };
+        ws.onopen = function() {
+          debug("connected...");
+          ws.send("hello server");
+          ws.send("hello again");
+        };
+      };
+    </script>
+  </head>
+  <body onload="init();">
+    <div id="debug"></div>
+  </body>
+</html>

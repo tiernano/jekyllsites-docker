@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7da23c146d26a0f422a4bab00f678638c49e03d182df18458940aa01e52281fd
-size 799
+module Nokogiri
+  module XSLT
+    ###
+    # A Stylesheet represents an XSLT Stylesheet object.  Stylesheet creation
+    # is done through Nokogiri.XSLT.  Here is an example of transforming
+    # an XML::Document with a Stylesheet:
+    #
+    #   doc   = Nokogiri::XML(File.read('some_file.xml'))
+    #   xslt  = Nokogiri::XSLT(File.read('some_transformer.xslt'))
+    #
+    #   puts xslt.transform(doc)
+    #
+    # See Nokogiri::XSLT::Stylesheet#transform for more transformation
+    # information.
+    class Stylesheet
+      ###
+      # Apply an XSLT stylesheet to an XML::Document.
+      # +params+ is an array of strings used as XSLT parameters.
+      # returns serialized document
+      def apply_to document, params = []
+        serialize(transform(document, params))
+      end
+    end
+  end
+end

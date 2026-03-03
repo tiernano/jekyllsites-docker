@@ -1,3 +1,39 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d1811711992717612dbf8b0798f10fd185b1ee36083b09158776d97f6898a457
-size 761
+require 'oga'
+
+module Aws
+  module Xml
+    class Parser
+      class OgaEngine
+
+        def initialize(stack)
+          @stack = stack
+          @depth = 0
+        end
+
+        def parse(xml)
+          Oga.sax_parse_xml(self, xml, strict:true)
+        rescue LL::ParserError => error
+          raise ParsingError.new(error.message, nil, nil)
+        end
+
+        def on_element(namespace, name, attrs = {})
+          @depth += 1
+          @stack.start_element(name)
+          attrs.each do |attr|
+            @stack.attr(*attr)
+          end
+        end
+
+        def on_text(value)
+          @stack.text(value) if @depth > 0
+        end
+
+        def after_element(_, _)
+          @stack.end_element
+          @depth -= 1
+        end
+
+      end
+    end
+  end
+end

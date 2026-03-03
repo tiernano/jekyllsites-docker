@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cd5b2628fdbc20a5794cd51f3177ebb94b2abaa5a2a051989a79fe69f640cd89
-size 416
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "ListRepositories",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "ListBranches",
+            "input": {
+                "repositoryName": "fake-repo"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

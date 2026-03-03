@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ddd09cc1064f9217add28306786227f41d09e6093b8970368c82f9a19ddc4479
-size 401
+require "spec_helper"
+
+describe(Mercenary::Program) do
+
+  context "a basic program" do
+    let(:program) { Mercenary::Program.new(:my_name) }
+
+    it "can be created with just a name" do
+      expect(program.name).to eql(:my_name)
+    end
+
+    it "can set its version" do
+      version = Mercenary::VERSION
+      program.version version
+      expect(program.version).to eq(version)
+    end
+  end
+
+end

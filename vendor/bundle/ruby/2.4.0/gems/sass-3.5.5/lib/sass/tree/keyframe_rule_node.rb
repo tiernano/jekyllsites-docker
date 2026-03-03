@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8163bdf82eeebdfd8083a220c08a10fa6ba9e0badd58397da4cb68a7514af543
-size 438
+module Sass::Tree
+  class KeyframeRuleNode < Node
+    # The text of the directive after any interpolated SassScript has been resolved.
+    # Since this is only a static node, this is the only value property.
+    #
+    # @return [String]
+    attr_accessor :resolved_value
+
+    # @param resolved_value [String] See \{#resolved_value}
+    def initialize(resolved_value)
+      @resolved_value = resolved_value
+      super()
+    end
+  end
+end

@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9d308302e30f39dd0040392809bc698f04aa137b5f240099340d05b1a1ef2fe5
-size 550
+~~This is a test~~
+
+~~~This is another test~~~
+
+~~This is yet another test~~~
+
+~~ This is a test of it NOT working ~~
+
+~~
+This
+is
+a
+**multiline**
+test
+~~
+
+This is an ~~_inline_ **strikethrough**~~ test
+
+This is an \~~escaped~~ strikethrough.
+
+This is a ~~strikethrough with a ~ in the middle~~
+
+I ~~don't even~~~ have an extra tilde.
+
+This should ~~not be struck.
+
+This ~~is a complex *strike* through *test ~~with nesting~~ involved* here~~.
+
+This ~~is a complex *strike* through *test~~ with apparent nesting ~~involved* here~~.
+
+~~中文~~
+
+~~a~~

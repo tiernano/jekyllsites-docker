@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:aac0714c4e700278ecc588edeb861355134152af27eac97f638b9d1c80465075
-size 167
+# frozen_string_literal: true
+
+# Prevent bundler errors
+module Liquid; class Tag; end; end
+
+module Jekyll
+  class SeoTag < Liquid::Tag
+    VERSION = "2.8.0"
+  end
+end

@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0265c7e90809338775d85a50cf64ed7aaa09b60afa6e34f19f29b8f8dd7a829f
-size 228
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+<%- if config[:ext] -%>
+*.bundle
+*.so
+*.o
+*.a
+mkmf.log
+<%- end -%>
+<%- if config[:test] == "rspec" -%>
+
+# rspec failure tracking
+.rspec_status
+<%- end -%>

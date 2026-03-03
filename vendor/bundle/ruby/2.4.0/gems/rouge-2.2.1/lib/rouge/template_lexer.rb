@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:15843feff335a87325b23fe937375589b6ba8e42ad63229e88b6081210dc2ef9
-size 609
+# -*- coding: utf-8 -*- #
+
+module Rouge
+  # @abstract
+  # A TemplateLexer is one that accepts a :parent option, to specify
+  # which language is being templated.  The lexer class can specify its
+  # own default for the parent lexer, which is otherwise defaulted to
+  # HTML.
+  class TemplateLexer < RegexLexer
+    # the parent lexer - the one being templated.
+    def parent
+      return @parent if instance_variable_defined? :@parent
+      @parent = lexer_option(:parent) || Lexers::HTML.new(@options)
+    end
+
+    option :parent, "the parent language (default: html)"
+
+    start { parent.reset! }
+  end
+end

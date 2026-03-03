@@ -1,3 +1,34 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:30a16eec4c3cebd5b1a4c4632d742b19980162daf1049fa3e13a4f105eb25925
-size 767
+module Aws
+  module Plugins
+    # @api private
+    class SQSQueueUrls < Seahorse::Client::Plugin
+
+      class Handler < Seahorse::Client::Handler
+
+        def call(context)
+          if url = context.params[:queue_url]
+            update_region(context, url)
+            update_endpoint(context, url)
+          end
+          @handler.call(context)
+        end
+
+        def update_endpoint(context, url)
+          context.http_request.endpoint = url
+        end
+
+        def update_region(context, url)
+          if region = url.to_s.split('.')[1]
+            context.config = context.config.dup
+            context.config.region = region
+            context.config.sigv4_region = region
+          end
+        end
+
+      end
+
+      handler(Handler)
+
+    end
+  end
+end

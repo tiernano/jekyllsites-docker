@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3910170609f03cf747693672ccb35853e64840cebb6502c7612c54a9e8326f92
-size 543
+{
+  "pagination": {
+    "DescribeDocumentVersions": {
+      "input_token": "Marker",
+      "limit_key": "Limit",
+      "output_token": "Marker",
+      "result_key": "DocumentVersions"
+    },
+    "DescribeFolderContents": {
+      "input_token": "Marker",
+      "limit_key": "Limit",
+      "output_token": "Marker",
+      "result_key": [
+        "Folders",
+        "Documents"
+      ]
+    },
+    "DescribeUsers": {
+      "input_token": "Marker",
+      "limit_key": "Limit",
+      "output_token": "Marker",
+      "result_key": "Users"
+    }
+  }
+}

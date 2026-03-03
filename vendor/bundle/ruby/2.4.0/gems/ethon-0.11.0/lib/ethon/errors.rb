@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:14ce6ceb4253bdce544283fd419ce6120fb9c063e8fa6c0019baab197af9b8c7
-size 413
+require 'ethon/errors/ethon_error'
+require 'ethon/errors/global_init'
+require 'ethon/errors/multi_timeout'
+require 'ethon/errors/multi_fdset'
+require 'ethon/errors/multi_add'
+require 'ethon/errors/multi_remove'
+require 'ethon/errors/select'
+require 'ethon/errors/invalid_option'
+require 'ethon/errors/invalid_value'
+
+module Ethon
+
+  # This namespace contains all errors raised by ethon.
+  module Errors
+  end
+end

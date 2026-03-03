@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b27bfb374196c0fb7a16c68e92c5dee3f1257441b90685069dc8a10a7311a279
-size 243
+module Typhoeus
+  class Response
+    module Cacheable
+
+      # Set the cache status, if we got response from cache
+      # it will have cached? == true
+      attr_writer :cached
+
+      def cached?
+        !!@cached
+      end
+    end
+  end
+end

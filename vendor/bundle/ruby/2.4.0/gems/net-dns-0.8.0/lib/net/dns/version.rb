@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2b36354066883305b88f7e95287600dcccc24cc80e97da40b8ff2f9b2b7622eb
-size 222
+module Net
+  module DNS
+    module Version
+
+      MAJOR = 0
+      MINOR = 8
+      PATCH = 0
+      BUILD = nil
+
+      STRING = [MAJOR, MINOR, PATCH, BUILD].compact.join(".")
+    end
+
+    VERSION = Version::STRING
+
+  end
+end

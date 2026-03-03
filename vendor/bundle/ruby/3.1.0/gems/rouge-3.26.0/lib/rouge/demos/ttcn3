@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:de6f9ed999d7070ec6c5abfce70f13bff7e1ccd7c21df389612da7f2bdc30a99
-size 190
+module DNSTester {
+  type integer Identification( 0..65535 ); // 16-bit integer
+  type enumerated MessageKind {e_Question, e_Answer};
+  type charstring Question;
+  type charstring Answer;
+}

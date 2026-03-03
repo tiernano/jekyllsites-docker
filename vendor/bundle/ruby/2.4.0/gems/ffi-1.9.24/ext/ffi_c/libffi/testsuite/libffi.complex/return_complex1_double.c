@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0d1268b6e8bc6af5d1b8aa0249749f8f405ccb6b8464559dfbf500f5032af481
-size 228
+/* Area:	ffi_call
+   Purpose:	Check return value complex.
+   Limitations:	none.
+   PR:		none.
+   Originator:	<vogt@linux.vnet.ibm.com>.  */
+
+/* { dg-do run } */
+
+#include "complex_defs_double.inc"
+#include "return_complex1.inc"

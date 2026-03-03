@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2c03e774d69d51e3fccedb349e1c15cdca8b99ae472541b09ba40d1ccb3f1742
-size 354
+# frozen_string_literal: true
+module Ethon
+
+  # FFI Wrapper module for Libc.
+  #
+  # @api private
+  module Libc
+    extend FFI::Library
+    ffi_lib 'c'
+
+    # :nodoc:
+    def self.windows?
+      Gem.win_platform?
+    end
+
+    unless windows?
+      attach_function :getdtablesize, [], :int
+      attach_function :free, [:pointer], :void
+    end
+  end
+end

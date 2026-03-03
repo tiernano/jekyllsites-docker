@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0fe9e0457666ae8e76f635f874989b32236c3bbb266a4a891b136d5da9494c2f
-size 306
+Aws.add_service(:CodePipeline, {
+  api: "#{Aws::API_DIR}/codepipeline/2015-07-09/api-2.json",
+  docs: "#{Aws::API_DIR}/codepipeline/2015-07-09/docs-2.json",
+  examples: "#{Aws::API_DIR}/codepipeline/2015-07-09/examples-1.json",
+  paginators: "#{Aws::API_DIR}/codepipeline/2015-07-09/paginators-1.json",
+})

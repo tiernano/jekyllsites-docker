@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4b1366673c1391c228f6391d5ab1b1fa5cbf3269a4e5600cd1e1951d9743fecb
-size 460
+module Sass::Script::Tree
+  # A SassScript node that will resolve to the current selector.
+  class Selector < Node
+    def initialize; end
+
+    def children
+      []
+    end
+
+    def to_sass(opts = {})
+      '&'
+    end
+
+    def deep_copy
+      dup
+    end
+
+    protected
+
+    def _perform(environment)
+      selector = environment.selector
+      return opts(Sass::Script::Value::Null.new) unless selector
+      opts(selector.to_sass_script)
+    end
+  end
+end

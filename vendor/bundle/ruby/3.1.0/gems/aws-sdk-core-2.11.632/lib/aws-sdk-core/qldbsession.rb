@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f29743e8c7dc7b4023fbd46f475fb8d3785fe9fcd38b15df2402dcb3700e912c
-size 305
+Aws.add_service(:QLDBSession, {
+  api: "#{Aws::API_DIR}/qldb-session/2019-07-11/api-2.json",
+  docs: "#{Aws::API_DIR}/qldb-session/2019-07-11/docs-2.json",
+  examples: "#{Aws::API_DIR}/qldb-session/2019-07-11/examples-1.json",
+  paginators: "#{Aws::API_DIR}/qldb-session/2019-07-11/paginators-1.json",
+})

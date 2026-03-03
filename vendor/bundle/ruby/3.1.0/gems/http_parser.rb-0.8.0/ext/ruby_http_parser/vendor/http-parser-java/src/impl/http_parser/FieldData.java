@@ -1,3 +1,41 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d5b54037715bf3a7656d581da4492b5d10c9a9c39fe4daa5de826544efcb89db
-size 738
+package http_parser;
+
+public class FieldData {
+  public int off;
+  public int len;
+
+  public FieldData(){}
+
+  public FieldData(int off, int len){
+    this.off = off;
+    this.len = len;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    FieldData fieldData = (FieldData) o;
+
+    if (len != fieldData.len) return false;
+    if (off != fieldData.off) return false;
+
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = off;
+    result = 31 * result + len;
+    return result;
+  }
+
+  @Override
+  public String toString() {
+    return "FieldData{" +
+        "off=" + off +
+        ", len=" + len +
+        '}';
+  }
+}

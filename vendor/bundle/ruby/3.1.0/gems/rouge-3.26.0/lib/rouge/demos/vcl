@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a23afefd607084991834370bf97abdcf63fb8cdee11942d574168c97004da32f
-size 234
+vcl 4.0;
+
+backend server1 {
+      .host = "server1.example.com";
+      .probe = {
+              .url = "/";
+              .timeout = 1s;
+              .interval = 5s;
+              .window = 5;
+              .threshold = 3;
+      }
+}

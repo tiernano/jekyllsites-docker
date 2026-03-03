@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:62013013bbda98b7d347587a4bec62aa663af89c7a92a0416bb182a1a253eb54
-size 415
+{
+  "pagination": {
+    "ListGraphs": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    },
+    "ListInvitations": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    },
+    "ListMembers": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    }
+  }
+}

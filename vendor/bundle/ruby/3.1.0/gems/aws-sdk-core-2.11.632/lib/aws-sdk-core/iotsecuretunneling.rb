@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:60a30efbc4c54584c07dd28adbe62ed34cacf788e3b7e0e8e8c95ddd10a20485
-size 336
+Aws.add_service(:IoTSecureTunneling, {
+  api: "#{Aws::API_DIR}/iotsecuretunneling/2018-10-05/api-2.json",
+  docs: "#{Aws::API_DIR}/iotsecuretunneling/2018-10-05/docs-2.json",
+  examples: "#{Aws::API_DIR}/iotsecuretunneling/2018-10-05/examples-1.json",
+  paginators: "#{Aws::API_DIR}/iotsecuretunneling/2018-10-05/paginators-1.json",
+})

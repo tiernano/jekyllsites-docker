@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dc71c04c3a5bdcdd02e132ff6800d11a3c623b511fbfc4fc95e6db27ad25abe1
-size 384
+require 'test_helper'
+require 'zip/ioextras'
+
+class FakeIOTest < MiniTest::Test
+  class FakeIOUsingClass
+    include ::Zip::IOExtras::FakeIO
+  end
+
+  def test_kind_of?
+    obj = FakeIOUsingClass.new
+
+    assert(obj.kind_of?(Object))
+    assert(obj.kind_of?(FakeIOUsingClass))
+    assert(obj.kind_of?(IO))
+    assert(!obj.kind_of?(Integer))
+    assert(!obj.kind_of?(String))
+  end
+end

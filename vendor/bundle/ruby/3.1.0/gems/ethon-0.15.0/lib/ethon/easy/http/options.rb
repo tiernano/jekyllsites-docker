@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b418c868ce8605d0737877644ebab56df92ebf7171a648bb25a9c193e39b698a
-size 548
+# frozen_string_literal: true
+module Ethon
+  class Easy
+    module Http
+
+      # This class knows everything about making OPTIONS requests.
+      class Options
+        include Ethon::Easy::Http::Actionable
+        include Ethon::Easy::Http::Postable
+
+        # Setup easy to make a OPTIONS request.
+        #
+        # @example Setup.
+        #   options.setup(easy)
+        #
+        # @param [ Easy ] easy The easy to setup.
+        def setup(easy)
+          super
+          easy.customrequest = "OPTIONS"
+        end
+      end
+    end
+  end
+end

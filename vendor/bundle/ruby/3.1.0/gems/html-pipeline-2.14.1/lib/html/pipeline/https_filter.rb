@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f246f279fa620b29604c7827bdd20e59226e57e7ed54fdf7cc128fc1f8c91373
-size 762
+# frozen_string_literal: true
+
+module HTML
+  class Pipeline
+    # HTML Filter for replacing http references to :http_url with https versions.
+    # Subdomain references are not rewritten.
+    #
+    # Context options:
+    #   :http_url - The HTTP url to force HTTPS. Falls back to :base_url
+    class HttpsFilter < Filter
+      def call
+        doc.css(%(a[href^="#{http_url}"])).each do |element|
+          element['href'] = element['href'].sub(/^http:/, 'https:')
+        end
+        doc
+      end
+
+      # HTTP url to replace. Falls back to :base_url
+      def http_url
+        context[:http_url] || context[:base_url]
+      end
+
+      # Raise error if :http_url undefined
+      def validate
+        needs :http_url unless http_url
+      end
+    end
+  end
+end

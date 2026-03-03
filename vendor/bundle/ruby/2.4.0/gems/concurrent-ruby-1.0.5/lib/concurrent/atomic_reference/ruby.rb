@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f5bfd5cb9b39ff515327c5ddd8986601119a0fbe93a093a51c5d334cfc97aaa9
-size 868
+if defined? Concurrent::CAtomicReference
+  require 'concurrent/synchronization'
+  require 'concurrent/atomic_reference/direct_update'
+  require 'concurrent/atomic_reference/numeric_cas_wrapper'
+
+  module Concurrent
+
+    # @!macro atomic_reference
+    #
+    # @!visibility private
+    # @!macro internal_implementation_note
+    class CAtomicReference
+      include Concurrent::AtomicDirectUpdate
+      include Concurrent::AtomicNumericCompareAndSetWrapper
+
+      # @!method initialize
+      #   @!macro atomic_reference_method_initialize
+
+      # @!method get
+      #   @!macro atomic_reference_method_get
+
+      # @!method set
+      #   @!macro atomic_reference_method_set
+
+      # @!method get_and_set
+      #   @!macro atomic_reference_method_get_and_set
+
+      # @!method _compare_and_set
+      #   @!macro atomic_reference_method_compare_and_set
+    end
+  end
+end

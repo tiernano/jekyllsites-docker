@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c07ecd8e2dc531cfb5c699e9427347f32c67097461f4dac9a08b9dd7b3101dd6
-size 331
+Aws.add_service(:ManagedBlockchain, {
+  api: "#{Aws::API_DIR}/managedblockchain/2018-09-24/api-2.json",
+  docs: "#{Aws::API_DIR}/managedblockchain/2018-09-24/docs-2.json",
+  examples: "#{Aws::API_DIR}/managedblockchain/2018-09-24/examples-1.json",
+  paginators: "#{Aws::API_DIR}/managedblockchain/2018-09-24/paginators-1.json",
+})

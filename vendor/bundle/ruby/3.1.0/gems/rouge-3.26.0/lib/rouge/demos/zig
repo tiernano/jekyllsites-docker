@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c4f4ae739fb345d810c16365b3fa36d2fe6fd8a6d6fd8d324d3e32a71ed443b9
-size 114
+const std = @import("std");
+const warn = std.debug.warn;
+
+fn add_floats(x: f16, y: f16) f16 {
+    return x + y;
+}

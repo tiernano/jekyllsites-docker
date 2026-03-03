@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9bd0d6db57f9bbb51fd0893b8be39bdd81a0097a62c20961ac61addfc4ae327e
-size 436
+module Aws
+  module Resources
+    class Documenter
+      class DataOperationDocumenter < BaseOperationDocumenter
+
+        def return_type
+          if plural?
+            "Array<#{path_type}>"
+          else
+            path_type
+          end
+        end
+
+        def return_tag
+          tag("@return [#{return_type}]")
+        end
+
+        def plural?
+          !!@operation.path.match(/\[/)
+        end
+
+      end
+    end
+  end
+end

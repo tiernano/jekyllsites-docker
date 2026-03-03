@@ -1,3 +1,43 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fbd9897d8f2950003cdf10ec9bd196e04d65a28496ed10126bf33c7a06dd12b4
-size 970
+require 'concurrent/synchronization'
+
+module Concurrent
+
+  # @!macro count_down_latch
+  # @!visibility private
+  # @!macro internal_implementation_note
+  class MutexCountDownLatch < Synchronization::LockableObject
+
+    # @!macro count_down_latch_method_initialize
+    def initialize(count = 1)
+      Utility::NativeInteger.ensure_integer_and_bounds count
+      Utility::NativeInteger.ensure_positive count
+
+      super()
+      synchronize { ns_initialize count }
+    end
+
+    # @!macro count_down_latch_method_wait
+    def wait(timeout = nil)
+      synchronize { ns_wait_until(timeout) { @count == 0 } }
+    end
+
+    # @!macro count_down_latch_method_count_down
+    def count_down
+      synchronize do
+        @count -= 1 if @count > 0
+        ns_broadcast if @count == 0
+      end
+    end
+
+    # @!macro count_down_latch_method_count
+    def count
+      synchronize { @count }
+    end
+
+    protected
+
+    def ns_initialize(count)
+      @count = count
+    end
+  end
+end

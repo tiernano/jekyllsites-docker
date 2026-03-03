@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b8b035d57b0edbc17904ea8d357aeb296c2e231a97bb5e5888d6adeccd324f07
-size 626
+module Aws
+  module Plugins
+    class S3Expect100Continue < Seahorse::Client::Plugin
+
+      def add_handlers(handlers, config)
+        if config.http_continue_timeout && config.http_continue_timeout > 0
+          handlers.add(Handler)
+        end
+      end
+
+      # @api private
+      class Handler < Seahorse::Client::Handler
+
+        def call(context)
+          if
+            context.http_request.body &&
+            context.http_request.body.size > 0
+          then
+            context.http_request.headers['expect'] = '100-continue'
+          end
+          @handler.call(context)
+        end
+
+      end
+    end
+  end
+end

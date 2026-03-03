@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d70428f324a6476e404991248bc22cb34ffd3c8c312a1100f36b400ae12ac596
-size 296
+Aws.add_service(:DeviceFarm, {
+  api: "#{Aws::API_DIR}/devicefarm/2015-06-23/api-2.json",
+  docs: "#{Aws::API_DIR}/devicefarm/2015-06-23/docs-2.json",
+  examples: "#{Aws::API_DIR}/devicefarm/2015-06-23/examples-1.json",
+  paginators: "#{Aws::API_DIR}/devicefarm/2015-06-23/paginators-1.json",
+})

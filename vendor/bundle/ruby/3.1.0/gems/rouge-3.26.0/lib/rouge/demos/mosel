@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3bfb7a52a28c9b36615b89b5faab71143e77aa17861935c55a9e2ae7863e6e73
-size 419
+(!******************************************************
+   Mosel Example Problems
+*******************************************************!)
+
+! Objective function: total daily cost
+ Cost:= sum(p in TYPES, t in TIME) (CSTART(p)*start(p,t) +
+          LEN(t)*(CMIN(p)*work(p,t) + CADD(p)*padd(p,t)))
+
+! Limit on power production above minimum level
+ forall(p in TYPES, t in TIME) padd(p,t) <= (PMAX(p)-PMIN(p))*work(p,t)

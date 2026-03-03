@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f8c3cd623a3af8929d6f1fbe313e02fe9f628714ac16507a7da7ec34c0f40b72
-size 410
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "DescribeStacks",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "DescribeLayers",
+            "input": {
+                "StackId": "fake_stack"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

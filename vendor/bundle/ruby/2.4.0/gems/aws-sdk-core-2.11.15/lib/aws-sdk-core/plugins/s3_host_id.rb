@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:29d4646d9d241fdc03f80b7880a57065c89779b2025b31beefc38bc44601e76a
-size 614
+module Aws
+  module Plugins
+
+    # Support S3 host id, more information, see:
+    # http://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html#sdk-request-ids
+    #
+    # This plugin adds :host_id for s3 responses when available
+    # @api private
+    class S3HostId < Seahorse::Client::Plugin
+
+      class Handler < Seahorse::Client::Handler
+
+        def call(context)
+          response = @handler.call(context)
+          h = context.http_response.headers
+          context[:s3_host_id] = h['x-amz-id-2']
+          response
+        end
+
+      end
+
+      handler(Handler, step: :sign)
+
+    end
+  end
+end

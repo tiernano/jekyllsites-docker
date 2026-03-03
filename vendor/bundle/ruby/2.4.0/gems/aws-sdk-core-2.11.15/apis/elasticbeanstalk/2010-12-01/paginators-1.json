@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0bc238952e18da51baa5b6e3783f04951b4541eef6937dd0b93071ab4a9a0904
-size 572
+{
+  "pagination": {
+    "DescribeApplicationVersions": {
+      "result_key": "ApplicationVersions"
+    },
+    "DescribeApplications": {
+      "result_key": "Applications"
+    },
+    "DescribeConfigurationOptions": {
+      "result_key": "Options"
+    },
+    "DescribeEnvironments": {
+      "result_key": "Environments"
+    },
+    "DescribeEvents": {
+      "input_token": "NextToken",
+      "limit_key": "MaxRecords",
+      "output_token": "NextToken",
+      "result_key": "Events"
+    },
+    "ListAvailableSolutionStacks": {
+      "result_key": "SolutionStacks"
+    }
+  }
+}

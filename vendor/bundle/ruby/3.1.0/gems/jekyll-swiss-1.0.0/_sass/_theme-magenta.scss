@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a568b2815f9c6bec5e2eb9c58289737fc6199c5a2dd59991e3549e66f359961d
-size 576
+// Pink theme - links on inside pages?
+
+// Color variables
+$magenta: #CD2DA8;
+$black: #2F2323;
+$white: #fff;
+
+// Config
+$color-background: $magenta !default;
+$color-dot-accent: $black !default;
+$color-foreground: $white !default;
+$color-title: $white !default;
+$color-body-text: $black !default;
+$color-text-accent: $magenta !default;
+$color-code: $magenta !default;
+$color-nav-link: $black !default;
+$color-primary-link: $magenta !default;
+
+// Import sass partials (used in all themes)
+@import
+        "variables",
+        "base",
+        "components",
+        "utilities"
+;

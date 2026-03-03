@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1a4a537bda744bad36728125b21579e0753ad2819abe1b070fafe68ccba85bb8
-size 307
+# frozen_string_literal: true
+
+require 'faraday/em_http'
+require_relative 'adapter/em_synchrony'
+require_relative 'em_synchrony/version'
+
+module Faraday
+  # Main Faraday::EmSynchrony module
+  module EmSynchrony
+    Faraday::Adapter.register_middleware(em_synchrony: Faraday::Adapter::EMSynchrony)
+  end
+end

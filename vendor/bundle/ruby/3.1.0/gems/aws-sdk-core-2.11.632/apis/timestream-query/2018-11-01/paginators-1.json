@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fb4799e560550f8d5b980cc2dd4ee600905e980e9f937dc9f77e858872dcc8f1
-size 251
+{
+  "pagination": {
+    "Query": {
+      "input_token": "NextToken",
+      "limit_key": "MaxRows",
+      "non_aggregate_keys": [
+        "ColumnInfo",
+        "QueryId"
+      ],
+      "output_token": "NextToken",
+      "result_key": "Rows"
+    }
+  }
+}

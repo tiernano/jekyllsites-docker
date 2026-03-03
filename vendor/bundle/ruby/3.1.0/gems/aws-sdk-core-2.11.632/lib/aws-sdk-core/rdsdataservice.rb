@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f654b909632dc6f08698a51d6b3181b3f8200ecd156de85b637e2179260ef37b
-size 292
+Aws.add_service(:RDSDataService, {
+  api: "#{Aws::API_DIR}/rds-data/2018-08-01/api-2.json",
+  docs: "#{Aws::API_DIR}/rds-data/2018-08-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/rds-data/2018-08-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/rds-data/2018-08-01/paginators-1.json",
+})

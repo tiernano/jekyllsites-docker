@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e2463eb061f9ed99d1b9ceb482ce0d57f4be146aa3c7498d81472d117275af43
-size 1236
+require 'active_support/deprecation'
+
+module ActiveSupport
+  module Testing
+    module Deprecation #:nodoc:
+      def assert_deprecated(match = nil, &block)
+        result, warnings = collect_deprecations(&block)
+        assert !warnings.empty?, "Expected a deprecation warning within the block but received none"
+        if match
+          match = Regexp.new(Regexp.escape(match)) unless match.is_a?(Regexp)
+          assert warnings.any? { |w| w =~ match }, "No deprecation warning matched #{match}: #{warnings.join(', ')}"
+        end
+        result
+      end
+
+      def assert_not_deprecated(&block)
+        result, deprecations = collect_deprecations(&block)
+        assert deprecations.empty?, "Expected no deprecation warning within the block but received #{deprecations.size}: \n  #{deprecations * "\n  "}"
+        result
+      end
+
+      def collect_deprecations
+        old_behavior = ActiveSupport::Deprecation.behavior
+        deprecations = []
+        ActiveSupport::Deprecation.behavior = Proc.new do |message, callstack|
+          deprecations << message
+        end
+        result = yield
+        [result, deprecations]
+      ensure
+        ActiveSupport::Deprecation.behavior = old_behavior
+      end
+    end
+  end
+end

@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fefe47a4f1091fb257102cab75d98cb3dd71d7341b2af236bbcc8135be8159b4
-size 291
+Aws.add_service(:Translate, {
+  api: "#{Aws::API_DIR}/translate/2017-07-01/api-2.json",
+  docs: "#{Aws::API_DIR}/translate/2017-07-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/translate/2017-07-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/translate/2017-07-01/paginators-1.json",
+})

@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2e33718fb0f1b8c7b97974c12b85aafbd1b48a3fe72fa5c62ba5e793030076b1
-size 330
+Aws.add_service(:ComputeOptimizer, {
+  api: "#{Aws::API_DIR}/compute-optimizer/2019-11-01/api-2.json",
+  docs: "#{Aws::API_DIR}/compute-optimizer/2019-11-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/compute-optimizer/2019-11-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/compute-optimizer/2019-11-01/paginators-1.json",
+})

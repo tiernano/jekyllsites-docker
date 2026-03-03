@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:568909b3fbf45799e45b53d9779c1db11cebf07973bd7c982aae4ddbf1b8e078
-size 515
+module JMESPath
+  # @api private
+  module Util
+    class << self
+
+      # Determines if a value is false as defined by JMESPath:
+      #
+      #   https://github.com/jmespath/jmespath.site/blob/master/docs/proposals/improved-filters.rst#and-expressions-1
+      #
+      def falsey?(value)
+        !value ||
+        (value.respond_to?(:empty?) && value.empty?) ||
+        (value.respond_to?(:entries) && !value.entries.any?)
+        # final case necessary to support Enumerable and Struct
+      end
+    end
+  end
+end

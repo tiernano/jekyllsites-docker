@@ -1,3 +1,69 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a7dec02aa5f71ce4c89a93544e29a1481937a7f3648bbfbb07ba1b42f89407d3
-size 1875
+{
+  "pagination": {
+    "DescribeMergeConflicts": {
+      "input_token": "nextToken",
+      "limit_key": "maxMergeHunks",
+      "output_token": "nextToken"
+    },
+    "DescribePullRequestEvents": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken"
+    },
+    "GetCommentReactions": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken"
+    },
+    "GetCommentsForComparedCommit": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken"
+    },
+    "GetCommentsForPullRequest": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken"
+    },
+    "GetDifferences": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken"
+    },
+    "GetMergeConflicts": {
+      "input_token": "nextToken",
+      "limit_key": "maxConflictFiles",
+      "output_token": "nextToken"
+    },
+    "ListApprovalRuleTemplates": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken"
+    },
+    "ListAssociatedApprovalRuleTemplatesForRepository": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken"
+    },
+    "ListBranches": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "result_key": "branches"
+    },
+    "ListPullRequests": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken"
+    },
+    "ListRepositories": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "result_key": "repositories"
+    },
+    "ListRepositoriesForApprovalRuleTemplate": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken"
+    }
+  }
+}

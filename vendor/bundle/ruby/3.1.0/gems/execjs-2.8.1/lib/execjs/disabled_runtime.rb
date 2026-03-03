@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ff67035625fd50e33fb8119270fd07fc9509ec5accbee444e49f04047f006c8e
-size 447
+require "execjs/runtime"
+
+module ExecJS
+  class DisabledRuntime < Runtime
+    def name
+      "Disabled"
+    end
+
+    def exec(source, options = {})
+      raise Error, "ExecJS disabled"
+    end
+
+    def eval(source, options = {})
+      raise Error, "ExecJS disabled"
+    end
+
+    def compile(source, options = {})
+      raise Error, "ExecJS disabled"
+    end
+
+    def deprecated?
+      true
+    end
+
+    def available?
+      true
+    end
+  end
+end

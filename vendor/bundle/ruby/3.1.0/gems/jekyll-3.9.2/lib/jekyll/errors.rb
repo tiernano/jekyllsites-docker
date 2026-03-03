@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:23bf2c6b8eaf5fd760795e7ee4c5cbc43fb63ae8419b27f88942abdc529b75f5
-size 710
+# frozen_string_literal: true
+
+module Jekyll
+  module Errors
+    FatalException = Class.new(::RuntimeError)
+
+    InvalidThemeName = Class.new(FatalException)
+
+    DropMutationException       = Class.new(FatalException)
+    InvalidPermalinkError       = Class.new(FatalException)
+    InvalidYAMLFrontMatterError = Class.new(FatalException)
+    MissingDependencyException  = Class.new(FatalException)
+
+    InvalidDateError            = Class.new(FatalException)
+    InvalidPostNameError        = Class.new(FatalException)
+    PostURLError                = Class.new(FatalException)
+    InvalidURLError             = Class.new(FatalException)
+    InvalidConfigurationError   = Class.new(FatalException)
+  end
+end

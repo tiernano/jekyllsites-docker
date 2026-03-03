@@ -1,3 +1,40 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:080b4ee0b94d06b37164aaeee01e00d86cfd00b2eb42f2ff7bdfae7bc4db969d
-size 1148
+{
+  "pagination": {
+    "ListAWSDefaultServiceQuotas": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "Quotas"
+    },
+    "ListRequestedServiceQuotaChangeHistory": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "RequestedQuotas"
+    },
+    "ListRequestedServiceQuotaChangeHistoryByQuota": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "RequestedQuotas"
+    },
+    "ListServiceQuotaIncreaseRequestsInTemplate": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "ServiceQuotaIncreaseRequestInTemplateList"
+    },
+    "ListServiceQuotas": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "Quotas"
+    },
+    "ListServices": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "Services"
+    }
+  }
+}

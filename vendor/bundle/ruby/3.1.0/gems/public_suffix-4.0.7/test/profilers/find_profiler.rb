@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:67b21029b1779ca1066d75b16eef794b64cdb8e3b7c45786879092c5a3eeede6
-size 250
+$LOAD_PATH.unshift File.expand_path("../../lib", __dir__)
+
+require "memory_profiler"
+require "public_suffix"
+
+PublicSuffix::List.default
+
+report = MemoryProfiler.report do
+  PublicSuffix::List.default.find("www.example.com")
+end
+
+report.pretty_print

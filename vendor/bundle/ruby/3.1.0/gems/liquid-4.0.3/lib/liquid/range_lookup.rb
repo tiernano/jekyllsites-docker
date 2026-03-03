@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fc77f4c1f98013a29d088cd3442f6c0b5e43a296eb029de6b674b92d84f176ea
-size 831
+module Liquid
+  class RangeLookup
+    def self.parse(start_markup, end_markup)
+      start_obj = Expression.parse(start_markup)
+      end_obj = Expression.parse(end_markup)
+      if start_obj.respond_to?(:evaluate) || end_obj.respond_to?(:evaluate)
+        new(start_obj, end_obj)
+      else
+        start_obj.to_i..end_obj.to_i
+      end
+    end
+
+    def initialize(start_obj, end_obj)
+      @start_obj = start_obj
+      @end_obj = end_obj
+    end
+
+    def evaluate(context)
+      start_int = to_integer(context.evaluate(@start_obj))
+      end_int = to_integer(context.evaluate(@end_obj))
+      start_int..end_int
+    end
+
+    private
+
+    def to_integer(input)
+      case input
+      when Integer
+        input
+      when NilClass, String
+        input.to_i
+      else
+        Utils.to_integer(input)
+      end
+    end
+  end
+end

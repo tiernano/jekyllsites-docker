@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e13d2bbf9c025f5fd3e7151131f696e78626df2d429cc65f4b23f5f2ad2ee46e
-size 238
+# -*- coding: utf-8; frozen_string_literal: true -*-
+#
+#--
+# Copyright (C) 2019 Thomas Leitner <t_leitner@gmx.at>
+#
+# This file is part of kramdown-parser-gfm which is licensed under the MIT.
+#++
+#
+
+require_relative 'kramdown/parser/gfm'

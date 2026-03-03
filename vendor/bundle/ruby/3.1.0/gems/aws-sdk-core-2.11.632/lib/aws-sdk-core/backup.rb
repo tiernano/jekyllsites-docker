@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:551d1831426bed9c89d1a0f44141c2727219cdacd872e68ebd8fd1217cf2c89d
-size 276
+Aws.add_service(:Backup, {
+  api: "#{Aws::API_DIR}/backup/2018-11-15/api-2.json",
+  docs: "#{Aws::API_DIR}/backup/2018-11-15/docs-2.json",
+  examples: "#{Aws::API_DIR}/backup/2018-11-15/examples-1.json",
+  paginators: "#{Aws::API_DIR}/backup/2018-11-15/paginators-1.json",
+})

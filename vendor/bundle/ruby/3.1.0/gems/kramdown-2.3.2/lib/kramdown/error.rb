@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:817837ab424fc3d6b1f542a3f7e8289d6410fb5380af952362457a0dd1913e40
-size 417
+# -*- coding: utf-8; frozen_string_literal: true -*-
+#
+#--
+# Copyright (C) 2009-2019 Thomas Leitner <t_leitner@gmx.at>
+#
+# This file is part of kramdown which is licensed under the MIT.
+#++
+#
+
+module Kramdown
+
+  # This error is raised when an error condition is encountered.
+  #
+  # *Note* that this error is only raised by the support framework for the parsers and converters.
+  class Error < RuntimeError; end
+
+end

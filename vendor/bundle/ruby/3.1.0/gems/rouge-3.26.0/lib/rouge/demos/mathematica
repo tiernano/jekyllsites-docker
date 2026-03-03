@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2ccfd5cff6ca17fb6ac0662c207c792df2f3eabb5a20ed5360ffda082efe8398
-size 213
+(* Fibonacci numbers with memoization *)
+
+fib::usage = "f[n] calculates the n'th Fibonacci number.";
+fib[0] = fib[1] = 1;
+fib[n_Integer?Positive]:= fib[n] = fib[n-1] + fib[n-2];
+
+In[4]:= fib[42]
+Out[4]= 433494437

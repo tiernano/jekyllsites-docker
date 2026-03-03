@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2f9632c26904b7cbe3b554b5399cc74f27256e94ea51a241359297f10114c28e
-size 445
+# frozen_string_literal: true
+
+require 'jekyll'
+require 'memory_profiler'
+
+MemoryProfiler.report(allow_files: 'lib/jekyll-seo-tag') do
+  Jekyll::PluginManager.require_from_bundler
+  Jekyll::Commands::Build.process({
+    "source"             => File.expand_path(ARGV[0]),
+    "destination"        => File.expand_path("#{ARGV[0]}/_site"),
+    "disable_disk_cache" => true,
+  })
+  puts ''
+end.pretty_print(scale_bytes: true, normalize_paths: true)

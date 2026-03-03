@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5a2cabce9b3e96e532ecb5d9033c42a0d863a0f66e983c85af7153d0cbc50192
-size 169
+# frozen_string_literal: true
+
+require "jekyll-sass-converter/version"
+require "jekyll/converters/scss"
+require "jekyll/converters/sass"
+
+module JekyllSassConverter
+end

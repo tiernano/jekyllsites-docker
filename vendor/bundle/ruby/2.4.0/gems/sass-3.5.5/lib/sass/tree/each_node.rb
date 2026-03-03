@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:47f0b10202539209127475255e223a9a14a1fdea4698e5c1b5739cfe5b84cb77
-size 566
+require 'sass/tree/node'
+
+module Sass::Tree
+  # A dynamic node representing a Sass `@each` loop.
+  #
+  # @see Sass::Tree
+  class EachNode < Node
+    # The names of the loop variables.
+    # @return [Array<String>]
+    attr_reader :vars
+
+    # The parse tree for the list.
+    # @return [Script::Tree::Node]
+    attr_accessor :list
+
+    # @param vars [Array<String>] The names of the loop variables
+    # @param list [Script::Tree::Node] The parse tree for the list
+    def initialize(vars, list)
+      @vars = vars
+      @list = list
+      super()
+    end
+  end
+end

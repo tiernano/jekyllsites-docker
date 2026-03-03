@@ -1,3 +1,64 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fb09f18710265ec5e200677c995b75dedcc4a916d1e9f372d172a7bbe81f8b6c
-size 1718
+{
+  "pagination": {
+    "ListBatchInferenceJobs": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "batchInferenceJobs"
+    },
+    "ListCampaigns": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "campaigns"
+    },
+    "ListDatasetGroups": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "datasetGroups"
+    },
+    "ListDatasetImportJobs": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "datasetImportJobs"
+    },
+    "ListDatasets": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "datasets"
+    },
+    "ListEventTrackers": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "eventTrackers"
+    },
+    "ListRecipes": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "recipes"
+    },
+    "ListSchemas": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "schemas"
+    },
+    "ListSolutionVersions": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "solutionVersions"
+    },
+    "ListSolutions": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "solutions"
+    }
+  }
+}

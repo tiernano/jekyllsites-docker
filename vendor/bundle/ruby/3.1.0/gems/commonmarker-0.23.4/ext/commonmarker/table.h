@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e054b8c846fcedff9b02981caa518c01ac93c09237267eb57f6959fecaf1fced
-size 247
+#ifndef CMARK_GFM_TABLE_H
+#define CMARK_GFM_TABLE_H
+
+#include "cmark-gfm-core-extensions.h"
+
+
+extern cmark_node_type CMARK_NODE_TABLE, CMARK_NODE_TABLE_ROW,
+    CMARK_NODE_TABLE_CELL;
+
+cmark_syntax_extension *create_table_extension(void);
+
+#endif

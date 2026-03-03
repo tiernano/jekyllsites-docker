@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f15f1be6b5cea843daa994eb0f4a45544d047672c791752427841c45dee3e137
-size 476
+# -*- coding: utf-8 -*- #
+
+module Rouge
+  module Lexers
+    load_lexer 'json.rb'
+
+    class JSONDOC < JSON
+      desc "JavaScript Object Notation with extenstions for documentation"
+      tag 'json-doc'
+
+      prepend :root do
+        rule /([$\w]+)(\s*)(:)/ do
+          groups Name::Attribute, Text, Punctuation
+        end
+
+        rule %r(/[*].*?[*]/), Comment
+
+        rule %r(//.*?$), Comment::Single
+        rule /(\.\.\.)/, Comment::Single
+      end
+    end
+  end
+end

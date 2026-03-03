@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:36583015397ca9efd79aaa1721963a2d7da322d61171ba9e7de3c9b6d8182cbf
-size 960
+require 'deep_merge/core'
+
+module DeepMerge
+  module DeepMergeHash
+    # ko_hash_merge! will merge and knockout elements prefixed with DEFAULT_FIELD_KNOCKOUT_PREFIX
+    def ko_deep_merge!(source, options = {})
+      default_opts = {:knockout_prefix => "--", :preserve_unmergeables => false}
+      DeepMerge::deep_merge!(source, self, default_opts.merge(options))
+    end
+
+    # deep_merge! will merge and overwrite any unmergeables in destination hash
+    def deep_merge!(source, options = {})
+      default_opts = {:preserve_unmergeables => false}
+      DeepMerge::deep_merge!(source, self, default_opts.merge(options))
+    end
+
+    # deep_merge will merge and skip any unmergeables in destination hash
+    def deep_merge(source, options = {})
+      default_opts = {:preserve_unmergeables => true}
+      DeepMerge::deep_merge!(source, self, default_opts.merge(options))
+    end
+
+  end # DeepMergeHashExt
+end
+
+class Hash
+  include DeepMerge::DeepMergeHash
+end

@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1fb2d8ae7be7a4a95692599db50627db5f4b00935ebaadbf0332643e5e6ce4ce
-size 689
+module ActiveSupport #:nodoc:
+  module Multibyte
+    autoload :Chars, 'active_support/multibyte/chars'
+    autoload :Unicode, 'active_support/multibyte/unicode'
+
+    # The proxy class returned when calling mb_chars. You can use this accessor
+    # to configure your own proxy class so you can support other encodings. See
+    # the ActiveSupport::Multibyte::Chars implementation for an example how to
+    # do this.
+    #
+    #   ActiveSupport::Multibyte.proxy_class = CharsForUTF32
+    def self.proxy_class=(klass)
+      @proxy_class = klass
+    end
+
+    # Returns the current proxy class.
+    def self.proxy_class
+      @proxy_class ||= ActiveSupport::Multibyte::Chars
+    end
+  end
+end

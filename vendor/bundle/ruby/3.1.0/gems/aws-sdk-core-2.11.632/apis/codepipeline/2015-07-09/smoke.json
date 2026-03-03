@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a9d69dc955da8bf753865bc34598514ecb34a11afaab7eab15a8bf5f74087ac9
-size 406
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "ListPipelines",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "GetPipeline",
+            "input": {
+                "name": "fake-pipeline"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

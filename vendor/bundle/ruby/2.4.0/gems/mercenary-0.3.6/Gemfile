@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fd9255952001bb8235f0f4741a64d173859ffbdbeceb401a8e2e9cac6bc75760
-size 94
+source 'https://rubygems.org'
+
+# Specify your gem's dependencies in mercenary.gemspec
+gemspec

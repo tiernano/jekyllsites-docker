@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:649ba80e256fa017975638b1316c112edd539741d26eba732fab3342e1c14da4
-size 275
+# No header id
+
+{::options unusedvar="val" /}
+
+# without header id
+
+<div>
+some <span>*para*</span>
+</div>
+
+{::options parse_block_html="true" parse_span_html="true" /}
+
+<div>
+some <span>*para*</span>
+</div>
+
+{::options footnote_nr="10" /}
+
+Some text[^ab].
+
+[^ab]: Some text.

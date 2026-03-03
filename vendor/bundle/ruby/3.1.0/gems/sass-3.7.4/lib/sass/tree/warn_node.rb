@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:acb18cbf4c2aefb024eb2d76ab1156e6e0294173be790e74423569302e07832e
-size 394
+module Sass
+  module Tree
+    # A dynamic node representing a Sass `@warn` statement.
+    #
+    # @see Sass::Tree
+    class WarnNode < Node
+      # The expression to print.
+      # @return [Script::Tree::Node]
+      attr_accessor :expr
+
+      # @param expr [Script::Tree::Node] The expression to print
+      def initialize(expr)
+        @expr = expr
+        super()
+      end
+    end
+  end
+end

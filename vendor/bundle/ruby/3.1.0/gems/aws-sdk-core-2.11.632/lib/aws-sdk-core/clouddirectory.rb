@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:54562c0b5761883f314c6d219630e568b5b9d5fac7b45ebfd7cec97dbcec8e5d
-size 316
+Aws.add_service(:CloudDirectory, {
+  api: "#{Aws::API_DIR}/clouddirectory/2017-01-11/api-2.json",
+  docs: "#{Aws::API_DIR}/clouddirectory/2017-01-11/docs-2.json",
+  examples: "#{Aws::API_DIR}/clouddirectory/2017-01-11/examples-1.json",
+  paginators: "#{Aws::API_DIR}/clouddirectory/2017-01-11/paginators-1.json",
+})

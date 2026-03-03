@@ -1,3 +1,3 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:96f1cf75902a59df1ca15928b0aec4a1ae79c19c473ab223fed1e897acd6b888
-size 103
+# Path Traversal Samples
+
+Copied from https://github.com/tuzovakaoff/zip_path_traversal on 2018-08-25.

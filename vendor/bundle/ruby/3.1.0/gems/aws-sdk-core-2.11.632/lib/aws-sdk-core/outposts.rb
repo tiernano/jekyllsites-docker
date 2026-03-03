@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f338504803d4a4c5fb9832c80dbf6b68ed41f6349a3a97d42f6a640af290bbed
-size 286
+Aws.add_service(:Outposts, {
+  api: "#{Aws::API_DIR}/outposts/2019-12-03/api-2.json",
+  docs: "#{Aws::API_DIR}/outposts/2019-12-03/docs-2.json",
+  examples: "#{Aws::API_DIR}/outposts/2019-12-03/examples-1.json",
+  paginators: "#{Aws::API_DIR}/outposts/2019-12-03/paginators-1.json",
+})

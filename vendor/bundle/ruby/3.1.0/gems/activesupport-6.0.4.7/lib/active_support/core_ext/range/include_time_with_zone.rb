@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6fc18b46f35fefb703f64aba6f7746c049a9e378b1c0ca7111e95d300d48b723
-size 548
+# frozen_string_literal: true
+
+require "active_support/time_with_zone"
+
+module ActiveSupport
+  module IncludeTimeWithZone #:nodoc:
+    # Extends the default Range#include? to support ActiveSupport::TimeWithZone.
+    #
+    #   (1.hour.ago..1.hour.from_now).include?(Time.current) # => true
+    #
+    def include?(value)
+      if self.begin.is_a?(TimeWithZone)
+        cover?(value)
+      elsif self.end.is_a?(TimeWithZone)
+        cover?(value)
+      else
+        super
+      end
+    end
+  end
+end
+
+Range.prepend(ActiveSupport::IncludeTimeWithZone)

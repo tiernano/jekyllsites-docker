@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:78c82b4d76401ae3aeb5cda336cb3511cb80a042dff4fb2072433aa867213dd3
-size 224
+# frozen_string_literal: true
+
+require_relative 'adapter/net_http'
+require_relative 'net_http/version'
+
+module Faraday
+  module NetHttp
+    Faraday::Adapter.register_middleware(net_http: Faraday::Adapter::NetHttp)
+  end
+end

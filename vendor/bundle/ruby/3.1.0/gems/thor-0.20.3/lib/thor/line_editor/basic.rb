@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d5dd02e5e7db9bd0eda4e8c3e6798bc1a77e9ae92cf6481228ccca799c7cbc25
-size 654
+class Thor
+  module LineEditor
+    class Basic
+      attr_reader :prompt, :options
+
+      def self.available?
+        true
+      end
+
+      def initialize(prompt, options)
+        @prompt = prompt
+        @options = options
+      end
+
+      def readline
+        $stdout.print(prompt)
+        get_input
+      end
+
+    private
+
+      def get_input
+        if echo?
+          $stdin.gets
+        else
+          # Lazy-load io/console since it is gem-ified as of 2.3
+          require "io/console" if RUBY_VERSION > "1.9.2"
+          $stdin.noecho(&:gets)
+        end
+      end
+
+      def echo?
+        options.fetch(:echo, true)
+      end
+    end
+  end
+end

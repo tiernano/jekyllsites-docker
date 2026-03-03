@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:01250ae108d7d3abeb023d6be43aa212546035cf3c33045aea5d70b607b5414e
-size 369
+{
+  "pagination": {
+    "ListSignalingChannels": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "ChannelInfoList"
+    },
+    "ListStreams": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "StreamInfoList"
+    }
+  }
+}

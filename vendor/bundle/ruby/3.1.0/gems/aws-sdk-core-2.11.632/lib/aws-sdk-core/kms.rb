@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4397c95c4326137d537f60e80e7977351377cf22a177eeb563f5de68f89ba7a3
-size 261
+Aws.add_service(:KMS, {
+  api: "#{Aws::API_DIR}/kms/2014-11-01/api-2.json",
+  docs: "#{Aws::API_DIR}/kms/2014-11-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/kms/2014-11-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/kms/2014-11-01/paginators-1.json",
+})

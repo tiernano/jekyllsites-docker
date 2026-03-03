@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e72e23ae9a74fcfb76cf663df13d1c093e4ca5fa17cb1d209d5200a277e9b615
-size 646
+{
+  "pagination": {
+    "ListAttacks": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "AttackSummaries"
+    },
+    "ListProtectionGroups": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken"
+    },
+    "ListProtections": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "Protections"
+    },
+    "ListResourcesInProtectionGroup": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken"
+    }
+  }
+}

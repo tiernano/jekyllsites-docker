@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fc050215bf31900d323013e47ebb29d43bccd52b6244709647b0f348e64979c1
-size 369
+Aws.add_service(:IoTSiteWise, {
+  api: "#{Aws::API_DIR}/iotsitewise/2019-12-02/api-2.json",
+  docs: "#{Aws::API_DIR}/iotsitewise/2019-12-02/docs-2.json",
+  examples: "#{Aws::API_DIR}/iotsitewise/2019-12-02/examples-1.json",
+  paginators: "#{Aws::API_DIR}/iotsitewise/2019-12-02/paginators-1.json",
+  waiters: "#{Aws::API_DIR}/iotsitewise/2019-12-02/waiters-2.json",
+})

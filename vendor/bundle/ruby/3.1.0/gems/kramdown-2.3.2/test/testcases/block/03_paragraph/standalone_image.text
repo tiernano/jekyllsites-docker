@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9479e62e62ece95d55ec5e72d7f214c92731cb152293937137913480fe37c5fc
-size 209
+para
+{:standalone}
+
+![standalone image](some.jpg){:#id .class key="value" standalone}
+
+![standalone image](some.jpg){:#id .class key="value" standalone}
+{:#block-id .block-class block-key="block-value"}
+
+para

@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cae2ad7825c7a3541024743e733a8a64a949eb56d8f401e769bd5e6ede9c4a89
-size 141
+#ifndef NOKOGIRI_XML_CDATA
+#define NOKOGIRI_XML_CDATA
+
+#include <nokogiri.h>
+
+void init_xml_cdata();
+
+extern VALUE cNokogiriXmlCData;
+#endif

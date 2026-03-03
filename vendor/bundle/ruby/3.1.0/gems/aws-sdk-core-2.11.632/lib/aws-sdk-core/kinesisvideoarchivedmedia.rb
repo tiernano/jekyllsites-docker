@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cab6adcd65192440f86186448b205a520210f1b201ace1a6e41ebc4cbd050bba
-size 383
+Aws.add_service(:KinesisVideoArchivedMedia, {
+  api: "#{Aws::API_DIR}/kinesis-video-archived-media/2017-09-30/api-2.json",
+  docs: "#{Aws::API_DIR}/kinesis-video-archived-media/2017-09-30/docs-2.json",
+  examples: "#{Aws::API_DIR}/kinesis-video-archived-media/2017-09-30/examples-1.json",
+  paginators: "#{Aws::API_DIR}/kinesis-video-archived-media/2017-09-30/paginators-1.json",
+})

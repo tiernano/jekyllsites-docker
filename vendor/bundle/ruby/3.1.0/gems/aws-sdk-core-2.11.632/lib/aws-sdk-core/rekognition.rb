@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4474d70f50102d12bc602d16ab0dba7b14eb26a1f2718c249a5052bc67f44858
-size 369
+Aws.add_service(:Rekognition, {
+  api: "#{Aws::API_DIR}/rekognition/2016-06-27/api-2.json",
+  docs: "#{Aws::API_DIR}/rekognition/2016-06-27/docs-2.json",
+  examples: "#{Aws::API_DIR}/rekognition/2016-06-27/examples-1.json",
+  paginators: "#{Aws::API_DIR}/rekognition/2016-06-27/paginators-1.json",
+  waiters: "#{Aws::API_DIR}/rekognition/2016-06-27/waiters-2.json",
+})

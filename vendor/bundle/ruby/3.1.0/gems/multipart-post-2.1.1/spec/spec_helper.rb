@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d1742fd9719c05fd17660ea6ceebd05f41f495f5cc19bfdb359eca1926664e90
-size 503
+
+if ENV['COVERAGE']
+	begin
+		require 'simplecov'
+		
+		SimpleCov.start do
+			add_filter "/spec/"
+		end
+		
+		if ENV['TRAVIS']
+			require 'coveralls'
+			Coveralls.wear!
+		end
+	rescue LoadError
+		warn "Could not load simplecov: #{$!}"
+	end
+end
+
+require "bundler/setup"
+require "multipart_post"
+
+RSpec.configure do |config|
+	# Enable flags like --only-failures and --next-failure
+	config.example_status_persistence_file_path = ".rspec_status"
+
+	config.expect_with :rspec do |c|
+		c.syntax = :expect
+	end
+end

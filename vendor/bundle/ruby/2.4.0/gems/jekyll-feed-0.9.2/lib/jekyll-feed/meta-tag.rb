@@ -1,3 +1,39 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2164a03de49753ac946b4538c26a74c01276ebae139643c558bed2c17a46e09b
-size 779
+module JekyllFeed
+  class MetaTag < Liquid::Tag
+    # Use Jekyll's native relative_url filter
+    include Jekyll::Filters::URLFilters
+
+    def render(context)
+      @context = context
+      attrs    = attributes.map { |k, v| %(#{k}="#{v}") }.join(" ")
+      "<link #{attrs} />"
+    end
+
+    private
+
+    def config
+      @context.registers[:site].config
+    end
+
+    def attributes
+      {
+        :type  => "application/atom+xml",
+        :rel   => "alternate",
+        :href  => absolute_url(path),
+        :title => title,
+      }.keep_if { |_, v| v }
+    end
+
+    def path
+      if config["feed"] && config["feed"]["path"]
+        config["feed"]["path"]
+      else
+        "feed.xml"
+      end
+    end
+
+    def title
+      config["title"] || config["name"]
+    end
+  end
+end

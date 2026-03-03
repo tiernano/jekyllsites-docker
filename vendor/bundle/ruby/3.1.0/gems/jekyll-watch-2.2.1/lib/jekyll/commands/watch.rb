@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bafd2fe88131a9c174c157208409d6a525953f9f4001135902507f0ff13848b5
-size 431
+# frozen_string_literal: true
+
+module Jekyll
+  module Commands
+    module Watch
+      extend self
+
+      def init_with_program(prog); end
+
+      # Build your jekyll site
+      # Continuously watch if `watch` is set to true in the config.
+      def process(options)
+        Jekyll.logger.log_level = :error if options["quiet"]
+        Jekyll::Watcher.watch(options) if options["watch"]
+      end
+    end
+  end
+end

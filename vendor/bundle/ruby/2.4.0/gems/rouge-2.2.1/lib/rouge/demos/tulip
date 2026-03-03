@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:982693cc872c9fdc0dcf4bd52553f82b84ede2cf4e100b45d4773f7cd896169b
-size 253
+@module ref
+
+ref value = Ref (spawn [ ! => loop value ])
+
+loop value = receive [
+  .set new-value => loop new-value
+  p, id, .get => { send p (id, value); loop value }
+]
+
+@object Ref pid [
+  set val = .set val > send pid
+  get! = .get > send-wait pid
+]

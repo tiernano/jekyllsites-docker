@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a2c1e04cc24d42225957942c95c7f6ede6ffe78d06c7bb13c5d9fd1575f82005
-size 259
+require File.expand_path(File.join(File.dirname(__FILE__), "sample_helper"))
+module Foo
+  extend FFI::Library
+  ffi_lib FFI::Library::LIBC
+  attach_function("cputs", "puts", [ :string ], :int)
+end
+Foo.cputs("Hello, World via libc puts using FFI on MRI ruby")

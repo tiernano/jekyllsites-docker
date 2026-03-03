@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1248c9fe14cf4712f196a3f6759498a80018376f67ffca080dac65d7ce035c99
-size 462
+class Range
+  RANGE_FORMATS = {
+    :db => Proc.new { |start, stop| "BETWEEN '#{start.to_s(:db)}' AND '#{stop.to_s(:db)}'" }
+  }
+
+  # Gives a human readable format of the range.
+  #
+  #   (1..100).to_formatted_s # => "1..100"
+  def to_formatted_s(format = :default)
+    if formatter = RANGE_FORMATS[format]
+      formatter.call(first, last)
+    else
+      to_default_s
+    end
+  end
+
+  alias_method :to_default_s, :to_s
+  alias_method :to_s, :to_formatted_s
+end

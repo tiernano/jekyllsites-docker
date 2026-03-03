@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f76af0e0ec97f876623ec2ac843ef78d38e4e798f491ba98c0f771c31d26d1f0
-size 286
+Aws.add_service(:WorkMail, {
+  api: "#{Aws::API_DIR}/workmail/2017-10-01/api-2.json",
+  docs: "#{Aws::API_DIR}/workmail/2017-10-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/workmail/2017-10-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/workmail/2017-10-01/paginators-1.json",
+})

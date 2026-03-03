@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d0b7381df4b8a516a1a0ff2d0d68ca74d5249484a41b6be42fa171deef46f424
-size 544
+{
+  "pagination": {
+    "DescribeConnectorProfiles": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults"
+    },
+    "DescribeConnectors": {
+      "input_token": "nextToken",
+      "output_token": "nextToken"
+    },
+    "DescribeFlowExecutionRecords": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults"
+    },
+    "ListFlows": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults"
+    }
+  }
+}

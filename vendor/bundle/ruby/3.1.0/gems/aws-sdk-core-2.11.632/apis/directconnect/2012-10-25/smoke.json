@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:89dbecb68f72f5bce78069f0c3350059d56b1742c2c5d2094d5bdc5244f49e2b
-size 430
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "DescribeConnections",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "DescribeConnections",
+            "input": {
+                "connectionId": "fake-connection"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

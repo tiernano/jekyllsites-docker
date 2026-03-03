@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:37dc6da0532869d1c22dda18ec847721d5566e5cd5c6bd91c46508121bd5698d
-size 252
+---
+layout: page
+---
+
+{% if page.category_name %}
+  {% assign category_name = page.category_name %}
+{% endif %}
+
+<div class="container mx-auto">
+  {% for post in site.categories[category_name] %}
+    {% include post_block.html %}
+  {% endfor %}
+</div>

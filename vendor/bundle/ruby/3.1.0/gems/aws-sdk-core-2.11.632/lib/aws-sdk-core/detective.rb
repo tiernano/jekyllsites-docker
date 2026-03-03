@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9e5e136e71b2d56953b9038cfb38ed8132f0c2963bf6bde6bfcea9cb3209acaf
-size 291
+Aws.add_service(:Detective, {
+  api: "#{Aws::API_DIR}/detective/2018-10-26/api-2.json",
+  docs: "#{Aws::API_DIR}/detective/2018-10-26/docs-2.json",
+  examples: "#{Aws::API_DIR}/detective/2018-10-26/examples-1.json",
+  paginators: "#{Aws::API_DIR}/detective/2018-10-26/paginators-1.json",
+})

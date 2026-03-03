@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:291f35894aa9115a5d0d12560943def3610d54bf1c0ed294d1d91f5afe1e2d81
-size 471
+# frozen_string_literal: true
+
+module Jekyll
+  class Publisher
+    def initialize(site)
+      @site = site
+    end
+
+    def publish?(thing)
+      can_be_published?(thing) && !hidden_in_the_future?(thing)
+    end
+
+    def hidden_in_the_future?(thing)
+      thing.respond_to?(:date) && !@site.future && thing.date.to_i > @site.time.to_i
+    end
+
+    private
+
+    def can_be_published?(thing)
+      thing.data.fetch("published", true) || @site.unpublished
+    end
+  end
+end

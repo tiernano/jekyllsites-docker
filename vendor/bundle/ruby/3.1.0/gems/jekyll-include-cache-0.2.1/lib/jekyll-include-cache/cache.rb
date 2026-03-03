@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:efa6b5de27fd783bd43a6aafd17442c10d77ec4514be2e5492babdc47c01cef4
-size 536
+# frozen_string_literal: true
+
+# Jekyll 4.x comptable caching class for pre-4.x compatability
+module JekyllIncludeCache
+  class Cache
+    extend Forwardable
+
+    def_delegators :@cache, :[]=, :key?, :delete, :clear
+
+    def initialize(_name = nil)
+      @cache = {}
+    end
+
+    def getset(key)
+      if key?(key)
+        @cache[key]
+      else
+        value = yield
+        @cache[key] = value
+        value
+      end
+    end
+
+    def [](key)
+      if key?(key)
+        @cache[key]
+      else
+        raise
+      end
+    end
+  end
+end

@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ed269c7f9075777251dde7f78dc119a727666be5ef9e56d1248c6f887f8a7a5a
-size 615
+# frozen_string_literal: true
+
+require "test_helper"
+
+class ErrorsTest < Minitest::Test
+
+  # Inherits from StandardError
+  def test_error_inheritance
+    assert_kind_of  StandardError,
+                    PublicSuffix::Error.new
+  end
+
+  # Inherits from PublicSuffix::Error
+  def test_domain_invalid_inheritance
+    assert_kind_of  PublicSuffix::Error,
+                    PublicSuffix::DomainInvalid.new
+  end
+
+  # Inherits from PublicSuffix::DomainInvalid
+  def test_domain_not_allowed_inheritance
+    assert_kind_of  PublicSuffix::DomainInvalid,
+                    PublicSuffix::DomainNotAllowed.new
+  end
+
+end

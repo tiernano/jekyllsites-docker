@@ -1,3 +1,42 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e2c154bc0f4f5f6ffb2ff0049aa33b1130876e4bde7f4adbd395dcb33c174285
-size 969
+
+#ifndef CMARK_EXPORT_H
+#define CMARK_EXPORT_H
+
+#ifdef CMARK_STATIC_DEFINE
+#  define CMARK_EXPORT
+#  define CMARK_NO_EXPORT
+#else
+#  ifndef CMARK_EXPORT
+#    ifdef libcmark_gfm_EXPORTS
+        /* We are building this library */
+#      define CMARK_EXPORT __attribute__((visibility("default")))
+#    else
+        /* We are using this library */
+#      define CMARK_EXPORT __attribute__((visibility("default")))
+#    endif
+#  endif
+
+#  ifndef CMARK_NO_EXPORT
+#    define CMARK_NO_EXPORT __attribute__((visibility("hidden")))
+#  endif
+#endif
+
+#ifndef CMARK_DEPRECATED
+#  define CMARK_DEPRECATED __attribute__ ((__deprecated__))
+#endif
+
+#ifndef CMARK_DEPRECATED_EXPORT
+#  define CMARK_DEPRECATED_EXPORT CMARK_EXPORT CMARK_DEPRECATED
+#endif
+
+#ifndef CMARK_DEPRECATED_NO_EXPORT
+#  define CMARK_DEPRECATED_NO_EXPORT CMARK_NO_EXPORT CMARK_DEPRECATED
+#endif
+
+#if 0 /* DEFINE_NO_DEPRECATED */
+#  ifndef CMARK_NO_DEPRECATED
+#    define CMARK_NO_DEPRECATED
+#  endif
+#endif
+
+#endif

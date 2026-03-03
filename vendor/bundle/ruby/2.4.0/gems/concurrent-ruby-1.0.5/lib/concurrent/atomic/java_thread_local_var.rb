@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a6bbe7a3bc2a5e1751f574d9ca0167474a5dfb06108b73cc358330a5d0585776
-size 691
+require 'concurrent/atomic/abstract_thread_local_var'
+
+if Concurrent.on_jruby?
+
+  module Concurrent
+
+    # @!visibility private
+    # @!macro internal_implementation_note
+    class JavaThreadLocalVar < AbstractThreadLocalVar
+
+      # @!macro thread_local_var_method_get
+      def value
+        value = @var.get
+
+        if value.nil?
+          default
+        elsif value == NULL
+          nil
+        else
+          value
+        end
+      end
+
+      # @!macro thread_local_var_method_set
+      def value=(value)
+        @var.set(value)
+      end
+
+      protected
+
+      # @!visibility private
+      def allocate_storage
+        @var = java.lang.ThreadLocal.new
+      end
+    end
+  end
+end

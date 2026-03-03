@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8ad59cc7fb2254392c4427306f08ab8288a18add9b8c2e114dfd82ef343c7364
-size 196
+test_dir = File.dirname(__FILE__)
+$:.unshift test_dir unless $:.include?(test_dir)
+
+class MiniTest::Test
+  def absolutize(file)
+    File.expand_path("#{File.dirname(__FILE__)}/#{file}")
+  end
+end

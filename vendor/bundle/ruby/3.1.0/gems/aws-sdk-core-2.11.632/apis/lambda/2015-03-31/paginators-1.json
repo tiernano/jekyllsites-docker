@@ -1,3 +1,52 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:500123554103ec9478f24f29402729fb6dbcd54fe47572bc9188b44321031693
-size 1404
+{
+  "pagination": {
+    "ListAliases": {
+      "input_token": "Marker",
+      "limit_key": "MaxItems",
+      "output_token": "NextMarker",
+      "result_key": "Aliases"
+    },
+    "ListEventSourceMappings": {
+      "input_token": "Marker",
+      "limit_key": "MaxItems",
+      "output_token": "NextMarker",
+      "result_key": "EventSourceMappings"
+    },
+    "ListFunctionEventInvokeConfigs": {
+      "input_token": "Marker",
+      "limit_key": "MaxItems",
+      "output_token": "NextMarker",
+      "result_key": "FunctionEventInvokeConfigs"
+    },
+    "ListFunctions": {
+      "input_token": "Marker",
+      "limit_key": "MaxItems",
+      "output_token": "NextMarker",
+      "result_key": "Functions"
+    },
+    "ListLayerVersions": {
+      "input_token": "Marker",
+      "limit_key": "MaxItems",
+      "output_token": "NextMarker",
+      "result_key": "LayerVersions"
+    },
+    "ListLayers": {
+      "input_token": "Marker",
+      "limit_key": "MaxItems",
+      "output_token": "NextMarker",
+      "result_key": "Layers"
+    },
+    "ListProvisionedConcurrencyConfigs": {
+      "input_token": "Marker",
+      "limit_key": "MaxItems",
+      "output_token": "NextMarker",
+      "result_key": "ProvisionedConcurrencyConfigs"
+    },
+    "ListVersionsByFunction": {
+      "input_token": "Marker",
+      "limit_key": "MaxItems",
+      "output_token": "NextMarker",
+      "result_key": "Versions"
+    }
+  }
+}

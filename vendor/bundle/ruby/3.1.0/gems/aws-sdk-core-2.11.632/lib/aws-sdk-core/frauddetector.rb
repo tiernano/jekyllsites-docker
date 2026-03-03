@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4f981e18d69503cdbc38fea9495528bd789f1bbede868a9a815590f4d80e7309
-size 311
+Aws.add_service(:FraudDetector, {
+  api: "#{Aws::API_DIR}/frauddetector/2019-11-15/api-2.json",
+  docs: "#{Aws::API_DIR}/frauddetector/2019-11-15/docs-2.json",
+  examples: "#{Aws::API_DIR}/frauddetector/2019-11-15/examples-1.json",
+  paginators: "#{Aws::API_DIR}/frauddetector/2019-11-15/paginators-1.json",
+})

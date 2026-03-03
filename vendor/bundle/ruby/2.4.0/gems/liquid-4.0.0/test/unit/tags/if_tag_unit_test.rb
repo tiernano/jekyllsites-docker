@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f5df39920d562fd870e549fe9398a965d8dab190463a5f3c3f494d8dda01538d
-size 267
+require 'test_helper'
+
+class IfTagUnitTest < Minitest::Test
+  def test_if_nodelist
+    template = Liquid::Template.parse('{% if true %}IF{% else %}ELSE{% endif %}')
+    assert_equal ['IF', 'ELSE'], template.root.nodelist[0].nodelist.map(&:nodelist).flatten
+  end
+end

@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e5c5414b74d4bcfbc550d579ff73f75db6af935b5f138e1a76c1f18211aa9fc0
-size 102
+/ comment
+x: til 10
+
+tab:([]a:1 2 3;b:`a `b `c);
+
+function:{[table]
+	select from table where b=`c
+	};

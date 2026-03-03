@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5090cd7e6cdf16261621d1dc611373d800a1baed7c83d770f94800f84daaadff
-size 190
+source 'https://rubygems.org'
+
+gem 'simplecov', :require => false, :group => :test
+gem 'codecov', :require => false, :group => :test
+gem 'rspec', :require => false, :group => :test
+
+gemspec

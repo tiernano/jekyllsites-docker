@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:384c8719bc8a1a9707e6093804d6ab1fd5b364081cdeef11b625b69a80c0561f
-size 808
+require "bundler"
+Bundler.setup
+
+require "rake"
+require "rspec/core/rake_task"
+$LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
+require "typhoeus/version"
+
+task :gem => :build
+task :build do
+  system "gem build typhoeus.gemspec"
+end
+
+task :install => :build do
+  system "gem install typhoeus-#{Typhoeus::VERSION}.gem"
+end
+
+task :release => :build do
+  system "git tag -a v#{Typhoeus::VERSION} -m 'Tagging #{Typhoeus::VERSION}'"
+  system "git push --tags"
+  system "gem push typhoeus-#{Typhoeus::VERSION}.gem"
+end
+
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.verbose = false
+  t.ruby_opts = "-W -I./spec -rspec_helper"
+end
+
+desc "Start up the test servers"
+task :start do
+  require_relative 'spec/support/boot'
+  begin
+    Boot.start_servers(:rake)
+  rescue Exception
+  end
+end
+
+task :default => :spec

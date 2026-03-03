@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:82ecad28e5b2d0c12637a3ae3f63e01038eac921bdc7d6a4946328a68af3774e
-size 308
+require 'active_support/core_ext/array/wrap'
+require 'active_support/core_ext/array/access'
+require 'active_support/core_ext/array/conversions'
+require 'active_support/core_ext/array/extract_options'
+require 'active_support/core_ext/array/grouping'
+require 'active_support/core_ext/array/prepend_and_append'

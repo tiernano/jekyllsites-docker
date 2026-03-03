@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:30d8d32074ea62ad0a274ec70d22ff0c301dfbdd902931477f50dcda8762cabc
-size 222
+require "spec_helper"
+
+if SafeYAML::YAML_ENGINE == "psych"
+  require "safe_yaml/psych_resolver"
+
+  describe SafeYAML::PsychResolver do
+    include ResolverSpecs
+    let(:resolver) { SafeYAML::PsychResolver.new }
+  end
+end

@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fa6b5f13513eb7c7e7dc192e95045027a0f4892dfb118bc642b0724adfd2e57b
-size 470
+#--
+# Copyright (c) 2007-2012 Nick Sieger.
+# See the file README.txt included with the distribution for
+# software license details.
+#++
+
+require 'net/http'
+require 'stringio'
+require 'cgi'
+require 'composite_io'
+require 'multipartable'
+require 'parts'
+
+module Net
+  class HTTP
+    class Put
+      class Multipart < Put
+        include Multipartable
+      end
+    end
+
+    class Post
+      class Multipart < Post
+        include Multipartable
+      end
+    end
+  end
+end

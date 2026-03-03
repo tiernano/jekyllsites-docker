@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:940488fa4d2232d5681a7ceb9ec5d06105f9702b847418cc48dc1a1ffc4af251
-size 306
+Aws.add_service(:KinesisVideo, {
+  api: "#{Aws::API_DIR}/kinesisvideo/2017-09-30/api-2.json",
+  docs: "#{Aws::API_DIR}/kinesisvideo/2017-09-30/docs-2.json",
+  examples: "#{Aws::API_DIR}/kinesisvideo/2017-09-30/examples-1.json",
+  paginators: "#{Aws::API_DIR}/kinesisvideo/2017-09-30/paginators-1.json",
+})

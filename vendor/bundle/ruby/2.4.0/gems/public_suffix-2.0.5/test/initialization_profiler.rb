@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5c875f1247f99e382f2d17a303e9a8685e9ca89b5f31a9c3c378e6cce5fea1ed
-size 279
+$LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
+
+require "memory_profiler"
+require "public_suffix"
+
+report = MemoryProfiler.report do
+  PublicSuffix::List.default
+end
+
+report.pretty_print
+# report.pretty_print(to_file: 'profiler-%s-%d.txt' % [ARGV[0], Time.now.to_i])

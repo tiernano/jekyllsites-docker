@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6ef9270a1dc65b6f50912272446e71ec713fc02fab9e8bf4b5de043e13ca2474
-size 358
+package s3.website
+
+object Ruby {
+  lazy val rubyRuntime = org.jruby.Ruby.newInstance() // Instantiate heavy object
+
+  def rubyRegexMatches(text: String, regex: String) = {
+    val z  = rubyRuntime.evalScriptlet(
+      s"""# encoding: utf-8
+          !!Regexp.new("$regex").match("$text")"""
+    )
+    z.toJava(classOf[Boolean]).asInstanceOf[Boolean]
+  }
+
+}

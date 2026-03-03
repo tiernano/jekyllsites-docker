@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:168fa705f0120c6b502e26c239f95c11772b786cd4d472c3fd3d232136605619
-size 395
+module HTML
+  class Pipeline
+    class TextFilter < Filter
+      attr_reader :text
+
+      def initialize(text, context = nil, result = nil)
+        raise TypeError, "text cannot be HTML" if text.is_a?(DocumentFragment)
+        # Ensure that this is always a string
+        @text = text.respond_to?(:to_str) ? text.to_str : text.to_s
+        super nil, context, result
+      end
+    end
+  end
+end

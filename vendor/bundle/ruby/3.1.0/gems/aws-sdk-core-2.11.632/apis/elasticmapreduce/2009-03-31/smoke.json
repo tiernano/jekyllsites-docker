@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d0a4480954e8378a099c72ce3b16d82d95fde2cd88d594cf56458e6ca73cb1eb
-size 413
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "ListClusters",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "DescribeCluster",
+            "input": {
+                "ClusterId": "fake_cluster"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

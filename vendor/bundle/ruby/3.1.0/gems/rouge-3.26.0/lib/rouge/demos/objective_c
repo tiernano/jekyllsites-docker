@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f7bcfcae81ff6d934c26b0d519bc3e2545a85dba6536e03a43523eab6d9e2ece
-size 303
+@interface Person : NSObject {
+  @public
+  NSString *name;
+  @private
+  int age;
+}
+
+@property(copy) NSString *name;
+@property(readonly) int age;
+
+-(id)initWithAge:(int)age;
+@end
+
+NSArray *arrayLiteral = @[@"abc", @1];
+NSDictionary *dictLiteral = @{
+  @"hello": @"world",
+  @"goodbye": @"cruel world"
+};

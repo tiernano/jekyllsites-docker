@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a2dc908e7b6435e9de89a97955dc748b0a986a39919e1e5be849ad06f110c563
-size 335
+Aws.add_service(:PersonalizeEvents, {
+  api: "#{Aws::API_DIR}/personalize-events/2018-03-22/api-2.json",
+  docs: "#{Aws::API_DIR}/personalize-events/2018-03-22/docs-2.json",
+  examples: "#{Aws::API_DIR}/personalize-events/2018-03-22/examples-1.json",
+  paginators: "#{Aws::API_DIR}/personalize-events/2018-03-22/paginators-1.json",
+})

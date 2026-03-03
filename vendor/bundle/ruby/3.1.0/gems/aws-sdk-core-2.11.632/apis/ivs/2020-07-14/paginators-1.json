@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:29a00f09b5be737b319f14491d5b46173e71e962a937ed041ef492fe7e0f07b6
-size 820
+{
+  "pagination": {
+    "ListChannels": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults",
+      "result_key": "channels"
+    },
+    "ListPlaybackKeyPairs": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults",
+      "result_key": "keyPairs"
+    },
+    "ListStreamKeys": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults",
+      "result_key": "streamKeys"
+    },
+    "ListStreams": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults",
+      "result_key": "streams"
+    },
+    "ListTagsForResource": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults"
+    }
+  }
+}

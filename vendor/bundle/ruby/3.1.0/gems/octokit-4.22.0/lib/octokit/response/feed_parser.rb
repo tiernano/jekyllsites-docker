@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:af81997888f30ccf1bf72eb44300082e801a71493ca2ab2d276683797a6e128a
-size 364
+require 'faraday'
+
+module Octokit
+
+  module Response
+
+    # Parses RSS and Atom feed responses.
+    class FeedParser < Faraday::Response::Middleware
+
+      def on_complete(env)
+        if env[:response_headers]["content-type"] =~ /(\batom|\brss)/
+          require 'rss'
+          env[:body] = RSS::Parser.parse env[:body]
+        end
+      end
+
+    end
+  end
+end

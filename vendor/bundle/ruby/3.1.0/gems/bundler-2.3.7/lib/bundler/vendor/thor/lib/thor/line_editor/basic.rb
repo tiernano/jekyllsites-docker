@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9fbe9ebf4567870f55fc6521ad643493532129cefad91257b1417f3055ccb2d8
-size 637
+class Bundler::Thor
+  module LineEditor
+    class Basic
+      attr_reader :prompt, :options
+
+      def self.available?
+        true
+      end
+
+      def initialize(prompt, options)
+        @prompt = prompt
+        @options = options
+      end
+
+      def readline
+        $stdout.print(prompt)
+        get_input
+      end
+
+    private
+
+      def get_input
+        if echo?
+          $stdin.gets
+        else
+          # Lazy-load io/console since it is gem-ified as of 2.3
+          require "io/console"
+          $stdin.noecho(&:gets)
+        end
+      end
+
+      def echo?
+        options.fetch(:echo, true)
+      end
+    end
+  end
+end

@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5269376ce4714121819055b7195086c610a1bf8bc8218e14d5b38c3cc5c99804
-size 357
+Aws.add_service(:AppStream, {
+  api: "#{Aws::API_DIR}/appstream/2016-12-01/api-2.json",
+  docs: "#{Aws::API_DIR}/appstream/2016-12-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/appstream/2016-12-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/appstream/2016-12-01/paginators-1.json",
+  waiters: "#{Aws::API_DIR}/appstream/2016-12-01/waiters-2.json",
+})

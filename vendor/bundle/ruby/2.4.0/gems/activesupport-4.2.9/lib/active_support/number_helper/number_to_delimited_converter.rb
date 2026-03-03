@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a10de3ccc69643a66387154e58634f751185191d6fb0be3b0958f8e291149f5e
-size 533
+module ActiveSupport
+  module NumberHelper
+    class NumberToDelimitedConverter < NumberConverter #:nodoc:
+      self.validate_float = true
+
+      DELIMITED_REGEX = /(\d)(?=(\d\d\d)+(?!\d))/
+
+      def convert
+        parts.join(options[:separator])
+      end
+
+      private
+
+        def parts
+          left, right = number.to_s.split('.')
+          left.gsub!(DELIMITED_REGEX) do |digit_to_delimit|
+            "#{digit_to_delimit}#{options[:delimiter]}"
+          end
+          [left, right].compact
+        end
+    end
+  end
+end

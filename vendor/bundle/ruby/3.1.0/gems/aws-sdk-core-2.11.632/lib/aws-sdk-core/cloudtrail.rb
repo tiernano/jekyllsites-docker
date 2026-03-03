@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f9b0223d388b4f0a96a0e0ad15ac2d0bb08062208068bddc10fd2a3005236a13
-size 296
+Aws.add_service(:CloudTrail, {
+  api: "#{Aws::API_DIR}/cloudtrail/2013-11-01/api-2.json",
+  docs: "#{Aws::API_DIR}/cloudtrail/2013-11-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/cloudtrail/2013-11-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/cloudtrail/2013-11-01/paginators-1.json",
+})

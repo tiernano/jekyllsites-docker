@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5d7fcca50466bb19ee88874a4d30b5288fd3cfbfcb6cd48d06eb6bb11dd650a8
-size 309
+Aws.add_service(:LexModelBuildingService, {
+  api: "#{Aws::API_DIR}/lex-models/2017-04-19/api-2.json",
+  docs: "#{Aws::API_DIR}/lex-models/2017-04-19/docs-2.json",
+  examples: "#{Aws::API_DIR}/lex-models/2017-04-19/examples-1.json",
+  paginators: "#{Aws::API_DIR}/lex-models/2017-04-19/paginators-1.json",
+})

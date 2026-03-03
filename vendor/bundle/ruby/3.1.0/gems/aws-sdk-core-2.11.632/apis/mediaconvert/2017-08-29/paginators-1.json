@@ -1,3 +1,34 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b074274741f399263c973b20396105138f7b536489bec8793134a4df78dc36d3
-size 834
+{
+  "pagination": {
+    "DescribeEndpoints": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "Endpoints"
+    },
+    "ListJobs": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "Jobs"
+    },
+    "ListPresets": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "Presets"
+    },
+    "ListJobTemplates": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "JobTemplates"
+    },
+    "ListQueues": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "Queues"
+    }
+  }
+}

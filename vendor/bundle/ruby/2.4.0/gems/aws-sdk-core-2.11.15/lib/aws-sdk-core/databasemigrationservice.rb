@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1df2127a25d70afb3ff980f890f6de67d03b09745504819a09ec93a085f537a5
-size 282
+Aws.add_service(:DatabaseMigrationService, {
+  api: "#{Aws::API_DIR}/dms/2016-01-01/api-2.json",
+  docs: "#{Aws::API_DIR}/dms/2016-01-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/dms/2016-01-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/dms/2016-01-01/paginators-1.json",
+})

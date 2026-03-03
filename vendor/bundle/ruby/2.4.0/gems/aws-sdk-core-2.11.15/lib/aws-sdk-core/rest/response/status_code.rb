@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ea807c278e141e9a8d7227b57cc5666e431b83939156c10bbc7ca5b7bf07975e
-size 573
+module Aws
+  module Rest
+    module Response
+      class StatusCode
+
+        # @param [Seahorse::Model::Shapes::ShapeRef] rules
+        def initialize(rules)
+          @rules = rules
+        end
+
+        # @param [Seahorse::Client::Http::Response] http_resp
+        # @param [Hash, Struct] data
+        def apply(http_resp, data)
+          @rules.shape.members.each do |member_name, member_ref|
+            if member_ref.location == 'statusCode'
+              data[member_name] = http_resp.status_code
+            end
+          end
+        end
+
+      end
+    end
+  end
+end

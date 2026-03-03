@@ -1,3 +1,34 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0b43c82c0155c2cf16e976b211c5bea40713cdf154c070e1bd0e7e19f61966f4
-size 634
+#!/bin/bash
+
+# exit this script if any commmand fails
+# set -e
+
+function build_linux()
+{
+    ./autogen.sh
+    ./configure ${HOST+--host=$HOST} ${CONFIGURE_OPTIONS}
+    make
+    make dist
+    make check RUNTESTFLAGS="-a $RUNTESTFLAGS"
+    cat */testsuite/libffi.log
+}
+
+function build_ios()
+{
+    which python
+# export PYTHON_BIN=/usr/local/bin/python
+    ./generate-darwin-source-and-headers.py
+    xcodebuild -showsdks
+    xcodebuild -project libffi.xcodeproj -target "libffi-iOS" -configuration Release -sdk iphoneos10.3
+    find ./ 
+}
+
+./autogen.sh
+case "$HOST" in
+    arm-apple-darwin*)
+	build_ios
+	;;
+    *)
+	build_linux
+	;;
+esac

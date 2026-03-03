@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7580dae74a520d3c39a0ccb3703b5fc1f6721bdb262caf1b1ad5f3f970e313c1
-size 587
+begin
+  require File.join(File.dirname(__FILE__), 'lib', 'sass') # From here
+rescue LoadError
+  begin
+    require 'sass' # From gem
+  rescue LoadError => e
+    # gems:install may be run to install Haml with the skeleton plugin
+    # but not the gem itself installed.
+    # Don't die if this is the case.
+    raise e unless defined?(Rake) &&
+      (Rake.application.top_level_tasks.include?('gems') ||
+        Rake.application.top_level_tasks.include?('gems:install'))
+  end
+end
+
+# Load Sass.
+# Sass may be undefined if we're running gems:install.
+require 'sass/plugin' if defined?(Sass)

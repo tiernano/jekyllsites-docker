@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:02487477f1e25b4ef6fe59c1d0609aec5f86c8c64d3b1f5f49a1062d1892675d
-size 309
+Aws.add_service(:ApplicationDiscoveryService, {
+  api: "#{Aws::API_DIR}/discovery/2015-11-01/api-2.json",
+  docs: "#{Aws::API_DIR}/discovery/2015-11-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/discovery/2015-11-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/discovery/2015-11-01/paginators-1.json",
+})

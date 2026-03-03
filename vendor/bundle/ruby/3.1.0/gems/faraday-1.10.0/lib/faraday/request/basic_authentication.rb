@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f788f9c706a1578e5a970884becf2086eb18c139f990cd1be4f812f15fc6548f
-size 505
+# frozen_string_literal: true
+
+require 'base64'
+
+module Faraday
+  class Request
+    # Authorization middleware for Basic Authentication.
+    class BasicAuthentication < load_middleware(:authorization)
+      # @param login [String]
+      # @param pass [String]
+      #
+      # @return [String] a Basic Authentication header line
+      def self.header(login, pass)
+        value = Base64.encode64([login, pass].join(':'))
+        value.delete!("\n")
+        super(:Basic, value)
+      end
+    end
+  end
+end

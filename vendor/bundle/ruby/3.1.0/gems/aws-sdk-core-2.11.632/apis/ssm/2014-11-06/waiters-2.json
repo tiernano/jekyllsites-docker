@@ -1,3 +1,60 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0a71d3eb13970d1199e2698473072b35a67736cb2f99b6a707b34246208b0ea1
-size 1338
+{
+  "version": 2,
+  "waiters": {
+    "CommandExecuted": {
+      "delay": 5,
+      "operation": "GetCommandInvocation",
+      "maxAttempts": 20,
+      "acceptors": [
+        {
+          "expected": "Pending",
+          "matcher": "path",
+          "state": "retry",
+          "argument": "Status"
+        },
+        {
+          "expected": "InProgress",
+          "matcher": "path",
+          "state": "retry",
+          "argument": "Status"
+        },
+        {
+          "expected": "Delayed",
+          "matcher": "path",
+          "state": "retry",
+          "argument": "Status"
+        },
+        {
+          "expected": "Success",
+          "matcher": "path",
+          "state": "success",
+          "argument": "Status"
+        },
+        {
+          "expected": "Cancelled",
+          "matcher": "path",
+          "state": "failure",
+          "argument": "Status"
+        },
+        {
+          "expected": "TimedOut",
+          "matcher": "path",
+          "state": "failure",
+          "argument": "Status"
+        },
+        {
+          "expected": "Failed",
+          "matcher": "path",
+          "state": "failure",
+          "argument": "Status"
+        },
+        {
+          "expected": "Cancelling",
+          "matcher": "path",
+          "state": "failure",
+          "argument": "Status"
+        }
+      ]
+    }
+  }
+}

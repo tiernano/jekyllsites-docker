@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e53a9e863e8aac0b2eaeb50f50a090be30ebd6d7c9824b81e9784c17ac0b8e18
-size 430
+module JMESPath
+  module Nodes
+    class And < Node
+
+      def initialize(left, right)
+        @left = left
+        @right = right
+      end
+
+      def visit(value)
+        result = @left.visit(value)
+        if JMESPath::Util.falsey?(result)
+          result
+        else
+          @right.visit(value)
+        end
+      end
+
+      def optimize
+        self.class.new(@left.optimize, @right.optimize)
+      end
+
+    end
+  end
+end

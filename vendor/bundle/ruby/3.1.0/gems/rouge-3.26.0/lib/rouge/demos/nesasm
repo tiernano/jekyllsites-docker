@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4b36aa6451348ceb99474af925f735656074bb4236acf0234348178dc0566904
-size 317
+  .bank 0
+  .org $C000
+Reset:	
+        jsr WaitSync	; wait for VSYNC
+        jsr ClearRAM	; clear RAM
+        jsr WaitSync	; wait for VSYNC (and PPU warmup)
+
+	lda #$3f	; $3F -> A register
+        ldy #$00	; $00 -> Y register
+        sta PPU_ADDR	; write #HIGH byte first
+        sty PPU_ADDR    ; $3F00 -> PPU address

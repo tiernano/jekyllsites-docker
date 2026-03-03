@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:12fd5d233f8c90f088cbfb0f154715a8bdcd97560073b4a4f5b7d0f65889b3a8
-size 286
+Aws.add_service(:WorkLink, {
+  api: "#{Aws::API_DIR}/worklink/2018-09-25/api-2.json",
+  docs: "#{Aws::API_DIR}/worklink/2018-09-25/docs-2.json",
+  examples: "#{Aws::API_DIR}/worklink/2018-09-25/examples-1.json",
+  paginators: "#{Aws::API_DIR}/worklink/2018-09-25/paginators-1.json",
+})

@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cc0e8ba6d7d499e014ff642ead59c640cb365143998f4b9112eb105a0c508217
-size 608
+require 'java'
+
+module UNF # :nodoc: all
+  class Normalizer
+    def initialize()
+      @normalizer = java.text.Normalizer
+    end
+
+    def normalize(string, normalization_form)
+      @normalizer.normalize(string, form(normalization_form))
+    end
+
+    private
+
+    def form(symbol)
+      case symbol
+      when :nfc
+        @normalizer::Form::NFC
+      when :nfd
+        @normalizer::Form::NFD
+      when :nfkc
+        @normalizer::Form::NFKC
+      when :nfkd
+        @normalizer::Form::NFKD
+      else
+        raise ArgumentError, "unknown normalization form: #{symbol.inspect}"
+      end
+    end
+  end
+end

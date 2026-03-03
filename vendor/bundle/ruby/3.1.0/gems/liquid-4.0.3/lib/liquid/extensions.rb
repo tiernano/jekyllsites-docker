@@ -1,3 +1,74 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0c50b85a5fe5b4fec81aa5c6210642eb659b07f6d903034ea7ef6cf6ac457d6a
-size 749
+require 'time'
+require 'date'
+
+class String # :nodoc:
+  def to_liquid
+    self
+  end
+end
+
+class Symbol # :nodoc:
+  def to_liquid
+    to_s
+  end
+end
+
+class Array # :nodoc:
+  def to_liquid
+    self
+  end
+end
+
+class Hash # :nodoc:
+  def to_liquid
+    self
+  end
+end
+
+class Numeric # :nodoc:
+  def to_liquid
+    self
+  end
+end
+
+class Range # :nodoc:
+  def to_liquid
+    self
+  end
+end
+
+class Time # :nodoc:
+  def to_liquid
+    self
+  end
+end
+
+class DateTime < Date # :nodoc:
+  def to_liquid
+    self
+  end
+end
+
+class Date # :nodoc:
+  def to_liquid
+    self
+  end
+end
+
+class TrueClass
+  def to_liquid # :nodoc:
+    self
+  end
+end
+
+class FalseClass
+  def to_liquid # :nodoc:
+    self
+  end
+end
+
+class NilClass
+  def to_liquid # :nodoc:
+    self
+  end
+end

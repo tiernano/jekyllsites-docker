@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:207b84c2ed138975b74c62b435a76ecd78a63acedb859279830e3b9d99f31d19
-size 951
+module Typhoeus
+  module Cache
+    # This module provides a simple way to cache HTTP responses in using the Rails cache.
+    class Rails
+      # @example Use the Rails cache setup to cache Typhoeus responses.
+      #   Typhoeus::Config.cache = Typhoeus::Cache::Rails.new
+      #
+      # @param [ ActiveSupport::Cache::Store ] cache
+      #   A Rails cache backend. Defaults to Rails.cache.
+      # @param [ Hash ] options
+      #   Options
+      # @option options [ Integer ] :default_ttl
+      #   The default TTL of cached responses in seconds, for requests which do not set a cache_ttl.
+      def initialize(cache = ::Rails.cache, options = {})
+        @cache = cache
+        @default_ttl = options[:default_ttl]
+      end
+
+      def get(request)
+        @cache.read(request)
+      end
+
+      def set(request, response)
+        @cache.write(request.cache_key, response, :expires_in => request.cache_ttl || @default_ttl)
+      end
+    end
+  end
+end

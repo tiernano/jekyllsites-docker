@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5e50c106c297f392a529eb691ba03ac7b7bdd2db5e0236e8da75df9bccf93759
-size 820
+module Concurrent
+  module Synchronization
+
+    # Volatile adds the attr_volatile class method when included.
+    #
+    # @example
+    #   class Foo
+    #     include Concurrent::Synchronization::Volatile
+    #
+    #     attr_volatile :bar
+    #
+    #     def initialize
+    #       self.bar = 1
+    #     end
+    #   end
+    #
+    #  foo = Foo.new
+    #  foo.bar
+    #  => 1
+    #  foo.bar = 2
+    #  => 2
+
+    Volatile = case
+               when Concurrent.on_cruby?
+                 MriAttrVolatile
+               when Concurrent.on_jruby?
+                 JRubyAttrVolatile
+               when Concurrent.on_rbx?
+                 RbxAttrVolatile
+               when Concurrent.on_truffleruby?
+                 TruffleRubyAttrVolatile
+               else
+                 MriAttrVolatile
+               end
+  end
+end

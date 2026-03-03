@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b9ed1ff070c029fa458dc9ec02054c3a1a32f71ea8f4cd316b834da8fc482c3f
-size 355
+Aws.add_service(:CodeStarNotifications, {
+  api: "#{Aws::API_DIR}/codestar-notifications/2019-10-15/api-2.json",
+  docs: "#{Aws::API_DIR}/codestar-notifications/2019-10-15/docs-2.json",
+  examples: "#{Aws::API_DIR}/codestar-notifications/2019-10-15/examples-1.json",
+  paginators: "#{Aws::API_DIR}/codestar-notifications/2019-10-15/paginators-1.json",
+})

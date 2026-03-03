@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a6d9f59d7ce7267b39402541e34eef6e4d2a064da0e481fcd137f4e2d1f7bda4
-size 601
+require 'test_helper'
+
+class I18nGettextPluralKeysTest < I18n::TestCase
+  def setup
+    super
+    I18n::Gettext.plural_keys[:zz] = [:value1, :value2]
+  end
+
+  test "Returns the plural keys of the given locale if present" do
+    assert_equal I18n::Gettext.plural_keys(:zz), [:value1, :value2]
+  end
+
+  test "Returns the plural keys of :en if given locale not present" do
+    assert_equal I18n::Gettext.plural_keys(:yy), [:one, :other]
+  end
+
+  test "Returns the whole hash with no arguments" do
+    assert_equal I18n::Gettext.plural_keys, { :en => [:one, :other], :zz => [:value1, :value2] }
+  end
+end

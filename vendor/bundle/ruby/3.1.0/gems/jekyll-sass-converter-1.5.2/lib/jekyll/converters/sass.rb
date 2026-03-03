@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ac7cb57cb9e28c9436710ca00d0e3abdb58e0531081503b51c385358f59d082e
-size 318
+# frozen_string_literal: true
+
+require "sass"
+require "jekyll/utils"
+require "jekyll/converters/scss"
+
+module Jekyll
+  module Converters
+    class Sass < Scss
+      safe true
+      priority :low
+
+      def matches(ext)
+        ext =~ %r!^\.sass$!i
+      end
+
+      def syntax
+        :sass
+      end
+    end
+  end
+end

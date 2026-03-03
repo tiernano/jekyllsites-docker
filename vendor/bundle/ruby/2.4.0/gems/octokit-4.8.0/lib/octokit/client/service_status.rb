@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:07cf5bbb89fb6d34304f2dfac180dbac2b55b6cdc443825759f3fab8a05fd6f6
-size 1119
+module Octokit
+  class Client
+
+    # Methods for the GitHub Status API
+    #
+    # @see https://status.github.com/api
+    module ServiceStatus
+
+      # Root for status API
+      # @private
+      STATUS_ROOT = 'https://status.github.com/api.json'
+
+      # Returns the current system status
+      #
+      # @return [Sawyer::Resource] GitHub status
+      # @see https://status.github.com/api#api-current-status
+      def github_status
+        get(STATUS_ROOT).rels[:status].get.data
+      end
+
+      # Returns the last human communication, status, and timestamp.
+      #
+      # @return [Sawyer::Resource] GitHub status last message
+      # @see https://status.github.com/api#api-last-message
+      def github_status_last_message
+        get(STATUS_ROOT).rels[:last_message].get.data
+      end
+
+      # Returns the most recent human communications with status and timestamp.
+      #
+      # @return [Array<Sawyer::Resource>] GitHub status messages
+      # @see https://status.github.com/api#api-recent-messages
+      def github_status_messages
+        get(STATUS_ROOT).rels[:messages].get.data
+      end
+    end
+  end
+end

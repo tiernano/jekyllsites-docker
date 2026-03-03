@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:081eab014df9e8bda212433296cc44431216e0b4ada11c784f0415bf3d1395f8
-size 257
+require 'typhoeus'
+require 'ruby-prof'
+
+calls = 50
+base_url = "http://127.0.0.1:3000/"
+
+RubyProf.start
+calls.times do |i|
+  Typhoeus::Request.get(base_url+i.to_s)
+end
+result = RubyProf.stop
+
+printer = RubyProf::FlatPrinter.new(result)
+printer.print(STDOUT)

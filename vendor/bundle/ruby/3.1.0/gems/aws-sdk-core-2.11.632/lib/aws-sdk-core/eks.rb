@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ae474c2db7f9c2459b76f78059240f4723b78ddda65f719f4c7593a7f9aba750
-size 321
+Aws.add_service(:EKS, {
+  api: "#{Aws::API_DIR}/eks/2017-11-01/api-2.json",
+  docs: "#{Aws::API_DIR}/eks/2017-11-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/eks/2017-11-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/eks/2017-11-01/paginators-1.json",
+  waiters: "#{Aws::API_DIR}/eks/2017-11-01/waiters-2.json",
+})

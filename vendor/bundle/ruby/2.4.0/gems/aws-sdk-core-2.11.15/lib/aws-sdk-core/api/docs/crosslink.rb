@@ -1,3 +1,43 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a18d8a6f4e05cfb31c14ed866c8233a3bd161e0fb72ff87a35d877479d8ca3a8
-size 881
+module Aws
+  module Api
+    module Docs
+      module Crosslink
+
+        EXCLUDE_UIDS = [
+          "apigateway",
+          "budgets",
+          "cloudsearch",
+          "cloudsearchdomain",
+          "discovery",
+          "elastictranscoder",
+          "es",
+          "glacier",
+          "importexport",
+          "iot",
+          "iot-data",
+          "machinelearning",
+          "rekognition",
+          "sdb",
+          "swf"
+        ]
+
+        def self.tag_string(uid, name)
+          path = "#{ENV['BASEURL']}goto/WebAPI/#{uid}/#{name}"
+          "@see #{path} AWS API Documentation"
+        end
+
+        def self.taggable?(uid)
+          uid && ENV['BASEURL'] && !exclude?(uid)
+        end
+
+        private
+        def self.exclude?(uid)
+          EXCLUDE_UIDS.any? do |service|
+            uid.match(/^#{service}/)
+          end
+        end
+
+      end
+    end
+  end
+end

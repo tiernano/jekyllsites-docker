@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bb40a049334b283801cf73c9dd5881eee28ac500d4ee8ec4080aab76fb6b6d73
-size 254
+module Ethon
+  module Errors
+
+    # Raises when multi_add_handle failed.
+    class MultiAdd < EthonError
+      def initialize(code, easy)
+        super("An error occured adding the easy handle: #{easy} to the multi: #{code}")
+      end
+    end
+  end
+end

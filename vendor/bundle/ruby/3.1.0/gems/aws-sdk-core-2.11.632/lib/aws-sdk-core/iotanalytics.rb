@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0bbf0ed28fbe818df4703c62d9b73a3996ff8ca6826843ecbdc73b069a45dc8c
-size 306
+Aws.add_service(:IoTAnalytics, {
+  api: "#{Aws::API_DIR}/iotanalytics/2017-11-27/api-2.json",
+  docs: "#{Aws::API_DIR}/iotanalytics/2017-11-27/docs-2.json",
+  examples: "#{Aws::API_DIR}/iotanalytics/2017-11-27/examples-1.json",
+  paginators: "#{Aws::API_DIR}/iotanalytics/2017-11-27/paginators-1.json",
+})

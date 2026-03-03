@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f237543c48341caf38c0f1ab0b3804c4e1eb46f656bc3497239d6b0a5d5f8395
-size 328
+require 'test_helper'
+
+class BlockTest < Minitest::Test
+  include Liquid
+
+  def test_unexpected_end_tag
+    exc = assert_raises(SyntaxError) do
+      Template.parse("{% if true %}{% endunless %}")
+    end
+    assert_equal exc.message, "Liquid syntax error: 'endunless' is not a valid delimiter for if tags. use endif"
+  end
+end

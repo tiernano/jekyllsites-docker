@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1cda36714a2c9a81dd4b1b6ce457f397d3196e9b9c96d6031c47f1e10e2e5645
-size 544
+module JMESPath
+  # @api private
+  module Nodes
+    class Flatten < Node
+      def initialize(child)
+        @child = child
+      end
+
+      def visit(value)
+        value = @child.visit(value)
+        if Array === value
+          value.each_with_object([]) do |v, values|
+            if Array === v
+              values.concat(v)
+            else
+              values.push(v)
+            end
+          end
+        else
+          nil
+        end
+      end
+
+      def optimize
+        self.class.new(@child.optimize)
+      end
+    end
+  end
+end

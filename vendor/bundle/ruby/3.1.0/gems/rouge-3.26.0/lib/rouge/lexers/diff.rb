@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1bc3dfe107674eabc7acfc77723a451cdda38746330f59b9c8cfface5d77f367
-size 1078
+# frozen_string_literal: true
+
+module Rouge
+  module Lexers
+    class Diff < RegexLexer
+      title 'diff'
+      desc 'Lexes unified diffs or patches'
+
+      tag 'diff'
+      aliases 'patch', 'udiff'
+      filenames '*.diff', '*.patch'
+      mimetypes 'text/x-diff', 'text/x-patch'
+
+      def self.detect?(text)
+        return true if text.start_with?('Index: ')
+        return true if text =~ %r(\Adiff[^\n]*?\ba/[^\n]*\bb/)
+        return true if text =~ /---.*?\n[+][+][+]/ || text =~ /[+][+][+].*?\n---/
+      end
+
+      state :root do
+        rule(/^ .*$\n?/, Text)
+        rule(/^---$\n?/, Punctuation)
+        rule(/^[+>]+.*$\n?/, Generic::Inserted)
+        rule(/^\+.*$\n?/, Generic::Inserted)
+        rule(/^[-<]+.*$\n?/, Generic::Deleted)
+        rule(/^!.*$\n?/, Generic::Strong)
+        rule(/^([Ii]ndex|diff).*$\n?/, Generic::Heading)
+        rule(/^(@@[^@]*@@)([^\n]*\n)/) do
+          groups Punctuation, Text
+        end
+        rule(/^\w.*$\n?/, Punctuation)
+        rule(/^=.*$\n?/, Generic::Heading)
+        rule(/\s.*$\n?/, Text)
+      end
+    end
+  end
+end

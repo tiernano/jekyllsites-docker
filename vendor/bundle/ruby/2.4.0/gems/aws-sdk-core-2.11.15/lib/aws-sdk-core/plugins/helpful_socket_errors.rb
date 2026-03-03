@@ -1,3 +1,41 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:43d57446c405b51477cb119af848806645e68197ecacd6908f699ad643d63c89
-size 1172
+module Aws
+  module Plugins
+    # @api private
+    class HelpfulSocketErrors < Seahorse::Client::Plugin
+
+      class Handler < Seahorse::Client::Handler
+
+        # Wrap `SocketError` errors with `Aws::Errors::NoSuchEndpointError`
+        def call(context)
+          response = @handler.call(context)
+          response.context.http_response.on_error do |error|
+            if socket_endpoint_error?(error)
+              response.error = no_such_endpoint_error(context, error)
+            end
+          end
+          response
+        end
+
+        private
+
+        def socket_endpoint_error?(error)
+          Seahorse::Client::NetworkingError === error &&
+          SocketError === error.original_error &&
+          error.original_error.message.match(/failed to open tcp connection/i) &&
+          error.original_error.message.match(/getaddrinfo: nodename nor servname provided, or not known/i)
+        end
+
+        def no_such_endpoint_error(context, error)
+          Errors::NoSuchEndpointError.new({
+            context: context,
+            original_error: error.original_error,
+          })
+        end
+
+      end
+
+      handle(Handler, step: :sign)
+
+    end
+  end
+end

@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2d4fe0605a8e35537e86ebd2fcb2b7da024384f3b9fe48cb437890c86a6e5b89
-size 142
+<?xml version="1.0" encoding="utf-8"?>
+<test xmlns:xi="http://www.w3.org/2001/XInclude">
+    <xi:include href="to_be_xincluded.xml"/>
+</test>

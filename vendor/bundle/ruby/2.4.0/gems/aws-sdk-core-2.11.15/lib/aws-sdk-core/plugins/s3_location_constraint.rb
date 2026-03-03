@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e72233689c46f0dae1e896f74c98813d92d668374b50ed576f788b8cec3fc67a
-size 894
+module Aws
+  module Plugins
+
+    # When making calls to {S3::Client#create_bucket} outside the
+    # "classic" region, the bucket location constraint must be specified.
+    # This plugin auto populates the constraint to the configured region.
+    class S3LocationConstraint < Seahorse::Client::Plugin
+
+      class Handler < Seahorse::Client::Handler
+
+        def call(context)
+          unless context.config.region == 'us-east-1'
+            populate_location_constraint(context.params, context.config.region)
+          end
+          @handler.call(context)
+        end
+
+        private
+
+        def populate_location_constraint(params, region)
+          params[:create_bucket_configuration] ||= {}
+          params[:create_bucket_configuration][:location_constraint] ||= region
+        end
+
+      end
+
+      handler(Handler, step: :initialize, operations: [:create_bucket])
+
+    end
+  end
+end

@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:360afb57303892d0b053f21b3d37b67532ad29a1beafee13139b710bd6c1f120
-size 162
+#  Backport of Struct#to_h from Ruby 2.0
+class Struct # :nodoc:
+  def to_h
+    Hash[members.zip(values)]
+  end
+end unless Struct.instance_methods.include?(:to_h)

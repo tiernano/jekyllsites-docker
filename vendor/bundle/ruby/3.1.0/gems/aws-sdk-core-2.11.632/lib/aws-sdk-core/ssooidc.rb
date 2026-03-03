@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c58f8b61c52a04e2486c51737ead44c8aceb96e73007ef29ddfa6b415b0a3b62
-size 285
+Aws.add_service(:SSOOIDC, {
+  api: "#{Aws::API_DIR}/sso-oidc/2019-06-10/api-2.json",
+  docs: "#{Aws::API_DIR}/sso-oidc/2019-06-10/docs-2.json",
+  examples: "#{Aws::API_DIR}/sso-oidc/2019-06-10/examples-1.json",
+  paginators: "#{Aws::API_DIR}/sso-oidc/2019-06-10/paginators-1.json",
+})

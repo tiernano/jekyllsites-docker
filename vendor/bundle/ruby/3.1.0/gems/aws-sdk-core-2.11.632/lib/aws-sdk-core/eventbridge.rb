@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5408dee02a64371c495bbf43ac9c6a3dc1be0750683fde8a7fe201422abef7f8
-size 301
+Aws.add_service(:EventBridge, {
+  api: "#{Aws::API_DIR}/eventbridge/2015-10-07/api-2.json",
+  docs: "#{Aws::API_DIR}/eventbridge/2015-10-07/docs-2.json",
+  examples: "#{Aws::API_DIR}/eventbridge/2015-10-07/examples-1.json",
+  paginators: "#{Aws::API_DIR}/eventbridge/2015-10-07/paginators-1.json",
+})

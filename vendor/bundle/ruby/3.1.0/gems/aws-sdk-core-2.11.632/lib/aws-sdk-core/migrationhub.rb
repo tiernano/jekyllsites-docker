@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9ac03c7d41a9b36c39478c15feca7456aaac73f87fc5664b9a78161180124cd7
-size 318
+Aws.add_service(:MigrationHub, {
+  api: "#{Aws::API_DIR}/AWSMigrationHub/2017-05-31/api-2.json",
+  docs: "#{Aws::API_DIR}/AWSMigrationHub/2017-05-31/docs-2.json",
+  examples: "#{Aws::API_DIR}/AWSMigrationHub/2017-05-31/examples-1.json",
+  paginators: "#{Aws::API_DIR}/AWSMigrationHub/2017-05-31/paginators-1.json",
+})

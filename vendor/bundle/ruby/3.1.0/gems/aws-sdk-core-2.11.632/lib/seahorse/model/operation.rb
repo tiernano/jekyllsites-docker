@@ -1,3 +1,56 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:156664888becc8c094a3690b7e96c34955e0ac105e4ef2a74dd777aa2f33c958
-size 1053
+module Seahorse
+  module Model
+    class Operation
+
+      def initialize
+        @http_method = 'POST'
+        @http_request_uri = '/'
+        @deprecated = false
+        @errors = []
+        @metadata = {}
+      end
+
+      # @return [String, nil]
+      attr_accessor :name
+
+      # @return [String]
+      attr_accessor :http_method
+
+      # @return [String]
+      attr_accessor :http_request_uri
+
+      # @return [Boolean]
+      attr_accessor :deprecated
+
+      # @return [Boolean]
+      attr_accessor :endpoint_operation
+
+      # @return [Hash]
+      attr_accessor :endpoint_discovery
+
+      # @return [String, nil]
+      attr_accessor :documentation
+
+      # @return [Hash, nil]
+      attr_accessor :endpoint_pattern
+
+      # @return [ShapeRef, nil]
+      attr_accessor :input
+
+      # @return [ShapeRef, nil]
+      attr_accessor :output
+
+      # @return [Array<ShapeRef>]
+      attr_accessor :errors
+
+      def [](key)
+        @metadata[key.to_s]
+      end
+
+      def []=(key, value)
+        @metadata[key.to_s] = value
+      end
+
+    end
+  end
+end

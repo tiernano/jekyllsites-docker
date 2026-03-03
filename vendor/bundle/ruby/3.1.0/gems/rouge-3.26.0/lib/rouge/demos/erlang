@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:04cbfcbcba58649b8dcfcc0760044e10b48c7b2ee64109d2dd77247b33ba2407
-size 190
+%%% Geometry module.
+-module(geometry).
+-export([area/1]).
+
+%% Compute rectangle and circle area.
+area({rectangle, Width, Ht}) -> Width * Ht;
+area({circle, R})            -> 3.14159 * R * R.

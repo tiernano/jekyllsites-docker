@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:aa37bf56a96c6b28fc2bfe51b85779d6d3dbcb2f2acf43f9089dafa8e71c3374
-size 661
+# -*- coding: utf-8 -*- #
+
+module Rouge
+  module Lexers
+    class LiterateCoffeescript < RegexLexer
+      tag 'literate_coffeescript'
+      title "Literate CoffeeScript"
+      desc 'Literate coffeescript'
+      aliases 'litcoffee'
+      filenames '*.litcoffee'
+
+      def markdown
+        @markdown ||= Markdown.new(options)
+      end
+
+      def coffee
+        @coffee ||= Coffeescript.new(options)
+      end
+
+      start { markdown.reset!; coffee.reset! }
+
+      state :root do
+        rule /^(    .*?\n)+/m do
+          delegate coffee
+        end
+
+        rule /^([ ]{0,3}(\S.*?|)\n)*/m do
+          delegate markdown
+        end
+      end
+    end
+  end
+end

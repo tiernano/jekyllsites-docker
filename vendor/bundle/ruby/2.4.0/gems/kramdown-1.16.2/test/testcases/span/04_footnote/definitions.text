@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:86a60b7a031b6fec733ce88e97336f538d3673908fc8ce2f31c8097065b58d57
-size 247
+Some para.
+
+[^footnote]: ignored definition
+[^footnote]: Some footnote text
+
+> blockquote
+
+[^other]: some
+    foot
+
+    note text
+
+* a list
+  with some text
+
+[^tnote]: foot note
+
+* other list
+^
+    code
+
+[^1]:
+    > a blockquote
+    and some para

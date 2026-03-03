@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:09c4dd3c5e38c2f52b77663558326409783e8c5da0533330247ea624897fddce
-size 525
+If you have obtained an EventMachine source-tarball (.tar.gz):
+unzip and untar the tarball, and enter the directory that is
+created. In that directory, say:
+ruby setup.rb
+(You may need to be root to execute this command.)
+
+To create documentation for EventMachine, simply type:
+rake rdoc
+in the distro directory. Rdocs will be created in subdirectory rdoc.
+
+If you have obtained a gem version of EventMachine, install it in the
+usual way (gem install eventmachine). You may need superuser privileges
+to execute this command.

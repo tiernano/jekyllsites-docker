@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8dccee3fc63fbf5586e97bba27e024e7595605df116f2fc0c9a0033d7899315c
-size 567
+# frozen_string_literal: true
+
+module Aws
+  module Sigv4
+    module Errors
+
+      class MissingCredentialsError < ArgumentError
+        def initialize(msg = nil)
+          super(msg || <<-MSG.strip)
+missing credentials, provide credentials with one of the following options:
+  - :access_key_id and :secret_access_key
+  - :credentials
+  - :credentials_provider
+          MSG
+        end
+      end
+
+      class MissingRegionError < ArgumentError
+        def initialize(*args)
+          super("missing required option :region")
+        end
+      end
+
+    end
+  end
+end
+

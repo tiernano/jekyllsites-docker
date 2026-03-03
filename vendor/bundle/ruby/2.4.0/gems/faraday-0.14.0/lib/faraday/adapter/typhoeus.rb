@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c14efeeccd7680ccd2e914f3c1443ab2c196f48e2c924d06c284f5ad30ea7471
-size 397
+module Faraday
+  class Adapter
+    # This class is just a stub, the real adapter is in https://github.com/philsturgeon/typhoeus/blob/master/lib/typhoeus/adapters/faraday.rb
+    class Typhoeus < Faraday::Adapter
+      # Needs to define this method in order to support Typhoeus <= 1.3.0
+      def call; end
+
+      dependency 'typhoeus'
+      dependency 'typhoeus/adapters/faraday'
+    end
+  end
+end

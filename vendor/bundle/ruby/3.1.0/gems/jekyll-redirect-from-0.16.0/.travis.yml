@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f102dccb031d9fcbce4f5e92f382a6f7086334a95acaf39d73bd0a19333e44a3
-size 337
+language: ruby
+cache: bundler
+rvm:
+  - &latest_ruby 2.6
+  - 2.4
+  - 2.3
+env:
+  - JEKYLL_VERSION="~> 3.8"
+matrix:
+  include:
+    - # GitHub Pages
+      rvm: 2.5.3
+      env: GH_PAGES=true
+    - rvm: *latest_ruby
+      env: JEKYLL_VERSION="~> 4.0"
+
+before_install:
+- gem update --system
+before_script: bundle update
+script: script/cibuild

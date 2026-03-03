@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:37096f23173a58b5fe5fd9e41ee752e2831d1be0ce3e9e3e675e552bfa1d72a2
-size 766
+module Aws
+  module Plugins
+
+    # Converts input value to JSON Syntax for members with jsonvalue trait
+    class JsonvalueConverter < Seahorse::Client::Plugin
+
+      # @api private
+      class Handler < Seahorse::Client::Handler
+
+        def call(context)
+          context.operation.input.shape.members.each do |m, ref|
+            if ref['jsonvalue']
+              param_value = context.params[m]
+              unless param_value.respond_to?(:to_json)
+                raise ArgumentError, "The value of params[#{m}] is not JSON serializable."
+              end
+              context.params[m] = param_value.to_json
+            end
+          end
+          @handler.call(context)
+        end
+
+      end
+
+      handler(Handler, step: :initialize)
+    end
+
+  end
+end

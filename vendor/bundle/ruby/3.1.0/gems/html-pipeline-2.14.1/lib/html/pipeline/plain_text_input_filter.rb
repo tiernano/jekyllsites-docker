@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:362f15f2a9fd629af6a55f5823882e94304f64d68de226c4ea8230c8a9da3ac1
-size 383
+# frozen_string_literal: true
+
+HTML::Pipeline.require_dependency('escape_utils', 'PlainTextInputFilter')
+
+module HTML
+  class Pipeline
+    # Simple filter for plain text input. HTML escapes the text input and wraps it
+    # in a div.
+    class PlainTextInputFilter < TextFilter
+      def call
+        "<div>#{EscapeUtils.escape_html(@text, false)}</div>"
+      end
+    end
+  end
+end

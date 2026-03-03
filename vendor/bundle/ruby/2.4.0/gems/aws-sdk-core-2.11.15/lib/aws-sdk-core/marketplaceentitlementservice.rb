@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:158f6f2dcfc080b58dce361eb6eef69d253b353c17cf5e256919a029600844fa
-size 367
+Aws.add_service(:MarketplaceEntitlementService, {
+  api: "#{Aws::API_DIR}/entitlement.marketplace/2017-01-11/api-2.json",
+  docs: "#{Aws::API_DIR}/entitlement.marketplace/2017-01-11/docs-2.json",
+  examples: "#{Aws::API_DIR}/entitlement.marketplace/2017-01-11/examples-1.json",
+  paginators: "#{Aws::API_DIR}/entitlement.marketplace/2017-01-11/paginators-1.json",
+})

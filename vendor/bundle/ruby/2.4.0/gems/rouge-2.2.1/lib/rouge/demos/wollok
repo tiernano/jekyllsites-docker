@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c9ed23830cc24cf2af83c7bad51bc699d453ee85e7f59b98cdd4c330c6fce76c
-size 168
+object pepita {
+    var energy = 100
+
+    method energy() = energy
+
+    method fly(kilometers) {
+        energy -= kilometers + 10
+    }
+
+    method sayHi() = "Coo!"
+}

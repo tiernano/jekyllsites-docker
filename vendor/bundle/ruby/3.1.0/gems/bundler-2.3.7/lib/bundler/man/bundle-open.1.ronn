@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d7a95f8e3c79dd14d968ae9f932b8860bc34fdd8fcbc84fed98edaf77cb20eeb
-size 442
+bundle-open(1) -- Opens the source directory for a gem in your bundle
+=====================================================================
+
+## SYNOPSIS
+
+`bundle open` [GEM]
+
+## DESCRIPTION
+
+Opens the source directory of the provided GEM in your editor.
+
+For this to work the `EDITOR` or `BUNDLER_EDITOR` environment variable has to
+be set.
+
+Example:
+
+    bundle open 'rack'
+
+Will open the source directory for the 'rack' gem in your bundle.

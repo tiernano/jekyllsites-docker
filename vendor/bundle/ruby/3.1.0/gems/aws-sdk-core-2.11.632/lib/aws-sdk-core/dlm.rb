@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:64b8e3ef7e50f8042f272409e79ced8cb226e9eefbcb0b23fe965706b3a8c1b2
-size 261
+Aws.add_service(:DLM, {
+  api: "#{Aws::API_DIR}/dlm/2018-01-12/api-2.json",
+  docs: "#{Aws::API_DIR}/dlm/2018-01-12/docs-2.json",
+  examples: "#{Aws::API_DIR}/dlm/2018-01-12/examples-1.json",
+  paginators: "#{Aws::API_DIR}/dlm/2018-01-12/paginators-1.json",
+})

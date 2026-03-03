@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:84d688f85e8582ad607799d7a920debe388e59a81f0ffb4e9600f8189c82b111
-size 693
+class Hash
+  unless Hash.instance_methods(false).include?(:compact)
+    # Returns a hash with non +nil+ values.
+    #
+    #   hash = { a: true, b: false, c: nil}
+    #   hash.compact # => { a: true, b: false}
+    #   hash # => { a: true, b: false, c: nil}
+    #   { c: nil }.compact # => {}
+    def compact
+      self.select { |_, value| !value.nil? }
+    end
+  end
+
+  unless Hash.instance_methods(false).include?(:compact!)
+    # Replaces current hash with non +nil+ values.
+    #
+    #   hash = { a: true, b: false, c: nil}
+    #   hash.compact! # => { a: true, b: false}
+    #   hash # => { a: true, b: false}
+    def compact!
+      self.reject! { |_, value| value.nil? }
+    end
+  end
+end

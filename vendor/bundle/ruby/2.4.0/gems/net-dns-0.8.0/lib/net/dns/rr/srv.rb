@@ -1,3 +1,45 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d600872aa89bec0bcd95792c041f6180c7cb3e17db8ead00f6f728b274cee4a5
-size 1034
+module Net # :nodoc:
+  module DNS
+    class RR
+      
+      #------------------------------------------------------------
+      # RR type SRV
+      #------------------------------------------------------------
+      class SRV < RR
+        
+        attr_reader :priority, :weight, :port, :host
+        
+        private
+        
+        def build_pack
+          str = ""
+        end
+        
+        def subclass_new_from_binary(data,offset)
+          off_end = offset + @rdlength
+          @priority, @weight, @port = data.unpack("@#{offset} n n n")
+          offset+=6
+
+          @host=[]
+          while offset < off_end
+            len = data.unpack("@#{offset} C")[0]
+            offset += 1
+            str = data[offset..offset+len-1]
+            offset += len
+            @host << str
+          end
+          @host=@host.join(".")
+          offset
+        end
+        
+        private
+        
+          def set_type
+            @type = Net::DNS::RR::Types.new("SRV")
+          end
+        
+      end
+    end
+        
+  end
+end

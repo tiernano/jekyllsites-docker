@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e363123093760ceeba46827e227972467d51223f83701b12718b3f5cf0bfe3b4
-size 315
+Aws.add_service(:ServiceQuotas, {
+  api: "#{Aws::API_DIR}/service-quotas/2019-06-24/api-2.json",
+  docs: "#{Aws::API_DIR}/service-quotas/2019-06-24/docs-2.json",
+  examples: "#{Aws::API_DIR}/service-quotas/2019-06-24/examples-1.json",
+  paginators: "#{Aws::API_DIR}/service-quotas/2019-06-24/paginators-1.json",
+})

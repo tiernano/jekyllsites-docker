@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f3da442ebce90f4f17db26937d117d2aa111e601168b671c802e0ceb98800a27
-size 286
+Aws.add_service(:CloudWatchEvents, {
+  api: "#{Aws::API_DIR}/events/2015-10-07/api-2.json",
+  docs: "#{Aws::API_DIR}/events/2015-10-07/docs-2.json",
+  examples: "#{Aws::API_DIR}/events/2015-10-07/examples-1.json",
+  paginators: "#{Aws::API_DIR}/events/2015-10-07/paginators-1.json",
+})

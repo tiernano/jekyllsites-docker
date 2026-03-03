@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c8af31699db034bc9878c3fdec8deeca70c0636b383388c6f6c7a1b4400d05c3
-size 423
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "DescribeFileSystems",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "DeleteFileSystem",
+            "input": {
+                "FileSystemId": "fs-c5a1446c"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

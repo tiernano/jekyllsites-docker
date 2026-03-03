@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:086d1871c94bd2684a11ce477b513153d2070f0233593aa70422742263738602
-size 235
+Aws.add_service(:ImportExport, {
+  api: "#{Aws::API_DIR}/importexport/2010-06-01/api-2.json",
+  docs: "#{Aws::API_DIR}/importexport/2010-06-01/docs-2.json",
+  paginators: "#{Aws::API_DIR}/importexport/2010-06-01/paginators-1.json",
+})

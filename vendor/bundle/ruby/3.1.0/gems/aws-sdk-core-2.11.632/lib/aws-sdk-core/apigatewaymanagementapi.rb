@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0a89ac7c69f5d71bca85d67cb6e96ac6450938b3eeb3aadc84d34c462c33b439
-size 279
+Aws.add_service(:ApiGatewayManagementApi, {
+  api: "#{Aws::API_DIR}/apigatewaymanagementapi/2018-11-29/api-2.json",
+  docs: "#{Aws::API_DIR}/apigatewaymanagementapi/2018-11-29/docs-2.json",
+  paginators: "#{Aws::API_DIR}/apigatewaymanagementapi/2018-11-29/paginators-1.json",
+})

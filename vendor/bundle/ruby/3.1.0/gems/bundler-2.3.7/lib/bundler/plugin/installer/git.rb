@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0e8be8f0aebb34dd4b7f4c1146b6742368b7f5957348c8d7d6513a84188d809a
-size 865
+# frozen_string_literal: true
+
+module Bundler
+  module Plugin
+    class Installer
+      class Git < Bundler::Source::Git
+        def cache_path
+          @cache_path ||= begin
+            git_scope = "#{base_name}-#{uri_hash}"
+
+            Plugin.cache.join("bundler", "git", git_scope)
+          end
+        end
+
+        def install_path
+          @install_path ||= begin
+            git_scope = "#{base_name}-#{shortref_for_path(revision)}"
+
+            Plugin.root.join("bundler", "gems", git_scope)
+          end
+        end
+
+        def version_message(spec)
+          "#{spec.name} #{spec.version}"
+        end
+
+        def root
+          Plugin.root
+        end
+
+        def generate_bin(spec, disable_extensions = false)
+          # Need to find a way without code duplication
+          # For now, we can ignore this
+        end
+      end
+    end
+  end
+end

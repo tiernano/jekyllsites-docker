@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:42579eea95c0a08af82cb2c968f62b94af5e1bc07f366f9c4c6285045546abf8
-size 368
+# frozen_string_literal: true
+
+module GitHubPages
+  module HealthCheck
+    module Errors
+      class NotServedByPagesError < GitHubPages::HealthCheck::Error
+        DOCUMENTATION_PATH = "/articles/setting-up-a-custom-domain-with-github-pages/"
+
+        def message
+          "Domain does not resolve to the GitHub Pages server"
+        end
+      end
+    end
+  end
+end

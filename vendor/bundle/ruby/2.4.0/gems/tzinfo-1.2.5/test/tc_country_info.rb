@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:055cba033222f7ff6faf3215c42108512b5dd8e06c4133cff7814dfc81e528df
-size 337
+require File.join(File.expand_path(File.dirname(__FILE__)), 'test_utils')
+
+include TZInfo
+
+class TCCountryInfo < Minitest::Test
+  
+  def test_code
+    ci = CountryInfo.new('ZZ', 'Zzz') {|c| }
+    assert_equal('ZZ', ci.code)
+  end
+  
+  def test_name
+    ci = CountryInfo.new('ZZ', 'Zzz') {|c| }
+    assert_equal('Zzz', ci.name)
+  end
+end

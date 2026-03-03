@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5b9059dd34ff8fdb5f7cb0fb351e5feeab538596281f9ac204389396cac239b7
-size 245
+/* Area:	ffi_call
+   Purpose:	Check return value complex, with many arguments
+   Limitations:	none.
+   PR:		none.
+   Originator:	<vogt@linux.vnet.ibm.com>.  */
+
+/* { dg-do run } */
+
+#include "complex_defs_double.inc"
+#include "many_complex.inc"

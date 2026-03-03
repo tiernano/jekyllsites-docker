@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3ce09a4e1d347b86c145e0c6bb517f8db8d0b3cdba654e5c54678940edc24f1f
-size 188
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+gemspec
+
+if ENV["GH_PAGES"]
+  gem "github-pages"
+elsif ENV["JEKYLL_VERSION"]
+  gem "jekyll", "~> #{ENV["JEKYLL_VERSION"]}"
+end

@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:133faace0344745624130043883f164bea63ad6dc9fb668bf0aafca89a25ca52
-size 739
+package http_parser;
+
+import java.nio.ByteBuffer;
+
+public class HTTPParser extends http_parser.lolevel.HTTPParser {
+  
+  public HTTPParser() { super(); }
+  public HTTPParser(ParserType type) { super(type); }
+
+  public int getMajor() {
+    return super.http_major;
+  }
+
+  public int getMinor() {
+    return super.http_minor;
+  }
+
+  public int getStatusCode() {
+    return super.status_code;
+  }
+
+  public HTTPMethod getHTTPMethod() {
+    return super.method;
+  }
+
+  public boolean getUpgrade() {
+    return super.upgrade;
+  }
+  
+  public boolean shouldKeepAlive() {
+    return super.http_should_keep_alive();
+  }
+  public void execute(ParserSettings settings, ByteBuffer data) {
+   this.execute(settings.getLoLevelSettings(), data);
+  }
+} 

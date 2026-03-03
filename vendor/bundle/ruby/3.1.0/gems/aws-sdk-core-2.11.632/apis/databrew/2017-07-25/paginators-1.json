@@ -1,3 +1,46 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c97bd4e13168eec61f5091a6800e1e7bd336f16dc37b3fffac6487fbf1ae1e6b
-size 1153
+{
+  "pagination": {
+    "ListDatasets": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "Datasets"
+    },
+    "ListJobRuns": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "JobRuns"
+    },
+    "ListJobs": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "Jobs"
+    },
+    "ListProjects": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "Projects"
+    },
+    "ListRecipeVersions": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "Recipes"
+    },
+    "ListRecipes": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "Recipes"
+    },
+    "ListSchedules": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "Schedules"
+    }
+  }
+}

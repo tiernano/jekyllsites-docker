@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d5d7c23d6369c35ecc648a4b3bbcdf3dfaa7d72eedfbfaa2ffb28f2c215b00d8
-size 298
+# encoding: BINARY
+
+module EventMachine
+  module WebSocket
+    # The only difference between draft 03 framing and draft 04 framing is 
+    # that the MORE bit has been changed to a FIN bit
+    module Framing04
+      include Framing03
+
+      private
+      
+      def fin; true; end
+    end
+  end
+end

@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e33ec191563dfc89cf120197af056fe9185d4807dd369b3a5cb8e8df302483d7
-size 816
+# frozen_string_literal: true
+
+require 'test_helper'
+
+class TestExtensions < Minitest::Test
+  def test_full_info_string
+    md = <<~MD
+      ```ruby
+      module Foo
+      ```
+    MD
+
+    CommonMarker.render_html(md, :FULL_INFO_STRING).tap do |out|
+      assert_includes out, '<pre><code class="language-ruby">'
+    end
+
+    md = <<~MD
+      ```ruby my info string
+      module Foo
+      ```
+    MD
+
+    CommonMarker.render_html(md, :FULL_INFO_STRING).tap do |out|
+      assert_includes out, '<pre><code class="language-ruby" data-meta="my info string">'
+    end
+
+    md = <<~MD
+      ```ruby my \x00 string
+      module Foo
+      ```
+    MD
+
+    CommonMarker.render_html(md, :FULL_INFO_STRING).tap do |out|
+      assert_includes out, %(<pre><code class="language-ruby" data-meta="my � string">)
+    end
+  end
+end

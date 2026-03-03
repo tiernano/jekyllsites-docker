@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a8cfb4a83b8980d7b841ac235902823ebda4b31287ddf6c2fdb63a5ea6173187
-size 559
+{
+  "pagination": {
+    "DescribeAccessPoints": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    },
+    "DescribeFileSystems": {
+      "input_token": "Marker",
+      "output_token": "NextMarker",
+      "limit_key": "MaxItems"
+    },
+    "DescribeTags": {
+      "input_token": "Marker",
+      "output_token": "NextMarker",
+      "limit_key": "MaxItems"
+    },
+    "ListTagsForResource": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    }
+  }
+}

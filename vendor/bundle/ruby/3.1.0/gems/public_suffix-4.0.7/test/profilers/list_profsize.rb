@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:aa55af0c1c6838555ac8c30311adba79c25fd5a4c267c601278237c109975d21
-size 374
+$LOAD_PATH.unshift File.expand_path("../../lib", __dir__)
+
+require_relative "object_binsize"
+require "public_suffix"
+
+list = PublicSuffix::List.default
+puts "#{list.size} rules:"
+
+prof = ObjectBinsize.new
+prof.report(PublicSuffix::List.default, label: "PublicSuffix::List size")
+prof.report(PublicSuffix::List.default.instance_variable_get(:@rules), label: "Size of rules")

@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b02ef9ec9abe3b47d834b7d4b1d58cc55390220e0624cde14c3742b2f4a5fe03
-size 385
+#!/usr/bin/env bash
+# Usage: script/release
+# Build the package, tag a commit, push it to origin, and then release the
+# package publicly.
+
+set -e
+
+version="$(script/package | grep Version: | awk '{print $2}')"
+[ -n "$version" ] || exit 1
+
+git commit --allow-empty -a -m "Release $version"
+git tag "v$version"
+git push origin
+git push origin "v$version"
+gem push pkg/*-${version}.gem
+

@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dcc907c0c4c1472084342bb3da876e4241c6bd5c037c88a791fdea24279424e8
-size 259
+util = require "my.module"
+
+a_table = {
+  foo: 'bar'
+  interpolated: "foo-#{other.stuff 2 + 3}"
+  "string": 2
+  do: 'keyword'
+}
+
+class MyClass extends SomeClass
+  new: (@init, arg2 = 'default') =>
+    @derived = @init + 2
+    super!
+
+  other: =>
+    @foo + 2

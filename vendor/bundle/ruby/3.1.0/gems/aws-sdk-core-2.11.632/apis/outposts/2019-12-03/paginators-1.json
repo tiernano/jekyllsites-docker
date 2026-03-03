@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:63954e0cfd853e776750a42970c8e270bb5272c7a3eeaf7dec4e749b679cb586
-size 282
+{
+  "pagination": {
+    "ListOutposts": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    },
+    "ListSites": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    }
+  }
+}

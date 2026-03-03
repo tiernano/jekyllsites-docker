@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cb76df55b75e5219b9bafdb4487063fbe2c7fcb640837e69aeaf8454ad22b98d
-size 518
+$LOAD_PATH.push File.expand_path('../lib', __FILE__)
+require 'ruby-enum/version'
+
+Gem::Specification.new do |s|
+  s.name = 'ruby-enum'
+  s.version = Ruby::Enum::VERSION
+  s.authors = ['Daniel Doubrovkine']
+  s.email = 'dblock@dblock.org'
+  s.platform = Gem::Platform::RUBY
+  s.required_rubygems_version = '>= 1.3.6'
+  s.files = Dir['**/*']
+  s.require_paths = ['lib']
+  s.homepage = 'http://github.com/dblock/ruby-enum'
+  s.licenses = ['MIT']
+  s.summary = 'Enum-like behavior for Ruby.'
+  s.add_dependency 'i18n'
+end

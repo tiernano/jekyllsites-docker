@@ -1,3 +1,39 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b8e9624e885676f28de3da52ef9658d8516a56ba50b45de4178ca4966d1c5ab8
-size 526
+Simple header
+
+| cell1 | cell2
+|-----
+| cell3 | cell4
+
+Full header
+
+| cell1 | cell2
+|-------|-------|
+| cell3 | cell4
+
+With alignment and superfluous alignment defs
+
+| default | left | center | right | default
+|-| :- |:-: | -: | - | :-: | :-
+| cell1 | cell2 | cell3 | cell4 | cell5
+
+With leading sep line
+
+|:-:|-:|
+| cell1 | cell2
+|-------|-------|
+| cell3 | cell4
+
+Multiple bodies
+
+| cell1 | cell2
++ :-: |
+| cell3 | cell4
+|----|||
+| cell5 | cell6
+
+Sep line with tab
+
+right | center
+---:  	|	:---:
+cell1 | cell2
+cell3 | cell4

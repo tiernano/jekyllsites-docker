@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:da1b32189ff185d56504c6c520290e59120e601027acc4aa81b63b8fcf99b5fe
-size 125
+#ifndef TABLE_H
+#define TABLE_H
+
+#include "core-extensions.h"
+
+cmark_syntax_extension *create_table_extension(void);
+
+#endif

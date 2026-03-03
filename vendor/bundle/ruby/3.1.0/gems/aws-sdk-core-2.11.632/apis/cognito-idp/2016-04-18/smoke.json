@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7824701ff5b776c6c4dafab67f1641447d90fb9ff467e2cd450835b8c0275be5
-size 495
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "ListUserPools",
+            "input": {
+                "MaxResults": 10
+            },
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "DescribeUserPool",
+            "input": {
+                "UserPoolId": "us-east-1:aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

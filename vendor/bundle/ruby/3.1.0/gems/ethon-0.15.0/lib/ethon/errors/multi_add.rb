@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dfc4c3cf63349753bb67c04fcfbce571487ed05053368b661b8043a70311801f
-size 284
+# frozen_string_literal: true
+module Ethon
+  module Errors
+
+    # Raises when multi_add_handle failed.
+    class MultiAdd < EthonError
+      def initialize(code, easy)
+        super("An error occured adding the easy handle: #{easy} to the multi: #{code}")
+      end
+    end
+  end
+end

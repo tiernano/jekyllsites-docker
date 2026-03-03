@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3fc645677d0bc54914d8c586de4b85b32c5dbb1518604c2747a0c2bf9a496706
-size 403
+module Octokit
+  class Client
+
+    # Methods for the Emojis API
+    module Emojis
+
+      # List all emojis used on GitHub
+      #
+      # @return [Sawyer::Resource] A list of all emojis on GitHub
+      # @see https://developer.github.com/v3/emojis/#emojis
+      # @example List all emojis
+      #   Octokit.emojis
+      def emojis(options = {})
+        get "emojis", options
+      end
+    end
+  end
+end

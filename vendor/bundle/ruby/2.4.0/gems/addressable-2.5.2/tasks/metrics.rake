@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c73539001ffd505d4c18dc3e01c6c4be1516f24dc89b133beea18a6bd3287ebb
-size 603
+namespace :metrics do
+  task :lines do
+    lines, codelines, total_lines, total_codelines = 0, 0, 0, 0
+    for file_name in FileList["lib/**/*.rb"]
+      f = File.open(file_name)
+      while line = f.gets
+        lines += 1
+        next if line =~ /^\s*$/
+        next if line =~ /^\s*#/
+        codelines += 1
+      end
+      puts "L: #{sprintf("%4d", lines)}, " +
+        "LOC #{sprintf("%4d", codelines)} | #{file_name}"
+      total_lines     += lines
+      total_codelines += codelines
+
+      lines, codelines = 0, 0
+    end
+
+    puts "Total: Lines #{total_lines}, LOC #{total_codelines}"
+  end
+end

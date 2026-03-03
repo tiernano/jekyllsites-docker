@@ -1,3 +1,52 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:42b32616f578240242b6811bb807706ff2bf7ce1cc00838980338b472d8f991f
-size 1142
+/*****************************************************************************
+
+$Id$
+
+File:     binder.h
+Date:     07Apr06
+
+Copyright (C) 2006-07 by Francis Cianfrocca. All Rights Reserved.
+Gmail: blackhedd
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of either: 1) the GNU General Public License
+as published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version; or 2) Ruby's License.
+
+See the file COPYING for complete licensing information.
+
+*****************************************************************************/
+
+#ifndef __ObjectBindings__H_
+#define __ObjectBindings__H_
+
+
+#if __cplusplus >= 201103L
+#define NO_EXCEPT_FALSE noexcept(false)
+#else
+#define NO_EXCEPT_FALSE
+#endif
+
+class Bindable_t
+{
+	public:
+		static uintptr_t CreateBinding();
+		static Bindable_t *GetObject (const uintptr_t);
+		static std::map<uintptr_t, Bindable_t*> BindingBag;
+
+	public:
+		Bindable_t();
+		virtual ~Bindable_t() NO_EXCEPT_FALSE;
+
+		const uintptr_t GetBinding() {return Binding;}
+
+	private:
+		uintptr_t Binding;
+};
+
+
+
+
+
+#endif // __ObjectBindings__H_
+

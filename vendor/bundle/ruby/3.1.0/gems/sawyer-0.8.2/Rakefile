@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dc08ca67fc464a38296b9ba70db7e3a80ff7d9c131b345a7eb45baa665d7d9c0
-size 214
+require 'rubygems'
+require 'rake'
+
+task :default => :test
+
+require 'rake/testtask'
+Rake::TestTask.new(:test) do |test|
+  test.libs << 'lib' << 'test'
+  test.pattern = 'test/**/*_test.rb'
+  test.verbose = true
+end
+

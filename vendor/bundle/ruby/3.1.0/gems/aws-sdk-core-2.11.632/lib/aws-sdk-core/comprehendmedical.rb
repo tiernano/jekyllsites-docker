@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:40d2397e6ae5370075065bc345c907c7423a5a3715e1c10be89c1ad2c7694015
-size 331
+Aws.add_service(:ComprehendMedical, {
+  api: "#{Aws::API_DIR}/comprehendmedical/2018-10-30/api-2.json",
+  docs: "#{Aws::API_DIR}/comprehendmedical/2018-10-30/docs-2.json",
+  examples: "#{Aws::API_DIR}/comprehendmedical/2018-10-30/examples-1.json",
+  paginators: "#{Aws::API_DIR}/comprehendmedical/2018-10-30/paginators-1.json",
+})

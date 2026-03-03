@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8e74f1141241de65f048e0fc68363a95f725bbe7977a95509de54382815381ef
-size 286
+Aws.add_service(:Snowball, {
+  api: "#{Aws::API_DIR}/snowball/2016-06-30/api-2.json",
+  docs: "#{Aws::API_DIR}/snowball/2016-06-30/docs-2.json",
+  examples: "#{Aws::API_DIR}/snowball/2016-06-30/examples-1.json",
+  paginators: "#{Aws::API_DIR}/snowball/2016-06-30/paginators-1.json",
+})

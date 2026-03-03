@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d0c7d6d5612e4a824b8430d492b5519010c624098fa5e80767d689321a9cfc91
-size 340
+// stylelint-disable selector-max-type
+.details-overlay[open] > summary::before {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 80;
+  display: block;
+  cursor: default;
+  content: " ";
+  background: transparent;
+}
+
+.details-overlay-dark[open] > summary::before {
+  z-index: 99;
+  background: $black-fade-50;
+}

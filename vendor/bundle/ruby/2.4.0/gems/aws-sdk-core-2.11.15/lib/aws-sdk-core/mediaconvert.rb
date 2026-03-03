@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:058f801843487172fa19f3595a3407d55a2f65df7793247d5fd78c43ba8a5fff
-size 160
+Aws.add_service(:MediaConvert, {
+  api: "#{Aws::API_DIR}/mediaconvert/2017-08-29/api-2.json",
+  docs: "#{Aws::API_DIR}/mediaconvert/2017-08-29/docs-2.json",
+})

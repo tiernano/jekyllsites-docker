@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:af78e46408b616c142e1e6e0f60cc48817074603630668e6c051b8bb9fde8abd
-size 759
+package s3.website.model
+
+import java.io.File
+import s3.website.model.Files.recursiveListFiles
+
+// ssg = static site generator
+trait Ssg {
+  def outputDirectory: String
+}
+
+object Ssg {
+  val automaticallySupportedSiteGenerators = Jekyll :: Nanoc :: Middleman :: Nil
+
+  def autodetectSiteDir(workingDirectory: File): Option[File] =
+    recursiveListFiles(workingDirectory).find { file =>
+      file.isDirectory && automaticallySupportedSiteGenerators.exists(ssg => file.getAbsolutePath.endsWith(ssg.outputDirectory))
+    }
+}
+
+case object Jekyll extends Ssg {
+  def outputDirectory = "_site"
+}
+
+case object Nanoc extends Ssg {
+  def outputDirectory = s"public${File.separatorChar}output"
+}
+
+case object Middleman extends Ssg {
+  def outputDirectory = "build"
+}

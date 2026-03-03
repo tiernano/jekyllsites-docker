@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:234dad49661f961d0ac358d3dc26d6359c63b87a3fbf342ad9ac05dfe1bd100c
-size 267
+This is a <code>code span <b>with</b> &lt;entities&gt; that should be preserved</code>.
+This is a <code>simple code</code> span.
+
+<p>Some <code>&lt;</code></p>
+
+<pre>Some very important <b>&lt;</b> thing</pre>
+
+<pre><code>Some code<span>&lt;</span>&lt;
+</code></pre>

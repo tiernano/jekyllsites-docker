@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:52f6323135a07835d9a2cac99545f975f7f1f678a01184906130595a793a04a4
-size 433
+{
+  "pagination": {
+    "ListSigningJobs": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults"
+    },
+    "ListSigningPlatforms": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults"
+    },
+    "ListSigningProfiles": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults"
+    }
+  }
+}

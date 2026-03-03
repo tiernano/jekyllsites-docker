@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d023c0f9fe9768deb4104afe16513a8406d6a84ecd675e8e3417759e8bace92b
-size 1032
+module Faraday
+  class Request::Instrumentation < Faraday::Middleware
+    class Options < Faraday::Options.new(:name, :instrumenter)
+      def name
+        self[:name] ||= 'request.faraday'
+      end
+
+      def instrumenter
+        self[:instrumenter] ||= ActiveSupport::Notifications
+      end
+    end
+
+    # Public: Instruments requests using Active Support.
+    #
+    # Measures time spent only for synchronous requests.
+    #
+    # Examples
+    #
+    #   ActiveSupport::Notifications.subscribe('request.faraday') do |name, starts, ends, _, env|
+    #     url = env[:url]
+    #     http_method = env[:method].to_s.upcase
+    #     duration = ends - starts
+    #     $stderr.puts '[%s] %s %s (%.3f s)' % [url.host, http_method, url.request_uri, duration]
+    #   end
+    def initialize(app, options = nil)
+      super(app)
+      @name, @instrumenter = Options.from(options).values_at(:name, :instrumenter)
+    end
+
+    def call(env)
+      @instrumenter.instrument(@name, env) do
+        @app.call(env)
+      end
+    end
+  end
+end

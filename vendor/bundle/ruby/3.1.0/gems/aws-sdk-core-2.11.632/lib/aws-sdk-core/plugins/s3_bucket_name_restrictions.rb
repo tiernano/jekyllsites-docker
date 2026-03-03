@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9af8db6573d39ddd4c88d59396956d2f6078be2cf83c1dcbbd64f67281be8e38
-size 489
+module Aws
+  module Plugins
+    # @api private
+    class S3BucketNameRestrictions < Seahorse::Client::Plugin
+      class Handler < Seahorse::Client::Handler
+
+        def call(context)
+          if context.params.key?(:bucket) && context.params[:bucket].include?('/')
+            msg = ":bucket option must not contain a forward-slash (/)"
+            raise ArgumentError, msg
+          end
+          @handler.call(context)
+        end
+
+      end
+
+      handler(Handler)
+
+    end
+  end
+end

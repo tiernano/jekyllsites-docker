@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6af1b24311b66a8f4ec3df4bd0d8f3592611605863cc63876e45fbbd6e0891d2
-size 320
+Aws.add_service(:ResourceGroups, {
+  api: "#{Aws::API_DIR}/resource-groups/2017-11-27/api-2.json",
+  docs: "#{Aws::API_DIR}/resource-groups/2017-11-27/docs-2.json",
+  examples: "#{Aws::API_DIR}/resource-groups/2017-11-27/examples-1.json",
+  paginators: "#{Aws::API_DIR}/resource-groups/2017-11-27/paginators-1.json",
+})

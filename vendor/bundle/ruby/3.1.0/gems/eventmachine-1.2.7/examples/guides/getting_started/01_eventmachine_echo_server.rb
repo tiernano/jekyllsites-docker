@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fec20b63ab6631a24b78d9bb92ca70dafc0698b4c1bf4c1a970403eba9bb0948
-size 375
+#!/usr/bin/env ruby
+
+require 'rubygems' # or use Bundler.setup
+require 'eventmachine'
+
+class EchoServer < EM::Connection
+  def receive_data(data)
+    send_data(data)
+  end
+end
+
+EventMachine.run do
+  # hit Control + C to stop
+  Signal.trap("INT")  { EventMachine.stop }
+  Signal.trap("TERM") { EventMachine.stop }
+
+  EventMachine.start_server("0.0.0.0", 10000, EchoServer)
+end

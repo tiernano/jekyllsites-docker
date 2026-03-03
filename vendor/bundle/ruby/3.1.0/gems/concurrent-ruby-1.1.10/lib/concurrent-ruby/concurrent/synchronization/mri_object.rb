@@ -1,3 +1,44 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:570913ac8b7c2a1973930334b27d4868bab63ead5d06763cf8055169eefaefef
-size 1064
+module Concurrent
+  module Synchronization
+
+    # @!visibility private
+    module MriAttrVolatile
+      def self.included(base)
+        base.extend(ClassMethods)
+      end
+
+      module ClassMethods
+        def attr_volatile(*names)
+          names.each do |name|
+            ivar = :"@volatile_#{name}"
+            class_eval <<-RUBY, __FILE__, __LINE__ + 1
+              def #{name}
+                #{ivar}
+              end
+
+              def #{name}=(value)
+                #{ivar} = value
+              end
+            RUBY
+          end
+          names.map { |n| [n, :"#{n}="] }.flatten
+        end
+      end
+
+      def full_memory_barrier
+        # relying on undocumented behavior of CRuby, GVL acquire has lock which ensures visibility of ivars
+        # https://github.com/ruby/ruby/blob/ruby_2_2/thread_pthread.c#L204-L211
+      end
+    end
+
+    # @!visibility private
+    # @!macro internal_implementation_note
+    class MriObject < AbstractObject
+      include MriAttrVolatile
+
+      def initialize
+        # nothing to do
+      end
+    end
+  end
+end

@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e41544a70a8db6bc91787f724885e947938eb479aff2caeec0b0eff62f90329f
-size 315
+Aws.add_service(:PinpointEmail, {
+  api: "#{Aws::API_DIR}/pinpoint-email/2018-07-26/api-2.json",
+  docs: "#{Aws::API_DIR}/pinpoint-email/2018-07-26/docs-2.json",
+  examples: "#{Aws::API_DIR}/pinpoint-email/2018-07-26/examples-1.json",
+  paginators: "#{Aws::API_DIR}/pinpoint-email/2018-07-26/paginators-1.json",
+})

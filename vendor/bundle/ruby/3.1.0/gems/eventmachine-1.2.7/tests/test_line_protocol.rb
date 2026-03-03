@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:85f9d4a3d968f33403c44b67c200d2cb0df05faf0b0c2c6f59a289bfdc40756a
-size 632
+require 'em_test_helper'
+
+class TestLineProtocol < Test::Unit::TestCase
+  class LineProtocolTestClass
+    include EM::Protocols::LineProtocol
+
+    def lines
+      @lines ||= []
+    end
+
+    def receive_line(line)
+      lines << line
+    end
+  end
+
+  def setup
+    @proto = LineProtocolTestClass.new
+  end
+
+  def test_simple_split_line
+    @proto.receive_data("this is")
+    assert_equal([], @proto.lines)
+
+    @proto.receive_data(" a test\n")
+    assert_equal(["this is a test"], @proto.lines)
+  end
+
+  def test_simple_lines
+    @proto.receive_data("aaa\nbbb\r\nccc\nddd")
+    assert_equal(%w(aaa bbb ccc), @proto.lines)
+  end
+
+end

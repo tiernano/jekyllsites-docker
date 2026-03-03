@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7502837d8a57f15ec34a924a0ef3ca1daa7dc184f075e7c62fb6d361eda34ede
-size 187
+require_relative 'gem_version'
+
+module ActiveSupport
+  # Returns the version of the currently loaded ActiveSupport as a <tt>Gem::Version</tt>
+  def self.version
+    gem_version
+  end
+end

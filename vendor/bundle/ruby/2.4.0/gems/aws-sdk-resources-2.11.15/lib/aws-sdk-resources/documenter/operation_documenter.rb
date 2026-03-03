@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c82a0e98eb74e78ff34f67e01959519be9496dad2d42abff8b767cc728f9356a
-size 377
+module Aws
+  module Resources
+    class Documenter
+      class OperationDocumenter < BaseOperationDocumenter
+
+        def docstring
+          @api_request.documentation
+        end
+
+        def return_tag
+          @yard_client_operation.tags.each do |tag|
+            return tag if tag.tag_name == 'return'
+          end
+          nil
+        end
+
+      end
+    end
+  end
+end

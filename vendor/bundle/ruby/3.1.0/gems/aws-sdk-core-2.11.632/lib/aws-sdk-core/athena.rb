@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:423276d8faad28ea403d56944f71b4873bd05c0093d5dcd46a2b113c9eb88bc3
-size 276
+Aws.add_service(:Athena, {
+  api: "#{Aws::API_DIR}/athena/2017-05-18/api-2.json",
+  docs: "#{Aws::API_DIR}/athena/2017-05-18/docs-2.json",
+  examples: "#{Aws::API_DIR}/athena/2017-05-18/examples-1.json",
+  paginators: "#{Aws::API_DIR}/athena/2017-05-18/paginators-1.json",
+})

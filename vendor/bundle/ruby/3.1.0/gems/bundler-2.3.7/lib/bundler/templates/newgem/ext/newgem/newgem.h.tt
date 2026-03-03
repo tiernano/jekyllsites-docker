@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e08a0ec3c8c045bd50d4970c24a4d1d4a8acace402014c8c2f531e2fd522c185
-size 177
+#ifndef <%= config[:underscored_name].upcase %>_H
+#define <%= config[:underscored_name].upcase %>_H 1
+
+#include "ruby.h"
+
+#endif /* <%= config[:underscored_name].upcase %>_H */

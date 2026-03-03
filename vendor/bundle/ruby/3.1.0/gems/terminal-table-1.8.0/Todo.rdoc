@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ae790677b3b1f0b9546266f7f4c714ffb7806f4ffd076f86353a5ec5b8c5f166
-size 198
+
+== Major:
+
+* Nothing
+
+== Minor:
+
+* Programmatically add separator rows
+* Add multi-column sorting
+* Change; pre-create Cell and Heading objects to clean up Table a bit
+
+== Brainstorming:
+
+* Nothing

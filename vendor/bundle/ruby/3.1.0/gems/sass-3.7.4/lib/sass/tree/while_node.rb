@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:037e6f45a013f2eb7a2885c4694c1387996c9612bb4eeeb9d65191f66212075f
-size 389
+require 'sass/tree/node'
+
+module Sass::Tree
+  # A dynamic node representing a Sass `@while` loop.
+  #
+  # @see Sass::Tree
+  class WhileNode < Node
+    # The parse tree for the continuation expression.
+    # @return [Script::Tree::Node]
+    attr_accessor :expr
+
+    # @param expr [Script::Tree::Node] See \{#expr}
+    def initialize(expr)
+      @expr = expr
+      super()
+    end
+  end
+end

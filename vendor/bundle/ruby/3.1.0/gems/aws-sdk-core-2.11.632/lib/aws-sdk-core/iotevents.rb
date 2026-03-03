@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9eaab2a2ea8b75717effc217919485bce52db0b0cf419cd725798829d470729b
-size 291
+Aws.add_service(:IoTEvents, {
+  api: "#{Aws::API_DIR}/iotevents/2018-07-27/api-2.json",
+  docs: "#{Aws::API_DIR}/iotevents/2018-07-27/docs-2.json",
+  examples: "#{Aws::API_DIR}/iotevents/2018-07-27/examples-1.json",
+  paginators: "#{Aws::API_DIR}/iotevents/2018-07-27/paginators-1.json",
+})

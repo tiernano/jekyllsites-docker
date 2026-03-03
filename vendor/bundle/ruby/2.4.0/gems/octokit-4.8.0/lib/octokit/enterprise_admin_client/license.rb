@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1916b9cd3ec3717facfe527ba1676939c6b92b5efd9b559479d53847611b73bc
-size 394
+module Octokit
+  class EnterpriseAdminClient
+
+    # Methods for the Enterprise License API
+    #
+    # @see https://developer.github.com/v3/enterprise/license/
+    module License
+
+      # Get information about the Enterprise license
+      #
+      # @return [Sawyer::Resource] The license information
+      def license_info
+        get "enterprise/settings/license"
+      end
+
+    end
+  end
+end

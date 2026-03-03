@@ -1,3 +1,76 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:aa400e988bf2232915e953da8d5fd8c1737e80b81c02e57601d11bf3b13b871a
-size 1862
+{
+  "pagination": {
+    "GetApiKeys": {
+      "input_token": "position",
+      "limit_key": "limit",
+      "output_token": "position",
+      "result_key": "items"
+    },
+    "GetBasePathMappings": {
+      "input_token": "position",
+      "limit_key": "limit",
+      "output_token": "position",
+      "result_key": "items"
+    },
+    "GetClientCertificates": {
+      "input_token": "position",
+      "limit_key": "limit",
+      "output_token": "position",
+      "result_key": "items"
+    },
+    "GetDeployments": {
+      "input_token": "position",
+      "limit_key": "limit",
+      "output_token": "position",
+      "result_key": "items"
+    },
+    "GetDomainNames": {
+      "input_token": "position",
+      "limit_key": "limit",
+      "output_token": "position",
+      "result_key": "items"
+    },
+    "GetModels": {
+      "input_token": "position",
+      "limit_key": "limit",
+      "output_token": "position",
+      "result_key": "items"
+    },
+    "GetResources": {
+      "input_token": "position",
+      "limit_key": "limit",
+      "output_token": "position",
+      "result_key": "items"
+    },
+    "GetRestApis": {
+      "input_token": "position",
+      "limit_key": "limit",
+      "output_token": "position",
+      "result_key": "items"
+    },
+    "GetUsage": {
+      "input_token": "position",
+      "limit_key": "limit",
+      "output_token": "position",
+      "result_key": "items"
+    },
+    "GetUsagePlanKeys": {
+      "input_token": "position",
+      "limit_key": "limit",
+      "output_token": "position",
+      "result_key": "items"
+    },
+    "GetUsagePlans": {
+      "input_token": "position",
+      "limit_key": "limit",
+      "output_token": "position",
+      "result_key": "items"
+    },
+    "GetVpcLinks": {
+      "input_token": "position",
+      "limit_key": "limit",
+      "output_token": "position",
+      "result_key": "items"
+    }
+  }
+}

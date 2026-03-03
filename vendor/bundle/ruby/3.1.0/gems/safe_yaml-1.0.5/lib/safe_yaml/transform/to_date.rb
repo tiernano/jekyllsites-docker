@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e01e9647ed0b68a1dd02d5d5ecf8b37e14eaba6635cf00a7d3d29881edeb54cb
-size 344
+module SafeYAML
+  class Transform
+    class ToDate
+      def transform?(value)
+        return true, Date.parse(value) if Parse::Date::DATE_MATCHER.match(value)
+        return true, Parse::Date.value(value) if Parse::Date::TIME_MATCHER.match(value)
+        false
+      rescue ArgumentError
+        return true, value
+      end
+    end
+  end
+end

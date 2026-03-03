@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:26f7f400373e1575e9ff47912a2dcd209934f373ec0ab1e3cd6d0a5d8c5ad1b6
-size 422
+{
+  "pagination": {
+    "ListAccessPoints": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    },
+    "ListJobs": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    },
+    "ListRegionalBuckets": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    }
+  }
+}

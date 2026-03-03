@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5e0fbea35feb62e021479dd1084e07fc16c9cd679742c30a97869c9abd03229b
-size 302
+TODO List:
+
+12Aug06: Noticed by Don Stocks. A TCP connect-request that results
+in a failed DNS resolution fires a fatal error back to user code.
+Uuuuuugly. We should probably cause an unbind event to get fired
+instead, and add some parameterization so the caller can detect
+the nature of the failure.
+

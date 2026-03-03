@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d8f6a212fe3ab827f48a55145decea4dacb5d1a21062cae1102b73e79544b974
-size 135
+source 'https://rubygems.org'
+
+# Specify your gem's dependencies in test-gem.gemspec
+gemspec
+
+gem 'tins', '~> 1.0.0' # Ruby 1.9 compat

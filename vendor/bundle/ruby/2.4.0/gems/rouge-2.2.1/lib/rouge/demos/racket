@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:159f8fe01f236d7fffbb1de8bec42f9159dadab6cfc7c331f2225b3563ee1cc4
-size 625
+#lang racket
+
+;; draw a graph of cos and deriv^3(cos)
+(require plot)
+(define ((deriv f) x)
+  (/ (- (f x) (f (- x 0.001))) 0.001))
+(define (thrice f) (lambda (x) (f (f (f x)))))
+(plot (list (function ((thrice deriv) sin) -5 5)
+            (function cos -5 5 #:color 'blue)))
+
+;; Print the Greek alphabet
+(for ([i (in-range 25)])
+  (displayln
+   (integer->char
+    (+ i (char->integer #\u3B1)))))
+
+;; An echo server
+(define listener (tcp-listen 12345))
+(let echo-server ()
+  (define-values (in out) (tcp-accept listener))
+  (thread (λ ()
+             (copy-port in out)
+             (close-output-port out)))
+  (echo-server))

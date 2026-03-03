@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0f6e76da928e849e8822b101aba58494e25c9f648711d38762922094e99b2fef
-size 339
+Aws.add_service(:Lambda, {
+  api: "#{Aws::API_DIR}/lambda/2015-03-31/api-2.json",
+  docs: "#{Aws::API_DIR}/lambda/2015-03-31/docs-2.json",
+  examples: "#{Aws::API_DIR}/lambda/2015-03-31/examples-1.json",
+  paginators: "#{Aws::API_DIR}/lambda/2015-03-31/paginators-1.json",
+  waiters: "#{Aws::API_DIR}/lambda/2015-03-31/waiters-2.json",
+})

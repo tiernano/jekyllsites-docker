@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e18c53616e7b3dc41d4c2aafee87dc642a83be15cc04196cb4aef24b020d6146
-size 704
+class LoadError
+  REGEXPS = [
+    /^no such file to load -- (.+)$/i,
+    /^Missing \w+ (?:file\s*)?([^\s]+.rb)$/i,
+    /^Missing API definition file in (.+)$/i,
+    /^cannot load such file -- (.+)$/i,
+  ]
+
+  unless method_defined?(:path)
+    # Returns the path which was unable to be loaded.
+    def path
+      @path ||= begin
+        REGEXPS.find do |regex|
+          message =~ regex
+        end
+        $1
+      end
+    end
+  end
+
+  # Returns true if the given path name (except perhaps for the ".rb"
+  # extension) is the missing file which caused the exception to be raised.
+  def is_missing?(location)
+    location.sub(/\.rb$/, '') == path.sub(/\.rb$/, '')
+  end
+end
+
+MissingSourceFile = LoadError

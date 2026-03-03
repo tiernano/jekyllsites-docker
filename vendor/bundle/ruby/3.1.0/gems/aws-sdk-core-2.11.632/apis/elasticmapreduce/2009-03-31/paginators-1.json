@@ -1,3 +1,47 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:42d57f96d5622564e21feac0b066b3b6a9f93c610e5c2f0b725d573a8b86ca49
-size 1156
+{
+  "pagination": {
+    "DescribeJobFlows": {
+      "result_key": "JobFlows"
+    },
+    "ListBootstrapActions": {
+      "input_token": "Marker",
+      "output_token": "Marker",
+      "result_key": "BootstrapActions"
+    },
+    "ListClusters": {
+      "input_token": "Marker",
+      "output_token": "Marker",
+      "result_key": "Clusters"
+    },
+    "ListInstanceFleets": {
+      "input_token": "Marker",
+      "output_token": "Marker",
+      "result_key": "InstanceFleets"
+    },
+    "ListInstanceGroups": {
+      "input_token": "Marker",
+      "output_token": "Marker",
+      "result_key": "InstanceGroups"
+    },
+    "ListInstances": {
+      "input_token": "Marker",
+      "output_token": "Marker",
+      "result_key": "Instances"
+    },
+    "ListNotebookExecutions": {
+      "input_token": "Marker",
+      "output_token": "Marker",
+      "result_key": "NotebookExecutions"
+    },
+    "ListSecurityConfigurations": {
+      "input_token": "Marker",
+      "output_token": "Marker",
+      "result_key": "SecurityConfigurations"
+    },
+    "ListSteps": {
+      "input_token": "Marker",
+      "output_token": "Marker",
+      "result_key": "Steps"
+    }
+  }
+}

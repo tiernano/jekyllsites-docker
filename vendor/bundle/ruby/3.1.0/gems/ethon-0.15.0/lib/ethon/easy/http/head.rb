@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6f94ee7f8530ea46c1fdf6bb0fdce35bb0d9e3318e445aa6728d63fe7a9f08ef
-size 528
+# frozen_string_literal: true
+module Ethon
+  class Easy
+    module Http
+
+      # This class knows everything about making HEAD requests.
+      class Head
+        include Ethon::Easy::Http::Actionable
+        include Ethon::Easy::Http::Postable
+
+        # Setup easy to make a HEAD request.
+        #
+        # @example Setup.
+        #   get.set_params(easy)
+        #
+        # @param [ Easy ] easy The easy to setup.
+        def setup(easy)
+          super
+          easy.nobody = true
+        end
+      end
+    end
+  end
+end

@@ -1,3 +1,46 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b440c221bb37d298e40ba807bb57a837445e9f6bc581f8c52f7f214583e0b1aa
-size 888
+module Seahorse
+  module Model
+    class Api
+
+      def initialize
+        @metadata = {}
+        @operations = {}
+        @endpoint_operation = nil
+      end
+
+      # @return [String, nil]
+      attr_accessor :version
+
+      # @return [Hash]
+      attr_accessor :metadata
+
+      # @return [Symbol|nil]
+      attr_accessor :endpoint_operation
+
+      def operations(&block)
+        if block_given?
+          @operations.each(&block)
+        else
+          @operations.enum_for(:each)
+        end
+      end
+
+      def operation(name)
+        if @operations.key?(name.to_sym)
+          @operations[name.to_sym]
+        else
+          raise ArgumentError, "unknown operation #{name.inspect}"
+        end
+      end
+
+      def operation_names
+        @operations.keys
+      end
+
+      def add_operation(name, operation)
+        @operations[name.to_sym] = operation
+      end
+
+    end
+  end
+end

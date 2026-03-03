@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d6b54ffa26e6df699f456309461b66fd9a1470fdc79154adfe372ff4cfffd933
-size 451
+{
+  "pagination" : {
+    "ListApplicationVersions" : {
+      "input_token" : "NextToken",
+      "output_token" : "NextToken",
+      "limit_key" : "MaxItems"
+    },
+    "ListApplications" : {
+      "input_token" : "NextToken",
+      "output_token" : "NextToken",
+      "limit_key" : "MaxItems"
+    },
+    "ListApplicationDependencies" : {
+      "input_token" : "NextToken",
+      "output_token" : "NextToken",
+      "limit_key" : "MaxItems"
+    }
+  }
+}

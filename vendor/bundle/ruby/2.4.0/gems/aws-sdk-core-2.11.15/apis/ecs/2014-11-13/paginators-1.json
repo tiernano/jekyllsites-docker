@@ -1,3 +1,40 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f57b297ba26106758227a2c9b07719d1020553b7ac17a0ef0da7b34d7e27e2d0
-size 1053
+{
+  "pagination": {
+    "ListClusters": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "clusterArns"
+    },
+    "ListContainerInstances": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "containerInstanceArns"
+    },
+    "ListServices": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "serviceArns"
+    },
+    "ListTaskDefinitionFamilies": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "families"
+    },
+    "ListTaskDefinitions": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "taskDefinitionArns"
+    },
+    "ListTasks": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "taskArns"
+    }
+  }
+}

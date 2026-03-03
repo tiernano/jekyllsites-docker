@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a5d9b5ca559dc94f434db2f1ee18710538a39b0a4323f7833c1c1c04b6b696ca
-size 849
+module Aws
+  module Waiters
+    # @api private
+    class Provider
+
+      def initialize(definitions)
+        @waiters = {}
+        definitions['waiters'].each do |waiter_name, definition|
+          @waiters[Seahorse::Util.underscore(waiter_name).to_sym] = {
+            poller: Poller.new(definition),
+            max_attempts: definition['maxAttempts'],
+            delay: definition['delay'],
+          }
+        end
+      end
+
+      # @return [Array<Symbol>]
+      def waiter_names
+        @waiters.keys
+      end
+
+      # @param [Symbol] waiter_name
+      # @return [Waiter]
+      # @raise [ArgumentError]
+      def waiter(waiter_name)
+        if @waiters.key?(waiter_name)
+          Waiter.new(@waiters[waiter_name])
+        else
+          raise Errors::NoSuchWaiterError.new(waiter_name, waiter_names)
+        end
+      end
+
+    end
+  end
+end

@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:17da60fc2c99212f6f8969f40504aebdf7bd4c06c435c6e66d5ff3ccb228690f
-size 407
+module Sass
+  module Tree
+    # A dynamic node representing returning from a function.
+    #
+    # @see Sass::Tree
+    class ReturnNode < Node
+      # The expression to return.
+      #
+      # @return [Script::Tree::Node]
+      attr_accessor :expr
+
+      # @param expr [Script::Tree::Node] The expression to return
+      def initialize(expr)
+        @expr = expr
+        super()
+      end
+    end
+  end
+end

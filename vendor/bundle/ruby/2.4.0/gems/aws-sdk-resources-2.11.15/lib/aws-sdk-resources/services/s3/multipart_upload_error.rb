@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:895e0560fc37530856f1605a8defd6925fbcd69f5ff96f8975c4a3af3de7ce5d
-size 332
+module Aws
+  module S3
+    class MultipartUploadError < StandardError
+
+      def initialize(message, errors)
+        @errors = errors
+        super(message)
+      end
+
+      # @return [Array<StandardError>] The list of errors encountered
+      #   when uploading or aborting the upload.
+      attr_reader :errors
+
+    end
+  end
+end

@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:01da3a89eb81a2d2deff61432ec77c6c01e7c330475ef6cf8e60097efb05bc55
-size 271
+module Concurrent
+  module Synchronization
+
+    if Concurrent.on_jruby? && Concurrent.java_extensions_loaded?
+
+      # @!visibility private
+      # @!macro internal_implementation_note
+      class JRubyLockableObject < AbstractLockableObject
+
+      end
+    end
+  end
+end

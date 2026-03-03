@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ff7e7ad513da979ada9936815e78e165cb7f4e1c6e0bd20beafa06985810e24f
-size 350
+module Terminal
+  class Table
+    class Separator < Row
+
+      def render
+        arr_x = (0...@table.number_of_columns).to_a.map do |i|
+          @table.style.border_x * (@table.column_width(i) + @table.cell_padding)
+        end
+        border_i = @table.style.border_i
+        border_i + arr_x.join(border_i) + border_i
+      end
+    end
+  end
+end

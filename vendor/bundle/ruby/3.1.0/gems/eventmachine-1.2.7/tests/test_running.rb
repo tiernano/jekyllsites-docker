@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cb29b196acad1aa503aa6ae039b6ebdd8e6fc1a601e4f017ba7d4326f3e7b6d3
-size 251
+require 'em_test_helper'
+
+class TestRunning < Test::Unit::TestCase
+  def test_running
+    assert_equal( false, EM::reactor_running? )
+    r = false
+    EM.run {
+      r = EM::reactor_running?
+      EM.stop
+    }
+    assert_equal( true, r )
+  end
+end
+

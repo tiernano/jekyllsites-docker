@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c4840c593f50f047d6c1f0d69ba74ef0b0364b5b63490f22525a2ef4b6bb4dba
-size 250
+Aws.add_service(:MediaPackageVod, {
+  api: "#{Aws::API_DIR}/mediapackage-vod/2018-11-07/api-2.json",
+  docs: "#{Aws::API_DIR}/mediapackage-vod/2018-11-07/docs-2.json",
+  paginators: "#{Aws::API_DIR}/mediapackage-vod/2018-11-07/paginators-1.json",
+})

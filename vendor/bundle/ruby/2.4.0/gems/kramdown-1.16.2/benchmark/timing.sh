@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:379c3e06aef02297c848f5223496a7b2608f6c6acbb0adc84d9bbeb2bf332cd5
-size 265
+#!/bin/bash
+
+source ~/.bashrc
+
+for VERSION in `rvm list strings | sort`; do
+	rvm $VERSION
+	echo $(ruby -v)
+	ruby -Ilib bin/kramdown < benchmark/mdsyntax.text 2>/dev/null >/dev/null
+	time ruby -Ilib bin/kramdown < benchmark/mdsyntax.text 2>/dev/null >/dev/null
+done

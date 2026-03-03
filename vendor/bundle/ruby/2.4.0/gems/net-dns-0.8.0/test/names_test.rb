@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:27882722d2ba986eb09ee6edbf896f193568bf91bf417cdc336e934b9bc68983
-size 498
+require 'test_helper'
+require 'net/dns/names'
+
+class NamesTest < Test::Unit::TestCase
+  include Net::DNS::Names
+
+  def test_long_names
+    assert_nothing_raised do
+      pack_name('a' * 63)
+    end
+    assert_raises ArgumentError do
+      pack_name('a' * 64)
+    end
+    assert_nothing_raised do
+      pack_name(['a' * 63, 'b' * 63, 'c' * 63, 'd' * 63].join('.'))
+    end
+    assert_raises ArgumentError do
+      pack_name(['a' * 63, 'b' * 63, 'c' * 63, 'd' * 63, 'e'].join('.'))
+    end
+  end
+end

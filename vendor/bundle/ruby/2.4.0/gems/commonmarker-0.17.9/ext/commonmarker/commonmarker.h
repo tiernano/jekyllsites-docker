@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:377c4ebf95ec172f358824111315ba53bdab79100df18da60feb07f3e6a522bb
-size 268
+#ifndef COMMONMARKER_H
+#define COMMONMARKER_H
+
+#ifndef __MSXML_LIBRARY_DEFINED__
+#define __MSXML_LIBRARY_DEFINED__
+#endif
+
+#include "cmark.h"
+#include "ruby.h"
+#include "ruby/encoding.h"
+
+#define CSTR2SYM(s) (ID2SYM(rb_intern((s))))
+
+void Init_commonmarker();
+
+#endif

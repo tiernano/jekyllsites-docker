@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ab8416c92d389b9bac74bae4f8568caa2de1c70b2f50927f472835e925723d4b
-size 90
+pkg
+tmp
+Gemfile.lock
+.bundle
+ports
+concourse/private.yml
+concourse/mini_portile.final.yml

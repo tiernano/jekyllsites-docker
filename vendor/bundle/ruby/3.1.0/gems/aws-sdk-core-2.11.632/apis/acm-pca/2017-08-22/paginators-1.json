@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:394f415066b31bb473145233a07b842b397f3e6e818bcff0887836ea956ce683
-size 536
+{
+  "pagination": {
+    "ListCertificateAuthorities": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "CertificateAuthorities"
+    },
+    "ListPermissions": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "Permissions"
+    },
+    "ListTags": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "Tags"
+    }
+  }
+}

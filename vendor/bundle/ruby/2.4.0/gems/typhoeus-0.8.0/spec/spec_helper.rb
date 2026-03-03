@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:21a8a688811c3c4151c63cb2a37f7ef62cd7ac2a9c94d6c6925f012be7bb2766
-size 715
+$LOAD_PATH.unshift(File.dirname(__FILE__))
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "..", "lib"))
+
+require "bundler"
+Bundler.setup
+require "typhoeus"
+require "rspec"
+
+Dir[File.join(File.dirname(__FILE__), "support/**/*.rb")].each { |f| require f }
+
+RSpec.configure do |config|
+  config.order = :rand
+
+  config.before(:suite) do
+    LocalhostServer.new(TESTSERVER.new, 3001)
+  end
+
+  config.after do
+    Typhoeus::Pool.clear
+    Typhoeus::Expectation.clear
+    Typhoeus.before.clear
+    Typhoeus.on_complete.clear
+    Typhoeus.on_success.clear
+    Typhoeus.on_failure.clear
+    Typhoeus::Config.verbose = false
+    Typhoeus::Config.block_connection = false
+    Typhoeus::Config.memoize = false
+  end
+end

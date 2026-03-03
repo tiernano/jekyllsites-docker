@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e3b7814c136f370d1f9ee04229e969c9b2b09dbd2354f2c05c0c79bfb2fe473a
-size 286
+# frozen_string_literal: true
+
+module Bundler
+  class Source
+    class Gemspec < Path
+      attr_reader :gemspec
+
+      def initialize(options)
+        super
+        @gemspec = options["gemspec"]
+      end
+
+      def as_path_source
+        Path.new(options)
+      end
+    end
+  end
+end

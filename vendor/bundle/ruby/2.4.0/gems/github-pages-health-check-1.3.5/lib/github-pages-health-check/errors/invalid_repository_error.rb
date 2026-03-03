@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ef630e8c64f601228cc0129769ff75542374545128283998cc51952bb553485d
-size 292
+# frozen_string_literal: true
+module GitHubPages
+  module HealthCheck
+    module Errors
+      class InvalidRepositoryError < GitHubPages::HealthCheck::Error
+        LOCAL_ONLY = true
+        def message
+          "Repository is not a valid repository"
+        end
+      end
+    end
+  end
+end

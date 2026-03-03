@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:199b2b61a36204ba948a6bb2e66cc926973992a81504abea0b6f3283472aa589
-size 254
+# frozen_string_literal: true
+
+RSpec.describe <%= config[:constant_name] %> do
+  it "has a version number" do
+    expect(<%= config[:constant_name] %>::VERSION).not_to be nil
+  end
+
+  it "does something useful" do
+    expect(false).to eq(true)
+  end
+end

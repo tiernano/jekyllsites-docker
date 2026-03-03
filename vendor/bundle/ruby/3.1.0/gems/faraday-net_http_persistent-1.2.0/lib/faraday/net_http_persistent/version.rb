@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bb4df8082518d3f6bd3eb44087a2dc0f672072376783550eb19202fa3ebce463
-size 105
+# frozen_string_literal: true
+
+module Faraday
+  module NetHttpPersistent
+    VERSION = "1.2.0"
+  end
+end

@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4e55700bc167e9c8757fd8deab5e69057260aa753b1a097d56077524f1f0eac5
-size 357
+<%- config[:constant_array].each_with_index do |c, i| -%>
+<%= "  " * i %>module <%= c %>
+<%- end -%>
+<%= "  " * config[:constant_array].size %>VERSION: String
+<%= "  " * config[:constant_array].size %># See the writing guide of rbs: https://github.com/ruby/rbs#guides
+<%- (config[:constant_array].size-1).downto(0) do |i| -%>
+<%= "  " * i %>end
+<%- end -%>

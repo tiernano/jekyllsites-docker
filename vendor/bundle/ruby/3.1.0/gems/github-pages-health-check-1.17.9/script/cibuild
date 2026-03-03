@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1098ba8b83df36ea00f1700b9cbc324d493d73adbb7199b137004ae02af5d3aa
-size 258
+#!/bin/sh
+
+set -ex
+
+script/bootstrap
+
+script/test $@
+script/check-cdn-ips
+bundle exec script/check www.parkermoore.de | grep 'valid?: true'
+bundle exec script/check ben.balter.com | grep 'valid?: true'
+bundle exec gem build github-pages-health-check.gemspec

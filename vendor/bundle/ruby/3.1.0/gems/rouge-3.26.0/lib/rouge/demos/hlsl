@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d30b50faee7889882baeb31ce1da8a29aa20f1544b4e7aa3678a8644e3fbdd73
-size 351
+struct PSInput
+{
+    float4 position : SV_POSITION;
+    float4 color : COLOR;
+};
+
+// Vertex shader
+PSInput VSMain(float4 position : POSITION, float4 color : COLOR)
+{
+    PSInput result;
+    result.position = position;
+    result.color = color;
+    return result;
+}
+
+// Pixel shader
+float4 PSMain(PSInput input) : SV_TARGET
+{
+    return input.color;
+}

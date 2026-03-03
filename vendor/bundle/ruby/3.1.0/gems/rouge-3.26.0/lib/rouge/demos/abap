@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0a0b7b08a19f6deb99ecb4371c870b9b43553214f354270e5c5ca85da3440a87
-size 191
+lo_obj ?= lo_obj->do_nothing( 'Char' && ` String` ).
+
+SELECT SINGLE * FROM mara INTO ls_mara WHERE matkl EQ '1324'.
+LOOP AT lt_mara ASSIGNING <mara>.
+  CHECK <mara>-mtart EQ '0001'.
+ENDLOOP.

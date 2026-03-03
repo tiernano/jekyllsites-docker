@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:891b28d44b54c3935c1d0e884d9a16db43abbe725e0190b0319ca4f4c76f848c
-size 369
+Aws.add_service(:ElastiCache, {
+  api: "#{Aws::API_DIR}/elasticache/2015-02-02/api-2.json",
+  docs: "#{Aws::API_DIR}/elasticache/2015-02-02/docs-2.json",
+  examples: "#{Aws::API_DIR}/elasticache/2015-02-02/examples-1.json",
+  paginators: "#{Aws::API_DIR}/elasticache/2015-02-02/paginators-1.json",
+  waiters: "#{Aws::API_DIR}/elasticache/2015-02-02/waiters-2.json",
+})

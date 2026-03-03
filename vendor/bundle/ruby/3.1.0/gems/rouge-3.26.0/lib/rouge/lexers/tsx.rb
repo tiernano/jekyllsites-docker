@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b752d1ee962083a6b4f1b069748d2c8e6c164c69cb0a7c64c5de91c628a1100f
-size 507
+# -*- coding: utf-8 -*- #
+# frozen_string_literal: true
+
+module Rouge
+  module Lexers
+    load_lexer 'jsx.rb'
+    load_lexer 'typescript/common.rb'
+
+    class TSX < JSX
+      extend TypescriptCommon
+
+      title 'TSX'
+      desc 'TypeScript-compatible JSX (www.typescriptlang.org/docs/handbook/jsx.html)'
+
+      tag 'tsx'
+      filenames '*.tsx'
+
+      prepend :element_name do
+        rule %r/(\w+)(,)/ do
+          groups Name::Other, Punctuation
+          pop! 3
+        end
+      end
+    end
+  end
+end
+

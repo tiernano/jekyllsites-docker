@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ec94a72c7e6244cfe1d220d1a6dfe658eee1d8e65bfafc09baefd45ef69f3b35
-size 377
+#ifndef CMARK_REGISTRY_H
+#define CMARK_REGISTRY_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include "cmark-gfm.h"
+#include "plugin.h"
+
+CMARK_GFM_EXPORT
+void cmark_register_plugin(cmark_plugin_init_func reg_fn);
+
+CMARK_GFM_EXPORT
+void cmark_release_plugins(void);
+
+CMARK_GFM_EXPORT
+cmark_llist *cmark_list_syntax_extensions(cmark_mem *mem);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif

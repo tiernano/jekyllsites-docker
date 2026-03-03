@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3e3068538b659179013c6962cbe101931d9250cc20073bdd943148fe14dadfc3
-size 631
+# -*- coding: utf-8 -*- #
+# frozen_string_literal: true
+
+module Rouge
+  module Formatters
+    class HTMLLinewise < Formatter
+      def initialize(formatter, opts={})
+        @formatter = formatter
+        @tag_name = opts.fetch(:tag_name, 'div')
+        @class_format = opts.fetch(:class, 'line-%i')
+      end
+
+      def stream(tokens, &b)
+        token_lines(tokens).with_index(1) do |line_tokens, lineno|
+          yield %(<#{@tag_name} class="#{sprintf @class_format, lineno}">)
+          @formatter.stream(line_tokens) {|formatted| yield formatted }
+          yield %(\n</#{@tag_name}>)
+        end
+      end
+    end
+  end
+end

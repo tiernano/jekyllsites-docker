@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4c76fd076982b1c097a8b82818e81d79ebbf39e587ec64a5a1620fc4a1324e9b
-size 276
+Aws.add_service(:States, {
+  api: "#{Aws::API_DIR}/states/2016-11-23/api-2.json",
+  docs: "#{Aws::API_DIR}/states/2016-11-23/docs-2.json",
+  examples: "#{Aws::API_DIR}/states/2016-11-23/examples-1.json",
+  paginators: "#{Aws::API_DIR}/states/2016-11-23/paginators-1.json",
+})

@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:acf7a8e9f93c8f3fd30158c47be66876778bbb7d8e94f1b2a4b614e44223a305
-size 312
+# in case active_support/inflector is required without the rest of active_support
+require 'active_support/inflector/inflections'
+require 'active_support/inflector/transliterate'
+require 'active_support/inflector/methods'
+
+require 'active_support/inflections'
+require 'active_support/core_ext/string/inflections'

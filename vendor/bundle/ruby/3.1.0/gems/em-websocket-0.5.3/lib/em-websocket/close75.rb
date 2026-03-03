@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:aa2b2881de52701caeea8a8c997c7cee039431073538c35063e754342d0bca36
-size 220
+module EventMachine
+  module WebSocket
+    module Close75
+      def close_websocket(code, body)
+        @connection.close_connection_after_writing
+      end
+
+      def supports_close_codes?; false; end
+    end
+  end
+end

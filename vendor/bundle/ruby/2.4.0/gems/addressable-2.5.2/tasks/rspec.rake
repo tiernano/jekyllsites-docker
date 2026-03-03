@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:728ffb0415cd9dbae79df7a0f9b5386729e506345ed0eb5b47c51d586bf33a15
-size 515
+require "rspec/core/rake_task"
+
+namespace :spec do
+  RSpec::Core::RakeTask.new(:simplecov) do |t|
+    t.pattern = FileList['spec/**/*_spec.rb']
+    t.rspec_opts = ['--color', '--format', 'documentation']
+  end
+
+  namespace :simplecov do
+    desc "Browse the code coverage report."
+    task :browse => "spec:simplecov" do
+      require "launchy"
+      Launchy.open("coverage/index.html")
+    end
+  end
+end
+
+desc "Alias to spec:simplecov"
+task "spec" => "spec:simplecov"
+
+task "clobber" => ["spec:clobber_simplecov"]

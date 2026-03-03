@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:40885816a9a1781ff292f498f2ad8fcbbf2b92297d135f0985c9a352f254beae
-size 307
+{
+  "pagination": {
+    "DescribeEnvironmentMemberships": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults"
+    },
+    "ListEnvironments": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults"
+    }
+  }
+}

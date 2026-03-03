@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ad606cb6bab9df847db4b3cac5b8a700717540ccb4cd10977555b4da62df6910
-size 413
+Aws.add_service(:Glacier, {
+  api: "#{Aws::API_DIR}/glacier/2012-06-01/api-2.json",
+  docs: "#{Aws::API_DIR}/glacier/2012-06-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/glacier/2012-06-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/glacier/2012-06-01/paginators-1.json",
+  resources: "#{Aws::API_DIR}/glacier/2012-06-01/resources-1.json",
+  waiters: "#{Aws::API_DIR}/glacier/2012-06-01/waiters-2.json",
+})

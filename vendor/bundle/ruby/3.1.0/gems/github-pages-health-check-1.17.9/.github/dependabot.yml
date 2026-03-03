@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3c6fd941a9f4f35d314da89280bad5eb20517b3811186d6cefe8c4d8b9627b7f
-size 317
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "10:00"
+    timezone: Europe/Vienna
+  pull-request-branch-name:
+    separator: "-"
+  open-pull-requests-limit: 99
+  allow:
+  - dependency-type: direct
+  - dependency-type: indirect
+  rebase-strategy: disabled

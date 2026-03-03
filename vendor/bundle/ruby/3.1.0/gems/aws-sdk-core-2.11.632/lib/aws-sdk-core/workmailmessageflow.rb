@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:36760182a3ef7c0911d16b1d077f889427b56c0516888ca84c21e007cfc464c6
-size 341
+Aws.add_service(:WorkMailMessageFlow, {
+  api: "#{Aws::API_DIR}/workmailmessageflow/2019-05-01/api-2.json",
+  docs: "#{Aws::API_DIR}/workmailmessageflow/2019-05-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/workmailmessageflow/2019-05-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/workmailmessageflow/2019-05-01/paginators-1.json",
+})

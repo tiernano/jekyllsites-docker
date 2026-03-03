@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9a3be54dfc4b0dc91db9b11f26b1d72f87fe80b944791071e34c7929ad4d3859
-size 666
+# -*- coding: utf-8 -*-
+#
+#--
+# Copyright (C) 2009-2016 Thomas Leitner <t_leitner@gmx.at>
+#
+# This file is part of kramdown which is licensed under the MIT.
+#++
+#
+
+module Kramdown
+  module Parser
+    class Kramdown
+
+      BLANK_LINE = /(?>^\s*\n)+/
+
+      # Parse the blank line at the current postition.
+      def parse_blank_line
+        @src.pos += @src.matched_size
+        if @tree.children.last && @tree.children.last.type == :blank
+          @tree.children.last.value << @src.matched
+        else
+          @tree.children << new_block_el(:blank, @src.matched)
+        end
+        true
+      end
+      define_parser(:blank_line, BLANK_LINE)
+
+    end
+  end
+end

@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f5d9ee347b4fa238a5c99df7e90889b3cfcb878f932a47e3b4a223ac471a1c7e
-size 507
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "ListIdentityPools",
+            "input": {
+                "MaxResults": 10
+            },
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "DescribeIdentityPool",
+            "input": {
+                "IdentityPoolId": "us-east-1:aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

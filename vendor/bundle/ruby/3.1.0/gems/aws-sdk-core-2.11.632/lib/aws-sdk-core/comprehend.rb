@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4a582135b2a19ab5d684d8a1ab2fceff949d398af021655c2ed2125159d5faf7
-size 296
+Aws.add_service(:Comprehend, {
+  api: "#{Aws::API_DIR}/comprehend/2017-11-27/api-2.json",
+  docs: "#{Aws::API_DIR}/comprehend/2017-11-27/docs-2.json",
+  examples: "#{Aws::API_DIR}/comprehend/2017-11-27/examples-1.json",
+  paginators: "#{Aws::API_DIR}/comprehend/2017-11-27/paginators-1.json",
+})

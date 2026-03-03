@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:97e5d010ec453eec5fd83e59c6dfebdc73ecee896157b25414a32cea11818b85
-size 407
+note
+  description: "Represents a person."
+
+class
+  PERSON
+
+create
+  make, make_unknown
+
+feature {NONE} -- Creation
+
+  make (a_name: like name)
+      -- Create a person with `a_name' as `name'.
+    do
+      name := a_name
+    ensure
+      name = a_name
+    end
+
+  make_unknown
+    do ensure
+      name = Void
+    end
+
+feature -- Access
+
+  name: detachable STRING
+      -- Full name or Void if unknown.
+
+end

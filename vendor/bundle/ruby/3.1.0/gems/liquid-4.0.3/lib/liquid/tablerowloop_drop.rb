@@ -1,3 +1,62 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1103d0576623d260ec44b8f885a4ee4e39a176b5bd0d9870d9f9c13cb6cf469c
-size 775
+module Liquid
+  class TablerowloopDrop < Drop
+    def initialize(length, cols)
+      @length = length
+      @row = 1
+      @col = 1
+      @cols = cols
+      @index = 0
+    end
+
+    attr_reader :length, :col, :row
+
+    def index
+      @index + 1
+    end
+
+    def index0
+      @index
+    end
+
+    def col0
+      @col - 1
+    end
+
+    def rindex
+      @length - @index
+    end
+
+    def rindex0
+      @length - @index - 1
+    end
+
+    def first
+      @index == 0
+    end
+
+    def last
+      @index == @length - 1
+    end
+
+    def col_first
+      @col == 1
+    end
+
+    def col_last
+      @col == @cols
+    end
+
+    protected
+
+    def increment!
+      @index += 1
+
+      if @col == @cols
+        @col = 1
+        @row += 1
+      else
+        @col += 1
+      end
+    end
+  end
+end

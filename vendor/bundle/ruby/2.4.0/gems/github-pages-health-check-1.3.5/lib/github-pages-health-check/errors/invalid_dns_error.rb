@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7fc921f148636e1936a6bdc4eea185db1b9fb1f3a707490d9050f3c8be8cd0e0
-size 360
+# frozen_string_literal: true
+module GitHubPages
+  module HealthCheck
+    module Errors
+      class InvalidDNSError < GitHubPages::HealthCheck::Error
+        DOCUMENTATION_PATH = "/articles/setting-up-a-custom-domain-with-github-pages/".freeze
+
+        def message
+          "Domain's DNS record could not be retrieved"
+        end
+      end
+    end
+  end
+end

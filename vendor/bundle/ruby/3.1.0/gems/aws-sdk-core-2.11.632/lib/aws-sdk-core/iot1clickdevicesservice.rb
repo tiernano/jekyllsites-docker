@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:65240597e1df3b136c38a7c658fd769e328f1eddde94ee84b49cf1f505216635
-size 181
+Aws.add_service(:IoT1ClickDevicesService, {
+  api: "#{Aws::API_DIR}/iot1click-devices/2018-05-14/api-2.json",
+  docs: "#{Aws::API_DIR}/iot1click-devices/2018-05-14/docs-2.json",
+})

@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d66af6155fed309f4673a91d7e3f6d3f19c120acac9be0976f0a3e0a7b7c270d
-size 519
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" alttext="f(x) = a{x^3} + b{x^2} + cx + d">
+  <mi>f</mi>
+  <mo stretchy="false">(</mo>
+  <mi>x</mi>
+  <mo stretchy="false">)</mo>
+  <mo>=</mo>
+  <mi>a</mi>
+  <mrow class="MJX-TeXAtom-ORD">
+    <msup>
+      <mi>x</mi>
+      <mn>3</mn>
+    </msup>
+  </mrow>
+  <mo>+</mo>
+  <mi>b</mi>
+  <mrow class="MJX-TeXAtom-ORD">
+    <msup>
+      <mi>x</mi>
+      <mn>2</mn>
+    </msup>
+  </mrow>
+  <mo>+</mo>
+  <mi>c</mi>
+  <mi>x</mi>
+  <mo>+</mo>
+  <mi>d</mi>
+</math>

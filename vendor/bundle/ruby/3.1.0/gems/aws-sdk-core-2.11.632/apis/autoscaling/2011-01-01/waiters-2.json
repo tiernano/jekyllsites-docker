@@ -1,3 +1,62 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7ce19c7ccb875e90ba1b9c44945c3f9bb1c66522f5818adc47393d0f07c15f82
-size 2064
+{
+    "version": 2,
+    "waiters": {
+        "GroupExists": {
+            "acceptors": [
+                {
+                    "argument": "length(AutoScalingGroups) > `0`",
+                    "expected": true,
+                    "matcher": "path",
+                    "state": "success"
+                },
+                {
+                    "argument": "length(AutoScalingGroups) > `0`",
+                    "expected": false,
+                    "matcher": "path",
+                    "state": "retry"
+                }
+            ],
+            "delay": 5,
+            "maxAttempts": 10,
+            "operation": "DescribeAutoScalingGroups"
+        },
+        "GroupInService": {
+            "acceptors": [
+                {
+                    "argument": "contains(AutoScalingGroups[].[length(Instances[?LifecycleState=='InService']) >= MinSize][], `false`)",
+                    "expected": false,
+                    "matcher": "path",
+                    "state": "success"
+                },
+                {
+                    "argument": "contains(AutoScalingGroups[].[length(Instances[?LifecycleState=='InService']) >= MinSize][], `false`)",
+                    "expected": true,
+                    "matcher": "path",
+                    "state": "retry"
+                }
+            ],
+            "delay": 15,
+            "maxAttempts": 40,
+            "operation": "DescribeAutoScalingGroups"
+        },
+        "GroupNotExists": {
+            "acceptors": [
+                {
+                    "argument": "length(AutoScalingGroups) > `0`",
+                    "expected": false,
+                    "matcher": "path",
+                    "state": "success"
+                },
+                {
+                    "argument": "length(AutoScalingGroups) > `0`",
+                    "expected": true,
+                    "matcher": "path",
+                    "state": "retry"
+                }
+            ],
+            "delay": 15,
+            "maxAttempts": 40,
+            "operation": "DescribeAutoScalingGroups"
+        }
+    }
+}

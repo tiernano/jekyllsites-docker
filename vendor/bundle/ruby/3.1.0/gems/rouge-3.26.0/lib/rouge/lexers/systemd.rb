@@ -1,3 +1,34 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:445a759d9869909aa8c3fa6f93b643e48b80a53580aa80b7621fbc7aa7879444
-size 803
+# -*- coding: utf-8 -*- #
+# frozen_string_literal: true
+
+module Rouge
+  module Lexers
+    class SystemD < RegexLexer
+      tag 'systemd'
+      aliases 'unit-file'
+      filenames '*.service'
+      mimetypes 'text/x-systemd-unit'
+      desc 'A lexer for systemd unit files'
+
+      state :root do
+        rule %r/\s+/, Text
+        rule %r/[;#].*/, Comment
+        rule %r/\[.*?\]$/, Keyword
+        rule %r/(.*?)(=)(.*)(\\\n)/ do
+          groups Name::Tag, Punctuation, Text, Str::Escape
+          push :continuation
+        end
+        rule %r/(.*?)(=)(.*)/ do
+          groups Name::Tag, Punctuation, Text
+        end
+      end
+
+      state :continuation do
+        rule %r/(.*?)(\\\n)/ do
+          groups Text, Str::Escape
+        end
+        rule %r/(.*)'/, Text, :pop!
+      end
+    end
+  end
+end

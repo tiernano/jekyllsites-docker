@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:df8aa5ae5bb341577405b2f4d15efa3ed780b8a5e84a68b9a1192edceea1336d
-size 261
+Aws.add_service(:EBS, {
+  api: "#{Aws::API_DIR}/ebs/2019-11-02/api-2.json",
+  docs: "#{Aws::API_DIR}/ebs/2019-11-02/docs-2.json",
+  examples: "#{Aws::API_DIR}/ebs/2019-11-02/examples-1.json",
+  paginators: "#{Aws::API_DIR}/ebs/2019-11-02/paginators-1.json",
+})

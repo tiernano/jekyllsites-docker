@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b59308889552ffdafbc0e6b9d72bda8f355a575bebbe4e8c73fabb26077d21dd
-size 537
+module ActiveSupport
+  autoload :Duration, 'active_support/duration'
+  autoload :TimeWithZone, 'active_support/time_with_zone'
+  autoload :TimeZone, 'active_support/values/time_zone'
+end
+
+require 'date'
+require 'time'
+
+require 'active_support/core_ext/time'
+require 'active_support/core_ext/date'
+require 'active_support/core_ext/date_time'
+
+require 'active_support/core_ext/integer/time'
+require 'active_support/core_ext/numeric/time'
+
+require 'active_support/core_ext/string/conversions'
+require 'active_support/core_ext/string/zones'

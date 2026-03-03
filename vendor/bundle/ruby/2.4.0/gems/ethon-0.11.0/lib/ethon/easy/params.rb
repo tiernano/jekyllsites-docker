@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:21543f0fc829482ae50b3f66cb0a756a155e4e9fe95b85a3944feddfc8ff2d44
-size 572
+require 'ethon/easy/util'
+require 'ethon/easy/queryable'
+
+module Ethon
+  class Easy
+
+    # This class represents HTTP request parameters.
+    #
+    # @api private
+    class Params
+      include Ethon::Easy::Util
+      include Ethon::Easy::Queryable
+
+      # Create a new Params.
+      #
+      # @example Create a new Params.
+      #   Params.new({})
+      #
+      # @param [ Hash ] params The params to use.
+      #
+      # @return [ Params ] A new Params.
+      def initialize(easy, params)
+        @easy = easy
+        @params = params || {}
+      end
+    end
+  end
+end

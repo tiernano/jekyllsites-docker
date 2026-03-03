@@ -1,3 +1,51 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d3f75710a0f884210e5746f38c7e150cb73476df9d014e5e5c8bd0b4433065e5
-size 1337
+module Listen
+  # @private api
+  class Record
+    # Represents a directory entry (dir or file)
+    class Entry
+      # file: "/home/me/watched_dir", "app/models", "foo.rb"
+      # dir, "/home/me/watched_dir", "."
+      def initialize(root, relative, name = nil)
+        @root, @relative, @name = root, relative, name
+      end
+
+      attr_reader :root, :relative, :name
+
+      def children
+        child_relative = _join
+        (Dir.entries(sys_path) - %w(. ..)).map do |name|
+          Entry.new(@root, child_relative, name)
+        end
+      end
+
+      def meta
+        lstat = ::File.lstat(sys_path)
+        { mtime: lstat.mtime.to_f, mode: lstat.mode }
+      end
+
+      # record hash is e.g.
+      # if @record["/home/me/watched_dir"]["project/app/models"]["foo.rb"]
+      # if @record["/home/me/watched_dir"]["project/app"]["models"]
+      # record_dir_key is "project/app/models"
+      def record_dir_key
+        ::File.join(*[@relative, @name].compact)
+      end
+
+      def sys_path
+        # Use full path in case someone uses chdir
+        ::File.join(*[@root, @relative, @name].compact)
+      end
+
+      def real_path
+        @real_path ||= ::File.realpath(sys_path)
+      end
+
+      private
+
+      def _join
+        args = [@relative, @name].compact
+        args.empty? ? nil : ::File.join(*args)
+      end
+    end
+  end
+end

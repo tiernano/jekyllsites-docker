@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ce760fdd06a5a78e4e65ab69c354a05612aec6b470b8412fb1befbdb12c3b133
-size 247
+<ul id="products">
+  {% for product in products %}
+    <li>
+      <h2>{{ product.title }}</h2>
+      Only {{ product.price | format_as_money }}
+
+      <p>{{ product.description | prettyprint | truncate: 200  }}</p>
+
+    </li>
+  {% endfor %}
+</ul>

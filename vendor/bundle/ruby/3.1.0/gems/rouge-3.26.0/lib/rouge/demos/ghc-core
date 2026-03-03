@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:febf4a9176e98a4c0e7f896b224888d2f4ee8c8140b51a7bf261c20ce10efe13
-size 899
+Rec {
+-- RHS size: {terms: 24, types: 3, coercions: 0, joins: 0/0}
+Main.fib_fib [Occ=LoopBreaker] :: Integer -> Integer
+[GblId, Arity=1, Str=<S,U>, Unf=OtherCon []]
+Main.fib_fib
+  = \ (ds_d2OU :: Integer) ->
+      case integer-gmp-1.0.2.0:GHC.Integer.Type.eqInteger#
+             ds_d2OU Main.fib1
+      of {
+        __DEFAULT ->
+          case integer-gmp-1.0.2.0:GHC.Integer.Type.eqInteger#
+                 ds_d2OU Main.fib3
+          of {
+            __DEFAULT ->
+              integer-gmp-1.0.2.0:GHC.Integer.Type.plusInteger
+                (Main.fib_fib
+                   (integer-gmp-1.0.2.0:GHC.Integer.Type.minusInteger
+                      ds_d2OU Main.fib3))
+                (Main.fib_fib
+                   (integer-gmp-1.0.2.0:GHC.Integer.Type.minusInteger
+                      ds_d2OU Main.fib2));
+            1# -> Main.fib3
+          };
+        1# -> Main.fib1
+      }
+end Rec }

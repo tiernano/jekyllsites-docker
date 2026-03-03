@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:371418e03f4fe162d484866662df75e4bdceebcc1189925c85c21f7d39386ced
-size 257
+/* Area:	ffi_call, closure_call
+   Purpose:	Check complex arguments in structs.
+   Limitations:	none.
+   PR:		none.
+   Originator:	<vogt@linux.vnet.ibm.com>.  */
+
+/* { dg-do run } */
+
+#include "complex_defs_longdouble.inc"
+#include "cls_complex_struct.inc"

@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:91344572c071606f305563e2ee54c72f6890876780c8c03ab1cdb59afe644904
-size 495
+package thread_safe;
+
+import java.io.IOException;
+
+import org.jruby.Ruby;
+import org.jruby.ext.thread_safe.JRubyCacheBackendLibrary;
+import org.jruby.runtime.load.BasicLibraryService;
+
+// can't name this JRubyCacheBackendService or else JRuby doesn't pick this up
+public class JrubyCacheBackendService implements BasicLibraryService {
+    public boolean basicLoad(final Ruby runtime) throws IOException {
+        new JRubyCacheBackendLibrary().load(runtime, false);
+        return true;
+    }
+}

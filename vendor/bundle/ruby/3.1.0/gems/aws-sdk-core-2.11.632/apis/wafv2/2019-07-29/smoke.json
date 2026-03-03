@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2feeec60a40dc280d4a036c82d5dceecc91dc2cc3e0955c61cf359132cb9f5d3
-size 422
+{
+  "version": 1,
+  "defaultRegion": "us-east-1",
+  "testCases": [
+    {
+      "operationName": "ListWebACLs",
+      "input": {
+        "Scope": "REGIONAL",
+        "Limit": 20
+      },
+      "errorExpectedFromService": false
+    },
+    {
+      "operationName": "CreateRegexPatternSet",
+      "input": {
+        "Name": "fake_name",
+        "Scope": "fake_scope"
+      },
+      "errorExpectedFromService": true
+    }
+  ]
+}

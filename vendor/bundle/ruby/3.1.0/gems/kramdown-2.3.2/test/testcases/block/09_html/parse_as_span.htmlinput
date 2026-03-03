@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f2b55727474e0dfd1d6be62d36d3142b79b04d8e1f28d1f51a83cd4a2458f8f9
-size 165
+<P>This <EM>text
+should</em> be parsed
+as span
+</p>
+
+<p>This produces `</p>
+<p>` an unwanted result.&lt;/p&gt;</p>
+
+<p>This <em>text</EM> too</P>
+<p>
+some text
+</p>

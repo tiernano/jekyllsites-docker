@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bcd8e49630198e6a51cac8791b86e4a7b7405ffea8c84b0e78d575be6cb63b12
-size 299
+AllCops:
+  TargetRubyVersion: <%= ::Gem::Version.new(config[:required_ruby_version]).segments[0..1].join(".") %>
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Layout/LineLength:
+  Max: 120

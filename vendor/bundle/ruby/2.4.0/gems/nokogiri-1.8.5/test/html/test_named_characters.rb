@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6099fbaa06d5f9d9de071f184d3ffe080b70cf32aecd1646973c81bc6a4c6ec2
-size 340
+require "helper"
+
+module Nokogiri
+  module HTML
+    class TestNamedCharacters < Nokogiri::TestCase
+      def test_named_character
+        copy = NamedCharacters.get('copy')
+        assert_equal 169, NamedCharacters['copy']
+        assert_equal copy.value, NamedCharacters['copy']
+        assert copy.description
+      end
+    end
+  end
+end

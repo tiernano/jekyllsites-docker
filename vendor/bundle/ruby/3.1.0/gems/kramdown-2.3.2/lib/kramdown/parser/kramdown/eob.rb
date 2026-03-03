@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:96e9d001445c6b40b8ac03c8ddd3921947731c8f6e3eef16af611725cc098ee2
-size 528
+# -*- coding: utf-8; frozen_string_literal: true -*-
+#
+#--
+# Copyright (C) 2009-2019 Thomas Leitner <t_leitner@gmx.at>
+#
+# This file is part of kramdown which is licensed under the MIT.
+#++
+#
+
+module Kramdown
+  module Parser
+    class Kramdown
+
+      EOB_MARKER = /^\^\s*?\n/
+
+      # Parse the EOB marker at the current location.
+      def parse_eob_marker
+        @src.pos += @src.matched_size
+        @tree.children << new_block_el(:eob)
+        true
+      end
+      define_parser(:eob_marker, EOB_MARKER)
+
+    end
+  end
+end

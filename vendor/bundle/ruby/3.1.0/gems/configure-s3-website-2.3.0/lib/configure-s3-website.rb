@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c4c166c8bb3f5c0df3eb44b14cabfcdab4552db31e770c98bb0fa6fe15467541
-size 457
+require 'configure-s3-website/version'
+require 'configure-s3-website/s3_client'
+require 'configure-s3-website/cloudfront_client'
+require 'configure-s3-website/xml_helper'
+require 'configure-s3-website/http_helper'
+require 'configure-s3-website/endpoint_helper'
+require 'configure-s3-website/runner'
+require 'configure-s3-website/cli'
+require 'configure-s3-website/config_source/config_source'
+require 'configure-s3-website/config_source/file_config_source'

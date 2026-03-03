@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6612be40806ecf5bc7e8ac15d61f7da11f1c94a749c7ddad2ab20504658ffa60
-size 574
+declare namespace html = "http://www.w3.org/1999/xhtml";
+
+declare function local:test-function($catalog as document-node()) {
+  <html>
+    <head>
+      <title>XQuery example for the Rouge highlighter</title>
+      <link href="style.css"/>
+    </head>
+    <body>
+      <h1>List</h1>
+      <ul>
+        {for $product in $catalog/items/product[@sell-by > current-date()] return
+        <li>
+          <ul>
+            <li>{data($product/name)}</li>
+            <li>{$product/price * (1 + $product/tax)}$</li>
+          </ul>
+        </li>}
+      </ul>
+    </body>
+  </html>
+};

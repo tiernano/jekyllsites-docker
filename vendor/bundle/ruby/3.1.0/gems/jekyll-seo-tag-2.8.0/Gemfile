@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a6708ad26e647d0d4361ba3528c95b5b89bc542b23e0ba693f29c5a8867de88f
-size 195
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+gemspec
+
+gem "jekyll", ENV["JEKYLL_VERSION"] if ENV["JEKYLL_VERSION"]
+gem "kramdown-parser-gfm" if ENV["JEKYLL_VERSION"] == "~> 3.9"

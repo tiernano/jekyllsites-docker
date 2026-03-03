@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7b84ac1f7d740c23fe754b55ced182328de2941abe3163d8e0d7d81bc4cea3a5
-size 255
+# cattr_* became mattr_* aliases in 7dfbd91b0780fbd6a1dd9bfbc176e10894871d2d,
+# but we keep this around for libraries that directly require it knowing they
+# want cattr_*. No need to deprecate.
+require 'active_support/core_ext/module/attribute_accessors'

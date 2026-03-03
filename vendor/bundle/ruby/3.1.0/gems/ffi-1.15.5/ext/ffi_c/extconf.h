@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:04c7bf8db3c7b535adcb8b40ff9a20c278e577fe02aa2ae7b9a9bb12c62f680d
-size 162
+#ifndef EXTCONF_H
+#define EXTCONF_H
+#define HAVE_FFI_PREP_CIF_VAR 1
+#define HAVE_FFI_RAW_CALL 1
+#define HAVE_FFI_PREP_RAW_CLOSURE 1
+#define HAVE_RAW_API 1
+#endif

@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b3affc931b9fc8050c050ebb440e3a1f32212d5239a0ec73bf28994b88c0589f
-size 330
+Aws.add_service(:CodeGuruReviewer, {
+  api: "#{Aws::API_DIR}/codeguru-reviewer/2019-09-19/api-2.json",
+  docs: "#{Aws::API_DIR}/codeguru-reviewer/2019-09-19/docs-2.json",
+  examples: "#{Aws::API_DIR}/codeguru-reviewer/2019-09-19/examples-1.json",
+  paginators: "#{Aws::API_DIR}/codeguru-reviewer/2019-09-19/paginators-1.json",
+})

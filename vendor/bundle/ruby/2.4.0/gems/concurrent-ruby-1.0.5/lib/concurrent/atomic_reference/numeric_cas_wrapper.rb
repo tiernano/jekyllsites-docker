@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:38704dd40e938e1adfcf111d2148cea8a09b89a2110de7f6a4d893d760f47d6b
-size 704
+module Concurrent
+
+  # Special "compare and set" handling of numeric values.
+  #
+  # @!visibility private
+  # @!macro internal_implementation_note
+  module AtomicNumericCompareAndSetWrapper
+
+    # @!macro atomic_reference_method_compare_and_set
+    def compare_and_set(old_value, new_value)
+      if old_value.kind_of? Numeric
+        while true
+          old = get
+
+          return false unless old.kind_of? Numeric
+
+          return false unless old == old_value
+
+          result = _compare_and_set(old, new_value)
+          return result if result
+        end
+      else
+        _compare_and_set(old_value, new_value)
+      end
+    end
+    alias_method :compare_and_swap, :compare_and_set
+  end
+end

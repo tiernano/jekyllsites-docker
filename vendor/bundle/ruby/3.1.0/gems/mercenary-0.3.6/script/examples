@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4664312da1804d9a868811ce1f5125d6abc4b3165ee802b38e22cb7dc79896aa
-size 398
+#! /bin/bash
+
+set -e
+
+function run () {
+  echo "+ ruby ./examples/$@"
+  ruby -e "puts '=' * 79"
+  ruby ./examples/$@
+  ruby -e "puts '=' * 79"
+}
+
+run logging.rb
+run logging.rb -v
+run help_dialogue.rb -h
+run help_dialogue.rb some_subcommand -h
+run help_dialogue.rb another_subcommand -h
+run help_dialogue.rb some_subcommand yet_another_sub -h
+run help_dialogue.rb some_subcommand yet_another_sub -b

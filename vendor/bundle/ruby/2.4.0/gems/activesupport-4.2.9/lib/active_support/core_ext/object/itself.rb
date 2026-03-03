@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a78bd5c5c9511f79d3dd655a23a50d6224bdd2af7488a2696fe0f44bd2c87f20
-size 386
+class Object
+  # TODO: Remove this file when we drop support for Ruby < 2.2
+  unless respond_to?(:itself)
+    # Returns the object itself.
+    #
+    # Useful for chaining methods, such as Active Record scopes:
+    #
+    #   Event.public_send(state.presence_in([ :trashed, :drafted ]) || :itself).order(:created_at)
+    #
+    # @return Object
+    def itself
+      self
+    end
+  end
+end

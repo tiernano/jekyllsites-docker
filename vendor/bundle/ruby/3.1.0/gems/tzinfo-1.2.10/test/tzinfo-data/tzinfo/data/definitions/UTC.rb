@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:624b18f9ef9aa99070cb323f8169757e1e64ddeb7d9e040faa2e10b6a47f9784
-size 305
+# encoding: UTF-8
+
+# This file contains data derived from the IANA Time Zone Database
+# (https://www.iana.org/time-zones).
+
+module TZInfo
+  module Data
+    module Definitions
+      module UTC
+        include TimezoneDefinition
+        
+        linked_timezone 'UTC', 'Etc/UTC'
+      end
+    end
+  end
+end

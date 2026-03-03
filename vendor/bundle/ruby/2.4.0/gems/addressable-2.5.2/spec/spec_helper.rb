@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9b821aec25a4f7085dd4352bc83c99001eca57c9fb7828e4abc0bb7e3b197999
-size 386
+require 'bundler/setup'
+require 'rspec/its'
+
+begin
+  require 'coveralls'
+  Coveralls.wear! do
+    add_filter "spec/"
+    add_filter "vendor/"
+  end
+rescue LoadError
+  warn "warning: coveralls gem not found; skipping Coveralls"
+  require 'simplecov'
+  SimpleCov.start do
+    add_filter "spec/"
+    add_filter "vendor/"
+  end
+end
+
+RSpec.configure do |config|
+  config.warnings = true
+end

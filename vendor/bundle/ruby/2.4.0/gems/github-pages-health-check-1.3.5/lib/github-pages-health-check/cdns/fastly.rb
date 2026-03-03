@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dc3d9e403d5618391832d6a3477fe2483770314afd8209bf167830da3b96cedd
-size 433
+# frozen_string_literal: true
+module GitHubPages
+  module HealthCheck
+    # Instance of the Fastly CDN for checking IP ownership
+    # Specifically not namespaced to avoid a breaking change
+    class Fastly < CDN
+      # Fastly maps used by GitHub Pages.
+      HOSTNAMES = %w(
+        github.map.fastly.net
+        github.map.fastly.net.
+        sni.github.map.fastly.net
+        sni.github.map.fastly.net.
+      )
+    end
+  end
+end

@@ -1,3 +1,48 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:05632fafe4d912f2ed2087f4eb78e631754c56af17973e2f8db3f982789fd77a
-size 1124
+require 'spec_helper'
+
+describe Typhoeus::Hydra::Stubbable do
+  let(:base_url) { "localhost:3001" }
+  let(:request) { Typhoeus::Request.new(base_url) }
+  let(:response) { Typhoeus::Response.new }
+  let(:hydra) { Typhoeus::Hydra.new }
+
+  before { Typhoeus.stub(base_url).and_return(response) }
+
+  describe "#add" do
+    it "checks expectations" do
+      hydra.add(request)
+    end
+
+    context "when expectation found" do
+      it "calls on_headers callbacks" do
+        canary = :not_called
+        request.on_headers do
+          canary = :called
+        end
+        hydra.add(request)
+        hydra.run
+        expect(canary).to eq(:called)
+      end
+
+      it "calls on_body callbacks" do
+        canary = :not_called
+        request.on_body do
+          canary = :called
+        end
+        hydra.add(request)
+        hydra.run
+        expect(canary).to eq(:called)
+      end
+
+      it "finishes response" do
+        expect(request).to receive(:finish)
+        hydra.add(request)
+      end
+
+      it "is a mock" do
+        hydra.add(request)
+        expect(request.response.mock).to be(true)
+      end
+    end
+  end
+end

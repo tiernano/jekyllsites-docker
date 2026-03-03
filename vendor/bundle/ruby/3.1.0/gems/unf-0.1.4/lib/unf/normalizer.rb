@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0bf15f4f3fa2f785bed227318882fccd56ad9e9e75397da6b68589552a41399e
-size 800
+require 'singleton'
+if defined?(RUBY_ENGINE) && RUBY_ENGINE == 'jruby'
+  require 'unf/normalizer_jruby'
+else
+  require 'unf/normalizer_cruby'
+end
+
+# UTF-8 string normalizer class.  Implementations may vary depending
+# on the platform.
+class UNF::Normalizer
+  include Singleton
+
+  class << self
+    # :singleton-method: instance
+    #
+    # Returns a singleton normalizer instance.
+
+    # :singleton-method: new
+    #
+    # Returns a new normalizer instance.  Use +singleton+ instead.
+    public :new
+
+    # A shortcut for instance.normalize(string, form).
+    def normalize(string, form)
+      instance.normalize(string, form)
+    end
+  end
+
+  # :method: normalize
+  # :call-seq:
+  #   normalize(string, form)
+  #
+  # Normalizes a UTF-8 string into a given form (:nfc, :nfd, :nfkc or
+  # :nfkd).
+end

@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:98b8d1eac173dab4fd91bde56bc13eea8ed67966d9c4ceafa5d2fc168620edc5
-size 345
+Simple: ![alt text](/images/other.png)
+
+Simple with title: ![alt text](/images/other.png "title")
+
+Empty img link: ![alt text]()
+
+Reference style: ![alt text][img]
+
+Reference style with title: ![alt text][imgo]
+
+No alt text: ![](other.png)
+
+No id: ![imgo]
+
+[img]: other.png
+[imgo]: other.png "Title"
+
+With escaped pipe: ![an \| pipe](other.png)

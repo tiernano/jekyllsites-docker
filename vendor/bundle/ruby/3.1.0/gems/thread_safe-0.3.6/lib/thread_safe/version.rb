@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e33e2464eef0e532930873c5fb515276c2c34fa0b2fd7ae67da50867997e7da3
-size 492
+module ThreadSafe
+  VERSION = "0.3.6"
+end
+
+# NOTE: <= 0.2.0 used Threadsafe::VERSION
+# @private
+module Threadsafe
+
+  # @private
+  def self.const_missing(name)
+    name = name.to_sym
+    if ThreadSafe.const_defined?(name)
+      warn "[DEPRECATION] `Threadsafe::#{name}' is deprecated, use `ThreadSafe::#{name}' instead."
+      ThreadSafe.const_get(name)
+    else
+      warn "[DEPRECATION] the `Threadsafe' module is deprecated, please use `ThreadSafe` instead."
+      super
+    end
+  end
+
+end

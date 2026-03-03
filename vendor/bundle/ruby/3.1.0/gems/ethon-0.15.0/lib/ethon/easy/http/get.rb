@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:671c5b859ebe00af338be2fe71349217fd15df23de5705e7d55cbf2bfc962b58
-size 552
+# frozen_string_literal: true
+module Ethon
+  class Easy
+    module Http
+
+      # This class knows everything about making GET requests.
+      class Get
+        include Ethon::Easy::Http::Actionable
+        include Ethon::Easy::Http::Postable
+
+        # Setup easy to make a GET request.
+        #
+        # @example Setup.
+        #   get.set_params(easy)
+        #
+        # @param [ Easy ] easy The easy to setup.
+        def setup(easy)
+          super
+          easy.customrequest = "GET" unless form.empty?
+        end
+      end
+    end
+  end
+end

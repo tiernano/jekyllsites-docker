@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d7cdd082f1f3af472e9d8c047484fefb84d046edcddc4471deab742aaa2dc0ff
-size 522
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+
+describe Typhoeus::Hydra do
+  let(:base_url) { "localhost:3001" }
+  let(:options) { {} }
+  let(:hydra) { Typhoeus::Hydra.new(options) }
+
+  describe "#new" do
+    let(:options) { {:pipeling => true} }
+
+    it "passes options to multi" do
+      expect(Ethon::Multi).to receive(:new).with(options)
+      hydra
+    end
+  end
+
+  describe "#hydra" do
+    it "returns a hydra" do
+      expect(Typhoeus::Hydra.hydra).to be_a(Typhoeus::Hydra)
+    end
+  end
+end

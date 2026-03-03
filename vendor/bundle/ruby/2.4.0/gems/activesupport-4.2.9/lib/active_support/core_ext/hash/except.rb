@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:652c5d530b15647bce695dc332ab620717f914ddf7a25ee0584792c88f5cb282
-size 659
+class Hash
+  # Returns a hash that includes everything but the given keys.
+  #   hash = { a: true, b: false, c: nil}
+  #   hash.except(:c) # => { a: true, b: false}
+  #   hash # => { a: true, b: false, c: nil}
+  #
+  # This is useful for limiting a set of parameters to everything but a few known toggles:
+  #   @person.update(params[:person].except(:admin))
+  def except(*keys)
+    dup.except!(*keys)
+  end
+
+  # Replaces the hash without the given keys.
+  #   hash = { a: true, b: false, c: nil}
+  #   hash.except!(:c) # => { a: true, b: false}
+  #   hash # => { a: true, b: false }
+  def except!(*keys)
+    keys.each { |key| delete(key) }
+    self
+  end
+end

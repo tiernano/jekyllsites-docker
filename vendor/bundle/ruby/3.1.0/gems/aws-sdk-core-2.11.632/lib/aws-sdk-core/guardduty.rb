@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c8f0d1f936fe884ddba3076951e0e7fbd1211c0816e6b07a1112dc8e607d036c
-size 291
+Aws.add_service(:GuardDuty, {
+  api: "#{Aws::API_DIR}/guardduty/2017-11-28/api-2.json",
+  docs: "#{Aws::API_DIR}/guardduty/2017-11-28/docs-2.json",
+  examples: "#{Aws::API_DIR}/guardduty/2017-11-28/examples-1.json",
+  paginators: "#{Aws::API_DIR}/guardduty/2017-11-28/paginators-1.json",
+})

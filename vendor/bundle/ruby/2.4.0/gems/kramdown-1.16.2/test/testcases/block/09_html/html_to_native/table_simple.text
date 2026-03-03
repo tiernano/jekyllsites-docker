@@ -1,3 +1,71 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ff3039bb476fc97c7f15ba34fbe070965555cf99f773d778a669b67750885a25
-size 745
+<table class="examples">
+<tr>
+  <td>Usage</td>
+  <td>
+Output
+  </td>
+</tr>
+<tr>
+  <td>Some *data*</td>
+  <td>
+Some more
+  </td>
+</tr>
+</table>
+
+<table class="examples">
+<thead>
+<tr>
+  <th>Usage</th>
+  <th>
+Output
+  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Some *data*</td>
+  <td>
+Some more
+  </td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+  <td>foot</td>
+  <td>
+locker
+  </td>
+</tr>
+</tfoot>
+</table>
+
+<table class="examples">
+<tr>
+  <td style="text-align: left">Usage</td>
+  <td style="width: 10em">
+Output
+  </td>
+</tr>
+<tr>
+  <td style="text-align: left">Some *data*</td>
+  <td>
+Some more
+  </td>
+</tr>
+</table>
+
+<table class="examples">
+<tr>
+  <th>Usage</th>
+  <th>
+Output
+  </th>
+</tr>
+<tr>
+  <td>Some *data*</td>
+  <td>
+Some more
+  </td>
+</tr>
+</table>

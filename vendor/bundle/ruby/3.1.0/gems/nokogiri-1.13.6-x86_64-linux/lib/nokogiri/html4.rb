@@ -1,3 +1,46 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c7421007ea24be4c71440f55f3325ec93f94cc9da20f13c9a7369f9a55368ffc
-size 1618
+# coding: utf-8
+# frozen_string_literal: true
+
+module Nokogiri
+  class << self
+    # :call-seq:
+    #   HTML4(input, url = nil, encoding = nil, options = XML::ParseOptions::DEFAULT_HTML, &block) → Nokogiri::HTML4::Document
+    #
+    # Parse HTML. Convenience method for Nokogiri::HTML4::Document.parse
+    def HTML4(input, url = nil, encoding = nil, options = XML::ParseOptions::DEFAULT_HTML, &block)
+      Nokogiri::HTML4::Document.parse(input, url, encoding, options, &block)
+    end
+  end
+
+  # Since v1.12.0
+  #
+  # 💡 Before v1.12.0, Nokogiri::HTML4 did not exist, and Nokogiri::HTML was the module/namespace
+  # for parsing HTML.
+  module HTML4
+    class << self
+      ###
+      # Parse HTML. Convenience method for Nokogiri::HTML4::Document.parse
+      def parse(input, url = nil, encoding = nil, options = XML::ParseOptions::DEFAULT_HTML, &block)
+        Document.parse(input, url, encoding, options, &block)
+      end
+
+      ####
+      # Parse a fragment from +string+ in to a NodeSet.
+      def fragment(string, encoding = nil, options = XML::ParseOptions::DEFAULT_HTML, &block)
+        HTML4::DocumentFragment.parse(string, encoding, options, &block)
+      end
+    end
+
+    # Instance of Nokogiri::HTML4::EntityLookup
+    NamedCharacters = EntityLookup.new
+  end
+end
+
+require_relative "html4/entity_lookup"
+require_relative "html4/document"
+require_relative "html4/document_fragment"
+require_relative "html4/sax/parser_context"
+require_relative "html4/sax/parser"
+require_relative "html4/sax/push_parser"
+require_relative "html4/element_description"
+require_relative "html4/element_description_defaults"

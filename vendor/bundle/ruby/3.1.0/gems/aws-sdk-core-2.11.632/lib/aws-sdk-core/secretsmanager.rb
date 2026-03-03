@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bbba50e3d4d8074de9d01ca2d3642b6ed22456de9cac22e2f616d1bf64f7657e
-size 316
+Aws.add_service(:SecretsManager, {
+  api: "#{Aws::API_DIR}/secretsmanager/2017-10-17/api-2.json",
+  docs: "#{Aws::API_DIR}/secretsmanager/2017-10-17/docs-2.json",
+  examples: "#{Aws::API_DIR}/secretsmanager/2017-10-17/examples-1.json",
+  paginators: "#{Aws::API_DIR}/secretsmanager/2017-10-17/paginators-1.json",
+})

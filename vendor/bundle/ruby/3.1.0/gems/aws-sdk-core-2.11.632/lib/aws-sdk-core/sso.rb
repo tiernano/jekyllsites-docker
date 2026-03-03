@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4fbdacc07095b2f5e66a8a7397465e99fa1f9315faed4d44419d5f7ec85f9add
-size 261
+Aws.add_service(:SSO, {
+  api: "#{Aws::API_DIR}/sso/2019-06-10/api-2.json",
+  docs: "#{Aws::API_DIR}/sso/2019-06-10/docs-2.json",
+  examples: "#{Aws::API_DIR}/sso/2019-06-10/examples-1.json",
+  paginators: "#{Aws::API_DIR}/sso/2019-06-10/paginators-1.json",
+})

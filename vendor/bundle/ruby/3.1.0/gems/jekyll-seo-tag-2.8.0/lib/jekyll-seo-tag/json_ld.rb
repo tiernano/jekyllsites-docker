@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:da880215b1c0049e643b1ce0fa2731ea7507db47fa1b4ed90fde98ac31dd4ad3
-size 1009
+# frozen_string_literal: true
+
+module Jekyll
+  class SeoTag
+    # This module is deprecated, but is included in the Gem to avoid a breaking
+    # change and should be removed at the next major version bump
+    module JSONLD
+      METHODS_KEYS = {
+        :json_context   => "@context",
+        :type           => "@type",
+        :name           => "name",
+        :page_title     => "headline",
+        :json_author    => "author",
+        :json_image     => "image",
+        :date_published => "datePublished",
+        :date_modified  => "dateModified",
+        :description    => "description",
+        :publisher      => "publisher",
+        :main_entity    => "mainEntityOfPage",
+        :links          => "sameAs",
+        :canonical_url  => "url",
+      }.freeze
+
+      # Self should be a Jekyll::SeoTag::Drop instance (when extending the module)
+      def json_ld
+        Jekyll.logger.warn "Jekyll::SeoTag::JSONLD is deprecated"
+        @json_ld ||= JSONLDDrop.new(self)
+      end
+    end
+  end
+end

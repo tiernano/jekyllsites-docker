@@ -1,3 +1,52 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:efc758759e8a6f01018db7154296caab100b4659946f1e5e2f72b3f18f16e695
-size 1388
+{
+  "pagination": {
+    "ListAccountSettings": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "settings"
+    },
+    "ListAttributes": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "attributes"
+    },
+    "ListClusters": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "clusterArns"
+    },
+    "ListContainerInstances": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "containerInstanceArns"
+    },
+    "ListServices": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "serviceArns"
+    },
+    "ListTaskDefinitionFamilies": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "families"
+    },
+    "ListTaskDefinitions": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "taskDefinitionArns"
+    },
+    "ListTasks": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "taskArns"
+    }
+  }
+}

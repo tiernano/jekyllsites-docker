@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bb0a2424e03cb49880c93734529463f95264dfcf2775d6c53aac9c927bf79cb5
-size 702
+/* line 3, ../more_templates/more1.sass */
+body {
+  font: Arial;
+  background: blue; }
+
+/* line 7, ../more_templates/more1.sass */
+#page {
+  width: 700px;
+  height: 100; }
+  /* line 10, ../more_templates/more1.sass */
+  #page #header {
+    height: 300px; }
+    /* line 12, ../more_templates/more1.sass */
+    #page #header h1 {
+      font-size: 50px;
+      color: blue; }
+
+/* line 18, ../more_templates/more1.sass */
+#content.user.show #container.top #column.left {
+  width: 100px; }
+/* line 20, ../more_templates/more1.sass */
+#content.user.show #container.top #column.right {
+  width: 600px; }
+/* line 22, ../more_templates/more1.sass */
+#content.user.show #container.bottom {
+  background: brown; }

@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bf02423703962f136da1387866a7fd8e19713a3609fb67ba29b68310ceec1076
-size 930
+/*
+ * Summary: interface for the XSLT attribute handling
+ * Description: this module handles the specificities of attribute
+ *              and attribute groups processing.
+ *
+ * Copy: See Copyright for the status of this software.
+ *
+ * Author: Daniel Veillard
+ */
+
+#ifndef __XML_XSLT_ATTRIBUTES_H__
+#define __XML_XSLT_ATTRIBUTES_H__
+
+#include <libxml/tree.h>
+#include "xsltexports.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+XSLTPUBFUN void XSLTCALL
+	xsltParseStylesheetAttributeSet	(xsltStylesheetPtr style,
+					 xmlNodePtr cur);
+XSLTPUBFUN void XSLTCALL
+	xsltFreeAttributeSetsHashes	(xsltStylesheetPtr style);
+XSLTPUBFUN void XSLTCALL
+	xsltApplyAttributeSet		(xsltTransformContextPtr ctxt,
+					 xmlNodePtr node,
+					 xmlNodePtr inst,
+					 const xmlChar *attributes);
+XSLTPUBFUN void XSLTCALL
+	xsltResolveStylesheetAttributeSet(xsltStylesheetPtr style);
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __XML_XSLT_ATTRIBUTES_H__ */
+

@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d28d2ff555e3cd66c2bbba2a0c3aae5a63cfb5dffe30826255d88ba11db86edd
-size 211
+function main(args as dynamic) as void
+    screen = CreateObject("roSGScreen")
+    'Create a scene and load /components/helloworld.xml'
+    scene = screen.CreateScene("HelloWorld")
+    screen.show()
+end function

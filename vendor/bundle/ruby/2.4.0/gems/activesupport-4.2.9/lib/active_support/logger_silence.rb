@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dadfb39427ab4ac6ba370188eaf68bba110a25a8a65026238c0eb94ddf0b5a61
-size 547
+require 'active_support/concern'
+require 'thread_safe'
+
+module LoggerSilence
+  extend ActiveSupport::Concern
+
+  included do
+    cattr_accessor :silencer
+    self.silencer = true
+  end
+
+  # Silences the logger for the duration of the block.
+  def silence(temporary_level = Logger::ERROR)
+    if silencer
+      begin
+        old_local_level            = local_level
+        self.local_level           = temporary_level
+
+        yield self
+      ensure
+        self.local_level = old_local_level
+      end
+    else
+      yield self
+    end
+  end
+end

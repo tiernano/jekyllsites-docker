@@ -1,3 +1,39 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:17e31bd112a2081b9074fd711ed48899f4de01f3ca30e27401ad8e3ca5f708f0
-size 754
+{
+  "version": 2,
+  "waiters": {
+    "InstanceProfileExists": {
+      "delay": 1,
+      "operation": "GetInstanceProfile",
+      "maxAttempts": 40,
+      "acceptors": [
+        {
+          "expected": 200,
+          "matcher": "status",
+          "state": "success"
+        },
+        {
+          "state": "retry",
+          "matcher": "status",
+          "expected": 404
+        }
+      ]
+    },
+    "UserExists": {
+      "delay": 1,
+      "operation": "GetUser",
+      "maxAttempts": 20,
+      "acceptors": [
+        {
+          "state": "success",
+          "matcher": "status",
+          "expected": 200
+        },
+        {
+          "state": "retry",
+          "matcher": "error",
+          "expected": "NoSuchEntity"
+        }
+      ]
+    }
+  }
+}

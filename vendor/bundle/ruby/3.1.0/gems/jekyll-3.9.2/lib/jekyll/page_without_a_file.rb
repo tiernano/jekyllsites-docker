@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b4f97d8f0abe24ed6cfc007a43c7bfca6c24cef22e0d7916a1f3dfa71b6ae694
-size 507
+# frozen_string_literal: true
+
+module Jekyll
+  # A Jekyll::Page subclass to handle processing files without reading it to
+  # determine the page-data and page-content based on Front Matter delimiters.
+  #
+  # The class instance is basically just a bare-bones entity with just
+  # attributes "dir", "name", "path", "url" defined on it.
+  class PageWithoutAFile < Page
+    def read_yaml(*)
+      @data ||= {}
+    end
+
+    def inspect
+      "#<Jekyll:PageWithoutAFile @name=#{name.inspect}>"
+    end
+  end
+end

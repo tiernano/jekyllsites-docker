@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e195e84d918c4f447e80007d4b53c757112feed9f23292380cbdce725f4cc5f1
-size 162
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="../bar/bar.xsd"/>
+</xsd:schema>

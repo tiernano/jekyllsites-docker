@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a57a8e8ee999c862ab3b0be4cf5e0586300c79650e63dd7b239646f19646fe39
-size 572
+require "jekyll"
+require "jekyll-redirect-from/version"
+require "jekyll-redirect-from/generator"
+
+module JekyllRedirectFrom
+  # Jekyll classes which should be redirectable
+  CLASSES = [Jekyll::Page, Jekyll::Document].freeze
+
+  autoload :Context,      "jekyll-redirect-from/context"
+  autoload :RedirectPage, "jekyll-redirect-from/redirect_page"
+  autoload :Redirectable, "jekyll-redirect-from/redirectable"
+  autoload :Layout,       "jekyll-redirect-from/layout"
+end
+
+JekyllRedirectFrom::CLASSES.each do |klass|
+  klass.send :include, JekyllRedirectFrom::Redirectable
+end

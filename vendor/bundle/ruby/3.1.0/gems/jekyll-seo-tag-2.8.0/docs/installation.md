@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:30bce08e44847f808c4cf2f533c1c3f7ab0fd314561dba662291453b93e73615
-size 456
+# Installing Jekyll SEO Tag
+
+1. Add the following to your site's `Gemfile`:
+
+  ```ruby
+  gem 'jekyll-seo-tag'
+  ```
+
+2. Add the following to your site's `_config.yml`:
+
+  ```yml
+  plugins:
+    - jekyll-seo-tag
+  ```
+
+If you are using a Jekyll version less than `3.5.0`, use the `gems` key instead of `plugins`.
+
+3. Add the following right before `</head>` in your site's template(s):
+
+<!-- {% raw %} -->
+  ```liquid
+  {% seo %}
+  ```
+<!-- {% endraw %} -->

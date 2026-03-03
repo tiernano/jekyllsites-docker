@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:00cd52c20f886f9a2eb2cd4468374bea99e0f7a3058d5c4c7b62c2aa49c95516
-size 242
+language: ruby
+rvm:
+  - 1.8.7
+  - ree
+  - 1.9.3
+  - 2.0.0
+  - ruby-head
+  - jruby-18mode
+  - jruby-19mode
+  - jruby-head
+  - rbx-18mode
+  - rbx-19mode
+matrix:
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: rbx-18mode
+    - rvm: rbx-19mode

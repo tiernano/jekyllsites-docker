@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d20ffcf0d0dcd4653d0a9823d95468e534052d5e419ff9377f84ff99f06af6d1
-size 172
+b {
+  foo: 5px;
+  bar: 24px;
+  baz: 66.6666666667%;
+  many-units: 32em;
+  mm: 15mm;
+  pc: 2pc;
+  pt: -72pt;
+  inches: 2in;
+  more-inches: 3.5in;
+  mixed: 2.0416666667in; }

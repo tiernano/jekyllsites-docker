@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0fc088b10d5440eb678503032b936831b180eb80e22f5d7c4d57e6eaca9200f2
-size 215
+Aws.add_service(:Pinpoint, {
+  api: "#{Aws::API_DIR}/pinpoint/2016-12-01/api-2.json",
+  docs: "#{Aws::API_DIR}/pinpoint/2016-12-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/pinpoint/2016-12-01/examples-1.json",
+})

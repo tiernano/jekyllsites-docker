@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cd36ff096f40d80486342f9ae43cf9f893482a85aa2800f410fd288596bb18c2
-size 342
+# frozen_string_literal: true
+module Ethon
+  module Errors
+
+    # Raised when multi_timeout failed.
+    class MultiTimeout < EthonError
+      def initialize(code)
+        super("An error occured getting the timeout: #{code}")
+        # "An error occured getting the timeout: #{code}: #{Curl.multi_strerror(code)}"
+      end
+    end
+  end
+end

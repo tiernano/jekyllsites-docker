@@ -1,3 +1,67 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d728389fc180d90c4f41c6df187f0bf357c1239aac914c439dd8ba73e6f09aa4
-size 1871
+{
+  "pagination": {
+    "DescribeDBClusterEndpoints": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "DBClusterEndpoints"
+    },
+    "DescribeDBEngineVersions": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "DBEngineVersions"
+    },
+    "DescribeDBInstances": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "DBInstances"
+    },
+    "DescribeDBParameterGroups": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "DBParameterGroups"
+    },
+    "DescribeDBParameters": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "Parameters"
+    },
+    "DescribeDBSubnetGroups": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "DBSubnetGroups"
+    },
+    "DescribeEngineDefaultParameters": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "EngineDefaults.Marker",
+      "result_key": "EngineDefaults.Parameters"
+    },
+    "DescribeEventSubscriptions": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "EventSubscriptionsList"
+    },
+    "DescribeEvents": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "Events"
+    },
+    "DescribeOrderableDBInstanceOptions": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "OrderableDBInstanceOptions"
+    },
+    "ListTagsForResource": {
+      "result_key": "TagList"
+    }
+  }
+}

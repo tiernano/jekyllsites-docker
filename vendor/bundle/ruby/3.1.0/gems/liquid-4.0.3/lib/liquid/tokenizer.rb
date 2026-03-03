@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0f9de8124032c984a4595edf29637e290dc5a543a9ad390ffeb2694036025cc6
-size 673
+module Liquid
+  class Tokenizer
+    attr_reader :line_number
+
+    def initialize(source, line_numbers = false)
+      @source = source
+      @line_number = line_numbers ? 1 : nil
+      @tokens = tokenize
+    end
+
+    def shift
+      token = @tokens.shift
+      @line_number += token.count("\n") if @line_number && token
+      token
+    end
+
+    private
+
+    def tokenize
+      @source = @source.source if @source.respond_to?(:source)
+      return [] if @source.to_s.empty?
+
+      tokens = @source.split(TemplateParser)
+
+      # removes the rogue empty element at the beginning of the array
+      tokens.shift if tokens[0] && tokens[0].empty?
+
+      tokens
+    end
+  end
+end

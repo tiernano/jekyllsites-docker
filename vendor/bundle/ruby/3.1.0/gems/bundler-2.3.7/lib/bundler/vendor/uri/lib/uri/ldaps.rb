@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:38507eb7350d9a6962c33458ae8dde09635a31192c15cb009ddff31248e80c45
-size 542
+# frozen_string_literal: false
+# = uri/ldap.rb
+#
+# License:: You can redistribute it and/or modify it under the same term as Ruby.
+#
+# See Bundler::URI for general documentation
+#
+
+require_relative 'ldap'
+
+module Bundler::URI
+
+  # The default port for LDAPS URIs is 636, and the scheme is 'ldaps:' rather
+  # than 'ldap:'. Other than that, LDAPS URIs are identical to LDAP URIs;
+  # see Bundler::URI::LDAP.
+  class LDAPS < LDAP
+    # A Default port of 636 for Bundler::URI::LDAPS
+    DEFAULT_PORT = 636
+  end
+  @@schemes['LDAPS'] = LDAPS
+end

@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:690eb0b27a457581646aba33fc19d46342df0b34a43d381b7af2ade5902420ef
-size 692
+# -*- coding: utf-8 -*- #
+
+module Rouge
+  module Lexers
+    module TypescriptCommon
+      def self.keywords
+        @keywords ||= super + Set.new(%w(
+          is namespace static private protected public
+          implements readonly
+        ))
+      end
+
+      def self.declarations
+        @declarations ||= super + Set.new(%w(
+          type abstract
+        ))
+      end
+
+      def self.reserved
+        @reserved ||= super + Set.new(%w(
+          string any void number namespace module
+          declare default interface keyof
+        ))
+      end
+
+      def self.builtins
+        @builtins ||= super + %w(
+          Pick Partial Readonly Record
+        )
+      end
+    end
+  end
+end

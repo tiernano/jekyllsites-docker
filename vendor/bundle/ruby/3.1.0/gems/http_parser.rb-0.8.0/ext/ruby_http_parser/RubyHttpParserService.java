@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:30ce21c04beec1fdf8263a8033a7fdc438cd0452e31f8a5f2db4c242bfab72bf
-size 679
+import java.io.IOException;
+
+import org.jruby.Ruby;
+import org.jruby.RubyClass;
+import org.jruby.RubyModule;
+import org.jruby.runtime.load.BasicLibraryService;
+
+import org.ruby_http_parser.*;
+
+public class RubyHttpParserService implements BasicLibraryService {
+  public boolean basicLoad(final Ruby runtime) throws IOException {
+    RubyModule mHTTP = runtime.defineModule("HTTP");
+    RubyClass cParser = mHTTP.defineClassUnder("Parser", runtime.getObject(), RubyHttpParser.ALLOCATOR);
+    cParser.defineAnnotatedMethods(RubyHttpParser.class);
+    cParser.defineClassUnder("Error", runtime.getClass("IOError"),runtime.getClass("IOError").getAllocator());
+    return true;
+  }
+}

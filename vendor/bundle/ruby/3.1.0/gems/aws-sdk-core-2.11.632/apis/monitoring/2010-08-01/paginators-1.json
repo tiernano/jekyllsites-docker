@@ -1,3 +1,46 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7fa84ec7359a889f9f0c8b34560263ebb1c06ee5d448a5e51d90e1324e78ee1d
-size 1108
+{
+  "pagination": {
+    "DescribeAlarmHistory": {
+      "input_token": "NextToken",
+      "limit_key": "MaxRecords",
+      "output_token": "NextToken",
+      "result_key": "AlarmHistoryItems"
+    },
+    "DescribeAlarms": {
+      "input_token": "NextToken",
+      "limit_key": "MaxRecords",
+      "output_token": "NextToken",
+      "result_key": [
+        "MetricAlarms",
+        "CompositeAlarms"
+      ]
+    },
+    "DescribeAlarmsForMetric": {
+      "result_key": "MetricAlarms"
+    },
+    "DescribeInsightRules": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken"
+    },
+    "GetMetricData": {
+      "input_token": "NextToken",
+      "limit_key": "MaxDatapoints",
+      "output_token": "NextToken",
+      "result_key": [
+        "MetricDataResults",
+        "Messages"
+      ]
+    },
+    "ListDashboards": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "DashboardEntries"
+    },
+    "ListMetrics": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "Metrics"
+    }
+  }
+}

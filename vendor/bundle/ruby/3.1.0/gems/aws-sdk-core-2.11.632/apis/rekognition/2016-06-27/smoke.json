@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:933bd02ebd0a14c6966bc0a6cea36aa04b7817ee8306e5ce54422ddc1b31caf5
-size 220
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "ListCollections",
+            "input": {},
+            "errorExpectedFromService": false
+        }
+    ]
+}

@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cb43d986196665c32936eb8a6f557101397fd99d6668b679be70327ffaf47700
-size 345
+Aws.add_service(:CodeStarconnections, {
+  api: "#{Aws::API_DIR}/codestar-connections/2019-12-01/api-2.json",
+  docs: "#{Aws::API_DIR}/codestar-connections/2019-12-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/codestar-connections/2019-12-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/codestar-connections/2019-12-01/paginators-1.json",
+})

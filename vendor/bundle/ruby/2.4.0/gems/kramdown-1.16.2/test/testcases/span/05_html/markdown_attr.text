@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9c49cce0a79cb6aa0a590f48012354a8fe56fb048569fc39e9cc9f8882d0b7f6
-size 318
+This is <span markdown="1">*text*</span>
+This is <span markdown="0">*text*</span>
+This is <span markdown="span">*text*</span>
+This is <span markdown="block">*text*</span>
+This is <span markdown="0">*nothing* <strong markdown="1">to *fear*</strong> about</span>.
+This is <span markdown="0"><http://example.com></span>.

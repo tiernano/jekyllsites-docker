@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fcc1e84c1ead775b0fa41e7b7083977d57ecf67d3491c6740ae92b525804ecdc
-size 562
+module Ethon
+  class Easy
+    module Http
+
+      # This class knows everything about making PUT requests.
+      class Put
+        include Ethon::Easy::Http::Actionable
+        include Ethon::Easy::Http::Putable
+
+        # Setup easy to make a PUT request.
+        #
+        # @example Setup.
+        #   put.setup(easy)
+        #
+        # @param [ Easy ] easy The easy to setup.
+        def setup(easy)
+          super
+          if form.empty?
+            easy.upload = true
+            easy.infilesize = 0
+          end
+        end
+      end
+    end
+  end
+end

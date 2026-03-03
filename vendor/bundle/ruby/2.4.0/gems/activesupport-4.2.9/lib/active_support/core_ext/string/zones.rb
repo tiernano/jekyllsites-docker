@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2f22fc9b902520bcd4570efa57731e74b729589b167cf1256152d105720daefe
-size 405
+require 'active_support/core_ext/string/conversions'
+require 'active_support/core_ext/time/zones'
+
+class String
+  # Converts String to a TimeWithZone in the current zone if Time.zone or Time.zone_default
+  # is set, otherwise converts String to a Time via String#to_time
+  def in_time_zone(zone = ::Time.zone)
+    if zone
+      ::Time.find_zone!(zone).parse(self)
+    else
+      to_time
+    end
+  end
+end

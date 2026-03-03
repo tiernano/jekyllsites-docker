@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:77b2e39bf051162f5c8f1b68a7d5b021c9675e53361d1cdae32504200c546b75
-size 426
+require 'test_helper'
+
+class Zip64SupportTest < MiniTest::Test
+  TEST_FILE = File.join(File.dirname(__FILE__), 'data', 'zip64-sample.zip')
+
+  def test_open_zip64_file
+    zip_file = ::Zip::File.open(TEST_FILE)
+    assert(!zip_file.nil?)
+    assert(zip_file.entries.count == 2)
+    test_rb = zip_file.entries.find { |x| x.name == 'test.rb' }
+    assert(test_rb.size == 482)
+    assert(test_rb.compressed_size == 229)
+  end
+end

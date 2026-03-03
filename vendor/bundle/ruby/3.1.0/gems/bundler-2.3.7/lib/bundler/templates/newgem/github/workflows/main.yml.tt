@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e1644df55425e8497f0f11d40dfbf7ae39869d3625546a06dd9e64127c842b61
-size 492
+name: Ruby
+
+on:
+  push:
+    branches:
+      - <%= config[:git_default_branch] %>
+
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Ruby ${{ matrix.ruby }}
+    strategy:
+      matrix:
+        ruby:
+          - '<%= RUBY_VERSION %>'
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+        bundler-cache: true
+    - name: Run the default task
+      run: bundle exec rake

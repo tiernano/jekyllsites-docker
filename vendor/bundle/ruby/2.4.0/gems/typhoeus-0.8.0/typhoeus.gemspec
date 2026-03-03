@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:60cd8e8794b2a62e9fb445cdfdc90bca14bf7d86771604bf493588505dc6617c
-size 929
+# encoding: utf-8
+lib = File.expand_path('../lib/', __FILE__)
+$:.unshift lib unless $:.include?(lib)
+
+require 'typhoeus/version'
+
+Gem::Specification.new do |s|
+  s.name         = "typhoeus"
+  s.version      = Typhoeus::VERSION
+  s.platform     = Gem::Platform::RUBY
+  s.authors      = ["David Balatero", "Paul Dix", "Hans Hasselberg"]
+  s.email        = ["hans.hasselberg@gmail.com"]
+  s.homepage     = "https://github.com/typhoeus/typhoeus"
+  s.summary      = "Parallel HTTP library on top of libcurl multi."
+  s.description  = %q{Like a modern code version of the mythical beast with 100 serpent heads, Typhoeus runs HTTP requests in parallel while cleanly encapsulating handling logic.}
+
+  s.required_rubygems_version = ">= 1.3.6"
+  s.license = 'MIT'
+
+  s.add_dependency('ethon', [">= 0.8.0"])
+
+  s.files        = `git ls-files`.split("\n")
+  s.test_files   = `git ls-files -- spec/*`.split("\n")
+  s.require_path = 'lib'
+end

@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b282b80fbd69f66c3009c4841fd6c6d19b2830c862b5259764197f49c5f2f297
-size 536
+Sass is more than a technology; Sass is driven by the community of individuals
+that power its development and use every day. As a community, we want to embrace
+the very differences that have made our collaboration so powerful, and work
+together to provide the best environment for learning, growing, and sharing of
+ideas. It is imperative that we keep Sass a fun, welcoming, challenging, and
+fair place to play.
+
+[The full community guidelines can be found on the Sass website.][link]
+
+[link]: http://sass-lang.com/community-guidelines

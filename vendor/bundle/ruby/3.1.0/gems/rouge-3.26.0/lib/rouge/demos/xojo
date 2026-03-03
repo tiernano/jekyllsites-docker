@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d39db51c54fce21ee3c5770715d088e5ed9ce405a9ddc8ef3d20d65e47933262
-size 412
+Dim f As FolderItem
+f = GetOpenFolderItem(FileTypes1.jpeg) // defined in the File Type Set editor
+rem - we should check for nil!
+If not f.Exists Then
+  Beep 'Just for fun
+  MsgBox("The file " + f.NativePath + "doesn't ""exist.""")
+Else // document exists
+  ImageWell1.image=Picture.Open(f)
+End If
+if f isa folderitem then
+  msgbox(f.name)
+end if
+Exception err As NilObjectException
+  MsgBox("Invalid pathname!")

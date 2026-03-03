@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:383aefdbe0ea3cdd8820f86c2fb87f1e4aafded6c5228e399f7f387ea2143494
-size 330
+module EventMachine
+  module WebSocket
+    module Close05
+      def close_websocket(code, body)
+        # TODO: Ideally send body data and check that it matches in ack
+        send_frame(:close, "\x53")
+        @state = :closing
+        start_close_timeout
+      end
+
+      def supports_close_codes?; false; end
+    end
+  end
+end

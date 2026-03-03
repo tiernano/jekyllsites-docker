@@ -1,3 +1,40 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9482f2678eb373806017265cafc2714c771971e072c8541aba25dcdc88f05270
-size 1021
+{
+  "pagination": {
+    "ListDetectors": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "DetectorIds"
+    },
+    "ListFindings": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "FindingIds"
+    },
+    "ListIPSets": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "IpSetIds"
+    },
+    "ListThreatIntelSets": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "ThreatIntelSetIds"
+    },
+    "ListInvitations": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "Invitations"
+    },
+    "ListMembers": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "Members"
+    }
+  }
+}

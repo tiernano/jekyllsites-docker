@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8a2e8874e9348ee00c2fd66700ab3c3e952403bbbf5656cd41a2812da336e307
-size 425
+# See https://github.com/dtao/safe_yaml/issues/47
+
+require "spec_helper"
+
+describe YAML do
+  context "when you've only required safe_yaml/load", :libraries => true do
+    it "YAML.load doesn't get monkey patched" do
+      expect(YAML.method(:load)).to eq(ORIGINAL_YAML_LOAD)
+    end
+
+    it "YAML.load_file doesn't get monkey patched" do
+      expect(YAML.method(:load_file)).to eq(ORIGINAL_YAML_LOAD_FILE)
+    end
+  end
+end

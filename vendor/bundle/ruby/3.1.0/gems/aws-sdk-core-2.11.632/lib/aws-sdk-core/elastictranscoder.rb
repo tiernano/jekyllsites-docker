@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:24acc7556c1ae530e9dae735cff8650bbdb2b22b28f0c9e02666f826eb6f6f0e
-size 405
+Aws.add_service(:ElasticTranscoder, {
+  api: "#{Aws::API_DIR}/elastictranscoder/2012-09-25/api-2.json",
+  docs: "#{Aws::API_DIR}/elastictranscoder/2012-09-25/docs-2.json",
+  examples: "#{Aws::API_DIR}/elastictranscoder/2012-09-25/examples-1.json",
+  paginators: "#{Aws::API_DIR}/elastictranscoder/2012-09-25/paginators-1.json",
+  waiters: "#{Aws::API_DIR}/elastictranscoder/2012-09-25/waiters-2.json",
+})

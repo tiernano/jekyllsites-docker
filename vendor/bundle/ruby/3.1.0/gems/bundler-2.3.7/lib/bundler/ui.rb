@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:80559a3c118e21a423fafe33f53a3740ace5ff81d973d3d5331c5693e4391172
-size 255
+# frozen_string_literal: true
+
+module Bundler
+  module UI
+    autoload :RGProxy, File.expand_path("ui/rg_proxy", __dir__)
+    autoload :Shell,   File.expand_path("ui/shell", __dir__)
+    autoload :Silent,  File.expand_path("ui/silent", __dir__)
+  end
+end

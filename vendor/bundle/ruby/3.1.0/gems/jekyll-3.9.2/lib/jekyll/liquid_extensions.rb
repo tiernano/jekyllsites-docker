@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:248ce6278b167f5a4e06109be149dd3b0123be187148930e981afd7c13e9a80f
-size 528
+# frozen_string_literal: true
+
+module Jekyll
+  module LiquidExtensions
+
+    # Lookup a Liquid variable in the given context.
+    #
+    # context  - the Liquid context in question.
+    # variable - the variable name, as a string.
+    #
+    # Returns the value of the variable in the context
+    #   or the variable name if not found.
+    def lookup_variable(context, variable)
+      lookup = context
+
+      variable.split(".").each do |value|
+        lookup = lookup[value]
+      end
+
+      lookup || variable
+    end
+
+  end
+end

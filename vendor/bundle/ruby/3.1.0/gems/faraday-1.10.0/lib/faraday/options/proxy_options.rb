@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f3f42f4807f0b389112825344d9b35c7c42b88284c26b59a04eb72646ab7fd9b
-size 1018
+# frozen_string_literal: true
+
+module Faraday
+  # ProxyOptions contains the configurable properties for the proxy
+  # configuration used when making an HTTP request.
+  class ProxyOptions < Options.new(:uri, :user, :password)
+    extend Forwardable
+    def_delegators :uri, :scheme, :scheme=, :host, :host=, :port, :port=,
+                   :path, :path=
+
+    def self.from(value)
+      case value
+      when String
+        # URIs without a scheme should default to http (like 'example:123').
+        # This fixes #1282 and prevents a silent failure in some adapters.
+        value = "http://#{value}" unless value.include?('://')
+        value = { uri: Utils.URI(value) }
+      when URI
+        value = { uri: value }
+      when Hash, Options
+        if (uri = value.delete(:uri))
+          value[:uri] = Utils.URI(uri)
+        end
+      end
+
+      super(value)
+    end
+
+    memoized(:user) { uri&.user && Utils.unescape(uri.user) }
+    memoized(:password) { uri&.password && Utils.unescape(uri.password) }
+  end
+end

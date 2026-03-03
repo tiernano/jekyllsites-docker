@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:22309f6337d440b08bca29e9478c725449d04bb2af781a34a72d5bb74aec3bb7
-size 390
+module JMESPath
+  # @api private
+  module Nodes
+    class Expression < Node
+      attr_reader :expression
+
+      def initialize(expression)
+        @expression = expression
+      end
+
+      def visit(value)
+        self
+      end
+
+      def eval(value)
+        @expression.visit(value)
+      end
+
+      def optimize
+        self.class.new(@expression.optimize)
+      end
+    end
+  end
+end
+

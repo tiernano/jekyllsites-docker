@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:77f098c77c165ea8f4d251841dcc0f8c759ccd82b61b280ee941622fdc8ad033
-size 159
+#ifndef NOKOGIRI_HTML_DOCUMENT
+#define NOKOGIRI_HTML_DOCUMENT
+
+#include <nokogiri.h>
+
+void init_html_document();
+
+extern VALUE cNokogiriHtmlDocument ;
+
+#endif

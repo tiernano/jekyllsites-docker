@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ea7aee25da6ab97a19fdc42ed156ca357183af42de088d431ad3bfe2b100e4be
-size 177
+This is a line\newline
+with a line break.
+
+This is a line 
+without a line break.
+
+This is a line \newline
+with a line\textbackslash{} \newline
+break.
+
+Line break on last line.
+

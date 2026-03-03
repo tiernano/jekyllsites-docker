@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3c53d70e8a08071e283859badad88613f6d45316fcd1871273fe9af392ccfecb
-size 281
+Aws.add_service(:Budgets, {
+  api: "#{Aws::API_DIR}/budgets/2016-10-20/api-2.json",
+  docs: "#{Aws::API_DIR}/budgets/2016-10-20/docs-2.json",
+  examples: "#{Aws::API_DIR}/budgets/2016-10-20/examples-1.json",
+  paginators: "#{Aws::API_DIR}/budgets/2016-10-20/paginators-1.json",
+})

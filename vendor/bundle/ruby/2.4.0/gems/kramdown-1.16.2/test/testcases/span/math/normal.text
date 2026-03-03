@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e053536241d2876e3640d23aef79bacca45eeb6eb82e5fc021efa9640443d4ee
-size 174
+This is $$\lambda_\alpha > 5$$ some math. With $$1
++ 1$$ new line characters in between.
+
+$$5+5$$ inline math, $5.00 \$$no math$$
+
+\$\$5+5$$ inline math
+
+\$$5+5$$
+
+\$\$5+5$$

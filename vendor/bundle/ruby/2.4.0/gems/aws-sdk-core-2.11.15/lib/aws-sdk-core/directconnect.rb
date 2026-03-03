@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e913749a977e5ec1e6e9e6511c7b998e2c5ceb4eb13c2182dbfd762a6ec41786
-size 311
+Aws.add_service(:DirectConnect, {
+  api: "#{Aws::API_DIR}/directconnect/2012-10-25/api-2.json",
+  docs: "#{Aws::API_DIR}/directconnect/2012-10-25/docs-2.json",
+  examples: "#{Aws::API_DIR}/directconnect/2012-10-25/examples-1.json",
+  paginators: "#{Aws::API_DIR}/directconnect/2012-10-25/paginators-1.json",
+})

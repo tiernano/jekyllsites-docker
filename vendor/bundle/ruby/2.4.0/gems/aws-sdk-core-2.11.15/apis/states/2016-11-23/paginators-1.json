@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f271f65a831152754c66a4a3156832684a0c8ecbe4b559d9a9069484591076f5
-size 695
+{
+  "pagination": {
+    "GetExecutionHistory": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "events"
+    },
+    "ListActivities": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "activities"
+    },
+    "ListExecutions": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "executions"
+    },
+    "ListStateMachines": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "stateMachines"
+    }
+  }
+}

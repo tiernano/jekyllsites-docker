@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:71f742bd4d90d9f15c6884a59cb6161bec9285c2ddedb84078835a2976dc0d29
-size 420
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "ListIdentities",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "VerifyEmailIdentity",
+            "input": {
+                "EmailAddress": "fake_email"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:332d2754cd2bbe1517ad27c43e3d9eefa764edd234bb4cf52585a17ef687d1fc
-size 449
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "ListAvailableSolutionStacks",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "DescribeEnvironmentResources",
+            "input": {
+                "EnvironmentId": "fake_environment"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

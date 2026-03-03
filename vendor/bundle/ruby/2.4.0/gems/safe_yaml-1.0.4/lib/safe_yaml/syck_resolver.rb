@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bdd5e0ba59bf0a0c49d6bb1ca9606f8f3cb07a4e4d8a97a60586a41a225f26a8
-size 634
+module SafeYAML
+  class SyckResolver < Resolver
+    QUOTE_STYLES = [
+      :quote1,
+      :quote2
+    ].freeze
+
+    NODE_TYPES = {
+      Hash   => :map,
+      Array  => :seq,
+      String => :scalar
+    }.freeze
+
+    def initialize(options={})
+      super
+    end
+
+    def native_resolve(node)
+      node.transform(self.options)
+    end
+
+    def get_node_type(node)
+      NODE_TYPES[node.value.class]
+    end
+
+    def get_node_tag(node)
+      node.type_id
+    end
+
+    def get_node_value(node)
+      node.value
+    end
+
+    def value_is_quoted?(node)
+      QUOTE_STYLES.include?(node.instance_variable_get(:@style))
+    end
+  end
+end

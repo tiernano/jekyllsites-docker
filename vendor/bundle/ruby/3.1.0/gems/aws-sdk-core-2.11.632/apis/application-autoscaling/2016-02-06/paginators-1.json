@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:859924e1845ed0aff39079297879844298001c41eb04640c91454aac6cb3b3f7
-size 750
+{
+  "pagination": {
+    "DescribeScalableTargets": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "ScalableTargets"
+    },
+    "DescribeScalingActivities": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "ScalingActivities"
+    },
+    "DescribeScalingPolicies": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "ScalingPolicies"
+    },
+    "DescribeScheduledActions": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "ScheduledActions"
+    }
+  }
+}

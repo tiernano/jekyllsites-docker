@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ac3fe9286185f0f1dca81c60d345350381ee498c11226e979875361f4bc24e73
-size 218
+Aws.add_service(:LambdaPreview, {
+  api: "#{Aws::API_DIR}/lambda/2014-11-11/api-2.json",
+  docs: "#{Aws::API_DIR}/lambda/2014-11-11/docs-2.json",
+  paginators: "#{Aws::API_DIR}/lambda/2014-11-11/paginators-1.json",
+})

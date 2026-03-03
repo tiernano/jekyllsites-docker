@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9768e00459ac23d9551e895d4adf0eaf129fbfe0e53a2b634b5555f3050ede16
-size 527
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+# Specify your gem's dependencies in <%= config[:name] %>.gemspec
+gemspec
+
+gem "rake", "~> 13.0"
+<%- if config[:ext] -%>
+
+gem "rake-compiler"
+<%- end -%>
+<%- if config[:test] -%>
+
+gem "<%= config[:test] %>", "~> <%= config[:test_framework_version] %>"
+<%- end -%>
+<%- if config[:linter] == "rubocop" -%>
+
+gem "rubocop", "~> <%= config[:linter_version] %>"
+<%- elsif config[:linter] == "standard" -%>
+
+gem "standard", "~> <%= config[:linter_version] %>"
+<%- end -%>

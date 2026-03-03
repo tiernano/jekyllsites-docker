@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d57c8e0f3bc876ca8e3de0166e4f0fb2fb56b33ac3876e59dfabc554aca3cd2a
-size 310
+This is a simple paragraph.
+
+{::nomarkdown}  
+This *is* not processed 
+  {:/nomarkdown}
+
+And another paragraph
+
+{::nomarkdown this='is' .ignore /}
+
+{::nomarkdown type='html'}
+<em>bold</em>
+{:/}
+{::nomarkdown type="latex"}
+\begin{itemize}
+\item[Yes] YESSSS!
+\end{itemize}
+{:/}
+
+{::nomarkdown}
+Another paragraph

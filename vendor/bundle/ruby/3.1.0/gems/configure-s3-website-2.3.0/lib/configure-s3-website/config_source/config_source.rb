@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c1d4d5918b09f7b39ea8e09f1b94fbe8311c057659b3c6c71cec6d129f3cff36
-size 395
+module ConfigureS3Website
+  class ConfigSource
+    def description
+    end
+
+    def s3_access_key_id
+    end
+
+    def s3_secret_access_key
+    end
+
+    def s3_bucket_name
+    end
+
+    def s3_endpoint
+    end
+
+    def routing_rules
+    end
+
+    def cloudfront_distribution_config
+    end
+
+    def cloudfront_distribution_id
+    end
+
+    def cloudfront_distribution_id=(dist_id)
+    end
+  end
+end

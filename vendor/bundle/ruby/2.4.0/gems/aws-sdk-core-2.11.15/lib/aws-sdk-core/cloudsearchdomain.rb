@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4c9a6b5c3b1d4d077f62f0ec0809ad33e9d126c16641a49b9af5596d03d2f0ad
-size 251
+Aws.add_service(:CloudSearchDomain, {
+  api: "#{Aws::API_DIR}/cloudsearchdomain/2013-01-01/api-2.json",
+  docs: "#{Aws::API_DIR}/cloudsearchdomain/2013-01-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/cloudsearchdomain/2013-01-01/examples-1.json",
+})

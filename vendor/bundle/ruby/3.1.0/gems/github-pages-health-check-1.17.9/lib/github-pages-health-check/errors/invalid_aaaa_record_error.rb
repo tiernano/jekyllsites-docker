@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8520047e5bc84d673c3d6208c3c7cc1ef13807804ea16818eb44111a52e97c28
-size 553
+# frozen_string_literal: true
+
+module GitHubPages
+  module HealthCheck
+    module Errors
+      class InvalidAAAARecordError < GitHubPages::HealthCheck::Error
+        DOCUMENTATION_PATH = "/articles/setting-up-a-custom-domain-with-github-pages/"
+
+        def message
+          <<-MSG
+          Your site's DNS settings are using a custom subdomain, #{domain.host},
+          that's set up as an AAAA record. We recommend you change this to a CNAME
+          record pointing at #{username}.github.io.
+          MSG
+        end
+      end
+    end
+  end
+end

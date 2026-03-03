@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:487efb23c3cf13ddc963a8ff2a5871a17e5662cefca4a7f816ca2810479bf6c0
-size 282
+# frozen_string_literal: true
+
+require "test_helper"
+
+class <%= config[:minitest_constant_name] %> < Minitest::Test
+  def test_that_it_has_a_version_number
+    refute_nil ::<%= config[:constant_name] %>::VERSION
+  end
+
+  def test_it_does_something_useful
+    assert false
+  end
+end

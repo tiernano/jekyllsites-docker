@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:da4d0e385bce3f2df298a33d5891daaef011ee281e7eedff6f543f2d32f67d65
-size 152
+node count(init: int; reset, event: bool) returns (c: int);
+let
+	c = init -> if reset then init
+					else if event then pre(c)+1
+					else pre(c);
+tel;

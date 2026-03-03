@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2bbe710951dd57a99c044829ab78005faa04a6f5892363d5af82795fb7bac482
-size 71
+languagesystem DFLT dflt;
+
+feature liga {
+    sub f i by f_i;
+} liga;
+

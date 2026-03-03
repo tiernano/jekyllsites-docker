@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:61a8d2c52628b372fb4c99ade2b4f3effcfcd35607e12f7688daa05d2a9a6b30
-size 328
+NB. Procedural programming
+fizzbuzz=: monad define
+  for_i. >:i.y do.
+    if.     0 = 15 | i do. echo'FizzBuzz'
+    elseif. 0 =  3 | i do. echo'Fizz'
+    elseif. 0 =  5 | i do. echo'Buzz'
+    else.                  echo i
+    end.
+  end.
+)
+NB. Loopless programming
+fizzbuzz=: echo@(, ::] ('Fizz' ; 'Buzz') ;@#~ 0 = 3 5&|)@>:@i.

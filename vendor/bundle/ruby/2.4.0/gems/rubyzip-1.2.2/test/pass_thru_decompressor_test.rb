@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:66a3c9aa57efcb97918aec66196abaf79a9b4cfa2f42f6ddabe91d0f01461daa
-size 282
+require 'test_helper'
+class PassThruDecompressorTest < MiniTest::Test
+  include DecompressorTests
+
+  def setup
+    super
+    @file = File.new(TEST_FILE)
+    @decompressor = ::Zip::PassThruDecompressor.new(@file, File.size(TEST_FILE))
+  end
+
+  def teardown
+    @file.close
+  end
+end

@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:07b1059dfa9acb9aedc07a0dde763db19aa93160299fead8406230f29bb436ee
-size 474
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "ListStacks",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "CreateStack",
+            "input": {
+                "StackName": "fakestack",
+                "TemplateURL": "http:\/\/s3.amazonaws.com\/foo\/bar"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

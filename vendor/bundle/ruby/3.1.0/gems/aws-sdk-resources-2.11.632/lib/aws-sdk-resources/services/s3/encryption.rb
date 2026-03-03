@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ca6d0edebba2d6177fb121d0461cadeb7c835db0e6293dbbe062f4bead0d5b43
-size 1270
+module Aws
+  module S3
+    module Encryption
+
+      AES_GCM_TAG_LEN_BYTES = 16
+      EC_USER_AGENT = 'S3CryptoV1n'
+
+      autoload :Client, 'aws-sdk-resources/services/s3/encryption/client'
+      autoload :DecryptHandler, 'aws-sdk-resources/services/s3/encryption/decrypt_handler'
+      autoload :DefaultCipherProvider, 'aws-sdk-resources/services/s3/encryption/default_cipher_provider'
+      autoload :DefaultKeyProvider, 'aws-sdk-resources/services/s3/encryption/default_key_provider'
+      autoload :EncryptHandler, 'aws-sdk-resources/services/s3/encryption/encrypt_handler'
+      autoload :Errors, 'aws-sdk-resources/services/s3/encryption/errors'
+      autoload :IOEncrypter, 'aws-sdk-resources/services/s3/encryption/io_encrypter'
+      autoload :IOAuthDecrypter, 'aws-sdk-resources/services/s3/encryption/io_auth_decrypter'
+      autoload :IODecrypter, 'aws-sdk-resources/services/s3/encryption/io_decrypter'
+      autoload :KeyProvider, 'aws-sdk-resources/services/s3/encryption/key_provider'
+      autoload :KmsCipherProvider, 'aws-sdk-resources/services/s3/encryption/kms_cipher_provider'
+      autoload :Materials, 'aws-sdk-resources/services/s3/encryption/materials'
+      autoload :Utils, 'aws-sdk-resources/services/s3/encryption/utils'
+
+    end
+  end
+end

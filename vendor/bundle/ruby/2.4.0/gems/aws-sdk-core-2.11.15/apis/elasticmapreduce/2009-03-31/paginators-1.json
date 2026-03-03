@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0f082eb1e3d9e0cb2ad299aada8bd59c7f8a9299281204be36057f6228689354
-size 862
+{
+  "pagination": {
+    "DescribeJobFlows": {
+      "result_key": "JobFlows"
+    },
+    "ListBootstrapActions": {
+      "input_token": "Marker",
+      "output_token": "Marker",
+      "result_key": "BootstrapActions"
+    },
+    "ListClusters": {
+      "input_token": "Marker",
+      "output_token": "Marker",
+      "result_key": "Clusters"
+    },
+    "ListInstanceFleets": {
+      "input_token": "Marker",
+      "output_token": "Marker",
+      "result_key": "InstanceFleets"
+    },
+    "ListInstanceGroups": {
+      "input_token": "Marker",
+      "output_token": "Marker",
+      "result_key": "InstanceGroups"
+    },
+    "ListInstances": {
+      "input_token": "Marker",
+      "output_token": "Marker",
+      "result_key": "Instances"
+    },
+    "ListSteps": {
+      "input_token": "Marker",
+      "output_token": "Marker",
+      "result_key": "Steps"
+    }
+  }
+}

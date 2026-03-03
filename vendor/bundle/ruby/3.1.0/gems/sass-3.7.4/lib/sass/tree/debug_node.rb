@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5908bee00eb2b323135232441fcdffac877e40577b10840066b86a65936c1638
-size 396
+module Sass
+  module Tree
+    # A dynamic node representing a Sass `@debug` statement.
+    #
+    # @see Sass::Tree
+    class DebugNode < Node
+      # The expression to print.
+      # @return [Script::Tree::Node]
+      attr_accessor :expr
+
+      # @param expr [Script::Tree::Node] The expression to print
+      def initialize(expr)
+        @expr = expr
+        super()
+      end
+    end
+  end
+end

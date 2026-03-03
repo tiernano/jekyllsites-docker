@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cf87bdfbde45d4b4a5d76d9910b15d35aa129e8ffc0642d8db55ea232fdd8fe1
-size 192
+This is a simple paragraph.
+
+{::comment}
+This is a comment {:/}which is {:/comment} ignored.
+{:/comment}
+
+And another paragraph
+
+{::comment this='is' .ignore /}
+
+{::comment}
+Another paragraph

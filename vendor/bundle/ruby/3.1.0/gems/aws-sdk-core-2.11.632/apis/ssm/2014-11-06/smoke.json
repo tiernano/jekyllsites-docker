@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9fa7c99bae00e9e2face5400ceed69f9011fbc0ef89d17db88c5363432d69e16
-size 404
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "ListDocuments",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "GetDocument",
+            "input": {
+                "Name": "'fake-name'"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

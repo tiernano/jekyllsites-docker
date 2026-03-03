@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c945b1cf6b320ac78b3e0564c77994adc5c26f318bd8025122c1d456be3f237a
-size 194
+#ifndef CMARK_VERSION_H
+#define CMARK_VERSION_H
+
+#define CMARK_VERSION ((0 << 24) | (28 << 16) | (3 << 8) | 12)
+#define CMARK_VERSION_STRING "0.28.3.gfm.12"
+#define CMARK_GFM_VERSION 12
+
+#endif

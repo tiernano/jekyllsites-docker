@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1e1c7fb5d78de92b5ade84bd04ca6c6ec1a8a06819626d33907163b9531402d9
-size 299
+Link def with [attr] and [attr 2] and [attr 3] and [attr before]
+
+[attr]: http://example.com 'title'
+{: hreflang="en" .test}
+
+[attr 2]: http://example.com 'title'
+{: hreflang="en"}
+{: .test}
+
+[attr 3]: http://example.com
+{: .test}
+test
+
+{: hreflang="en"}
+{: .test}
+[attr before]: http://example.com

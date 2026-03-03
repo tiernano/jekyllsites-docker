@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5976bad2bc1dbb836bb8f782b0320adaeea4c0f4c0e3d9d6dd9909b8b0c0f723
-size 234
+\href{https://example.com/~tilde/}{https://example.com/\ensuremath{\sim}tilde/}
+
+\href{http://example.com/percent\%20percent}{http://example.com/percent\%20percent}
+
+\href{http://example.com/hash#hash}{http://example.com/hash\#hash}
+

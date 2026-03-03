@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5499fac51c7fa1f26a6f76e7726efd3beb438c809553b142d550c257c0dbd8e4
-size 526
+# frozen_string_literal: true
+
+module Jekyll
+  module Drops
+    class JekyllDrop < Liquid::Drop
+      class << self
+        def global
+          @global ||= JekyllDrop.new
+        end
+      end
+
+      def version
+        Jekyll::VERSION
+      end
+
+      def environment
+        Jekyll.env
+      end
+
+      def to_h
+        @to_h ||= {
+          "version"     => version,
+          "environment" => environment,
+        }
+      end
+
+      def to_json(state = nil)
+        JSON.generate(to_h, state)
+      end
+    end
+  end
+end

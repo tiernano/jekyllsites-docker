@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:996af236a9779103aecd3a9c94c6246864d2f101d16cddbb26145c74e2b5155c
-size 357
+Aws.add_service(:SageMaker, {
+  api: "#{Aws::API_DIR}/sagemaker/2017-07-24/api-2.json",
+  docs: "#{Aws::API_DIR}/sagemaker/2017-07-24/docs-2.json",
+  examples: "#{Aws::API_DIR}/sagemaker/2017-07-24/examples-1.json",
+  paginators: "#{Aws::API_DIR}/sagemaker/2017-07-24/paginators-1.json",
+  waiters: "#{Aws::API_DIR}/sagemaker/2017-07-24/waiters-2.json",
+})

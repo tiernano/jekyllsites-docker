@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ed270a76acc7c3c7d10e7f22c4d02e41d3c2962c1266c52dc438a18a213e94b1
-size 237
+module Liquid
+  class Comment < Block
+    def render(_context)
+      ''.freeze
+    end
+
+    def unknown_tag(_tag, _markup, _tokens)
+    end
+
+    def blank?
+      true
+    end
+  end
+
+  Template.register_tag('comment'.freeze, Comment)
+end

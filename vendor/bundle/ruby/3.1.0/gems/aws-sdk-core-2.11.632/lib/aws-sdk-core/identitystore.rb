@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:74a0ea1980673c201a390be233e5bc9965e0117ed82f9ac9b19c2e34bb8d7269
-size 311
+Aws.add_service(:IdentityStore, {
+  api: "#{Aws::API_DIR}/identitystore/2020-06-15/api-2.json",
+  docs: "#{Aws::API_DIR}/identitystore/2020-06-15/docs-2.json",
+  examples: "#{Aws::API_DIR}/identitystore/2020-06-15/examples-1.json",
+  paginators: "#{Aws::API_DIR}/identitystore/2020-06-15/paginators-1.json",
+})

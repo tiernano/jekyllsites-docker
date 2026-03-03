@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7dfc2a956e85f78a49b915f8c4699b0763813a8227ab9b7cdb36ba68c454b2e9
-size 535
+module ConfigureS3Website
+  class XmlHelper
+    def self.hash_to_api_xml(hash={}, indent=0)
+      "".tap do |body|
+        hash.each do |key, value|
+          key_name = key.sub(/^[a-z\d]*/) { $&.capitalize }.gsub(/(?:_|(\/))([a-z\d]*)/) { $2.capitalize }
+          value = value.is_a?(Hash) ? self.hash_to_api_xml(value, indent+1) : value
+          body << "\n"
+          body << " " * indent * 2 # 2-space indentation formatting for xml
+          body << "<#{key_name}>#{value}</#{key_name}>"
+        end
+      end
+    end
+  end
+end

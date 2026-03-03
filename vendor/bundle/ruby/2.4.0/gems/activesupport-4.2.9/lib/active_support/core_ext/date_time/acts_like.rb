@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:74c9eaf9ffb8a175ab61414d4e63ee75b568bcef1f6d6ead9dfd3115ffd1bd0a
-size 281
+require 'date'
+require 'active_support/core_ext/object/acts_like'
+
+class DateTime
+  # Duck-types as a Date-like class. See Object#acts_like?.
+  def acts_like_date?
+    true
+  end
+
+  # Duck-types as a Time-like class. See Object#acts_like?.
+  def acts_like_time?
+    true
+  end
+end

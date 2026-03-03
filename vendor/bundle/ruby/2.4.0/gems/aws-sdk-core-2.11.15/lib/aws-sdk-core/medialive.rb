@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6bd39c29d4ff433e1a6dddd0816a67983da164591d57f6e8e018725ded2d71a4
-size 223
+Aws.add_service(:MediaLive, {
+  api: "#{Aws::API_DIR}/medialive/2017-10-14/api-2.json",
+  docs: "#{Aws::API_DIR}/medialive/2017-10-14/docs-2.json",
+  paginators: "#{Aws::API_DIR}/medialive/2017-10-14/paginators-1.json",
+})

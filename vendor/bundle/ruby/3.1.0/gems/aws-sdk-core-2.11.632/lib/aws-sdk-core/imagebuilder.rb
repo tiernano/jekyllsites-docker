@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:72a8fbabe4a29486fab15f07a017c1f6f387822b0a14e646332365f5da69d2e9
-size 306
+Aws.add_service(:Imagebuilder, {
+  api: "#{Aws::API_DIR}/imagebuilder/2019-12-02/api-2.json",
+  docs: "#{Aws::API_DIR}/imagebuilder/2019-12-02/docs-2.json",
+  examples: "#{Aws::API_DIR}/imagebuilder/2019-12-02/examples-1.json",
+  paginators: "#{Aws::API_DIR}/imagebuilder/2019-12-02/paginators-1.json",
+})

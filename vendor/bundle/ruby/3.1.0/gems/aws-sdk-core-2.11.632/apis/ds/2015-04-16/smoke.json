@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f8c6f49a540561abf66dbf99b2ab433ca048d8f401db156d0adbff7c58f614c6
-size 463
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "DescribeDirectories",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "CreateDirectory",
+            "input": {
+                "Name": "",
+                "Password": "",
+                "Size": ""
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

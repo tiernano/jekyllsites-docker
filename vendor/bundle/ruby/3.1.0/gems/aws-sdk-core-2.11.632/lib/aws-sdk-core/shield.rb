@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c8bd46af7423b3a2f450087e729f68cdfb66e24959eb74fa1ccb028817e6c055
-size 276
+Aws.add_service(:Shield, {
+  api: "#{Aws::API_DIR}/shield/2016-06-02/api-2.json",
+  docs: "#{Aws::API_DIR}/shield/2016-06-02/docs-2.json",
+  examples: "#{Aws::API_DIR}/shield/2016-06-02/examples-1.json",
+  paginators: "#{Aws::API_DIR}/shield/2016-06-02/paginators-1.json",
+})

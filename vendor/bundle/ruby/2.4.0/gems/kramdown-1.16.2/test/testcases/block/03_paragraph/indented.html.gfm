@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0ea41a6c9ae90ed7bb9560e8e86125aba4891ed06cf5984e2b57c16a47c4ebd1
-size 258
+<p>This is a para.</p>
+
+<p>This is a para.</p>
+
+<p>This is a para.</p>
+
+<p>This is a para.</p>
+
+<pre><code>This is a code block.
+</code></pre>
+
+<p>And this is another.</p>
+
+<p>A para
+<br /> with
+<br />  mixed
+<br />indents.
+<br />   and with much indent</p>

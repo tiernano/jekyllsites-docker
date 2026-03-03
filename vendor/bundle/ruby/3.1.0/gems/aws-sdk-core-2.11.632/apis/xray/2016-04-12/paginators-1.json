@@ -1,3 +1,54 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d52af8f3702e474045c05fd4bfe0983169bfe81caee05fcbe8719e7e1a8294e5
-size 1424
+{
+  "pagination": {
+    "BatchGetTraces": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "Traces"
+    },
+    "GetGroups": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "Groups"
+    },
+    "GetInsightEvents": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken"
+    },
+    "GetInsightSummaries": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken"
+    },
+    "GetSamplingRules": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "SamplingRuleRecords"
+    },
+    "GetSamplingStatisticSummaries": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "SamplingStatisticSummaries"
+    },
+    "GetServiceGraph": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "Services"
+    },
+    "GetTimeSeriesServiceStatistics": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "TimeSeriesServiceStatistics"
+    },
+    "GetTraceGraph": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "Services"
+    },
+    "GetTraceSummaries": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "TraceSummaries"
+    }
+  }
+}

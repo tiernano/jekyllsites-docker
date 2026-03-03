@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dc5186389c08926fab5d1939abf1e053657c094ef1ce60a3c1dc3d0fe9e1f87d
-size 216
+# frozen_string_literal: true
+
+module Nokogiri
+  module XML
+    class CDATA < Nokogiri::XML::Text
+      ###
+      # Get the name of this CDATA node
+      def name
+        "#cdata-section"
+      end
+    end
+  end
+end

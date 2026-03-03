@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:00ceba8c21b8ca6c8c49831b98e8dc7e03dd4232a8775c20d898b06bdb8aaeb9
-size 866
+module SafeYAML
+  class Transform
+    class ToFloat
+      Infinity = 1.0 / 0.0
+      NaN = 0.0 / 0.0
+
+      PREDEFINED_VALUES = {
+        ".inf"  => Infinity,
+        ".Inf"  => Infinity,
+        ".INF"  => Infinity,
+        "-.inf" => -Infinity,
+        "-.Inf" => -Infinity,
+        "-.INF" => -Infinity,
+        ".nan"  => NaN,
+        ".NaN"  => NaN,
+        ".NAN"  => NaN,
+      }.freeze
+
+      MATCHER = /\A[-+]?(?:\d[\d_]*)?\.[\d_]+(?:[eE][-+][\d]+)?\Z/.freeze
+
+      def transform?(value)
+        return true, Float(value) if MATCHER.match(value)
+        try_edge_cases?(value)
+      end
+
+      def try_edge_cases?(value)
+        return true, PREDEFINED_VALUES[value] if PREDEFINED_VALUES.include?(value)
+        return true, Parse::Sexagesimal.value(value) if Parse::Sexagesimal::FLOAT_MATCHER.match(value)
+        return false
+      end
+    end
+  end
+end

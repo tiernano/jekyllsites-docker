@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6b7f85d87d87133fe785626714c0624e8e9e4dd1958eac709420a36f48b61706
-size 341
+Aws.add_service(:MarketplaceMetering, {
+  api: "#{Aws::API_DIR}/meteringmarketplace/2016-01-14/api-2.json",
+  docs: "#{Aws::API_DIR}/meteringmarketplace/2016-01-14/docs-2.json",
+  examples: "#{Aws::API_DIR}/meteringmarketplace/2016-01-14/examples-1.json",
+  paginators: "#{Aws::API_DIR}/meteringmarketplace/2016-01-14/paginators-1.json",
+})

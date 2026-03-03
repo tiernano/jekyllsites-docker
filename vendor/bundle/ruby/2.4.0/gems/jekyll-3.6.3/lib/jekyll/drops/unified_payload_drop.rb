@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8ef06231235d115e0a45a28444cb8b0f69b9f70d27344060b84ec64757f03adb
-size 453
+# frozen_string_literal: true
+
+module Jekyll
+  module Drops
+    class UnifiedPayloadDrop < Drop
+      mutable true
+
+      attr_accessor :page, :layout, :content, :paginator
+      attr_accessor :highlighter_prefix, :highlighter_suffix
+
+      def jekyll
+        JekyllDrop.global
+      end
+
+      def site
+        @site_drop ||= SiteDrop.new(@obj)
+      end
+
+      private
+      def fallback_data
+        @fallback_data ||= {}
+      end
+    end
+  end
+end

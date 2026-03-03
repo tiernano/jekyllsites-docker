@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:77829c9fe47f0ebdef2415db76783db391be9b39fe034cd067bac1041999eaf1
-size 289
+timezone: UTC
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: page
+    values:
+      layout: some_default
+  -
+    scope:
+      path: "static_files/excluded.pdf"
+    values:
+      sitemap: false
+  -
+    scope:
+      path: "static_files/html_file.html"
+    values:
+      sitemap: false

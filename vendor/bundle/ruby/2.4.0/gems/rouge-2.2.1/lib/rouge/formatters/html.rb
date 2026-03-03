@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:639a9d1a628d035ee04c5a7618ff5e51137d4cbafe1d312e8f7ffa1b57d038e0
-size 817
+# -*- coding: utf-8 -*- #
+
+module Rouge
+  module Formatters
+    # Transforms a token stream into HTML output.
+    class HTML < Formatter
+      tag 'html'
+
+      # @yield the html output.
+      def stream(tokens, &b)
+        tokens.each { |tok, val| yield span(tok, val) }
+      end
+
+      def span(tok, val)
+        safe_span(tok, val.gsub(/[&<>]/, TABLE_FOR_ESCAPE_HTML))
+      end
+
+      def safe_span(tok, safe_val)
+        if tok == Token::Tokens::Text
+          safe_val
+        else
+          shortname = tok.shortname \
+            or raise "unknown token: #{tok.inspect} for #{safe_val.inspect}"
+
+          "<span class=\"#{shortname}\">#{safe_val}</span>"
+        end
+      end
+
+
+      TABLE_FOR_ESCAPE_HTML = {
+        '&' => '&amp;',
+        '<' => '&lt;',
+        '>' => '&gt;',
+      }
+    end
+  end
+end

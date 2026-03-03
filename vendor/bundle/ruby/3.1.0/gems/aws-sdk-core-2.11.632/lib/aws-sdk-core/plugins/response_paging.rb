@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:10ef228893a90b11d8515ae5687d58121eacd62aa7b2856dfe9c9a89dee947ea
-size 818
+module Aws
+  module Plugins
+    class ResponsePaging < Seahorse::Client::Plugin
+
+      def add_handlers(handlers, config)
+        handlers.add(Handler,
+          operations: pageable_operations(config),
+          step: :initialize,
+          priority: 90)
+      end
+
+      private
+
+      def pageable_operations(config)
+        config.api.operations.inject([]) do |pageable, (name, operation)|
+          pageable << name if operation[:pager]
+          pageable
+        end
+      end
+
+      # @api private
+      class Handler < Seahorse::Client::Handler
+
+        def call(context)
+          context[:original_params] = context.params
+          resp = @handler.call(context)
+          resp.extend(PageableResponse)
+          resp.pager = context.operation[:pager]
+          resp
+        end
+
+      end
+    end
+  end
+end

@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c767e0df3804c052be8708c0b2fb546c325e6f9f833dc2d7114dbf5fcce522eb
-size 601
+{
+  "pagination": {
+    "DescribeCases": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "cases"
+    },
+    "DescribeCommunications": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "communications"
+    },
+    "DescribeServices": {
+      "result_key": "services"
+    },
+    "DescribeTrustedAdvisorCheckRefreshStatuses": {
+      "result_key": "statuses"
+    },
+    "DescribeTrustedAdvisorCheckSummaries": {
+      "result_key": "summaries"
+    }
+  }
+}

@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fe1acb9c7c3e8a5b69c0dadc49ffa54292e0ac3079f525fbe5096c896aa892a1
-size 481
+module Nokogiri
+  module HTML
+    module SAX
+      ###
+      # Context for HTML SAX parsers.  This class is usually not instantiated
+      # by the user.  Instead, you should be looking at
+      # Nokogiri::HTML::SAX::Parser
+      class ParserContext < Nokogiri::XML::SAX::ParserContext
+        def self.new thing, encoding = 'UTF-8'
+          [:read, :close].all? { |x| thing.respond_to?(x) } ?  super :
+            memory(thing, encoding)
+        end
+      end
+    end
+  end
+end

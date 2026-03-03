@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4f4f5043212876340e4a181c692a54c9213fdaef9315db6e1c3f68473e3cabfd
-size 609
+module Aws
+  module Plugins
+    class S3GetBucketLocationFix < Seahorse::Client::Plugin
+
+      class Handler < Seahorse::Client::Handler
+
+        def call(context)
+          @handler.call(context).on(200) do |response|
+            response.data = S3::Types::GetBucketLocationOutput.new
+            xml = context.http_response.body_contents
+            matches = xml.match(/>(.+?)<\/LocationConstraint>/)
+            response.data[:location_constraint] = matches ? matches[1] : ''
+          end
+        end
+      end
+
+      handler(Handler, priority: 60, operations: [:get_bucket_location])
+
+    end
+  end
+end

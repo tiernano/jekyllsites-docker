@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fdb761527df9b25c611649e30895ac0f386f92dec4dd888db133e1c198c83a3b
-size 322
+# frozen_string_literal: true
+
+module GitHubPages
+  module HealthCheck
+    module Errors
+      class MissingAccessTokenError < GitHubPages::HealthCheck::Error
+        LOCAL_ONLY = true
+        def message
+          "Cannot retrieve repository information with a valid access token"
+        end
+      end
+    end
+  end
+end

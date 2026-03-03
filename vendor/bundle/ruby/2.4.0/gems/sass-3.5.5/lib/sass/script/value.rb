@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:782af8d717ea5fdb8d500fdff5bd7422f04d64366c656cd5cd1352f93134e9ba
-size 412
+module Sass::Script::Value; end
+
+require 'sass/script/value/base'
+require 'sass/script/value/string'
+require 'sass/script/value/number'
+require 'sass/script/value/color'
+require 'sass/script/value/bool'
+require 'sass/script/value/null'
+require 'sass/script/value/list'
+require 'sass/script/value/arg_list'
+require 'sass/script/value/map'
+require 'sass/script/value/callable'
+require 'sass/script/value/function'

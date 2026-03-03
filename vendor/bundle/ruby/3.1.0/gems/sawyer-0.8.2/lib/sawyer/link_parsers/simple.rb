@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:22caf5128612a6626aaf852eae3fd569517fcbcbbc258cc6a04e4e152b9fb2bd
-size 594
+module Sawyer
+  module LinkParsers
+
+    class Simple
+
+      LINK_REGEX = /_?url$/
+
+
+      # Public: Parses simple *_url style links on resources
+      #
+      # data   - Hash of resource data
+      #
+      # Returns a Hash of data with separate links Hash
+      def parse(data)
+
+        links = {}
+        inline_links = data.keys.select {|k| k.to_s[LINK_REGEX] }
+        inline_links.each do |key|
+          rel_name = key.to_s == 'url' ? 'self' : key.to_s.gsub(LINK_REGEX, '')
+          links[rel_name.to_sym] = data[key]
+        end
+
+        return data, links
+      end
+
+    end
+
+  end
+end

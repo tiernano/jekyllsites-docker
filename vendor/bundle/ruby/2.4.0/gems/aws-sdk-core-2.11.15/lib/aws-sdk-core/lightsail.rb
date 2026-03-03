@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b7d6f2ec21062af6a612c10304322f5f3d2942dc80a0c01e8dc1476d77e35767
-size 291
+Aws.add_service(:Lightsail, {
+  api: "#{Aws::API_DIR}/lightsail/2016-11-28/api-2.json",
+  docs: "#{Aws::API_DIR}/lightsail/2016-11-28/docs-2.json",
+  examples: "#{Aws::API_DIR}/lightsail/2016-11-28/examples-1.json",
+  paginators: "#{Aws::API_DIR}/lightsail/2016-11-28/paginators-1.json",
+})

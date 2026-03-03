@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7a1c9ce0382be359c0cec6a4bfea3e4eb6e627eb9ab255a25dcea2a2bd342fd3
-size 496
+module Sass
+  module CacheStores
+    # Doesn't store anything, but records what things it should have stored.
+    # This doesn't currently have any use except for testing and debugging.
+    #
+    # @private
+    class Null < Base
+      def initialize
+        @keys = {}
+      end
+
+      def _retrieve(key, version, sha)
+        nil
+      end
+
+      def _store(key, version, sha, contents)
+        @keys[key] = true
+      end
+
+      def was_set?(key)
+        @keys[key]
+      end
+    end
+  end
+end

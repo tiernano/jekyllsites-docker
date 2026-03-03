@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:65d90f940a74c617cbf3ff1aa81934f5446a1ca65efe202b9451e7234753f971
-size 306
+Aws.add_service(:SavingsPlans, {
+  api: "#{Aws::API_DIR}/savingsplans/2019-06-28/api-2.json",
+  docs: "#{Aws::API_DIR}/savingsplans/2019-06-28/docs-2.json",
+  examples: "#{Aws::API_DIR}/savingsplans/2019-06-28/examples-1.json",
+  paginators: "#{Aws::API_DIR}/savingsplans/2019-06-28/paginators-1.json",
+})

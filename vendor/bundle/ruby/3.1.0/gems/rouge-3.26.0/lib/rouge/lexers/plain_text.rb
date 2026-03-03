@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ad31671aa1c05be49ba5e4064d2150d72e1150580c5cb9f251289d3ee78e8352
-size 527
+# -*- coding: utf-8 -*- #
+# frozen_string_literal: true
+
+module Rouge
+  module Lexers
+    class PlainText < Lexer
+      title "Plain Text"
+      desc "A boring lexer that doesn't highlight anything"
+
+      tag 'plaintext'
+      aliases 'text'
+      filenames '*.txt', 'Messages'
+      mimetypes 'text/plain'
+
+      attr_reader :token
+      def initialize(*)
+        super
+
+        @token = token_option(:token) || Text
+      end
+
+      def stream_tokens(string, &b)
+        yield self.token, string
+      end
+    end
+  end
+end

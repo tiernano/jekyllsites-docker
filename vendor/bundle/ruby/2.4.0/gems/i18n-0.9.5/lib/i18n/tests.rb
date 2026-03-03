@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ae3d9b2c29f31464352bab3458e9c2219b4a7cca8b4953bf2b3753d0e58dcae8
-size 448
+module I18n
+  module Tests
+    autoload :Basics,        'i18n/tests/basics'
+    autoload :Defaults,      'i18n/tests/defaults'
+    autoload :Interpolation, 'i18n/tests/interpolation'
+    autoload :Link,          'i18n/tests/link'
+    autoload :Localization,  'i18n/tests/localization'
+    autoload :Lookup,        'i18n/tests/lookup'
+    autoload :Pluralization, 'i18n/tests/pluralization'
+    autoload :Procs,         'i18n/tests/procs'
+  end
+end

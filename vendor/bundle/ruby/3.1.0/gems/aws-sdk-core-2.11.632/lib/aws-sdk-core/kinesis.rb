@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:07425320b65c50712f1dd4336733ff975321a83859e315750ba4e0a1caa158ff
-size 345
+Aws.add_service(:Kinesis, {
+  api: "#{Aws::API_DIR}/kinesis/2013-12-02/api-2.json",
+  docs: "#{Aws::API_DIR}/kinesis/2013-12-02/docs-2.json",
+  examples: "#{Aws::API_DIR}/kinesis/2013-12-02/examples-1.json",
+  paginators: "#{Aws::API_DIR}/kinesis/2013-12-02/paginators-1.json",
+  waiters: "#{Aws::API_DIR}/kinesis/2013-12-02/waiters-2.json",
+})

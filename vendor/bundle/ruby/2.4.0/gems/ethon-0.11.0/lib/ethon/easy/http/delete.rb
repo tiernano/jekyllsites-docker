@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fb2ad2544c03544d047cbb467c7561f433192b5aea7a481ce3f2ce83253d7643
-size 528
+module Ethon
+  class Easy
+    module Http
+
+      # This class knows everything about making DELETE requests.
+      class Delete
+        include Ethon::Easy::Http::Actionable
+        include Ethon::Easy::Http::Postable
+
+        # Setup easy to make a DELETE request.
+        #
+        # @example Setup customrequest.
+        #   delete.setup(easy)
+        #
+        # @param [ Easy ] easy The easy to setup.
+        def setup(easy)
+          super
+          easy.customrequest = "DELETE"
+        end
+      end
+    end
+  end
+end
+

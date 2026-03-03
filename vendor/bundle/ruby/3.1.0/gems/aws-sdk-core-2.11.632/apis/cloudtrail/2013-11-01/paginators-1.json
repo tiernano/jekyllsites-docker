@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f5864589526df2fa795debd0083981d1b28d631c1011ff3ec79ad9e6c43b5a15
-size 640
+{
+  "pagination": {
+    "DescribeTrails": {
+      "result_key": "trailList"
+    },
+    "ListPublicKeys": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "PublicKeyList"
+    },
+    "ListTags": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "ResourceTagList"
+    },
+    "ListTrails": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "Trails"
+    },
+    "LookupEvents": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "Events"
+    }
+  }
+}

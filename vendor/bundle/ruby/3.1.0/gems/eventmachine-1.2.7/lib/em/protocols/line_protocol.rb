@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6060ac7875de214236fe33c8834e94eeb9b39ece0380d7646ea1765df4fecb4a
-size 616
+module EventMachine
+  module Protocols
+    # LineProtocol will parse out newline terminated strings from a receive_data stream
+    #
+    #  module Server
+    #    include EM::P::LineProtocol
+    #
+    #    def receive_line(line)
+    #      send_data("you said: #{line}")
+    #    end
+    #  end
+    #
+    module LineProtocol
+      # @private
+      def receive_data data
+        (@buf ||= '') << data
+
+        while @buf.slice!(/(.*?)\r?\n/)
+          receive_line($1)
+        end
+      end
+
+      # Invoked with lines received over the network
+      def receive_line(line)
+        # stub
+      end
+    end
+  end
+end

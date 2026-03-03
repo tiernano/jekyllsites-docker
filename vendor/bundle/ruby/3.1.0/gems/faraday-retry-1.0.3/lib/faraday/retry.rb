@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:43410ee6acb7ab2423d80c22530282649321e3a6c60e467d25e31186cd587557
-size 283
+# frozen_string_literal: true
+
+require_relative 'retriable_response'
+require_relative 'retry/middleware'
+require_relative 'retry/version'
+
+module Faraday
+  # Middleware main module.
+  module Retry
+    Faraday::Request.register_middleware(retry: Faraday::Retry::Middleware)
+  end
+end

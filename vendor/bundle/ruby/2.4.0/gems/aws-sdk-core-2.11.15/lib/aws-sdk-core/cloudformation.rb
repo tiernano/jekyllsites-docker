@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e4c8cf108831baf5bd1f3c23e86f82527a0484773b60d5f30f46225f2e5d89e4
-size 462
+Aws.add_service(:CloudFormation, {
+  api: "#{Aws::API_DIR}/cloudformation/2010-05-15/api-2.json",
+  docs: "#{Aws::API_DIR}/cloudformation/2010-05-15/docs-2.json",
+  examples: "#{Aws::API_DIR}/cloudformation/2010-05-15/examples-1.json",
+  paginators: "#{Aws::API_DIR}/cloudformation/2010-05-15/paginators-1.json",
+  resources: "#{Aws::API_DIR}/cloudformation/2010-05-15/resources-1.json",
+  waiters: "#{Aws::API_DIR}/cloudformation/2010-05-15/waiters-2.json",
+})

@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2ba048d86400baa051fbcfb23392afcfa8493ba4823ab49759ed350d8440f8ed
-size 261
+Aws.add_service(:RAM, {
+  api: "#{Aws::API_DIR}/ram/2018-01-04/api-2.json",
+  docs: "#{Aws::API_DIR}/ram/2018-01-04/docs-2.json",
+  examples: "#{Aws::API_DIR}/ram/2018-01-04/examples-1.json",
+  paginators: "#{Aws::API_DIR}/ram/2018-01-04/paginators-1.json",
+})

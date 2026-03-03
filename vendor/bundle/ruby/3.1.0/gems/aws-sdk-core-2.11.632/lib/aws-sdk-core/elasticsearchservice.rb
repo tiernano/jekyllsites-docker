@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:281ea8f8952d14fae5f2ef48f5554b46bfe5994e5355a555139e9ba257fb27c7
-size 274
+Aws.add_service(:ElasticsearchService, {
+  api: "#{Aws::API_DIR}/es/2015-01-01/api-2.json",
+  docs: "#{Aws::API_DIR}/es/2015-01-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/es/2015-01-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/es/2015-01-01/paginators-1.json",
+})

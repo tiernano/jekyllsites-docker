@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9bda93b66c46eff6f3a11a9a195368d1aa82c891dedb78a15dc504a0ea92c0cb
-size 184
+#ifndef NOKOGIRI_HTML_SAX_PUSH_PARSER
+#define NOKOGIRI_HTML_SAX_PUSH_PARSER
+
+#include <nokogiri.h>
+
+void init_html_sax_push_parser();
+
+extern VALUE cNokogiriHtmlSaxPushParser ;
+#endif

@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:76957f0e97d1e51227b05a48efaa879a349c7123b74510a2741d832435096644
-size 228
+#ifndef CMARK_GFM_STRIKETHROUGH_H
+#define CMARK_GFM_STRIKETHROUGH_H
+
+#include "cmark-gfm-core-extensions.h"
+
+extern cmark_node_type CMARK_NODE_STRIKETHROUGH;
+cmark_syntax_extension *create_strikethrough_extension(void);
+
+#endif

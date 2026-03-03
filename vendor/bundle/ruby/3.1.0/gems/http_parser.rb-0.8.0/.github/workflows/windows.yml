@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5137a0b09562a5dd3cff89475121c543f6c25a200c4164089921d94c2bb0e756
-size 554
+name: Testing on Windows
+on:
+  - push
+  - pull_request
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: [ '2.6', '2.7', '3.0' ]
+        os: [ 'windows-latest' ]
+    name: Ruby ${{ matrix.ruby }} unit testing on ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+    - name: unit testing
+      run: |
+        gem install bundler rake
+        bundle install --jobs 4 --retry 3
+        bundle exec rake

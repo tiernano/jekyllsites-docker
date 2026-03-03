@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:80e78a0303f8f6a4c01af370b74847309cbee156912ad1c03fc45986fc8d3768
-size 292
+{
+  "pagination": {
+    "ListSecretVersionIds": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    },
+    "ListSecrets": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    }
+  }
+}

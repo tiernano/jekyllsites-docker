@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:760e51d0bb137f250491a34cd1527316430d18bc94f23953f5bb4139969a0d69
-size 231
+module Jekyll
+  class StaticFile
+    # Convert this static file to a Page
+    def to_page
+      page = Jekyll::Page.new(@site, @base, @dir, @name)
+      page.data["permalink"] = File.dirname(url) + "/"
+      page
+    end
+  end
+end

@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4aa805d660ab74199467c43f091b20d46a1d7e029eafc14cf82cde82927c6783
-size 217
+/* Area:	ffi_call
+   Purpose:	Check complex types.
+   Limitations:	none.
+   PR:		none.
+   Originator:	<vogt@linux.vnet.ibm.com>.  */
+
+/* { dg-do run } */
+
+#include "complex_defs_longdouble.inc"
+#include "complex.inc"

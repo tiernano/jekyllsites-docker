@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4124dccd96e710392a400e410011f329501fdd33738e7e493c81a781d5b60720
-size 309
+require 'rake/testtask'
+
+Rake::TestTask.new(:test_pure) do |t|
+  t.libs << 'tests'
+  t.libs << 'lib'
+  t.test_files = Dir.glob('tests/**/test_pure*.rb') + Dir.glob('tests/**/test_ssl*.rb')
+  t.warning = true
+end
+
+task :test_em_pure_ruby do
+  ENV['EM_PURE_RUBY'] = 'true'
+  Rake::Task['test_pure'].execute
+end

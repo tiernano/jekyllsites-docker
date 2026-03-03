@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3b4415749c74d3d2a0016fd75fa6a62638e2cbec587fe543c118ff763d6f4c5b
-size 117
+require "bundler/gem_tasks"
+require "rspec/core/rake_task"
+
+RSpec::Core::RakeTask.new(:test)
+
+task :default => :test

@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e5e4c6b393cf78737dee2db2b8e0bd12cf27827ca22b657db78839aa3342e6af
-size 392
+require 'spec_helper'
+
+describe Typhoeus::Errors::NoStub do
+  let(:base_url) { "localhost:3001" }
+  let(:request) { Typhoeus::Request.new(base_url) }
+  let(:message) { "The connection is blocked and no stub defined: " }
+
+  subject { Typhoeus::Errors::NoStub }
+
+  it "displays the request url" do
+    expect { raise subject.new(request) }.to raise_error(subject, message + base_url)
+  end
+end

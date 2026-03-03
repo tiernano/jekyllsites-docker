@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:57a9f1b7846ca1cb2066f7250cd2363590a4f5541191626de968294f2668001c
-size 464
+#ifndef CORE_EXTENSIONS_H
+#define CORE_EXTENSIONS_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include <cmark_extension_api.h>
+#include "cmarkextensions_export.h"
+#include <stdint.h>
+
+CMARKEXTENSIONS_EXPORT
+void core_extensions_ensure_registered(void);
+
+CMARKEXTENSIONS_EXPORT
+uint16_t cmarkextensions_get_table_columns(cmark_node *node);
+
+CMARKEXTENSIONS_EXPORT
+uint8_t *cmarkextensions_get_table_alignments(cmark_node *node);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif

@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:31647d1f4dd3dc7c9476893bba9b28344c36012f2820dccc846cc00706264566
-size 336
+module Faraday
+  class Request::TokenAuthentication < Request.load_middleware(:authorization)
+    # Public
+    def self.header(token, options = nil)
+      options ||= {}
+      options[:token] = token
+      super(:Token, options)
+    end
+
+    def initialize(app, token, options = nil)
+      super(app, token, options)
+    end
+  end
+end
+

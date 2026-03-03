@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5f9ee494463bb2926ff5c4c7040ec2ef4a0b373521903f1f22f738dcd804dff2
-size 321
+Aws.add_service(:Route53Resolver, {
+  api: "#{Aws::API_DIR}/route53resolver/2018-04-01/api-2.json",
+  docs: "#{Aws::API_DIR}/route53resolver/2018-04-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/route53resolver/2018-04-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/route53resolver/2018-04-01/paginators-1.json",
+})

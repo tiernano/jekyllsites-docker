@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c89862e2942e37e2ae5c3fbc45834e53db9d45bd2b5e2d6f943850fb77c0b910
-size 651
+# frozen_string_literal: true
+
+require 'pathname'
+
+module Listen
+  module Adapter
+    class Config
+      attr_reader :directories, :silencer, :queue, :adapter_options
+
+      def initialize(directories, queue, silencer, adapter_options)
+        # Default to current directory if no directories are supplied
+        directories = [Dir.pwd] if directories.to_a.empty?
+
+        # TODO: fix (flatten, array, compact?)
+        @directories = directories.map do |directory|
+          Pathname.new(directory.to_s).realpath
+        end
+
+        @silencer = silencer
+        @queue = queue
+        @adapter_options = adapter_options
+      end
+    end
+  end
+end

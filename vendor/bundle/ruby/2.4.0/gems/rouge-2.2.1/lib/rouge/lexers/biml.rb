@@ -1,3 +1,41 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c90b99c602e1fba0a3b9a46f0ce6b9b51346477386bb60786a309342ec0eac2b
-size 988
+module Rouge
+  module Lexers
+    load_lexer 'xml.rb'
+
+    class BIML < XML
+      title "BIML"
+      desc "BIML, Business Intelligence Markup Language"
+      tag 'biml'
+      filenames '*.biml'
+
+      def self.analyze_text(text)
+        return 1 if text =~ /<\s*Biml\b/
+      end
+
+      prepend :root do
+        rule %r(<#\@\s*)m, Name::Tag, :directive_tag
+
+        rule %r(<#[=]?\s*)m, Name::Tag, :directive_as_csharp
+      end
+
+      prepend :attr do
+        #TODO: how to deal with embedded <# tags inside a attribute string
+        #rule %r("<#[=]?\s*)m, Name::Tag, :directive_as_csharp
+      end
+
+      state :directive_as_csharp do
+        rule /\s*#>\s*/m, Name::Tag, :pop!
+        rule %r(.*?(?=\s*#>\s*))m do
+          delegate CSharp
+        end
+      end
+
+      state :directive_tag do
+        rule /\s+/m, Text
+        rule /[\w.:-]+\s*=/m, Name::Attribute, :attr
+        rule /[\w]+\s*/m, Name::Attribute
+        rule %r(/?\s*#>), Name::Tag, :pop!
+      end
+    end
+  end
+end

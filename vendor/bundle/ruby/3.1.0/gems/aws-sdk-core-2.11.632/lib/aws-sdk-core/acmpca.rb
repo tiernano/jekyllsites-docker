@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f44e86c79d993e973b87b9bd6a99f7b724a88d094c1dd65ed90d33644cbc4d75
-size 344
+Aws.add_service(:ACMPCA, {
+  api: "#{Aws::API_DIR}/acm-pca/2017-08-22/api-2.json",
+  docs: "#{Aws::API_DIR}/acm-pca/2017-08-22/docs-2.json",
+  examples: "#{Aws::API_DIR}/acm-pca/2017-08-22/examples-1.json",
+  paginators: "#{Aws::API_DIR}/acm-pca/2017-08-22/paginators-1.json",
+  waiters: "#{Aws::API_DIR}/acm-pca/2017-08-22/waiters-2.json",
+})

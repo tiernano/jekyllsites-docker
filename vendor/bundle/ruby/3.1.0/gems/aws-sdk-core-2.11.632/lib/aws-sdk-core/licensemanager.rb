@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ac3481323ba2625e84981106fd9d1ff33a1c430015c735d9ec9e0f9fbbe5cb7f
-size 320
+Aws.add_service(:LicenseManager, {
+  api: "#{Aws::API_DIR}/license-manager/2018-08-01/api-2.json",
+  docs: "#{Aws::API_DIR}/license-manager/2018-08-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/license-manager/2018-08-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/license-manager/2018-08-01/paginators-1.json",
+})

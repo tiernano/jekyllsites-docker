@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4c973a86dccb75a32a1373d52a3955c2091e170e003a1ef4fe4b1a905949437e
-size 799
+require "helper"
+
+module Nokogiri
+  module XML
+    class Node
+      class TestSaveOptions < Nokogiri::TestCase
+        SaveOptions.constants.each do |constant|
+          class_eval <<-EOEVAL
+            def test_predicate_#{constant.downcase}
+              options = SaveOptions.new(SaveOptions::#{constant})
+              assert options.#{constant.downcase}?
+
+              assert SaveOptions.new.#{constant.downcase}.#{constant.downcase}?
+            end
+          EOEVAL
+        end
+
+        def test_default_xml_save_options
+          if Nokogiri.jruby?
+            assert_equal 0, (SaveOptions::DEFAULT_XML & SaveOptions::FORMAT)
+          else
+            assert_equal SaveOptions::FORMAT, (SaveOptions::DEFAULT_XML & SaveOptions::FORMAT)
+          end
+        end
+      end
+    end
+  end
+end

@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ebabc3ded2ded08290390f7a355cd85b6afa1c72681c7187701e2228fe58369f
-size 442
+module Aws
+  module Plugins
+    # @api private
+    class MachineLearningPredictEndpoint < Seahorse::Client::Plugin
+
+      class Handler < Seahorse::Client::Handler
+
+        def call(context)
+          endpoint = context.params.delete(:predict_endpoint)
+          context.http_request.endpoint = URI.parse(endpoint.to_s)
+          @handler.call(context)
+        end
+
+      end
+
+      handle(Handler, operations: [:predict])
+
+    end
+  end
+end

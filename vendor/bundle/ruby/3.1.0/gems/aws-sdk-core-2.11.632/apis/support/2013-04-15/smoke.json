@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:db5c7731e860e8b69db5366e36670825053dce84d3ab45e7804530ba483fd8c2
-size 592
+{
+    "version": 1,
+    "defaultRegion": "us-east-1",
+    "testCases": [
+        {
+            "operationName": "DescribeServices",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "CreateCase",
+            "input": {
+                "subject": "subject",
+                "communicationBody": "communication",
+                "categoryCode": "category",
+                "serviceCode": "amazon-dynamodb",
+                "severityCode": "low"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

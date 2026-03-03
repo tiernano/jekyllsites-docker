@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b1769c121f23dedc8870fa8c44e733830ac39d82de4a1d3b5502b92e5b4ce730
-size 522
+module Kernel
+  unless respond_to?(:debugger)
+    # Starts a debugging session if the +debugger+ gem has been loaded (call rails server --debugger to do load it).
+    def debugger
+      message = "\n***** Debugger requested, but was not available (ensure the debugger gem is listed in Gemfile/installed as gem): Start server with --debugger to enable *****\n"
+      defined?(Rails.logger) ? Rails.logger.info(message) : $stderr.puts(message)
+    end
+    alias breakpoint debugger unless respond_to?(:breakpoint)
+  end
+end

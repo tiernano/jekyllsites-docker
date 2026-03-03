@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6a312b538deb2ef280fe5146f208f4e457fdeb747dc7d51966026e275607c561
-size 272
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "GetThingShadow",
+            "input": {
+                "thingName": "fake-thing"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

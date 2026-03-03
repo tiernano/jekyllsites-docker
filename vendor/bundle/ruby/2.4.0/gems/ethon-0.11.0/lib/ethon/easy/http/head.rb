@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:194280ccd0b180a9d1b2e20eb80981e19032d43f0d1b4e2b396d90b36bd026bf
-size 498
+module Ethon
+  class Easy
+    module Http
+
+      # This class knows everything about making HEAD requests.
+      class Head
+        include Ethon::Easy::Http::Actionable
+        include Ethon::Easy::Http::Postable
+
+        # Setup easy to make a HEAD request.
+        #
+        # @example Setup.
+        #   get.set_params(easy)
+        #
+        # @param [ Easy ] easy The easy to setup.
+        def setup(easy)
+          super
+          easy.nobody = true
+        end
+      end
+    end
+  end
+end

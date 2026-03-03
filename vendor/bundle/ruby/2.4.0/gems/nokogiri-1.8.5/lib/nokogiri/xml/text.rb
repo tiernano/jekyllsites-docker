@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:befb58dd7d96a70a76de25731dba258e2a5b96d76f8a375591945a75239f934e
-size 172
+module Nokogiri
+  module XML
+    class Text < Nokogiri::XML::CharacterData
+      def content=(string)
+        self.native_content = string.to_s
+      end
+    end
+  end
+end

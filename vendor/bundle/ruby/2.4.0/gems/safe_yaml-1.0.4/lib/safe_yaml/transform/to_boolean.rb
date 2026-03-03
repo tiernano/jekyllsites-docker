@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5b2109cf68c8bb765fa0c23809b606d18c6f54f4fe7b3ee4d2e0b755f5da1dea
-size 451
+module SafeYAML
+  class Transform
+    class ToBoolean
+      include TransformationMap
+
+      set_predefined_values({
+        "yes"   => true,
+        "on"    => true,
+        "true"  => true,
+        "no"    => false,
+        "off"   => false,
+        "false" => false
+      })
+
+      def transform?(value)
+        return false if value.length > 5
+        return PREDEFINED_VALUES.include?(value), PREDEFINED_VALUES[value]
+      end
+    end
+  end
+end

@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:26a7ae97ffaab974a83ca171bdfb8fb7a2ba074801f04f57c28a3c03e88c11a4
-size 166
+module EventMachine
+  module WebSocket
+    class Handler13 < Handler
+      include Framing07
+      include MessageProcessor06
+      include Close06
+    end
+  end
+end

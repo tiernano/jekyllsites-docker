@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b67d2a7dc9b6620442ba8b5cdd0ed5d3789e04dcc838b3eda67f36f99163778f
-size 212
+require "bundler/gem_tasks"
+require 'rspec/core/rake_task'
+
+RSpec::Core::RakeTask.new(:spec)
+
+desc "Run tests"
+task :default => :spec
+
+task :console do
+  require 'rb-inotify'
+  require 'pry'
+  
+  binding.pry
+end

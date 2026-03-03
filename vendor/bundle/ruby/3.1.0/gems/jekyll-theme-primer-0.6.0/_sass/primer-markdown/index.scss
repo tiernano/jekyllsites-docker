@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b2ac6900c4bc8442172e6f696d0cc6281b84eca672c2cb278882e9f6a1c1bbb6
-size 248
+@import "primer-support/index.scss";
+@import "./lib/markdown-body.scss";
+@import "./lib/headings.scss";
+@import "./lib/lists.scss";
+@import "./lib/tables.scss";
+@import "./lib/images.scss";
+@import "./lib/code.scss";
+@import "./lib/blob-csv.scss";

@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:22bd390191aea54edcbb7fbde24ab09c9e14dd24b0f2606bd669ae443a5f4380
-size 276
+Aws.add_service(:Health, {
+  api: "#{Aws::API_DIR}/health/2016-08-04/api-2.json",
+  docs: "#{Aws::API_DIR}/health/2016-08-04/docs-2.json",
+  examples: "#{Aws::API_DIR}/health/2016-08-04/examples-1.json",
+  paginators: "#{Aws::API_DIR}/health/2016-08-04/paginators-1.json",
+})

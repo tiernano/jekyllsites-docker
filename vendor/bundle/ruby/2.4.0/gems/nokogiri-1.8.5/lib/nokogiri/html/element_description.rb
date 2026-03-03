@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:45e76695a7e89efa6c417bede6bf2bd7a4f7a83833d14c9968bde6b4a65ca0a0
-size 413
+module Nokogiri
+  module HTML
+    class ElementDescription
+      ###
+      # Is this element a block element?
+      def block?
+        !inline?
+      end
+
+      ###
+      # Convert this description to a string
+      def to_s
+        "#{name}: #{description}"
+      end
+
+      ###
+      # Inspection information
+      def inspect
+        "#<#{self.class.name}: #{name} #{description}>"
+      end
+    end
+  end
+end

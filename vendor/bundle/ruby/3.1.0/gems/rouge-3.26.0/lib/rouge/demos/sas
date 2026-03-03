@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3258e336a558d51711ac696f143c280c1e2906db36ec1f89dab302fbf613df42
-size 236
+data sim;
+    do i = 1 to 100;
+        x1 = rand("Normal");
+        x2 = rand("Binomial", 0.5, 100);
+        output;
+    end;
+run;
+
+proc means data=sashelp.class;
+    class sex;
+    var height weight;
+    output out = mean_by_sex;
+run;

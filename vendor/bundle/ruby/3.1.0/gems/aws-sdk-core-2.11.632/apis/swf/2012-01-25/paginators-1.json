@@ -1,3 +1,46 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7cbeae0c0e010451eb9d1fbee48e3bf99371fa70084ac5c6d47f633faa06a356
-size 1323
+{
+  "pagination": {
+    "GetWorkflowExecutionHistory": {
+      "input_token": "nextPageToken",
+      "limit_key": "maximumPageSize",
+      "output_token": "nextPageToken",
+      "result_key": "events"
+    },
+    "ListActivityTypes": {
+      "input_token": "nextPageToken",
+      "limit_key": "maximumPageSize",
+      "output_token": "nextPageToken",
+      "result_key": "typeInfos"
+    },
+    "ListClosedWorkflowExecutions": {
+      "input_token": "nextPageToken",
+      "limit_key": "maximumPageSize",
+      "output_token": "nextPageToken",
+      "result_key": "executionInfos"
+    },
+    "ListDomains": {
+      "input_token": "nextPageToken",
+      "limit_key": "maximumPageSize",
+      "output_token": "nextPageToken",
+      "result_key": "domainInfos"
+    },
+    "ListOpenWorkflowExecutions": {
+      "input_token": "nextPageToken",
+      "limit_key": "maximumPageSize",
+      "output_token": "nextPageToken",
+      "result_key": "executionInfos"
+    },
+    "ListWorkflowTypes": {
+      "input_token": "nextPageToken",
+      "limit_key": "maximumPageSize",
+      "output_token": "nextPageToken",
+      "result_key": "typeInfos"
+    },
+    "PollForDecisionTask": {
+      "input_token": "nextPageToken",
+      "limit_key": "maximumPageSize",
+      "output_token": "nextPageToken",
+      "result_key": "events"
+    }
+  }
+}

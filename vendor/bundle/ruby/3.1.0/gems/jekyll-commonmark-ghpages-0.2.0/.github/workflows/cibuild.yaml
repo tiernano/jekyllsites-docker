@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:24e708e3c343af9613e896c11afa71f8dec47097714ad741de19c9cce6748502
-size 386
+on: push
+name: cibuild
+jobs:
+  build:
+    name: Test
+    strategy:
+      matrix:
+        ruby: [2.6, 2.7]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - name: script/cibuild
+        run: script/cibuild

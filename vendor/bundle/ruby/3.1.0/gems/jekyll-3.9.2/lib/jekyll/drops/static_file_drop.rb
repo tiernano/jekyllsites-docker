@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:98ac81fe8ab2632c86cd1768502153a2ddd70b4976cc1c44b3bf5c023fde13d5
-size 359
+# frozen_string_literal: true
+
+module Jekyll
+  module Drops
+    class StaticFileDrop < Drop
+      extend Forwardable
+      def_delegators :@obj, :name, :extname, :modified_time, :basename
+      def_delegator :@obj, :relative_path, :path
+      def_delegator :@obj, :type, :collection
+
+      private def_delegator :@obj, :data, :fallback_data
+    end
+  end
+end

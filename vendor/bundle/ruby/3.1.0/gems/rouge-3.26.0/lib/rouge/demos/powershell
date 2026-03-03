@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9117963298d209c945068636dbcfb47674bbac009c4e56ec57ef010fd513493c
-size 262
+function Verb-Noun
+{
+    <#
+    .SYNOPSIS
+    Tells you what it does
+
+    .DESCRIPTION
+    Tells you what it does with more detail.
+    #>
+    param ([string]$Name, [string]$Extension = "txt", [string]$foo="bar")
+    $name = $name + "." + $extension
+    $name
+}

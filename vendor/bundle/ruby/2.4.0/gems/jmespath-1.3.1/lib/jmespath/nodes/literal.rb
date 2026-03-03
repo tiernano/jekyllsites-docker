@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1a696295c9d514f9093f4f70156d7698cfecce7aedeea19500dbdedf3abdc7b5
-size 227
+module JMESPath
+  # @api private
+  module Nodes
+    class Literal < Node
+      attr_reader :value
+
+      def initialize(value)
+        @value = value
+      end
+
+      def visit(value)
+        @value
+      end
+    end
+  end
+end

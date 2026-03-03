@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5557531f0cdb0bfec0907c9e5118b9a7e0bac8c081451a6a94b39735bbb93014
-size 346
+require "spec_helper"
+
+describe SafeYAML::Transform do
+  it "should return the same encoding when decoding Base64" do
+    value = "c3VyZS4="
+    decoded = SafeYAML::Transform.to_proper_type(value, false, "!binary")
+
+    expect(decoded).to eq("sure.")
+    expect(decoded.encoding).to eq(value.encoding) if decoded.respond_to?(:encoding)
+  end
+end

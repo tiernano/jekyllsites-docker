@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a513afa450e0151f5ed2238cececc52f1e37d91cc71d4e0bb6c3c0cc1e15dc02
-size 242
+# frozen_string_literal: true
+
+RSpec.describe Faraday::Adapter::Rack do
+  features :request_body_on_query_methods, :trace_method,
+           :skip_response_body_on_head
+
+  it_behaves_like 'an adapter', adapter_options: WebmockRackApp.new
+end

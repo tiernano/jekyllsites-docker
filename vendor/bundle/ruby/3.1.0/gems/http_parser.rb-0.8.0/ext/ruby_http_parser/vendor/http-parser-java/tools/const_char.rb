@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d247de1f93126140bc0008b6034c121c034932ab1b02d089a1c20a48b9955bfe
-size 182
+
+
+def printbytes str
+str.each_byte { |b|
+	print "0x#{b.to_s(16)}, "
+}
+end
+
+if $0 == __FILE__
+	printf "static final byte [] #{ARGV[0]} = {\n"
+	printbytes ARGV[0]
+	printf "\n};\n"
+end

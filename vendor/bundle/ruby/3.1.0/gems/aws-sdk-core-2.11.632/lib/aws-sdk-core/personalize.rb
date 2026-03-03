@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5e0f6cf4266f8ca56e43fd4b4b71152f014708d4bbf182eb989ad301c99ea1c7
-size 301
+Aws.add_service(:Personalize, {
+  api: "#{Aws::API_DIR}/personalize/2018-05-22/api-2.json",
+  docs: "#{Aws::API_DIR}/personalize/2018-05-22/docs-2.json",
+  examples: "#{Aws::API_DIR}/personalize/2018-05-22/examples-1.json",
+  paginators: "#{Aws::API_DIR}/personalize/2018-05-22/paginators-1.json",
+})

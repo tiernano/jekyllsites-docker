@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6e8f35f89a2f8cf6eb626e8acedb6e845be4e2a26458595a84e6020f0756fb55
-size 618
+{
+  "pagination": {
+    "GetFindingsReportAccountSummary": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults"
+    },
+    "ListFindingsReports": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults"
+    },
+    "ListProfileTimes": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults",
+      "result_key": "profileTimes"
+    },
+    "ListProfilingGroups": {
+      "input_token": "nextToken",
+      "output_token": "nextToken",
+      "limit_key": "maxResults"
+    }
+  }
+}

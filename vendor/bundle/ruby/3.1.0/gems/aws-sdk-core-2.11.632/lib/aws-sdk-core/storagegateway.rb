@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fea0f50aaa74ecce608f89f514faea5b7c1cf9c70086f9928ec1ff2786b2d12f
-size 316
+Aws.add_service(:StorageGateway, {
+  api: "#{Aws::API_DIR}/storagegateway/2013-06-30/api-2.json",
+  docs: "#{Aws::API_DIR}/storagegateway/2013-06-30/docs-2.json",
+  examples: "#{Aws::API_DIR}/storagegateway/2013-06-30/examples-1.json",
+  paginators: "#{Aws::API_DIR}/storagegateway/2013-06-30/paginators-1.json",
+})

@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:923b3cd8080172570a3f0c5f4cb47f4576dc3d2ba1b2f34dff1e09cf8a2ca701
-size 462
+require 'em_test_helper'
+require 'socket'
+
+class TestManyFDs < Test::Unit::TestCase
+  def setup
+    @port = next_port
+  end
+
+  def test_connection_class_cache
+    mod = Module.new
+    a = nil
+    Process.setrlimit(Process::RLIMIT_NOFILE, 4096) rescue nil
+    EM.run {
+      EM.start_server '127.0.0.1', @port, mod
+      1100.times do
+        a = EM.connect '127.0.0.1', @port, mod
+        assert_kind_of EM::Connection, a
+      end
+      EM.stop
+    }
+  end
+end

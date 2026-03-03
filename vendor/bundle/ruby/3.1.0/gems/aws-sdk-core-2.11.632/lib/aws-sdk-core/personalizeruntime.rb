@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9dcd9b7859e293557128dda56c78d67a6d23ae43d1c234d4f36b150a7daa29f1
-size 340
+Aws.add_service(:PersonalizeRuntime, {
+  api: "#{Aws::API_DIR}/personalize-runtime/2018-05-22/api-2.json",
+  docs: "#{Aws::API_DIR}/personalize-runtime/2018-05-22/docs-2.json",
+  examples: "#{Aws::API_DIR}/personalize-runtime/2018-05-22/examples-1.json",
+  paginators: "#{Aws::API_DIR}/personalize-runtime/2018-05-22/paginators-1.json",
+})

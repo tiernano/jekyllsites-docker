@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:14c497667743ef7646395f4da85f1474780c00eb044e8df319d25461b9aee1bf
-size 286
+Aws.add_service(:CloudHSM, {
+  api: "#{Aws::API_DIR}/cloudhsm/2014-05-30/api-2.json",
+  docs: "#{Aws::API_DIR}/cloudhsm/2014-05-30/docs-2.json",
+  examples: "#{Aws::API_DIR}/cloudhsm/2014-05-30/examples-1.json",
+  paginators: "#{Aws::API_DIR}/cloudhsm/2014-05-30/paginators-1.json",
+})

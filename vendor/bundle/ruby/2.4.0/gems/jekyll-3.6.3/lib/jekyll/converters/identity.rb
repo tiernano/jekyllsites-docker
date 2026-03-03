@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:707ffb089fe99ec054f5fe5633796d7b89d4ff86dc5d9402c02d6676d997fb15
-size 305
+# frozen_string_literal: true
+
+module Jekyll
+  module Converters
+    class Identity < Converter
+      safe true
+
+      priority :lowest
+
+      def matches(_ext)
+        true
+      end
+
+      def output_ext(ext)
+        ext
+      end
+
+      def convert(content)
+        content
+      end
+    end
+  end
+end

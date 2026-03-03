@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7acb86e468d08a5e3a9a43a415af2357eed8be44282cbac5a3e5cd00709e5bdc
-size 555
+{
+  "pagination": {
+    "BatchGetTraces": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "Traces"
+    },
+    "GetServiceGraph": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "Services"
+    },
+    "GetTraceGraph": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "Services"
+    },
+    "GetTraceSummaries": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "TraceSummaries"
+    }
+  }
+}

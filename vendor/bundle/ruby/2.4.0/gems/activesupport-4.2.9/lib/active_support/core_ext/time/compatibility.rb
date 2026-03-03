@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2cbf323db30e4d662aa8f126593365d23f6a3d5e92ab1ba4c19a9abdc3925537
-size 408
+require "active_support/core_ext/date_and_time/compatibility"
+require "active_support/core_ext/module/remove_method"
+
+class Time
+  include DateAndTime::Compatibility
+
+  remove_possible_method :to_time
+
+  # Either return +self+ or the time in the local system timezone depending
+  # on the setting of +ActiveSupport.to_time_preserves_timezone+.
+  def to_time
+    preserve_timezone ? self : getlocal
+  end
+end

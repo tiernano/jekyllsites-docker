@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0cd38ac165400a8856b536e16927b70276f1f131241932dc4c3d3435ee1d66c1
-size 207
+Aws.add_service(:Kafka, {
+  api: "#{Aws::API_DIR}/kafka/2018-11-14/api-2.json",
+  docs: "#{Aws::API_DIR}/kafka/2018-11-14/docs-2.json",
+  paginators: "#{Aws::API_DIR}/kafka/2018-11-14/paginators-1.json",
+})

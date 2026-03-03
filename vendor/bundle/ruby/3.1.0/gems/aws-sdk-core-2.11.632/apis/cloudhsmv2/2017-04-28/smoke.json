@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a053d5ffd58121dac4710e85192ec9f8c85014d7786672d0c50aa748a6838f98
-size 408
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "DescribeClusters",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "ListTags",
+            "input": {
+                "ResourceId": "bogus-arn"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

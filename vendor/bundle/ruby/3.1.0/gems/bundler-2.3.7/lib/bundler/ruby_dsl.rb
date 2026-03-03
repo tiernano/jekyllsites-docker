@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:770b5ac803c5bf6c031a45797c0ba7fb55059d6b86e4a95e55af5e74368afcd8
-size 761
+# frozen_string_literal: true
+
+module Bundler
+  module RubyDsl
+    def ruby(*ruby_version)
+      options = ruby_version.last.is_a?(Hash) ? ruby_version.pop : {}
+      ruby_version.flatten!
+      raise GemfileError, "Please define :engine_version" if options[:engine] && options[:engine_version].nil?
+      raise GemfileError, "Please define :engine" if options[:engine_version] && options[:engine].nil?
+
+      if options[:engine] == "ruby" && options[:engine_version] &&
+          ruby_version != Array(options[:engine_version])
+        raise GemfileEvalError, "ruby_version must match the :engine_version for MRI"
+      end
+      @ruby_version = RubyVersion.new(ruby_version, options[:patchlevel], options[:engine], options[:engine_version])
+    end
+  end
+end

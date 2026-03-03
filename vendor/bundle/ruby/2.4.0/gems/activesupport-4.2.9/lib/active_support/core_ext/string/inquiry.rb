@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:45238c6305c57ac1e3076566a9d1f399064dc0d1217da0efa73254a71d8d3f6d
-size 366
+require 'active_support/string_inquirer'
+
+class String
+  # Wraps the current string in the <tt>ActiveSupport::StringInquirer</tt> class,
+  # which gives you a prettier way to test for equality.
+  #
+  #   env = 'production'.inquiry
+  #   env.production?  # => true
+  #   env.development? # => false
+  def inquiry
+    ActiveSupport::StringInquirer.new(self)
+  end
+end

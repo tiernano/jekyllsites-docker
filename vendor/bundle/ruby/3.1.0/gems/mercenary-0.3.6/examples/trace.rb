@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:45479f9d1972238cd54b348c49a43ad43531b2281bc42c4b3f9e99a1a5bad4b9
-size 474
+#!/usr/bin/env ruby
+
+$:.unshift File.join(File.dirname(__FILE__), *%w{ .. lib })
+
+require "mercenary"
+
+# This example sets the logging mode of mercenary to
+# debug. Logging messages from "p.logger.debug" will
+# be output to STDOUT.
+
+Mercenary.program(:trace) do |p|
+
+  p.version "2.0.1"
+  p.description 'An example of traces in Mercenary'
+  p.syntax 'trace <subcommand>'
+
+  p.action do |_, _|
+    raise ArgumentError.new("YOU DID SOMETHING TERRIBLE YOU BUFFOON")
+  end
+
+end

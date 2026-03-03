@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3765a17c75f306f24195adc27c02b2f4aad2de6cc06f49a089100379dd8ed6cb
-size 235
+# frozen_string_literal: true
+
+require "active_support/core_ext/module/anonymous"
+require "active_support/core_ext/string/inflections"
+
+ActiveSupport::Deprecation.warn("reachable is deprecated and will be removed from the framework.")

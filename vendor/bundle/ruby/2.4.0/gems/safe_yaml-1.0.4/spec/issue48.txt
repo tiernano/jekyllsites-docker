@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7e1ca4a837c6753a6cfec8200313199e14ef0a7ab90336a05eff3a04e9bcf284
-size 210
+---
+title: Blah
+key: value
+---
+
+I'm going to inject a bunch of YAML-looking stuff below and it should all just get ignored.
+
+foo: bar
+
+- foo
+- bar
+
+:foo
+42
+~
+
+---
+text: |
+  Look, I'm another YAML document!
+---

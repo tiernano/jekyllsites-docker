@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ee9f9c06414b1e71b375e40c0629bcbcc759a9ef9d0271c56a49a82baa2bbcc5
-size 337
+// modulate a sine frequency and a noise amplitude with another sine
+// whose frequency depends on the horizontal mouse pointer position
+~myFunction = {
+        var x = SinOsc.ar(MouseX.kr(1, 100));
+        SinOsc.ar(300 * x + 800, 0, 0.1)
+        +
+        PinkNoise.ar(0.1 * x + 0.1)
+};
+
+~myFunction.play;
+"that's all, folks!".postln;

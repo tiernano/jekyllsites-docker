@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0505f4a0f4017c51fee4f3e395771fa013107e5fe95dcf627f9319597a664d60
-size 338
+language: ruby
+cache: bundler
+rvm:
+  - 2.2
+  - 2.1
+  - 2.0
+git:
+  depth: 10
+
+sudo: false
+
+# we need a more recent cmake than travis/linux provides (at least 2.8.9):
+addons:
+  apt:
+    sources:
+      - kalakris-cmake
+    packages:
+      - cmake
+
+before_install:
+  - gem install bundler
+
+before_script: bundle update
+script: script/cibuild

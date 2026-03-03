@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fd3bbc2e1460386b8fd5b162b29ee70ff12282568507d15cdb6802aedeea00d5
-size 783
+#include "core-extensions.h"
+#include "autolink.h"
+#include "strikethrough.h"
+#include "table.h"
+#include "tagfilter.h"
+#include "registry.h"
+#include "plugin.h"
+
+static int core_extensions_registration(cmark_plugin *plugin) {
+  cmark_plugin_register_syntax_extension(plugin, create_table_extension());
+  cmark_plugin_register_syntax_extension(plugin,
+                                         create_strikethrough_extension());
+  cmark_plugin_register_syntax_extension(plugin, create_autolink_extension());
+  cmark_plugin_register_syntax_extension(plugin, create_tagfilter_extension());
+  return 1;
+}
+
+void core_extensions_ensure_registered(void) {
+  static int registered = 0;
+
+  if (!registered) {
+    cmark_register_plugin(core_extensions_registration);
+    registered = 1;
+  }
+}

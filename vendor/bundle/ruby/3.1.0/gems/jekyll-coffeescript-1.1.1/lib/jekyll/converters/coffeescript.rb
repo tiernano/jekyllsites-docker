@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b49356f645df96559826ae218fe47349cc2d91abd4ad1bf02c95567000dfcfa6
-size 464
+# frozen_string_literal: true
+
+module Jekyll
+  module Converters
+    class CoffeeScript < Converter
+      safe true
+      priority :low
+
+      def setup
+        require "coffee-script"
+        @setup = true
+      end
+
+      def matches(ext)
+        ext.casecmp(".coffee").zero?
+      end
+
+      def output_ext(_ext)
+        ".js"
+      end
+
+      def convert(content)
+        setup unless @setup
+        ::CoffeeScript.compile(content)
+      end
+    end
+  end
+end

@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b150eaf3d171755bf84fb09d873a2a6ad44ec940eb36c40b2f374580f9d559bf
-size 296
+Aws.add_service(:QuickSight, {
+  api: "#{Aws::API_DIR}/quicksight/2018-04-01/api-2.json",
+  docs: "#{Aws::API_DIR}/quicksight/2018-04-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/quicksight/2018-04-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/quicksight/2018-04-01/paginators-1.json",
+})

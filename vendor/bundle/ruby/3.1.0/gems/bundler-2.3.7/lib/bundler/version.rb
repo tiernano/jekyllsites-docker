@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f06b14e62cd9985856fe4df5c8f9736809ab8e409243124df06061086d4ede1b
-size 179
+# frozen_string_literal: false
+
+module Bundler
+  VERSION = "2.3.7".freeze
+
+  def self.bundler_major_version
+    @bundler_major_version ||= VERSION.split(".").first.to_i
+  end
+end

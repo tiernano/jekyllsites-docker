@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:53db96bc327433eedac40dd3baab005307128c601c2440ec31ccd9362b61d16b
-size 270
+require 'active_support/core_ext/module/concerning'
+
+module Kernel
+  # A shortcut to define a toplevel concern, not within a module.
+  #
+  # See Module::Concerning for more.
+  def concern(topic, &module_definition)
+    Object.concern topic, &module_definition
+  end
+end

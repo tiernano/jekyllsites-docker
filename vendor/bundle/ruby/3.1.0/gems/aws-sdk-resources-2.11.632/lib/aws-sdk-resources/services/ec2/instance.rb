@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:91c297dd08c0b30781e886f8a12b46301eff775e0362a57d30f29854600fb633
-size 672
+require 'openssl'
+
+module Aws
+  module EC2
+    class Instance
+
+      # @param [String, Pathname] key_pair_path
+      # @return [String]
+      def decrypt_windows_password(key_pair_path)
+        decoded = Base64.decode64(encrypted_password)
+        pem_bytes = File.open(key_pair_path, 'rb') { |f| f.read }
+        private_key = OpenSSL::PKey::RSA.new(pem_bytes)
+        private_key.private_decrypt(decoded)
+      end
+
+      private
+
+      def encrypted_password
+        bytes = client.get_password_data(instance_id: id).password_data
+        if bytes == ''
+          raise 'password not available yet'
+        else
+          bytes
+        end
+      end
+
+    end
+  end
+end

@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9f2a3dd6adcb76f51c2c52e13b8d37c57057bf6ffe080de70ac87f50ae5b2f8d
-size 403
+resource "aws_elb" "web" {
+  name = "terraform-example-elb"
+
+  # The same availability zone as our instances
+  availability_zones = ["${aws_instance.web.*.availability_zone}"]
+
+  listener {
+    instance_port     = 80
+    instance_protocol = "http"
+    lb_port           = 80
+    lb_protocol       = "http"
+  }
+
+  # The instances are registered automatically
+  instances = ["${aws_instance.web.*.id}"]
+}

@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:21972d8fd9d603c3c6201565df0182d53940cd3928775b8f929ccef2163fd2d8
-size 268
+            GET     common.s
+
+RetVal      *       0x123 :SHL: 4
+
+            AREA    |Area$$Name|, CODE, READONLY
+
+MyFunction  ROUT             ; This is a comment
+            ASSERT  RetVal <> 0
+1           MOVW    r0, #RetVal
+            BX      lr
+
+            END

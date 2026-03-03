@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6318aed03095163c33049e09cd94fee7d273fef686eb5bea84bda3bac82b014e
-size 174
+Some paragraph
+
+{:id: ref1}
+{:id: .class1}
+ {:id: #id}
+  {:id: key="value"}
+   {:id: .class2 .class3 ref2 #id-with key="value" key='value' key='dfsd\}' }
+{:test: k ey=value}

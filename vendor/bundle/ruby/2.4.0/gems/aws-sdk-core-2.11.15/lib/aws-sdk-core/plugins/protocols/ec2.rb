@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:982275ac5e9ac75380d2d2e4f2c7982c8f48858675181c9b1b7dc55215d71fda
-size 848
+module Aws
+  module Plugins
+    module Protocols
+      class EC2 < Seahorse::Client::Plugin
+
+        class Handler < Aws::Query::Handler
+
+          def apply_params(param_list, params, rules)
+            Aws::Query::EC2ParamBuilder.new(param_list).apply(rules, params)
+          end
+
+          def parse_xml(context)
+            if rules = context.operation.output
+              parser = Xml::Parser.new(rules)
+              data = parser.parse(xml(context)) do |path, value|
+                if path.size == 2 && path.last == 'requestId'
+                  context.metadata[:request_id] = value
+                end
+              end
+              data
+            else
+              EmptyStructure.new
+            end
+          end
+
+        end
+
+        handler(Handler)
+
+        handler(Xml::ErrorHandler, step: :sign)
+
+      end
+    end
+  end
+end

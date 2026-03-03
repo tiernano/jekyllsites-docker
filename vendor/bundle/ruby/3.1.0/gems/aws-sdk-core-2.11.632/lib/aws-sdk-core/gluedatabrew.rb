@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:52b9450aeccd062e7db99a65e37d3c4070ab2624b150bf0e8c38627039a51571
-size 290
+Aws.add_service(:GlueDataBrew, {
+  api: "#{Aws::API_DIR}/databrew/2017-07-25/api-2.json",
+  docs: "#{Aws::API_DIR}/databrew/2017-07-25/docs-2.json",
+  examples: "#{Aws::API_DIR}/databrew/2017-07-25/examples-1.json",
+  paginators: "#{Aws::API_DIR}/databrew/2017-07-25/paginators-1.json",
+})

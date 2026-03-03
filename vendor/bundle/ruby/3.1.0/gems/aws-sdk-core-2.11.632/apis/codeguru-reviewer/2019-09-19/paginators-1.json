@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:310c429d17dd160074c22ad8903d70de5a7601af36fff389be0f9056c67a333d
-size 637
+{
+  "pagination": {
+    "ListCodeReviews": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    },
+    "ListRecommendationFeedback": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    },
+    "ListRecommendations": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    },
+    "ListRepositoryAssociations": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "RepositoryAssociationSummaries"
+    }
+  }
+}

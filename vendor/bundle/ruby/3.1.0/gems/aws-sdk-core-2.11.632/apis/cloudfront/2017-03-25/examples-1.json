@@ -1,3 +1,83 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2d86fde099d1d550748ef50796ecad647ef0576e254f548d86aea782a929736e
-size 1401
+{
+  "version": "1.0",
+  "examples": {
+    "CreateCloudFrontOriginAccessIdentity": [
+      null
+    ],
+    "CreateDistribution": [
+      null
+    ],
+    "CreateDistributionWithTags": [
+      null
+    ],
+    "CreateInvalidation": [
+      null
+    ],
+    "CreateStreamingDistribution": [
+      null
+    ],
+    "DeleteCloudFrontOriginAccessIdentity": [
+      null
+    ],
+    "DeleteDistribution": [
+      null
+    ],
+    "DeleteStreamingDistribution": [
+      null
+    ],
+    "GetCloudFrontOriginAccessIdentity": [
+      null
+    ],
+    "GetCloudFrontOriginAccessIdentityConfig": [
+      null
+    ],
+    "GetDistribution": [
+      null
+    ],
+    "GetDistributionConfig": [
+      null
+    ],
+    "GetInvalidation": [
+      null
+    ],
+    "GetStreamingDistribution": [
+      null
+    ],
+    "GetStreamingDistributionConfig": [
+      null
+    ],
+    "ListCloudFrontOriginAccessIdentities": [
+      null
+    ],
+    "ListDistributions": [
+      null
+    ],
+    "ListDistributionsByWebACLId": [
+      null
+    ],
+    "ListInvalidations": [
+      null
+    ],
+    "ListStreamingDistributions": [
+      null
+    ],
+    "ListTagsForResource": [
+      null
+    ],
+    "TagResource": [
+      null
+    ],
+    "UntagResource": [
+      null
+    ],
+    "UpdateCloudFrontOriginAccessIdentity": [
+      null
+    ],
+    "UpdateDistribution": [
+      null
+    ],
+    "UpdateStreamingDistribution": [
+      null
+    ]
+  }
+}

@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1e808bcc71c7e53eac4244558bbcfb07e01a0ca2afe773ba7424c1f6fd8f04ea
-size 347
+require 'spec_helper'
+
+describe Typhoeus::Config do
+  let(:config) { Typhoeus::Config }
+
+  [:block_connection, :memoize, :verbose, :cache, :user_agent].each do |name|
+    it "responds to #{name}" do
+      expect(config).to respond_to(name)
+    end
+
+    it "responds to #{name}=" do
+      expect(config).to respond_to("#{name}=")
+    end
+  end
+end

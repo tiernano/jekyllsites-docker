@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:870d535a1852cdc3a1d47b56f4ef589661cf305f008be94ca4a982f8b4493aef
-size 305
+module petstore {
+    namespace "http://autlan.dt/gribok/yang/example";
+    prefix ex;
+
+    revision 2020-04-01 {
+        description "Example yang";
+    }
+
+    container pets {
+        list dogs {
+            key name;
+            leaf name {
+                type string;
+            }
+        }
+    }
+}

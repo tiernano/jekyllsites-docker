@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f8a162497b3c9ac3815785b847d3d51e602cbf87d76606eb477968b5d22cfa37
-size 760
+require_relative "benchmark_helper"
+
+iterations = 100_000
+
+# force load
+list = PublicSuffix::List.default
+
+Benchmark.bmbm do |bm|
+  bm.report "Top level TLD" do
+    iterations.times do
+      PublicSuffix.domain("example.com", list)
+    end
+  end
+
+  bm.report "Top level TLD (subdomain)" do
+    iterations.times do
+      PublicSuffix.domain("www.example.com", list)
+    end
+  end
+
+  bm.report "Unlisted TLD" do
+    iterations.times do
+      PublicSuffix.domain("example.example", list)
+    end
+  end
+
+  bm.report "Unlisted TLD (subdomain)" do
+    iterations.times do
+      PublicSuffix.domain("www.example.example", list)
+    end
+  end
+
+  bm.report "Crazy suffix" do
+    iterations.times do
+      PublicSuffix.domain("a.b.ide.kyoto.jp", list)
+    end
+  end
+end

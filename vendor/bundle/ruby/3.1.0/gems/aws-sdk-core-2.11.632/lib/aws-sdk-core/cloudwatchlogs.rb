@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d554ba37fed7f8103f237ef28323b078898ce3fb91ed0d7f1087ea61e43884ff
-size 276
+Aws.add_service(:CloudWatchLogs, {
+  api: "#{Aws::API_DIR}/logs/2014-03-28/api-2.json",
+  docs: "#{Aws::API_DIR}/logs/2014-03-28/docs-2.json",
+  examples: "#{Aws::API_DIR}/logs/2014-03-28/examples-1.json",
+  paginators: "#{Aws::API_DIR}/logs/2014-03-28/paginators-1.json",
+})

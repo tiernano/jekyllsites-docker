@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:31bda3b678bf5b01a786cfb2d616a5c16842b06bf7af96e1479d982c077b6d5d
-size 399
+#!/usr/bin/env ruby
+
+require 'pathname'
+ROOT_DIR = Pathname.new(__FILE__).dirname.parent
+load ROOT_DIR.join('lib/rouge.rb')
+load ROOT_DIR.join('lib/rouge/cli.rb')
+Signal.trap('PIPE', 'SYSTEM_DEFAULT') if Signal.list.include? 'PIPE'
+
+begin
+  Rouge::CLI.parse(ARGV).run
+rescue Rouge::CLI::Error => e
+  puts e.message
+  exit e.status
+rescue Interrupt
+  $stderr.puts "\nrouge: interrupted"
+  exit 2
+end

@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a6f362291e2f47cbc6bbbfec09bc349ff215e3d4d060959f753c539eca74f3af
-size 80
+This is a <textarea>inline</textarea>
+
+<textarea>This
+is
+
+some
+text
+</textarea>

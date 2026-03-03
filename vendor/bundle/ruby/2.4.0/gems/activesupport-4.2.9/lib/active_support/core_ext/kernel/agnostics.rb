@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1ce7c53799bbbb3dec672cbf0670a3d77c4e836a35515995a06fd009ff604c2b
-size 368
+class Object
+  # Makes backticks behave (somewhat more) similarly on all platforms.
+  # On win32 `nonexistent_command` raises Errno::ENOENT; on Unix, the
+  # spawned shell prints a message to stderr and sets $?. We emulate
+  # Unix on the former but not the latter.
+  def `(command) #:nodoc:
+    super
+  rescue Errno::ENOENT => e
+    STDERR.puts "#$0: #{e}"
+  end
+end

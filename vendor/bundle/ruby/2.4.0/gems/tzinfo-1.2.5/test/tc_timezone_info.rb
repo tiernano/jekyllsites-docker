@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e2d9538f32436107cceb08dbee017f343f45c4285f9398142d39fb4a380384a3
-size 248
+require File.join(File.expand_path(File.dirname(__FILE__)), 'test_utils')
+
+include TZInfo
+
+class TCTimezoneInfo < Minitest::Test
+  
+  def test_identifier
+    ti = TimezoneInfo.new('Test/Zone')
+    assert_equal('Test/Zone', ti.identifier)
+  end
+end

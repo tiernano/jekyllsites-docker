@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:43a4d48c540b4c96d9e050a79ac92993d35c7e3d8d73e7dfca6a78836b4c26e6
-size 400
+module TZInfo
+  module Data
+    # TZInfo::Data version information.
+    module Version
+      # The format of the Ruby modules. The only format currently supported by
+      # TZInfo is version 1.
+      FORMAT = 1
+      
+      # The version of the {IANA Time Zone Database}[http://www.iana.org/time-zones]
+      # used to generate this version of TZInfo::Data.
+      TZDATA = '2014f'
+    end
+  end
+end

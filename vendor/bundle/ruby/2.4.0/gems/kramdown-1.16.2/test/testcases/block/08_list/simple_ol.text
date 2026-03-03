@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a52e542bbb06fbb93c3147d9c1f147afa11350ea9c343998a4d9c0c23c679c4b
-size 138
+1. This is a simple list item
+3. Followed by another
+
+
+10.	Followed by
+
+    a para list item
+1. and a normal one
+2. and
+
+    a para
+
+para

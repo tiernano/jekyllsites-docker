@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f746dd460d3fe2a0db003562a9c7fbd6147d9e71c7d8e9d16dffeefac8667c50
-size 269
+# frozen_string_literal: true
+module Ethon
+  module Errors
+
+    # Raises when option is invalid.
+    class InvalidValue < EthonError
+      def initialize(option, value)
+        super("The value: #{value} is invalid for option: #{option}.")
+      end
+    end
+  end
+end
+

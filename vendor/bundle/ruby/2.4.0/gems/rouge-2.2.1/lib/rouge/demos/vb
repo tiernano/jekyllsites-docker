@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e48717630b104e700d5c345a1b23732aa8375693e0abc43da5e4fc7f49959249
-size 120
+Private Sub Form_Load()
+    ' Execute a simple message box that says "Hello, World!"
+    MsgBox "Hello, World!"
+End Sub

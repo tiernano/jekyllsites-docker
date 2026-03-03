@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8b5ab9bec99c499d0172dde9a3fcb968b12be16d059a8154dcd0a77b9a889365
-size 231
+Aws.add_service(:CloudSearch, {
+  api: "#{Aws::API_DIR}/cloudsearch/2013-01-01/api-2.json",
+  docs: "#{Aws::API_DIR}/cloudsearch/2013-01-01/docs-2.json",
+  paginators: "#{Aws::API_DIR}/cloudsearch/2013-01-01/paginators-1.json",
+})

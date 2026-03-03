@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7bf418d79b6a69ed661bf989642a4aa101ffc24d2914770421919476ead4983b
-size 156
+source 'https://rubygems.org'
+
+gemspec :path => '..'
+
+gem 'activesupport', '~> 5.1.0'
+gem 'mocha'
+gem 'test_declarative'
+gem 'rake'
+gem 'minitest'
+gem 'oj'

@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:453d49b0b64609ae1e1e1e0d6882c7add6b064493ef477ef36dc20a7d33be226
-size 264
+module Ruby
+  module Enum
+    module Errors
+      # Error raised when a duplicate enum key is found
+      class DuplicateKeyError < Base
+        def initialize(attrs)
+          super(compose_message('duplicate_key', attrs))
+        end
+      end
+    end
+  end
+end

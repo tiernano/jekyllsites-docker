@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:92aab3f82501a3b0b71d9b0318a69e84f907dff599ec21be82992c58fa057ecb
-size 195
+Aws.add_service(:MQ, {
+  api: "#{Aws::API_DIR}/mq/2017-11-27/api-2.json",
+  docs: "#{Aws::API_DIR}/mq/2017-11-27/docs-2.json",
+  paginators: "#{Aws::API_DIR}/mq/2017-11-27/paginators-1.json",
+})

@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7acc5ece3810837a466303b5632540269a81d504baf412970c6e8add598e0429
-size 96
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+load File.expand_path("../bundle", __FILE__)

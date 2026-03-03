@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7b9f8d7eae2100fd6474a20329c368f018123fb9d5788b91ee260b164bba328a
-size 223
+# = Public Suffix
+#
+# Domain name parser based on the Public Suffix List.
+#
+# Copyright (c) 2009-2017 Simone Carletti <weppos@weppos.net>
+
+module PublicSuffix
+  # The current library version.
+  VERSION = "2.0.5".freeze
+end

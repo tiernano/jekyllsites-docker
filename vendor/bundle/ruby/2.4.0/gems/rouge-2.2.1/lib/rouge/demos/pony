@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1df58b3fb96072fe632fc62faa1ef9478ab0d48bde55348cd692a006a164ff20
-size 342
+use "ponytest"
+
+actor Main is TestList
+  new create(env: Env) => PonyTest(env, this)
+  new make() => None
+
+  fun tag tests(test: PonyTest) =>
+    test(_TestAddition)
+
+class iso _TestAddition is UnitTest
+  """
+  Adding 2 numbers
+  """
+  fun name(): String => "u32/add"
+
+  fun apply(h: TestHelper): TestResult =>
+    h.expect_eq[U32](2 + 2, 4)

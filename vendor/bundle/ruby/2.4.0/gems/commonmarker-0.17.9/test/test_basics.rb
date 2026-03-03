@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:103876c1e2f1532ef502c158e92bdbf5f904293c58b6ca7103b36b2c4d0947b1
-size 351
+require 'test_helper'
+
+class TestBasics < Minitest::Test
+  def setup
+    @doc = CommonMarker.render_doc('Hi *there*')
+  end
+
+  def test_to_html
+    assert_equal "<p>Hi <em>there</em></p>\n", @doc.to_html
+  end
+
+  def test_markdown_to_html
+    html = CommonMarker.render_html('Hi *there*')
+    assert_equal "<p>Hi <em>there</em></p>\n", html
+  end
+end

@@ -1,3 +1,48 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a90b41b212ef77bdf6219455ffb0cea8dab82b2a4c40a111a5a6c2d028a1f3fe
-size 1110
+# -*- coding: utf-8 -*- #
+# frozen_string_literal: true
+
+module Rouge
+  module Lexers
+    module TypescriptCommon
+      def keywords
+        @keywords ||= super + Set.new(%w(
+          is namespace static private protected public
+          implements readonly
+        ))
+      end
+
+      def declarations
+        @declarations ||= super + Set.new(%w(
+          type abstract
+        ))
+      end
+
+      def reserved
+        @reserved ||= super + Set.new(%w(
+          string any void number namespace module
+          declare default interface keyof
+        ))
+      end
+
+      def builtins
+        @builtins ||= super + %w(
+          Pick Partial Readonly Record
+        )
+      end
+
+      def self.extended(base)
+        base.prepend :root do
+          rule %r/[?][.]/, base::Punctuation
+          rule %r/[?]{2}/, base::Operator
+        end
+
+        base.prepend :statement do
+          rule %r/(#{Javascript.id_regex})(\??)(\s*)(:)/ do
+            groups base::Name::Label, base::Punctuation, base::Text, base::Punctuation
+            push :expr_start
+          end
+        end
+      end
+    end
+  end
+end

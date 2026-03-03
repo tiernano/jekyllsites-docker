@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6a8223cad574f0fe0474523da2f8895dd2f5693d8c44ca6d807816d40834b81a
-size 403
+require 'sass/scss/rx'
+require 'sass/scss/parser'
+require 'sass/scss/static_parser'
+require 'sass/scss/css_parser'
+
+module Sass
+  # SCSS is the CSS syntax for Sass.
+  # It parses into the same syntax tree as Sass,
+  # and generates the same sort of output CSS.
+  #
+  # This module contains code for the parsing of SCSS.
+  # The evaluation is handled by the broader {Sass} module.
+  module SCSS; end
+end

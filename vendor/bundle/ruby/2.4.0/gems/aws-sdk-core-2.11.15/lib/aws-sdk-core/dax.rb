@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d252235082b120ca89dd1a06555bb8a2cefbbcb12ca36da2e4ac93f04e424ba3
-size 261
+Aws.add_service(:DAX, {
+  api: "#{Aws::API_DIR}/dax/2017-04-19/api-2.json",
+  docs: "#{Aws::API_DIR}/dax/2017-04-19/docs-2.json",
+  examples: "#{Aws::API_DIR}/dax/2017-04-19/examples-1.json",
+  paginators: "#{Aws::API_DIR}/dax/2017-04-19/paginators-1.json",
+})

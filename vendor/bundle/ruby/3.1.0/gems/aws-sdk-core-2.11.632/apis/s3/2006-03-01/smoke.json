@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:934f565d34ff2645929b87981124d7511bd8093815476fc519477bf923e6fb0c
-size 209
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+	{
+            "operationName": "ListBuckets",
+            "input": {},
+            "errorExpectedFromService": false
+        }
+    ]
+}

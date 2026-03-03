@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:361daf6cd77334785f639349a55cd7d2460ab7ece8cd28e6ac83bf2fca31920a
-size 142
+#ifndef NOKOGIRI_XML_ENCODING_HANDLER
+#define NOKOGIRI_XML_ENCODING_HANDLER
+
+#include <nokogiri.h>
+
+void init_xml_encoding_handler();
+
+#endif

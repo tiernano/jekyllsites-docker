@@ -1,3 +1,42 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8b4e273f473428f17a26f9428c01d88aeef694360ac676db372d5eefa0cc4e90
-size 746
+inherit_from: .rubocop_todo.yml
+
+require: rubocop-jekyll
+inherit_gem:
+  rubocop-jekyll: .rubocop.yml
+
+AllCops:
+  TargetRubyVersion: 2.5
+  SuggestExtensions: false
+  Exclude:
+    - vendor/**/*
+
+Layout/LineEndStringConcatenationIndentation:
+  Enabled: true
+Layout/LineLength:
+  Exclude:
+    - spec/**/*
+    - jekyll-seo-tag.gemspec
+
+Lint/EmptyInPattern:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
+Naming/InclusiveLanguage:
+  Enabled: false
+
+Performance/MapCompact:
+  Enabled: true
+Performance/RedundantEqualityComparisonBlock:
+  Enabled: true
+Performance/RedundantSplitRegexpArgument:
+  Enabled: true
+
+Style/InPatternThen:
+  Enabled: false
+Style/MultilineInPatternThen:
+  Enabled: false
+Style/QuotedSymbols:
+  Enabled: true

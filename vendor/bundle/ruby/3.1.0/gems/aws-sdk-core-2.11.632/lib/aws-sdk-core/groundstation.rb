@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3edc38ef895770c4c44ba4ff1cc4f008afa492c0c626275f9c1fd4799aafa86a
-size 311
+Aws.add_service(:GroundStation, {
+  api: "#{Aws::API_DIR}/groundstation/2019-05-23/api-2.json",
+  docs: "#{Aws::API_DIR}/groundstation/2019-05-23/docs-2.json",
+  examples: "#{Aws::API_DIR}/groundstation/2019-05-23/examples-1.json",
+  paginators: "#{Aws::API_DIR}/groundstation/2019-05-23/paginators-1.json",
+})

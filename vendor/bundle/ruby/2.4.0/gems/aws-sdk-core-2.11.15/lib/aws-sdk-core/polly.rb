@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:03653a5be1435307cd4d8447ab3f9fe4c89374584ba20afcf1473999ed6ee2f6
-size 366
+Aws.add_service(:Polly, {
+  api: "#{Aws::API_DIR}/polly/2016-06-10/api-2.json",
+  docs: "#{Aws::API_DIR}/polly/2016-06-10/docs-2.json",
+  examples: "#{Aws::API_DIR}/polly/2016-06-10/examples-1.json",
+  paginators: "#{Aws::API_DIR}/polly/2016-06-10/paginators-1.json",
+})
+
+module Aws
+  module Polly
+
+    autoload :Presigner, 'aws-sdk-core/polly/presigner'
+
+  end
+end

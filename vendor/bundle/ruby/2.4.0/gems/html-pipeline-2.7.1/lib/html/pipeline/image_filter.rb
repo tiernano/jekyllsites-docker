@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:74627150bd11d707b4469e26d8eb441dc79ed0038fad12da5bf1f538a119a071
-size 446
+module HTML
+  class Pipeline
+    # HTML Filter that converts image's url into <img> tag.
+    # For example, it will convert
+    #   http://example.com/test.jpg
+    # into
+    #   <img src="http://example.com/test.jpg" alt=""/>.
+
+    class ImageFilter < TextFilter
+      def call
+        @text.gsub(/(https|http)?:\/\/.+\.(jpg|jpeg|bmp|gif|png)(\?\S+)?/i) do |match|
+        %|<img src="#{match}" alt=""/>|
+        end
+      end
+    end
+  end
+end

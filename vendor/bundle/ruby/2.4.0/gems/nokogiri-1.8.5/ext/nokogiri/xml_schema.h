@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5142fb22e14a3fdf42dcb23de149beb6465c65f3bb442966669eb42aaab54c80
-size 145
+#ifndef NOKOGIRI_XML_SCHEMA
+#define NOKOGIRI_XML_SCHEMA
+
+#include <nokogiri.h>
+
+void init_xml_schema();
+
+extern VALUE cNokogiriXmlSchema;
+#endif

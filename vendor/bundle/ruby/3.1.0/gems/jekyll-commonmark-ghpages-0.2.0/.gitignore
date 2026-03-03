@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a852ce4deeaa39ba5d7db5d0e526f8c8aa6d5697c93ff50aab87786bb25aaf06
-size 45
+*.gem
+Gemfile.lock
+spec/dest
+.bundle
+vendor/

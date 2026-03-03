@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d5b918202ec032b0e2b9ba1d3736fe9b26aed80e8fc63101882de8f11fefdbb3
-size 570
+// Default black theme
+
+// Color variables
+$black: #181818;
+$red: #E74727;
+$red-dark: #DC3918;
+$white: #fff;
+
+// Config
+$color-background: $red !default;
+$color-dot-accent: $black !default;
+$color-foreground: $black !default;
+$color-title: $white !default;
+$color-body-text: $black !default;
+$color-text-accent: $red-dark !default;
+$color-code: $red-dark !default;
+$color-nav-link: $white !default;
+$color-primary-link: $red !default;
+
+// Import sass partials (used in all themes)
+@import
+        "variables",
+        "base",
+        "components",
+        "utilities"
+;

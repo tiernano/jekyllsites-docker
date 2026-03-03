@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fbee5e5a00837bacf17932930ff57f42e6dc1667a7845c57a33d9c7fbebfed92
-size 488
+package thread_safe;
+
+import java.security.Permission;
+import java.util.ArrayList;
+import java.util.List;
+
+public class SecurityManager extends java.lang.SecurityManager {
+  private final List<Permission> deniedPermissions =
+      new ArrayList<Permission>();
+
+  @Override
+  public void checkPermission(Permission p) {
+    if (deniedPermissions.contains(p)) {
+      throw new SecurityException("Denied!");
+    }
+  }
+
+  public void deny(Permission p) {
+    deniedPermissions.add(p);
+  }
+}

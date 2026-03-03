@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:405871d50b5d20cf5ddd9fbe0aa3f61bfaea3af9d537ef567147b92d0ebab47f
-size 276
+Aws.add_service(:Kendra, {
+  api: "#{Aws::API_DIR}/kendra/2019-02-03/api-2.json",
+  docs: "#{Aws::API_DIR}/kendra/2019-02-03/docs-2.json",
+  examples: "#{Aws::API_DIR}/kendra/2019-02-03/examples-1.json",
+  paginators: "#{Aws::API_DIR}/kendra/2019-02-03/paginators-1.json",
+})

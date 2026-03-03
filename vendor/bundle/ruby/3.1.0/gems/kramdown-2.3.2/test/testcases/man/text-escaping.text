@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1ee8ab21bf85f643bb0248b0f59bbc0f63935c63e8ea5a5c2b8331f0c4585e86
-size 97
+. at the start of the line
+
+line with \fB backslash symbol
+
+some . other - escaped \' symbols
+
+.

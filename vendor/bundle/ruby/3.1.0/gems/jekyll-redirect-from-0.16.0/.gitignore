@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b13f66a3c331c1aff73a7bd27b12aa2cc2f90ddb3b5d07e11e1a2011eb26709f
-size 227
+*.gem
+*.rbc
+.bundle
+.config
+.yardoc
+Gemfile.lock
+InstalledFiles
+_yardoc
+coverage
+doc/
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+spec/fixtures/.jekyll-metadata
+spec/fixtures/.jekyll-cache
+test/tmp
+test/version_tmp
+tmp
+vendor/bundle

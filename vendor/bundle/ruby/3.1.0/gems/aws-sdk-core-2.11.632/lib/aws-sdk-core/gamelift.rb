@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:76606659d6e8aa66fe7cb85538d406b115671361742badfe493f995502e872b1
-size 286
+Aws.add_service(:GameLift, {
+  api: "#{Aws::API_DIR}/gamelift/2015-10-01/api-2.json",
+  docs: "#{Aws::API_DIR}/gamelift/2015-10-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/gamelift/2015-10-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/gamelift/2015-10-01/paginators-1.json",
+})

@@ -1,3 +1,46 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8009dda807a595eccc6c6dcedf3b8c5dde4356682350678370b7181f2f824c95
-size 1238
+{
+  "pagination": {
+    "ListClusters": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "ClusterInfoList"
+    },
+    "ListConfigurations": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "Configurations"
+    },
+    "ListKafkaVersions": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "KafkaVersions"
+    },
+    "ListNodes": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "NodeInfoList"
+    },
+    "ListClusterOperations": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "ClusterOperationInfoList"
+    },
+    "ListConfigurationRevisions": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "Revisions"
+    },
+    "ListScramSecrets": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults",
+      "result_key": "SecretArnList"
+    }
+  }
+}

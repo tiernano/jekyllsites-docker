@@ -1,3 +1,42 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:84a851702d3fe0806cc1d3e41aef0a425d65b4ae327ab4b34d145486c5d71721
-size 567
+module Liquid
+  class ForloopDrop < Drop
+    def initialize(name, length, parentloop)
+      @name = name
+      @length = length
+      @parentloop = parentloop
+      @index = 0
+    end
+
+    attr_reader :name, :length, :parentloop
+
+    def index
+      @index + 1
+    end
+
+    def index0
+      @index
+    end
+
+    def rindex
+      @length - @index
+    end
+
+    def rindex0
+      @length - @index - 1
+    end
+
+    def first
+      @index == 0
+    end
+
+    def last
+      @index == @length - 1
+    end
+
+    protected
+
+    def increment!
+      @index += 1
+    end
+  end
+end

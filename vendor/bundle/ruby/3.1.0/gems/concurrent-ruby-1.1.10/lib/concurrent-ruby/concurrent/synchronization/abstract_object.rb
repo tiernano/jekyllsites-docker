@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a6bdbdf816f48e54c9c18d57c9e83ac10c1433a98aac45c5c9da6ff9e3f050f1
-size 489
+module Concurrent
+  module Synchronization
+
+    # @!visibility private
+    # @!macro internal_implementation_note
+    class AbstractObject
+
+      # @abstract has to be implemented based on Ruby runtime
+      def initialize
+        raise NotImplementedError
+      end
+
+      # @!visibility private
+      # @abstract
+      def full_memory_barrier
+        raise NotImplementedError
+      end
+
+      def self.attr_volatile(*names)
+        raise NotImplementedError
+      end
+    end
+  end
+end

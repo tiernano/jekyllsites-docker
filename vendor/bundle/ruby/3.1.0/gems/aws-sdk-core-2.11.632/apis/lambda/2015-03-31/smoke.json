@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9e32284e972d934f49e03248792495c265719d487a726def2d02d5116a035541
-size 410
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "ListFunctions",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "Invoke",
+            "input": {
+                "FunctionName": "bogus-function"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

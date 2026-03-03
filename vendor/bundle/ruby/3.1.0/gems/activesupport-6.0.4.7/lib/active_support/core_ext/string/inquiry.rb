@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b77dcacc8f22eca9414972c3fd6bfdd80ae690cf586f42681b990afb6cf51ebb
-size 397
+# frozen_string_literal: true
+
+require "active_support/string_inquirer"
+
+class String
+  # Wraps the current string in the <tt>ActiveSupport::StringInquirer</tt> class,
+  # which gives you a prettier way to test for equality.
+  #
+  #   env = 'production'.inquiry
+  #   env.production?  # => true
+  #   env.development? # => false
+  def inquiry
+    ActiveSupport::StringInquirer.new(self)
+  end
+end

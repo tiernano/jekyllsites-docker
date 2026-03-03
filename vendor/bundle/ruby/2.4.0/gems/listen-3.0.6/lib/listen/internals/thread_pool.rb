@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:72551f654fe0812d6d142546b7b71d0e1daae7f088d929577ed8ff3ad69b8dac
-size 507
+module Listen
+  # @private api
+  module Internals
+    module ThreadPool
+      def self.add(&block)
+        Thread.new { block.call }.tap do |th|
+          (@threads ||= Queue.new) << th
+        end
+      end
+
+      def self.stop
+        return unless @threads ||= nil
+        return if @threads.empty? # return to avoid using possibly stubbed Queue
+
+        killed = Queue.new
+        killed << @threads.pop.kill until @threads.empty?
+        killed.pop.join until killed.empty?
+      end
+    end
+  end
+end

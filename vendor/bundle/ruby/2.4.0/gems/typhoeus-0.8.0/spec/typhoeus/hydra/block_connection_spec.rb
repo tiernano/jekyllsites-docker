@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f1628cca6b99c26df39e326b1fba71bb5e732bb0a7ba21662d6dee0c27cbab75
-size 531
+require 'spec_helper'
+
+describe Typhoeus::Hydra::BlockConnection do
+  let(:base_url) { "localhost:3001" }
+  let(:hydra) { Typhoeus::Hydra.new() }
+  let(:request) { Typhoeus::Request.new(base_url, {:method => :get}) }
+
+  describe "add" do
+    context "when block_connection activated" do
+      before { Typhoeus::Config.block_connection = true }
+      after { Typhoeus::Config.block_connection = false }
+
+      it "raises" do
+        expect{ hydra.add(request) }.to raise_error(Typhoeus::Errors::NoStub)
+      end
+    end
+  end
+end

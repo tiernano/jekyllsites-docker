@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5b88fdc4fe16f6cf5f13c0e8683d2b1995117bffc77cc55a7bab26b31fd29785
-size 320
+Aws.add_service(:RedshiftDataAPIService, {
+  api: "#{Aws::API_DIR}/redshift-data/2019-12-20/api-2.json",
+  docs: "#{Aws::API_DIR}/redshift-data/2019-12-20/docs-2.json",
+  examples: "#{Aws::API_DIR}/redshift-data/2019-12-20/examples-1.json",
+  paginators: "#{Aws::API_DIR}/redshift-data/2019-12-20/paginators-1.json",
+})

@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0edcd8b8a5f0391249eb06511ed360f3684c2bd9bcfca64941856e126786b371
-size 316
+Aws.add_service(:NetworkManager, {
+  api: "#{Aws::API_DIR}/networkmanager/2019-07-05/api-2.json",
+  docs: "#{Aws::API_DIR}/networkmanager/2019-07-05/docs-2.json",
+  examples: "#{Aws::API_DIR}/networkmanager/2019-07-05/examples-1.json",
+  paginators: "#{Aws::API_DIR}/networkmanager/2019-07-05/paginators-1.json",
+})

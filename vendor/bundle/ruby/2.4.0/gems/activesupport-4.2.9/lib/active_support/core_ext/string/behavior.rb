@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4be22c0be4e13c51a496d18adb39cd7df82bbe99fd49fe3fd9f670fa101b9c7e
-size 152
+class String
+  # Enable more predictable duck-typing on String-like classes. See <tt>Object#acts_like?</tt>.
+  def acts_like_string?
+    true
+  end
+end

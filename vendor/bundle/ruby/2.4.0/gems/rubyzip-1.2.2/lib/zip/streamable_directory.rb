@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:46b1bf4f0f41827fdb1ed62166ef30b01862ad9cbe3b299f199c7feb47e1eff7
-size 460
+module Zip
+  class StreamableDirectory < Entry
+    def initialize(zipfile, entry, srcPath = nil, permissionInt = nil)
+      super(zipfile, entry)
+
+      @ftype = :directory
+      entry.get_extra_attributes_from_path(srcPath) if srcPath
+      @unix_perms = permissionInt if permissionInt
+    end
+  end
+end
+
+# Copyright (C) 2002, 2003 Thomas Sondergaard
+# rubyzip is free software; you can redistribute it and/or
+# modify it under the terms of the ruby license.

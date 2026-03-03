@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6c076bba1e57c3d2dd6dd87dc73871eefb70c26561f84222211ae1570ee1f4c2
-size 939
+# frozen_string_literal: true
+
+module Jekyll
+  module Tags
+    class Link < Liquid::Tag
+      class << self
+        def tag_name
+          self.name.split("::").last.downcase
+        end
+      end
+
+      def initialize(tag_name, relative_path, tokens)
+        super
+
+        @relative_path = relative_path.strip
+      end
+
+      def render(context)
+        site = context.registers[:site]
+
+        site.each_site_file do |item|
+          return item.url if item.relative_path == @relative_path
+          # This takes care of the case for static files that have a leading /
+          return item.url if item.relative_path == "/#{@relative_path}"
+        end
+
+        raise ArgumentError, <<-MSG
+Could not find document '#{@relative_path}' in tag '#{self.class.tag_name}'.
+
+Make sure the document exists and the path is correct.
+MSG
+      end
+    end
+  end
+end
+
+Liquid::Template.register_tag(Jekyll::Tags::Link.tag_name, Jekyll::Tags::Link)

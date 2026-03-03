@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9fccde1146efa741577344a0ef45d7fa5e4222bc11a4e15c39b4e8fc6ad82b12
-size 529
+# frozen_string_literal: true
+
+require "jekyll"
+require "jekyll-optional-front-matter/generator"
+
+module JekyllOptionalFrontMatter
+  # Case-insensitive array of filenames to exclude. All files must first
+  # match the config-defined list of markdown extensions. If you'd like one
+  # of these files included in your site, simply add YAML front matter to it.
+  FILENAME_BLACKLIST = %w(
+    README
+    LICENSE
+    LICENCE
+    COPYING
+    CODE_OF_CONDUCT
+    CONTRIBUTING
+    ISSUE_TEMPLATE
+    PULL_REQUEST_TEMPLATE
+  ).freeze
+end

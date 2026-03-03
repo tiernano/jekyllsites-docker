@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:41f7c003c05700f11ab7711281fe90175c5296efcab7d466b76c7514ec823847
-size 704
+module Seahorse
+  module Client
+    module Plugins
+
+      # @seahorse.client.option [Boolean] :raise_response_errors (true)
+      #   When `true`, response errors are raised.
+      class RaiseResponseErrors < Plugin
+
+        option(:raise_response_errors, true)
+
+        # @api private
+        class Handler < Client::Handler
+          def call(context)
+            response = @handler.call(context)
+            raise response.error if response.error
+            response
+          end
+        end
+
+        def add_handlers(handlers, config)
+          if config.raise_response_errors
+            handlers.add(Handler, step: :validate, priority: 95)
+          end
+        end
+
+      end
+    end
+  end
+end

@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c8a144b286720060179df71f2553e83b868aaf13fd7d8fb2e1cc7e8a9a338e2b
-size 890
+module Sass::Tree
+  # A static node representing a `@supports` rule.
+  #
+  # @see Sass::Tree
+  class SupportsNode < DirectiveNode
+    # The name, which may include a browser prefix.
+    #
+    # @return [String]
+    attr_accessor :name
+
+    # The supports condition.
+    #
+    # @return [Sass::Supports::Condition]
+    attr_accessor :condition
+
+    # @param condition [Sass::Supports::Condition] See \{#condition}
+    def initialize(name, condition)
+      @name = name
+      @condition = condition
+      super('')
+    end
+
+    # @see DirectiveNode#value
+    def value; raise NotImplementedError; end
+
+    # @see DirectiveNode#resolved_value
+    def resolved_value
+      @resolved_value ||= "@#{name} #{condition.to_css}"
+    end
+
+    # True when the directive has no visible children.
+    #
+    # @return [Boolean]
+    def invisible?
+      children.all? {|c| c.invisible?}
+    end
+  end
+end

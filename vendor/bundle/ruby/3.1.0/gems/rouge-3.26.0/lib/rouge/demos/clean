@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7781fbef62f91db5984a92a795a1a27b07254c2e6291120169b4e79be798c66f
-size 189
+delete :: !a !.(Set a) -> Set a | < a
+delete x Tip = Tip
+delete x (Bin _ y l r)
+  | x < y     = balanceR y (delete x l) r
+  | x > y     = balanceL y l (delete x r)
+  | otherwise = glue l r

@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3caa4278cc6a094c7101178ea0e83a6bed45049ef4be5b51c1746c81efd1edaf
-size 629
+# The reason some options are declared here rather than in sass/plugin/configuration.rb
+# is that otherwise they'd clobber the Rails-specific options.
+# Since Rails' options are lazy-loaded in Rails 3,
+# they're reverse-merged with the default options
+# so that user configuration is preserved.
+# This means that defaults that differ from Rails'
+# must be declared here.
+
+unless defined?(Sass::GENERIC_LOADED)
+  Sass::GENERIC_LOADED = true
+
+  Sass::Plugin.options.merge!(:css_location   => './public/stylesheets',
+                              :always_update  => false,
+                              :always_check   => true)
+end

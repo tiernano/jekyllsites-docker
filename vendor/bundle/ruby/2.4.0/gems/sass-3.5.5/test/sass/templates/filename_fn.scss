@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:11a73bbb3dc5be5cff3e95999ac0882e1b63b02f87b72d158c9e354eb39d43c0
-size 300
+@import "filename_fn_import";
+
+@mixin local-mixin {
+  local-mixin: filename();
+}
+
+@function local-function() {
+  @return filename();
+}
+
+filename {
+  local: filename();
+  @include local-mixin;
+  local-function: local-function();
+
+  @include imported-mixin;
+  imported-function: imported-function();
+}

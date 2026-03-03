@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:917decebeddb76622c8c07987e9c87710de0416bac68ebe7b5cd45bc4c9a79a7
-size 334
+s3_id: <%= 'hello world' %>
+s3_secret: <%= 'secret world' %>
+s3_bucket: my-bucket
+index_document: default.html
+error_document: missing.html
+routing_rules:
+  - condition:
+      key_prefix_equals: blog/some_path
+    redirect:
+      host_name: blog.example.com
+      replace_key_prefix_with: some_new_path/
+      http_redirect_code: 301

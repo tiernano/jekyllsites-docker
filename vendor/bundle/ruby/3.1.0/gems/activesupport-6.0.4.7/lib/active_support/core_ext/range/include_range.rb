@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:358eca743a409ff77838cab42ff918f9d902c48bd246413a41d6172910641213
-size 349
+# frozen_string_literal: true
+
+require "active_support/deprecation"
+
+ActiveSupport::Deprecation.warn "You have required `active_support/core_ext/range/include_range`. " \
+"This file will be removed in Rails 6.1. You should require `active_support/core_ext/range/compare_range` " \
+  "instead."
+
+require "active_support/core_ext/range/compare_range"

@@ -1,3 +1,34 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c73d150aac3dfd8e77f05cc8ce76f0077e6b588cdb0a26e384751c0ba406f9f6
-size 877
+# frozen_string_literal: true
+
+module Rouge
+  module Guessers
+    module Util
+      module SourceNormalizer
+        UTF8_BOM = "\xEF\xBB\xBF"
+        UTF8_BOM_RE = /\A#{UTF8_BOM}/
+
+        # @param [String,nil] source
+        # @return [String,nil]
+        def self.normalize(source)
+          source.sub(UTF8_BOM_RE, '').gsub(/\r\n/, "\n")
+        end
+      end
+
+      def test_glob(pattern, path)
+        File.fnmatch?(pattern, path, File::FNM_DOTMATCH | File::FNM_CASEFOLD)
+      end
+
+      # @param [String,IO] source
+      # @return [String]
+      def get_source(source)
+        if source.respond_to?(:to_str)
+          SourceNormalizer.normalize(source.to_str)
+        elsif source.respond_to?(:read)
+          SourceNormalizer.normalize(source.read)
+        else
+          raise ArgumentError, "Invalid source: #{source.inspect}"
+        end
+      end
+    end
+  end
+end

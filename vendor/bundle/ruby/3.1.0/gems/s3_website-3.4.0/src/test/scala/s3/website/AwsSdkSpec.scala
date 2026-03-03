@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:61438f04396bd6a85cc51510db2b2e9567d96151bf4db6a144ca1440287b71ed
-size 425
+package s3.website
+
+import com.amazonaws.http.AmazonHttpClient
+import org.apache.commons.logging.LogFactory
+import org.specs2.mutable.Specification
+
+class AwsSdkSpec extends Specification {
+
+  "AWS SDK" should {
+    "not log INFO level messages" in {
+      // See https://github.com/laurilehmijoki/s3_website/issues/104 for discussion
+      LogFactory.getLog(classOf[AmazonHttpClient]).isInfoEnabled must beFalse
+    }
+  }
+}

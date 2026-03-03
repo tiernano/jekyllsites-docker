@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:305e85e94d95e4831fd5f62c146c85e0d9a30504446e768de8d6e146ece8aeac
-size 323
+module Zip
+  class Decompressor #:nodoc:all
+    CHUNK_SIZE = 32_768
+    def initialize(input_stream)
+      super()
+      @input_stream = input_stream
+    end
+  end
+end
+
+# Copyright (C) 2002, 2003 Thomas Sondergaard
+# rubyzip is free software; you can redistribute it and/or
+# modify it under the terms of the ruby license.

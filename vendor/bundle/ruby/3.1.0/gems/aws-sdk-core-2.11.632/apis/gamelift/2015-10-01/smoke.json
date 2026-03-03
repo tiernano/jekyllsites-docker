@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9c95f193ab402a6d505b4da5f3734582cba8d8959eda37eac053e4cffb0cc3d1
-size 431
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "ListBuilds",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "DescribePlayerSessions",
+            "input": {
+                "PlayerSessionId": "psess-fakeSessionId"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

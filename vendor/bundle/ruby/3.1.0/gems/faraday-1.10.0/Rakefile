@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0e11ec9976c7335b207b12d2a73d81c555c4a79b4a473893ccc005f84b9cc318
-size 117
+# frozen_string_literal: true
+
+require 'rspec/core/rake_task'
+
+RSpec::Core::RakeTask.new(:spec)
+
+task default: :spec

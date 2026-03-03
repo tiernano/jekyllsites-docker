@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9a0f857e7f048af5d3963d42003949c3fea8b3fd09e9383066895ab4044c160d
-size 415
+# encoding: UTF-8
+
+# This file contains data derived from the IANA Time Zone Database
+# (https://www.iana.org/time-zones).
+
+module TZInfo
+  module Data
+    module Definitions
+      module Etc
+        module GMT__p__1
+          include TimezoneDefinition
+          
+          timezone 'Etc/GMT+1' do |tz|
+            tz.offset :o0, -3600, 0, :'-01'
+            
+          end
+        end
+      end
+    end
+  end
+end

@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:999f857fecf7ec3992087d10dc16b3959e7536ca63e20ffc2dc5b60bfd3487e2
-size 253
+module JekyllRedirectFrom
+  # Stubbed LiquidContext to support relative_url and absolute_url helpers
+  class Context
+    attr_reader :site
+
+    def initialize(site)
+      @site = site
+    end
+
+    def registers
+      { :site => site }
+    end
+  end
+end

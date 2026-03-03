@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d728a7986b6b14b11d651f8116d1c00e453f2c9f75d41b3665e50a2daf3bdcd5
-size 57
+addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.11.2")

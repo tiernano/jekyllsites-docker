@@ -1,3 +1,49 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2fca857520e2a66f11c7b54f2c75dbc1c846796b003f5cc340666a36f7f82495
-size 1243
+{
+  "pagination": {
+    "DescribeDestinations": {
+      "input_token": "nextToken",
+      "limit_key": "limit",
+      "output_token": "nextToken",
+      "result_key": "destinations"
+    },
+    "DescribeLogGroups": {
+      "input_token": "nextToken",
+      "limit_key": "limit",
+      "output_token": "nextToken",
+      "result_key": "logGroups"
+    },
+    "DescribeLogStreams": {
+      "input_token": "nextToken",
+      "limit_key": "limit",
+      "output_token": "nextToken",
+      "result_key": "logStreams"
+    },
+    "DescribeMetricFilters": {
+      "input_token": "nextToken",
+      "limit_key": "limit",
+      "output_token": "nextToken",
+      "result_key": "metricFilters"
+    },
+    "DescribeSubscriptionFilters": {
+      "input_token": "nextToken",
+      "limit_key": "limit",
+      "output_token": "nextToken",
+      "result_key": "subscriptionFilters"
+    },
+    "FilterLogEvents": {
+      "input_token": "nextToken",
+      "limit_key": "limit",
+      "output_token": "nextToken",
+      "result_key": [
+        "events",
+        "searchedLogStreams"
+      ]
+    },
+    "GetLogEvents": {
+      "input_token": "nextToken",
+      "limit_key": "limit",
+      "output_token": "nextForwardToken",
+      "result_key": "events"
+    }
+  }
+}

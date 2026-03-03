@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4699480f889ffbe561610cba3619bd194e4e8f90894bd5d5651a54488aec3ddc
-size 488
+require 'thread'
+require 'monitor'
+
+module ActiveSupport
+  module Concurrency
+    class Latch
+      def initialize(count = 1)
+        @count = count
+        @lock = Monitor.new
+        @cv = @lock.new_cond
+      end
+
+      def release
+        @lock.synchronize do
+          @count -= 1 if @count > 0
+          @cv.broadcast if @count.zero?
+        end
+      end
+
+      def await
+        @lock.synchronize do
+          @cv.wait_while { @count > 0 }
+        end
+      end
+    end
+  end
+end

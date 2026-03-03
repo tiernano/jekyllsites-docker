@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9835c5b041c017ec540a1db76f90192a6011087e638d112f9e9d06e39371965a
-size 657
+module Octokit
+  class Client
+
+    # Methods for the Commit Pulls API
+    #
+    # @see https://developer.github.com/v3/repos/comments/
+    module CommitPulls
+
+      # List pulls for a single commit
+      #
+      # @param repo [Integer, String, Hash, Repository] A GitHub repository
+      # @param sha [String] The SHA of the commit whose pulls will be fetched
+      # @return [Array]  List of commit pulls
+      # @see https://developer.github.com/v3/repos/commits/#list-pull-requests-associated-with-commit
+      def commit_pulls(repo, sha, options = {})
+        paginate "#{Repository.path repo}/commits/#{sha}/pulls", options
+      end
+    end
+  end
+end

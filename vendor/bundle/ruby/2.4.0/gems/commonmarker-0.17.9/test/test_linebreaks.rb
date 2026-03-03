@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ca38bd7bf9771a01eb7298c56ffc454e4db588c1c794dacaa386f59d816bec2b
-size 374
+require 'test_helper'
+
+class TestLinebreaks < Minitest::Test
+  def test_hardbreak_no_spaces
+    doc = CommonMarker.render_doc("foo\nbaz")
+    assert_equal "<p>foo<br />\nbaz</p>\n", doc.to_html(:HARDBREAKS)
+  end
+
+  def test_hardbreak_with_spaces
+    doc = CommonMarker.render_doc("foo  \nbaz")
+    assert_equal "<p>foo<br />\nbaz</p>\n", doc.to_html(:HARDBREAKS)
+  end
+end

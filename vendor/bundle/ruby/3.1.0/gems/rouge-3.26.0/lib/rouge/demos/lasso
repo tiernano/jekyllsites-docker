@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a0abfe413c596cd218b4c91c181c023cdb996022f545ab1dcf0090e4ad8aff0f
-size 227
+/**!
+  Inserts all of the elements from #rhs into the array.
+*/
+define array->+(rhs::trait_forEach) => { 
+  local(a = .asCopy);
+  #rhs->forEach => {
+    #a->insert(#1)
+  }
+  return (#a)
+}
+
+define array->onCompare(n::null) => 1

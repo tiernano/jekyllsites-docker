@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:413dfdffafdd180cc100eddbb76c3c4e998ef5b759eb9724057b21a57c667355
-size 403
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "DescribeTrails",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "DeleteTrail",
+            "input": {
+                "Name": "faketrail"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e11fe61a876f31cc76625cb8330d6ce1a2e5c786b7778c83dee6f5fa2b190ad4
-size 462
+{
+  "pagination": {
+    "GetSavingsPlansCoverage": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    },
+    "GetSavingsPlansUtilizationDetails": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    },
+    "ListCostCategoryDefinitions": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    }
+  }
+}

@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2fa786acd9ca3bfbdc97eb57f113cd0d45ce634bcd0c8b324d5e67406bcfa94d
-size 200
+#include "ruby/ruby.h"
+
+static int
+clone_method_i(st_data_t key, st_data_t value, st_data_t data)
+{
+    clone_method((VALUE)data, (ID)key, (const rb_method_entry_t *)value);
+    return ST_CONTINUE;
+}

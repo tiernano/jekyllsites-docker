@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c7070f525942e8baf1ac65185153832d267b12a00734209d5ac171cdefdb4f86
-size 93
+# frozen_string_literal: true
+
+module Faraday
+  module Excon
+    VERSION = '1.1.0'
+  end
+end

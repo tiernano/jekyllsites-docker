@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2cf6e2b0d14447cb192fb28629b9eb52465e87f7ef8ef1ffde0dba5436168571
-size 597
+bundle-inject(1) -- Add named gem(s) with version requirements to Gemfile
+=========================================================================
+
+## SYNOPSIS
+
+`bundle inject` [GEM] [VERSION]
+
+## DESCRIPTION
+
+Adds the named gem(s) with their version requirements to the resolved
+[`Gemfile(5)`][Gemfile(5)].
+
+This command will add the gem to both your [`Gemfile(5)`][Gemfile(5)] and Gemfile.lock if it
+isn't listed yet.
+
+Example:
+
+    bundle install
+    bundle inject 'rack' '> 0'
+
+This will inject the 'rack' gem with a version greater than 0 in your
+[`Gemfile(5)`][Gemfile(5)] and Gemfile.lock

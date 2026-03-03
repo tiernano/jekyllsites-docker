@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9c2deca0e26f80b9dfccde454b80fe474d705eb65481282b89805271b6a805e7
-size 546
+require 'spec_helper'
+
+describe Typhoeus::Request::Actions do
+  [:get, :post, :put, :delete, :head, :patch, :options].each do |name|
+    describe ".#{name}" do
+      let(:response) { Typhoeus::Request.method(name).call("http://localhost:3001") }
+
+      it "returns ok" do
+        expect(response.return_code).to eq(:ok)
+      end
+
+      unless name == :head
+        it "makes #{name.to_s.upcase} Request" do
+          expect(response.response_body).to include("\"REQUEST_METHOD\":\"#{name.to_s.upcase}\"")
+        end
+      end
+    end
+  end
+end

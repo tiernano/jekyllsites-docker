@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:75a3d295340d010f6b960fe9052b5ba3fac75f733b97370604407e9fcd5bcab3
-size 281
+Aws.add_service(:Amplify, {
+  api: "#{Aws::API_DIR}/amplify/2017-07-25/api-2.json",
+  docs: "#{Aws::API_DIR}/amplify/2017-07-25/docs-2.json",
+  examples: "#{Aws::API_DIR}/amplify/2017-07-25/examples-1.json",
+  paginators: "#{Aws::API_DIR}/amplify/2017-07-25/paginators-1.json",
+})

@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3e8d34d8427751e3485831dde1ec53112d3461b8088d0391db50adf11d4b3429
-size 496
+class NameError
+  # Extract the name of the missing constant from the exception message.
+  def missing_name
+    if /undefined local variable or method/ !~ message
+      $1 if /((::)?([A-Z]\w*)(::[A-Z]\w*)*)$/ =~ message
+    end
+  end
+
+  # Was this exception raised because the given name was missing?
+  def missing_name?(name)
+    if name.is_a? Symbol
+      last_name = (missing_name || '').split('::').last
+      last_name == name.to_s
+    else
+      missing_name == name.to_s
+    end
+  end
+end

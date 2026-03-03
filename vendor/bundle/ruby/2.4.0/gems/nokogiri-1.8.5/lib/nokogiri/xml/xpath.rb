@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1f13ef31d6c27769ecaec0c6232883b783caed6781b3a99e8833dbdab47ca84e
-size 200
+require 'nokogiri/xml/xpath/syntax_error'
+
+module Nokogiri
+  module XML
+    class XPath
+      # The Nokogiri::XML::Document tied to this XPath instance
+      attr_accessor :document
+    end
+  end
+end

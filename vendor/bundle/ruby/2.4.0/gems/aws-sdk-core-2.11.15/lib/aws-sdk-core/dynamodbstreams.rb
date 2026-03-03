@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:de1fab9aa5492150661b8d2317559860adcc517b2571448b30ef58ed4e645749
-size 325
+Aws.add_service(:DynamoDBStreams, {
+  api: "#{Aws::API_DIR}/streams.dynamodb/2012-08-10/api-2.json",
+  docs: "#{Aws::API_DIR}/streams.dynamodb/2012-08-10/docs-2.json",
+  examples: "#{Aws::API_DIR}/streams.dynamodb/2012-08-10/examples-1.json",
+  paginators: "#{Aws::API_DIR}/streams.dynamodb/2012-08-10/paginators-1.json",
+})

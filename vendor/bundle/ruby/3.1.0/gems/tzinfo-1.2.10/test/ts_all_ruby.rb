@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c1bc64d2e212fa570b13adc9c735b5276644cd74a708db72fa47027e6cfd5174
-size 182
+require File.join(File.expand_path(File.dirname(__FILE__)), 'test_utils.rb')
+
+TZInfo::DataSource.set(:ruby)
+
+require File.join(File.expand_path(File.dirname(__FILE__)), 'ts_all.rb')

@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:68624e7297f7d82950dfa09c03b8e2fefc82e266b83d8324a03942fd105d719c
-size 279
+Aws.add_service(:Schemas, {
+  api: "#{Aws::API_DIR}/schemas/2019-12-02/api-2.json",
+  docs: "#{Aws::API_DIR}/schemas/2019-12-02/docs-2.json",
+  paginators: "#{Aws::API_DIR}/schemas/2019-12-02/paginators-1.json",
+  waiters: "#{Aws::API_DIR}/schemas/2019-12-02/waiters-2.json",
+})

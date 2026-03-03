@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0778ae7f3c8f0ecbe55ec3e9b6cab1a0d0ed7b8eb9139920303ffb81faa7ba31
-size 553
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby: [ '2.5', '2.6', '2.7', '3.0', '3.1' ] # , 'ruby-head' ]
+    name: Ruby ${{ matrix.ruby }} tests
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - name: Bundle install
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+      - name: Run tests
+        run: bundle exec rake test

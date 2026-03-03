@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2a9a23a9935f9f3761d992f186ce719deb541fdf7ae7d13feba44acd37356499
-size 610
+module ThreadSafe
+  module Util
+    class PowerOfTwoTuple < VolatileTuple
+      def initialize(size)
+        raise ArgumentError, "size must be a power of 2 (#{size.inspect} provided)" unless size > 0 && size & (size - 1) == 0
+        super(size)
+      end
+
+      def hash_to_index(hash)
+        (size - 1) & hash
+      end
+
+      def volatile_get_by_hash(hash)
+        volatile_get(hash_to_index(hash))
+      end
+
+      def volatile_set_by_hash(hash, value)
+        volatile_set(hash_to_index(hash), value)
+      end
+
+      def next_in_size_table
+        self.class.new(size << 1)
+      end
+    end
+  end
+end

@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b50719a17d4dc1099176983d536087a53f8d528a15d34f0934045914c1f101ce
-size 367
+require "helper"
+
+module Nokogiri
+  module XML
+    class TestAdditionalNamespacesInBuilderDoc < Nokogiri::TestCase
+      def test_builder_namespaced_root_node_ns
+        b = Nokogiri::XML::Builder.new do |x|
+          x[:foo].RDF(:'xmlns:foo' => 'http://foo.io')
+        end
+        assert_equal 'http://foo.io', b.doc.root.namespace.href
+      end
+    end
+  end
+end

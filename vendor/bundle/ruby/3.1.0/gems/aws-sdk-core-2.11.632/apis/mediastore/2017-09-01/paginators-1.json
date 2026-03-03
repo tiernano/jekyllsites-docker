@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f751bbe677de7f9890e3dc902709620e4c6ae201152d26cba24689f7d6f0ad36
-size 157
+{
+  "pagination": {
+    "ListContainers": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    }
+  }
+}

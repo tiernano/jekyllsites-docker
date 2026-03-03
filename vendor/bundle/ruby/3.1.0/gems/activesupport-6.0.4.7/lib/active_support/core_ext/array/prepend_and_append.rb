@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0ccf24d9ecbbd1b819ca2b2a60b56d7c185e372e6d0871718d6fcf47915a3a6e
-size 319
+# frozen_string_literal: true
+
+require "active_support/deprecation"
+
+ActiveSupport::Deprecation.warn "Ruby 2.5+ (required by Rails 6) provides Array#append and Array#prepend natively, so requiring active_support/core_ext/array/prepend_and_append is no longer necessary. Requiring it will raise LoadError in Rails 6.1."

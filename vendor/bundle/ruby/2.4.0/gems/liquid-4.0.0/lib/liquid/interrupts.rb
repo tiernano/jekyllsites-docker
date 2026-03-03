@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8a728c2c1e5e69604318b620eb3d7a659a98663268c205fa32d5a0c5370674d9
-size 455
+module Liquid
+  # An interrupt is any command that breaks processing of a block (ex: a for loop).
+  class Interrupt
+    attr_reader :message
+
+    def initialize(message = nil)
+      @message = message || "interrupt".freeze
+    end
+  end
+
+  # Interrupt that is thrown whenever a {% break %} is called.
+  class BreakInterrupt < Interrupt; end
+
+  # Interrupt that is thrown whenever a {% continue %} is called.
+  class ContinueInterrupt < Interrupt; end
+end

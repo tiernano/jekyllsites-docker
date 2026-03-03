@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1297f94e21255e21ff3d8982ac190f40bee213ffb155f6099cebc9c751bf946c
-size 229
+#version 330 core
+
+uniform mat4 worldMatrix;
+
+layout(location = 0) in vec2 position;
+layout(location = 1) in vec4 color;
+
+out vec4 vertexColor;
+
+void main()
+{
+    vertexColor = color;
+    gl_Position = vec4(position, 0.0, 1.0);
+}

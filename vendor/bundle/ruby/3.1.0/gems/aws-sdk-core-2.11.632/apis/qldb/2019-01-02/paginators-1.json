@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:37708881b6748d54baf5fdc4be74d9147bb93e54ce85498ba06b4ed378404257
-size 591
+{
+  "pagination": {
+    "ListJournalKinesisStreamsForLedger": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    },
+    "ListJournalS3Exports": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    },
+    "ListJournalS3ExportsForLedger": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    },
+    "ListLedgers": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "limit_key": "MaxResults"
+    }
+  }
+}

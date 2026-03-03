@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b3591541e872b6aa874ccb87522c5e8c59cb404ff709fe5d7d7f27cba8539df3
-size 546
+require 'spec_helper'
+
+describe Ethon::Easy::Informations do
+
+  describe "#supports_asynch_dns?" do
+    it "returns boolean" do
+      expect([true, false].include? Ethon::Easy.supports_asynch_dns?).to be_truthy
+    end
+  end
+
+  describe "#supports_zlib?" do
+    it "returns boolean" do
+      expect([true, false].include? Ethon::Easy.supports_zlib?).to be_truthy
+    end
+  end
+
+  describe "#supports_timeout_ms?" do
+    it "returns boolean" do
+      expect([true, false].include? Ethon::Easy.supports_timeout_ms?).to be_truthy
+    end
+  end
+
+end

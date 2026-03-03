@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c6280a8a3eee56cdd8da7164d87ad217f25d8b2547afae923d7bef615fd9b34d
-size 482
+class Module
+  # A module may or may not have a name.
+  #
+  #   module M; end
+  #   M.name # => "M"
+  #
+  #   m = Module.new
+  #   m.name # => nil
+  #
+  # A module gets a name when it is first assigned to a constant. Either
+  # via the +module+ or +class+ keyword or by an explicit assignment:
+  #
+  #   m = Module.new # creates an anonymous module
+  #   M = m          # => m gets a name here as a side-effect
+  #   m.name         # => "M"
+  def anonymous?
+    name.nil?
+  end
+end

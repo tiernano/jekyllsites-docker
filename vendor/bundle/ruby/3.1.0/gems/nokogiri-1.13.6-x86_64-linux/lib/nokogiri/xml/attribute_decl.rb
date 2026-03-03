@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:af67d9b54db20e9d8f2b5e648b7c2433ef38180a674172ef053a4c4bc8460270
-size 507
+# frozen_string_literal: true
+
+module Nokogiri
+  module XML
+    ###
+    # Represents an attribute declaration in a DTD
+    class AttributeDecl < Nokogiri::XML::Node
+      undef_method :attribute_nodes
+      undef_method :attributes
+      undef_method :content
+      undef_method :namespace
+      undef_method :namespace_definitions
+      undef_method :line if method_defined?(:line)
+
+      def inspect
+        "#<#{self.class.name}:#{format("0x%x", object_id)} #{to_s.inspect}>"
+      end
+    end
+  end
+end

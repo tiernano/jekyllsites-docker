@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:36ff750888e32854c326e644ebc84fc461d7068931ea36aa56647131fa73c340
-size 266
+Aws.add_service(:Glue, {
+  api: "#{Aws::API_DIR}/glue/2017-03-31/api-2.json",
+  docs: "#{Aws::API_DIR}/glue/2017-03-31/docs-2.json",
+  examples: "#{Aws::API_DIR}/glue/2017-03-31/examples-1.json",
+  paginators: "#{Aws::API_DIR}/glue/2017-03-31/paginators-1.json",
+})

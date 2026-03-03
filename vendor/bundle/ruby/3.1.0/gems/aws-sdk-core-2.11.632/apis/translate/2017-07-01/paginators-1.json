@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b6d182cca1a90bf3866f3fe14698b1cd6321f55ba0978578e75a3c5caa5b2274
-size 300
+{
+  "pagination": {
+    "ListTerminologies": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken"
+    },
+    "ListTextTranslationJobs": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken"
+    }
+  }
+}

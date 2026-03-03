@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cbd6d3dc1571d3cb82def113853f46ddaa2962791863e4e7d037b5bb9ae7765a
-size 261
+# -*- coding: utf-8; frozen_string_literal: true -*-
+#
+#--
+# Copyright (C) 2009-2019 Thomas Leitner <t_leitner@gmx.at>
+#
+# This file is part of kramdown which is licensed under the MIT.
+#++
+#
+
+module Kramdown
+
+  # The kramdown version.
+  VERSION = '2.3.2'
+
+end

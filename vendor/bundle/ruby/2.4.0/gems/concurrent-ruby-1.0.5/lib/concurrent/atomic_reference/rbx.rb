@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:82154a90c7fdcaa2e839adf4a05554e6009304e11d1aaf0f206cb26a787427a3
-size 635
+require 'concurrent/atomic_reference/direct_update'
+require 'concurrent/atomic_reference/numeric_cas_wrapper'
+
+module Concurrent
+
+  # @!macro atomic_reference
+  #
+  # @note Extends `Rubinius::AtomicReference` version adding aliases
+  #   and numeric logic.
+  #
+  # @!visibility private
+  # @!macro internal_implementation_note
+  class RbxAtomicReference < Rubinius::AtomicReference
+    alias _compare_and_set compare_and_set
+    include Concurrent::AtomicDirectUpdate
+    include Concurrent::AtomicNumericCompareAndSetWrapper
+
+    alias_method :value, :get
+    alias_method :value=, :set
+    alias_method :swap, :get_and_set
+  end
+end

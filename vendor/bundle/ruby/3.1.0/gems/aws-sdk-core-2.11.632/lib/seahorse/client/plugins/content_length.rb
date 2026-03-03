@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6b7ff25c230f95f41cc78c5a34d02a87b15b35b1c0f6452fedf6ecd02c221b1e
-size 442
+module Seahorse
+  module Client
+    module Plugins
+      class ContentLength < Plugin
+
+        # @api private
+        class Handler < Client::Handler
+
+          def call(context)
+            length = context.http_request.body.size
+            context.http_request.headers['Content-Length'] = length
+            @handler.call(context)
+          end
+
+        end
+
+        handler(Handler, step: :sign, priority: 0)
+
+      end
+    end
+  end
+end

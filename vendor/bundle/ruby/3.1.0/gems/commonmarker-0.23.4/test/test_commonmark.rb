@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:68dd92d4236a978b9c7f87708b9752c1de28dd671da5b53f506d0f2245806989
-size 730
+# frozen_string_literal: true
+
+require 'test_helper'
+
+class TestCommonmark < Minitest::Test
+  HTML_COMMENT = /<!--.*?-->\s?/.freeze
+
+  def setup
+    @markdown = <<~MD
+      Hi *there*!
+
+      1. I am a numeric list.
+      2. I continue the list.
+      * Suddenly, an unordered list!
+      * What fun!
+
+      Okay, _enough_.
+
+      | a   | b   |
+      | --- | --- |
+      | c   | d   |
+    MD
+  end
+
+  def render_doc(doc)
+    CommonMarker.render_doc(doc, :DEFAULT, %i[table])
+  end
+
+  def test_to_commonmark
+    compare = render_doc(@markdown).to_commonmark
+
+    assert_equal \
+      render_doc(@markdown).to_html.squeeze(' ').gsub(HTML_COMMENT, ''),
+      render_doc(compare).to_html.squeeze(' ').gsub(HTML_COMMENT, '')
+  end
+end

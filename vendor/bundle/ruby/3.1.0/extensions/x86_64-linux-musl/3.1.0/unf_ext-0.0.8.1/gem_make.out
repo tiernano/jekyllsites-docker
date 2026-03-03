@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c81a02256341d24528304afc0d457dd4c6e512e95b1795a6cc61cd94652ac596
-size 657
+current directory: /src/vendor/bundle/ruby/3.1.0/gems/unf_ext-0.0.8.1/ext/unf_ext
+/usr/local/bin/ruby -I /usr/local/lib/ruby/site_ruby/3.1.0 -r ./siteconf20220426-69-zn71ke.rb extconf.rb
+checking for -lstdc++... yes
+creating Makefile
+
+current directory: /src/vendor/bundle/ruby/3.1.0/gems/unf_ext-0.0.8.1/ext/unf_ext
+make DESTDIR\= clean
+
+current directory: /src/vendor/bundle/ruby/3.1.0/gems/unf_ext-0.0.8.1/ext/unf_ext
+make DESTDIR\=
+compiling unf.cc
+linking shared-object unf_ext.so
+
+current directory: /src/vendor/bundle/ruby/3.1.0/gems/unf_ext-0.0.8.1/ext/unf_ext
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 unf_ext.so ./.gem.20220426-69-nf7xtd

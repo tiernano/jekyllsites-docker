@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7a4c30229a302385d20bd6aa7a2c40d197a0ad851417facc9e49b2ed36d12e5d
-size 270
+module SafeYAML
+  class Parse
+    class Hexadecimal
+      MATCHER = /\A[-+]?0x[0-9a-fA-F_]+\Z/.freeze
+
+      def self.value(value)
+        # This is safe to do since we already validated the value.
+        return Integer(value.gsub(/_/, ""))
+      end
+    end
+  end
+end

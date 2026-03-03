@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5a10f1dd2cf9179c46c13fcb3affa4667a271cf00e2f2acc685e9b471d877d12
-size 368
+#ifndef NOKOGIRI_XML_NAMESPACE
+#define NOKOGIRI_XML_NAMESPACE
+
+#include <nokogiri.h>
+
+void init_xml_namespace();
+
+extern VALUE cNokogiriXmlNamespace ;
+
+VALUE Nokogiri_wrap_xml_namespace(xmlDocPtr doc, xmlNsPtr node) ;
+VALUE Nokogiri_wrap_xml_namespace2(VALUE document, xmlNsPtr node) ;
+
+#define NOKOGIRI_NAMESPACE_EH(node) ((node)->type == XML_NAMESPACE_DECL)
+
+#endif

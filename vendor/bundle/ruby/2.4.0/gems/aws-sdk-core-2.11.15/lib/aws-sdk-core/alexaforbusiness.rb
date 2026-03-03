@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2f35aee8c9c0de286ed9a5ef601d3f5f073189180cde2b82f257f159f8b1e207
-size 326
+Aws.add_service(:AlexaForBusiness, {
+  api: "#{Aws::API_DIR}/alexaforbusiness/2017-11-09/api-2.json",
+  docs: "#{Aws::API_DIR}/alexaforbusiness/2017-11-09/docs-2.json",
+  examples: "#{Aws::API_DIR}/alexaforbusiness/2017-11-09/examples-1.json",
+  paginators: "#{Aws::API_DIR}/alexaforbusiness/2017-11-09/paginators-1.json",
+})

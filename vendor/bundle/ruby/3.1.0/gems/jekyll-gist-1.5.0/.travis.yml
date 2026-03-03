@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d07f807917a43dbbe24b0b24af74f8126993369a6cc34012c5c02a17a29d73eb
-size 269
+language: ruby
+script : script/cibuild
+sudo: false
+notifications:
+  email: false
+branches:
+  only:
+    - master
+
+rvm:
+  - 2.4
+  - 2.3
+  - 2.2
+  - 2.1
+env:
+  - ""
+  - JEKYLL_VERSION=3.6.2
+matrix:
+  include:
+    - # GitHub Pages
+      rvm: 2.4.0
+      env: GH_PAGES=true

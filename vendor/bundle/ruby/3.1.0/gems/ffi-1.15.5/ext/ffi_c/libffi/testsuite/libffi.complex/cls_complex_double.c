@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9363097ea0942d1e187191045e370d1a7ce38f9ef7507ad97685256d239dac0e
-size 228
+/* Area:	closure_call
+   Purpose:	Check return value complex.
+   Limitations:	none.
+   PR:		none.
+   Originator:	<vogt@linux.vnet.ibm.com>.  */
+
+/* { dg-do run } */
+
+#include "complex_defs_double.inc"
+#include "cls_complex.inc"

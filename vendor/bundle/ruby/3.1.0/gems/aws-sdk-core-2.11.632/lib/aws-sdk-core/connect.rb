@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fb2931afccb494f59d1f405f71467d1f898057bd870248ce8a67ad85abafc064
-size 281
+Aws.add_service(:Connect, {
+  api: "#{Aws::API_DIR}/connect/2017-08-08/api-2.json",
+  docs: "#{Aws::API_DIR}/connect/2017-08-08/docs-2.json",
+  examples: "#{Aws::API_DIR}/connect/2017-08-08/examples-1.json",
+  paginators: "#{Aws::API_DIR}/connect/2017-08-08/paginators-1.json",
+})

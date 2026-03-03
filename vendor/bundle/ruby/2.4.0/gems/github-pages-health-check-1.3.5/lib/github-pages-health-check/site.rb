@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:597936bd274bbc2d7e1a8bc602fb8dd5cc031ecb1dbfc0188ee77e64b566f871
-size 878
+# frozen_string_literal: true
+module GitHubPages
+  module HealthCheck
+    class Site < Checkable
+      attr_reader :repository, :domain
+
+      def initialize(repository_or_domain, access_token: nil)
+        @repository = Repository.new(repository_or_domain, :access_token => access_token)
+        @domain = @repository.domain
+      rescue GitHubPages::HealthCheck::Errors::InvalidRepositoryError
+        @repository = nil
+        @domain = Domain.new(repository_or_domain)
+      end
+
+      def check!
+        [domain, repository].each { |check| check.check! if check }
+        true
+      end
+
+      def to_hash
+        hash = (domain || {}).to_hash.dup
+        hash = hash.merge(repository.to_hash) unless repository.nil?
+        hash[:valid?] = valid?
+        hash[:reason] = reason
+        hash
+      end
+      alias to_h to_hash
+      alias as_json to_hash
+    end
+  end
+end

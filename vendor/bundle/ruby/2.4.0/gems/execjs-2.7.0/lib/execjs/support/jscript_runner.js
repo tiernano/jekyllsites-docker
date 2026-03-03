@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4dc4f7ea85b3391efc661379547e5bd5b223a0d38f4af3200db4b30d5f05779a
-size 623
+(function(program, execJS) { execJS(program) })(function() {
+  return eval(#{encode_source(source)});
+}, function(program) {
+  #{json2_source}
+  var output, print = function(string) {
+    WScript.Echo(string);
+  };
+  try {
+    result = program();
+    if (typeof result == 'undefined' && result !== null) {
+      print('["ok"]');
+    } else {
+      try {
+        print(JSON.stringify(['ok', result]));
+      } catch (err) {
+        print(JSON.stringify(['err', err.name + ': ' + err.message, err.stack]));
+      }
+    }
+  } catch (err) {
+    print(JSON.stringify(['err', err.name + ': ' + err.message, err.stack]));
+  }
+});

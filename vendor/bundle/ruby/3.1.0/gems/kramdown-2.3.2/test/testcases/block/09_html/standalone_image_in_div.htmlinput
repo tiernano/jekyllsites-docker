@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:71a51a9d9f257abc9d2ad9233e588306a5a3364900db38f79058c327b33fd39d
-size 134
+<div class="example-1">
+  <img src="src.png" alt="inside" />
+</div>
+
+<div class="example-2">
+  <a href="website.html">text</a>
+</div>

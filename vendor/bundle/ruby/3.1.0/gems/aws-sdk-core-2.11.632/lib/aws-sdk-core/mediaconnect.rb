@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8a87e196bcfb6fd66bc315906553e5d42330fdf1760b4bb1d348a8e0df2cb9c2
-size 235
+Aws.add_service(:MediaConnect, {
+  api: "#{Aws::API_DIR}/mediaconnect/2018-11-14/api-2.json",
+  docs: "#{Aws::API_DIR}/mediaconnect/2018-11-14/docs-2.json",
+  paginators: "#{Aws::API_DIR}/mediaconnect/2018-11-14/paginators-1.json",
+})

@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3a7abcf84d10002e907f597fd2ac0f61992418982751c1ef87bb3c42575cd26d
-size 193
+.foo
+  a: b
+
+@import "foo.css"
+
+// Even though the imported file is in IBM866,
+// since the root file is in UTF-8/ASCII
+// the output will end up being UTF-8.
+@import "imported_charset_ibm866"

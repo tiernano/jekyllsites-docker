@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c94820994f430090fbcc04f30852acd8f50e8b7c1c6c2a8a1094ffa76701790d
-size 316
+Aws.add_service(:IoTThingsGraph, {
+  api: "#{Aws::API_DIR}/iotthingsgraph/2018-09-06/api-2.json",
+  docs: "#{Aws::API_DIR}/iotthingsgraph/2018-09-06/docs-2.json",
+  examples: "#{Aws::API_DIR}/iotthingsgraph/2018-09-06/examples-1.json",
+  paginators: "#{Aws::API_DIR}/iotthingsgraph/2018-09-06/paginators-1.json",
+})

@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4d6a5a2dee5386316a49218f6d0f6cb9051cfd6f6c7662ef9d691aa21e5ead54
-size 462
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "DescribeLogGroups",
+            "input": {},
+            "errorExpectedFromService": false
+        },
+        {
+            "operationName": "GetLogEvents",
+            "input": {
+                "logGroupName": "fakegroup",
+                "logStreamName": "fakestream"
+            },
+            "errorExpectedFromService": true
+        }
+    ]
+}

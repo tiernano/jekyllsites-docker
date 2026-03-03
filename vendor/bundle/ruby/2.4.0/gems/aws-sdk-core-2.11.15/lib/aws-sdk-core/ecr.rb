@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2bcce69e772477107dc5615ed87b7575e17e3a488187920742454fa5d49d4836
-size 261
+Aws.add_service(:ECR, {
+  api: "#{Aws::API_DIR}/ecr/2015-09-21/api-2.json",
+  docs: "#{Aws::API_DIR}/ecr/2015-09-21/docs-2.json",
+  examples: "#{Aws::API_DIR}/ecr/2015-09-21/examples-1.json",
+  paginators: "#{Aws::API_DIR}/ecr/2015-09-21/paginators-1.json",
+})

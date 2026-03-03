@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:65afce037719ba3c4f2bfab8497caf0ee0fa6c3ceafddb22a7ae30f2b5897080
-size 318
+Aws.add_service(:ForecastQueryService, {
+  api: "#{Aws::API_DIR}/forecastquery/2018-06-26/api-2.json",
+  docs: "#{Aws::API_DIR}/forecastquery/2018-06-26/docs-2.json",
+  examples: "#{Aws::API_DIR}/forecastquery/2018-06-26/examples-1.json",
+  paginators: "#{Aws::API_DIR}/forecastquery/2018-06-26/paginators-1.json",
+})

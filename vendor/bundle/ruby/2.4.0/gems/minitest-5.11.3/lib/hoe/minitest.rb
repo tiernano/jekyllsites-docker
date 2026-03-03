@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1812c94fa4c53a00340f2a83d35e053644c266003b73c8152816b780056b6483
-size 675
+# :stopdoc:
+
+class Hoe
+end
+
+module Hoe::Minitest
+  def minitest?
+    self.name == "minitest"
+  end
+
+  def initialize_minitest
+    unless minitest? then
+      dir = "../../minitest/dev/lib"
+      Hoe.add_include_dirs dir if File.directory? dir
+    end
+
+    gem "minitest"
+    require "minitest"
+    version = Minitest::VERSION.split(/\./).first(2).join(".")
+
+    dependency "minitest", "~> #{version}", :development unless
+      minitest? or ENV["MT_NO_ISOLATE"]
+  end
+
+  def define_minitest_tasks
+    self.testlib = :minitest
+
+    # make sure we use the gemmed minitest on 1.9
+    self.test_prelude = 'gem "minitest"' unless
+      minitest? or ENV["MT_NO_ISOLATE"]
+  end
+end

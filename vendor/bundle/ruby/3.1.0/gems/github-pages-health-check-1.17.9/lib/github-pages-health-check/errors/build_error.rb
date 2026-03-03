@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:77d9f6d0c61afc72780d1ae29a7d2ab31ca164789e06adb26bbb12dd8359d422
-size 272
+# frozen_string_literal: true
+
+module GitHubPages
+  module HealthCheck
+    module Errors
+      class BuildError < GitHubPages::HealthCheck::Error
+        DOCUMENTATION_PATH = "/articles/troubleshooting-jekyll-builds/"
+        LOCAL_ONLY = true
+      end
+    end
+  end
+end

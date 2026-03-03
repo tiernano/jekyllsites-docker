@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:952b75f29e11f56ab1647148528c5cbb61c66bb2091ceb01d4d4da21d12e2348
-size 359
+This is some *ref.[^fn]
+
+[^fn]: Some foot note text
+{: .class}
+
+> a blockquote [^3]
+
+* and a list item [^1]
+
+# And a header[^now]
+
+[^1]:some *text*
+[^3]: other text
+    with more lines
+
+    > and a quote
+
+A marker without a definition [^without].
+
+A marker [^empty] used twice[^fn] and thrice[^fn].
+
+[^now]:
+
+    	code block
+        continued here
+
+[^empty]:

@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e8cb1b8d9ddb0e57ce7b30bfe7e6803f61feee25019ec449473850c659a195eb
-size 739
+{
+  "pagination": {
+    "ListEndpointsByPlatformApplication": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "Endpoints"
+    },
+    "ListPlatformApplications": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "PlatformApplications"
+    },
+    "ListSubscriptions": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "Subscriptions"
+    },
+    "ListSubscriptionsByTopic": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "Subscriptions"
+    },
+    "ListTopics": {
+      "input_token": "NextToken",
+      "output_token": "NextToken",
+      "result_key": "Topics"
+    }
+  }
+}

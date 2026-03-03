@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f64bd2e0252ca225a2296fa937fbceda814d3213a55f95c40c589345997444d2
-size 219
+include "MUMPS"
+
+// Parameters
+func f = 1.;
+
+// Mesh
+int nn = 25;	//Mesh quality
+mesh Th = square(nn, nn);
+
+// Fespace
+func Pk = P2;
+fespace Uh(Th, Pk);
+Uh u;
+
+// Plot
+plot(u, nbiso=30, fill=true, value=true, cmm="A");

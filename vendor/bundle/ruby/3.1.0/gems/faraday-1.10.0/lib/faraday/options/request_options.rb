@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e86959a91f2c4de71e2847cba3664d1c24a67d3c282a1121501dbe8e72937a7e
-size 646
+# frozen_string_literal: true
+
+module Faraday
+  # RequestOptions contains the configurable properties for a Faraday request.
+  class RequestOptions < Options.new(:params_encoder, :proxy, :bind,
+                                     :timeout, :open_timeout, :read_timeout,
+                                     :write_timeout, :boundary, :oauth,
+                                     :context, :on_data)
+
+    def []=(key, value)
+      if key && key.to_sym == :proxy
+        super(key, value ? ProxyOptions.from(value) : nil)
+      else
+        super(key, value)
+      end
+    end
+
+    def stream_response?
+      on_data.is_a?(Proc)
+    end
+  end
+end

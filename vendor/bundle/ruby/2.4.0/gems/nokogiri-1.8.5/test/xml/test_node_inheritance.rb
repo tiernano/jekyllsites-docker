@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:984f08461a7c2963c9ffdd331a62c36c4f28a9a9ed094f9bcc1f9012a42b97ce
-size 710
+# issue#560
+
+require 'helper'
+
+module Nokogiri
+  module XML
+    class TestNodeInheritance < Nokogiri::TestCase
+      MyNode = Class.new Nokogiri::XML::Node
+      def setup
+        super
+        @node = MyNode.new 'foo', Nokogiri::XML::Document.new
+        @node['foo'] = 'bar' 
+      end
+
+      def test_node_name
+        assert @node.name == 'foo'
+      end
+
+      def test_node_writing_an_attribute_accessing_via_attributes 
+        assert @node.attributes['foo']
+      end
+
+      def test_node_writing_an_attribute_accessing_via_key 
+        assert @node.key? 'foo'
+      end
+
+      def test_node_writing_an_attribute_accessing_via_brackets 
+        assert @node['foo'] == 'bar'
+      end
+    end
+  end
+end

@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:00d52bdf6afe1092850059b15f9e0dda09806aaeda883c7d0d53fe818911974d
-size 579
+module Listen
+  class Options
+    def initialize(opts, defaults)
+      @options = {}
+      given_options = opts.dup
+      defaults.keys.each do |key|
+        @options[key] = given_options.delete(key) || defaults[key]
+      end
+
+      return if given_options.empty?
+
+      msg = "Unknown options: #{given_options.inspect}"
+      Listen::Logger.warn msg
+      fail msg
+    end
+
+    def method_missing(name, *_)
+      return @options[name] if @options.key?(name)
+      msg = "Bad option: #{name.inspect} (valid:#{@options.keys.inspect})"
+      fail NameError, msg
+    end
+  end
+end

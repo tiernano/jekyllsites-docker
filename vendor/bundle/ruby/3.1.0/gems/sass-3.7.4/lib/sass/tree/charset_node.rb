@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1a520e3d0c294a9d5d6cec77ca182fcea54aff223dd35cc2410e44f4743dd094
-size 409
+module Sass::Tree
+  # A static node representing an unprocessed Sass `@charset` directive.
+  #
+  # @see Sass::Tree
+  class CharsetNode < Node
+    # The name of the charset.
+    #
+    # @return [String]
+    attr_accessor :name
+
+    # @param name [String] see \{#name}
+    def initialize(name)
+      @name = name
+      super()
+    end
+
+    # @see Node#invisible?
+    def invisible?
+      true
+    end
+  end
+end

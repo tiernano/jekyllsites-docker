@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0c8db5f81fdd669092096dbff6d451dd0f763a23d6973f9a5efbd6083c17dd6d
-size 472
+$:.unshift File.expand_path('../', __FILE__)
+require 'ruby_http_parser'
+
+Http = HTTP
+
+module HTTP
+  class Parser
+    class << self
+      attr_reader :default_header_value_type
+
+      def default_header_value_type=(val)
+        if (val != :mixed && val != :strings && val != :arrays)
+          raise ArgumentError, "Invalid header value type"
+        end
+        @default_header_value_type = val
+      end
+    end
+  end
+end
+
+HTTP::Parser.default_header_value_type = :mixed

@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fab9698a37612cdca6a75dac5ea2f288c015d2f76928daca7deea1cb39a8e112
-size 434
+module Typhoeus
+  class Hydra
+
+    # This module handles the request adding on
+    # hydra.
+    #
+    # @api private
+    module Addable
+
+      # Adds request to multi.
+      #
+      # @example Add request.
+      #   hydra.add(request)
+      #
+      # @param [ Typhoeus::Request ] request to add.
+      #
+      # @return [ void ]
+      def add(request)
+        multi.add(EasyFactory.new(request, self).get)
+      end
+    end
+  end
+end

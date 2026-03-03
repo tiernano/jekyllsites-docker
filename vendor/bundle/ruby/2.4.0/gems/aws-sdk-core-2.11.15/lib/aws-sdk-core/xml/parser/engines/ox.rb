@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:840774137747dcf78bc26131a7cdab95d5957d43733a7558b00bb98ace56e25f
-size 374
+require 'ox'
+require 'stringio'
+
+module Aws
+  module Xml
+    class Parser
+      class OxEngine
+
+        def initialize(stack)
+          @stack = stack
+        end
+
+        def parse(xml)
+          Ox.sax_parse(
+            @stack, StringIO.new(xml),
+            :convert_special => true,
+            :skip => :skip_white
+          )
+        end
+
+      end
+    end
+  end
+end

@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b6132a45e02007887aae96644d6734442f80efa4bcd407d49ab9a9b9c40a2299
-size 198
+source 'https://rubygems.org'
+
+gem "net-ftp" if Gem::Requirement.new("> 3.1.0.dev").satisfied_by?(Gem::Version.new(RUBY_VERSION))
+
+# Specify your gem's dependencies in mini_portile2.gemspec
+gemspec

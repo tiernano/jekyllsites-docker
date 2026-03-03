@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c2990d74073888dd390a2320617dd850213b67ae6b6261f6378087a16216ae9e
-size 89
+source "http://rubygems.org"
+
+# Specify your gem's dependencies in whois.gemspec
+gemspec

@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6e8ec48e9167be33813d387ff49f05207520223caf6c1d010a79943b3c1568e3
-size 282
+# frozen_string_literal: true
+
+appraise 'rails-3' do
+  gem 'rack', '< 2'
+  gem 'rails', '3.2.22.2'
+end
+
+appraise 'rails-4' do
+  gem 'rack', '< 2'
+  gem 'rails', '~> 4.2.6'
+end
+
+appraise 'rails-5' do
+  gem 'rails', '~> 5.0.0'
+end
+
+appraise 'rails-6' do
+  gem 'rails', '~> 6.0.0'
+end

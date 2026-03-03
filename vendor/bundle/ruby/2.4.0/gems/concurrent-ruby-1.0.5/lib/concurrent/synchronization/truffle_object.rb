@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9576dddd8e547217b75f9b45da9087862d3653c09ffa5677727e61300b574e43
-size 620
+module Concurrent
+  module Synchronization
+
+    module TruffleAttrVolatile
+      def self.included(base)
+        base.extend(ClassMethods)
+      end
+
+      module ClassMethods
+        def attr_volatile(*names)
+          # TODO may not always be available
+          attr_atomic(*names)
+        end
+      end
+
+      def full_memory_barrier
+        Truffle::System.full_memory_barrier
+      end
+    end
+
+    # @!visibility private
+    # @!macro internal_implementation_note
+    class TruffleObject < AbstractObject
+      include TruffleAttrVolatile
+
+      def initialize
+        # nothing to do
+      end
+    end
+  end
+end

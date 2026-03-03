@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1f0474745aea9be900b9f0e80352992c06dad3ac0213f08064414138843025cd
-size 364
+#ifndef CMARK_ITERATOR_H
+#define CMARK_ITERATOR_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include "cmark.h"
+#include "memory.h"
+
+typedef struct {
+  cmark_event_type ev_type;
+  cmark_node *node;
+} cmark_iter_state;
+
+struct cmark_iter {
+  cmark_mem *mem;
+  cmark_node *root;
+  cmark_iter_state cur;
+  cmark_iter_state next;
+};
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif

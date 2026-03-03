@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a8dc18574e99f5972c34330802ca7ec71d63c991c5a5b1d3777ec23e390eefce
-size 283
+module Seahorse
+  module Client
+    # This utility class is used to track files opened by Seahorse.
+    # This allows Seahorse to know what files it needs to close.
+    class ManagedFile < File
+
+      # @return [Boolean]
+      def open?
+        !closed?
+      end
+
+    end
+  end
+end

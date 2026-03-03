@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3036a34736c646dfb0ff8886fb6912dead82cee650b407fd7fd3af8155b77086
-size 689
+require 'em_test_helper'
+
+class TestObjectProtocol < Test::Unit::TestCase
+  module Server
+    include EM::P::ObjectProtocol
+    def post_init
+      send_object :hello=>'world'
+    end
+    def receive_object obj
+      $server = obj
+      EM.stop
+    end
+  end
+
+  module Client
+    include EM::P::ObjectProtocol
+    def receive_object obj
+      $client = obj
+      send_object 'you_said'=>obj
+    end
+  end
+
+  def setup
+    @port = next_port
+  end
+
+  def test_send_receive
+    EM.run{
+      EM.start_server "127.0.0.1", @port, Server
+      EM.connect "127.0.0.1", @port, Client
+    }
+
+    assert($client == {:hello=>'world'})
+    assert($server == {'you_said'=>{:hello=>'world'}})
+  end
+end

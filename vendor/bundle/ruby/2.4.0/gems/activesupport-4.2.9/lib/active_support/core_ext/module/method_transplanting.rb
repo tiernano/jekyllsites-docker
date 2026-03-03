@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:562f5af47bdb49894365a3133af8a26a147efe72fb98bd967ef6fc41050f8194
-size 277
+class Module
+  ###
+  # TODO: remove this after 1.9 support is dropped
+  def methods_transplantable? # :nodoc:
+    x = Module.new {
+      def foo; end # :nodoc:
+    }
+    Module.new { define_method :bar, x.instance_method(:foo) }
+    true
+  rescue TypeError
+    false
+  end
+end

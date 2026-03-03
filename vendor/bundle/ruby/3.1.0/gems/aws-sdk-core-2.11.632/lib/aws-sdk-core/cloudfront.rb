@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b07ac7daf6e4b3b9c748ae4dad23e85243af47e611c36a82f388df9a1128cf4a
-size 601
+Aws.add_service(:CloudFront, {
+  api: "#{Aws::API_DIR}/cloudfront/2020-05-31/api-2.json",
+  docs: "#{Aws::API_DIR}/cloudfront/2020-05-31/docs-2.json",
+  examples: "#{Aws::API_DIR}/cloudfront/2020-05-31/examples-1.json",
+  paginators: "#{Aws::API_DIR}/cloudfront/2020-05-31/paginators-1.json",
+  waiters: "#{Aws::API_DIR}/cloudfront/2020-05-31/waiters-2.json",
+})
+
+module Aws
+  module CloudFront
+
+    autoload :Signer, 'aws-sdk-core/cloudfront/signer.rb'
+    autoload :UrlSigner, 'aws-sdk-core/cloudfront/url_signer.rb'
+    autoload :CookieSigner, 'aws-sdk-core/cloudfront/cookie_signer.rb'
+
+  end
+end

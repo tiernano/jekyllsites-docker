@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b5a97520c5c9f7eb849195b09ada37426ac24440c63227d8fdd5ee0ef7002b70
-size 271
+[Maruku]: http://maruku.rubyforge.org
+[PHP Markdown Extra]: http://michelf.com/projects/php-markdown/extra/
+[Pandoc]: http://johnmacfarlane.net/pandoc/
+[MathJax]: http://www.mathjax.org
+[BlueCloth]: http://deveiate.org/projects/BlueCloth
+[RedCloth]: http://redcloth.org/

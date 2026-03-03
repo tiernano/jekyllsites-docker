@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:05c62a529767132d5f40c0eb8dbea70ef6a945a244bd70fa74fbfd8b26173506
-size 898
+module Octokit
+  class EnterpriseAdminClient
+
+    # Methods for the Enterprise Orgs API
+    #
+    # @see https://developer.github.com/v3/enterprise/orgs/
+    module Orgs
+
+      # Create a new organization on the instance.
+      #
+      # @param login [String] The organization's username.
+      # @param admin [String] The login of the user who will manage this organization.
+      # @param options [Hash] A set of options.
+      # @option options [String] :profile_name The organization's display name.
+      # @return [nil]
+      # @see https://developer.github.com/v3/enterprise/orgs/#create-an-organization
+      # @example
+      #   @admin_client.create_organization('SuchAGreatOrg', 'gjtorikian')
+      def create_organization(login, admin, options = {})
+        options[:login] = login
+        options[:admin] = admin
+        post "admin/organizations", options
+      end
+
+    end
+  end
+end

@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8a63203b2f3977d95b7086c34558abf9a63b3adda77743ecbddf6171bec5c8ee
-size 274
+# frozen_string_literal: true
+
+require "benchmark"
+
+class << Benchmark
+  # Benchmark realtime in milliseconds.
+  #
+  #   Benchmark.realtime { User.all }
+  #   # => 8.0e-05
+  #
+  #   Benchmark.ms { User.all }
+  #   # => 0.074
+  def ms
+    1000 * realtime { yield }
+  end
+end

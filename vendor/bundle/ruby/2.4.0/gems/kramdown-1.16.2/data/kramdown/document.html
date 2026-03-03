@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:08ab5bb08794a70cb5a4b61816e715dbc013a07fe46404339aa830b9f2fd96ab
-size 635
+<!DOCTYPE html>
+<html>
+  <head>
+    <% if @converter.root.options[:encoding] %>
+    <meta http-equiv="Content-type" content="text/html;charset=<%= @converter.root.options[:encoding] %>">
+    <% end %>
+<%
+extend ::Kramdown::Utils::Html
+title = ''
+h = @converter.root.children.find {|c| c.type == :header}
+if h
+  collector = lambda {|c| c.children.collect {|cc| cc.type == :text ? escape_html(cc.value, :text) : collector.call(cc)}.join('')}
+  title = collector.call(h)
+end
+%>
+    <title><%= title %></title>
+    <meta name="generator" content="kramdown <%= ::Kramdown::VERSION %>" />
+  </head>
+  <body>
+  <%= @body %>
+  </body>
+</html>

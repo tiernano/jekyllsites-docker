@@ -1,3 +1,57 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d2b84bc7b2a6688740d881e87e178892c7aaa0f507b12e74f5c9faa507ad910c
-size 1382
+class Bundler::ConnectionPool
+  class Wrapper < ::BasicObject
+    METHODS = [:with, :pool_shutdown, :wrapped_pool]
+
+    def initialize(options = {}, &block)
+      @pool = options.fetch(:pool) { ::Bundler::ConnectionPool.new(options, &block) }
+    end
+
+    def wrapped_pool
+      @pool
+    end
+
+    def with(&block)
+      @pool.with(&block)
+    end
+
+    def pool_shutdown(&block)
+      @pool.shutdown(&block)
+    end
+
+    def pool_size
+      @pool.size
+    end
+
+    def pool_available
+      @pool.available
+    end
+
+    def respond_to?(id, *args)
+      METHODS.include?(id) || with { |c| c.respond_to?(id, *args) }
+    end
+
+    # rubocop:disable Style/MethodMissingSuper
+    # rubocop:disable Style/MissingRespondToMissing
+    if ::RUBY_VERSION >= "3.0.0"
+      def method_missing(name, *args, **kwargs, &block)
+        with do |connection|
+          connection.send(name, *args, **kwargs, &block)
+        end
+      end
+    elsif ::RUBY_VERSION >= "2.7.0"
+      ruby2_keywords def method_missing(name, *args, &block)
+        with do |connection|
+          connection.send(name, *args, &block)
+        end
+      end
+    else
+      def method_missing(name, *args, &block)
+        with do |connection|
+          connection.send(name, *args, &block)
+        end
+      end
+    end
+    # rubocop:enable Style/MethodMissingSuper
+    # rubocop:enable Style/MissingRespondToMissing
+  end
+end

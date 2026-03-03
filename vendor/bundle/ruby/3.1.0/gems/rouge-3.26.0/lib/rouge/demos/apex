@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cb5d86576063c17156433c8bf744bf91665e3c8394a77a44c41ce9e2968d8e1b
-size 216
+public class with sharing Trigger {
+    @Deprecated
+    public void resolveSum(int x, int y) {
+        System.debug('x is ' + x);
+        System.debug('y is ' + y);
+
+        System.debug('x + y = ' + (x+y));
+    }
+}

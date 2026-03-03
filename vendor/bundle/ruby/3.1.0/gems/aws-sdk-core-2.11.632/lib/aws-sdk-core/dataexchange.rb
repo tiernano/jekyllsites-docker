@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:caaa9320eec12f412c2bc2b41e3b8064951c1de41aa3cbad6f1fe075021a57e4
-size 235
+Aws.add_service(:DataExchange, {
+  api: "#{Aws::API_DIR}/dataexchange/2017-07-25/api-2.json",
+  docs: "#{Aws::API_DIR}/dataexchange/2017-07-25/docs-2.json",
+  paginators: "#{Aws::API_DIR}/dataexchange/2017-07-25/paginators-1.json",
+})

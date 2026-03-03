@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7c4796bfd94c1983d0dcb884a1209d554639b2febc8b28b345edc8c1d380c335
-size 493
+module Aws
+  module Plugins
+
+    # @seahorse.client.option [String] :account_id ('-')
+    #   The default Glacier AWS account ID to use for all glacier
+    #   operations. The default value of `-` uses the account
+    #   your `:credentials` belong to.
+    #
+    class GlacierAccountId < Seahorse::Client::Plugin
+
+      option :account_id, '-'
+
+      handle_request(step: :initialize) do |context|
+        context.params[:account_id] ||= context.config.account_id
+      end
+
+    end
+  end
+end

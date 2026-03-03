@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b81473d809ba794a8e02b4817320216823ffac199745f05b312760ffef013fe6
-size 281
+Aws.add_service(:AppSync, {
+  api: "#{Aws::API_DIR}/appsync/2017-07-25/api-2.json",
+  docs: "#{Aws::API_DIR}/appsync/2017-07-25/docs-2.json",
+  examples: "#{Aws::API_DIR}/appsync/2017-07-25/examples-1.json",
+  paginators: "#{Aws::API_DIR}/appsync/2017-07-25/paginators-1.json",
+})

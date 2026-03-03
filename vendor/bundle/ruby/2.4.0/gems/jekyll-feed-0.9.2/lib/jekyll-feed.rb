@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7edef1b14ebc5d6c4cac066bc63c9e9dafabd1dab45439e93619b912931753d4
-size 276
+require "jekyll"
+require "fileutils"
+require "jekyll-feed/generator"
+
+module JekyllFeed
+  autoload :MetaTag,          "jekyll-feed/meta-tag"
+  autoload :PageWithoutAFile, "jekyll-feed/page-without-a-file.rb"
+end
+
+Liquid::Template.register_tag "feed_meta", JekyllFeed::MetaTag

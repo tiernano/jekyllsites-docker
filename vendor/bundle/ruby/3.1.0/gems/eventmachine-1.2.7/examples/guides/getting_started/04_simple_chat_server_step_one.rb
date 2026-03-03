@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:60c9bdc2049d74083f62ab7c42a0a3faf5ea21f30670e20bbc8f8f1472fe538d
-size 484
+#!/usr/bin/env ruby
+
+require 'rubygems' # or use Bundler.setup
+require 'eventmachine'
+
+class SimpleChatServer < EM::Connection
+
+  #
+  # EventMachine handlers
+  #
+
+  def post_init
+    puts "A client has connected..."
+  end
+
+  def unbind
+    puts "A client has left..."
+  end
+end
+
+EventMachine.run do
+  # hit Control + C to stop
+  Signal.trap("INT")  { EventMachine.stop }
+  Signal.trap("TERM") { EventMachine.stop }
+
+  EventMachine.start_server("0.0.0.0", 10000, SimpleChatServer)
+end

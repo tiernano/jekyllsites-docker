@@ -1,3 +1,40 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d301eaeb7956a84776ef11c256473830a1bf743d4bc20a89374fc71fa6b985ab
-size 1050
+{
+  "pagination": {
+    "ListDatasetGroups": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "DatasetGroups"
+    },
+    "ListDatasetImportJobs": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "DatasetImportJobs"
+    },
+    "ListDatasets": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "Datasets"
+    },
+    "ListForecastExportJobs": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "ForecastExportJobs"
+    },
+    "ListForecasts": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "Forecasts"
+    },
+    "ListPredictors": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken",
+      "result_key": "Predictors"
+    }
+  }
+}

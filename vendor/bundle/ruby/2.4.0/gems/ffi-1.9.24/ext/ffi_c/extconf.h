@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:26a5e5738214c6b47e4b7fe8a1d98bb488018a8d3a5ae7d2f0aebc14724c8348
-size 324
+#ifndef EXTCONF_H
+#define EXTCONF_H
+#define HAVE_FFI_CLOSURE_ALLOC 1
+#define HAVE_FFI_RAW_CALL 1
+#define HAVE_FFI_PREP_RAW_CLOSURE 1
+#define HAVE_RAW_API 1
+#define HAVE_RUBY_THREAD_H 1
+#define HAVE_RB_THREAD_CALL_WITH_GVL 1
+#define HAVE_RB_THREAD_CALL_WITHOUT_GVL 1
+#define HAVE_FFI_PREP_CIF_VAR 1
+#define RUBY_1_9 1
+#endif

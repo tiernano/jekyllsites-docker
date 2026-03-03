@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:96f842e6bc65494c37a40ec043203e7504878bfa9a45e3b60f971235acafda6f
-size 344
+Aws.add_service(:EC2InstanceConnect, {
+  api: "#{Aws::API_DIR}/ec2-instance-connect/2018-04-02/api-2.json",
+  docs: "#{Aws::API_DIR}/ec2-instance-connect/2018-04-02/docs-2.json",
+  examples: "#{Aws::API_DIR}/ec2-instance-connect/2018-04-02/examples-1.json",
+  paginators: "#{Aws::API_DIR}/ec2-instance-connect/2018-04-02/paginators-1.json",
+})

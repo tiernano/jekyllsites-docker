@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b3e1d87e78843bdddc455ac3b8106389c9948142aabcfdbc25dd282a3b81ca4d
-size 404
+require 'em_test_helper'
+
+class TestShutdownHooks < Test::Unit::TestCase
+  def test_shutdown_hooks
+    r = false
+    EM.run {
+      EM.add_shutdown_hook { r = true }
+      EM.stop
+    }
+    assert_equal( true, r )
+  end
+
+  def test_hook_order
+    r = []
+    EM.run {
+      EM.add_shutdown_hook { r << 2 }
+      EM.add_shutdown_hook { r << 1 }
+      EM.stop
+    }
+    assert_equal( [1, 2], r )
+  end
+end
+

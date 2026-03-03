@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a2ae1c6c98314c2e1d4710505f26c1de1795f9562b6f25156dd2ac8bb89e53eb
-size 357
+component accessors="true" {
+
+  property type="string" name="firstName" default="";
+  property string username;
+
+  function init(){
+    return this;
+  }
+
+  public any function submitOrder( required product, coupon="", boolean results=true ){
+
+    var foo = function( required string baz, x=true, y=false ){
+      return "bar!";
+    };
+
+    return foo;
+  }
+}

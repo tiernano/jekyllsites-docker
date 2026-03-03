@@ -1,3 +1,52 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:44709fec043424cd68be9ea97ea29708b0ac453f84756fde32ffa626bff5ebfb
-size 1491
+{
+  "pagination": {
+    "DescribeAutoScalingGroups": {
+      "input_token": "NextToken",
+      "limit_key": "MaxRecords",
+      "output_token": "NextToken",
+      "result_key": "AutoScalingGroups"
+    },
+    "DescribeAutoScalingInstances": {
+      "input_token": "NextToken",
+      "limit_key": "MaxRecords",
+      "output_token": "NextToken",
+      "result_key": "AutoScalingInstances"
+    },
+    "DescribeLaunchConfigurations": {
+      "input_token": "NextToken",
+      "limit_key": "MaxRecords",
+      "output_token": "NextToken",
+      "result_key": "LaunchConfigurations"
+    },
+    "DescribeNotificationConfigurations": {
+      "input_token": "NextToken",
+      "limit_key": "MaxRecords",
+      "output_token": "NextToken",
+      "result_key": "NotificationConfigurations"
+    },
+    "DescribePolicies": {
+      "input_token": "NextToken",
+      "limit_key": "MaxRecords",
+      "output_token": "NextToken",
+      "result_key": "ScalingPolicies"
+    },
+    "DescribeScalingActivities": {
+      "input_token": "NextToken",
+      "limit_key": "MaxRecords",
+      "output_token": "NextToken",
+      "result_key": "Activities"
+    },
+    "DescribeScheduledActions": {
+      "input_token": "NextToken",
+      "limit_key": "MaxRecords",
+      "output_token": "NextToken",
+      "result_key": "ScheduledUpdateGroupActions"
+    },
+    "DescribeTags": {
+      "input_token": "NextToken",
+      "limit_key": "MaxRecords",
+      "output_token": "NextToken",
+      "result_key": "Tags"
+    }
+  }
+}

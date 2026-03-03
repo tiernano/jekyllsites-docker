@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6d34e948a5deaad647ed7a3129d9d25a82aa1c09598e908ffab5e56663d101be
-size 490
+# frozen_string_literal: true
+
+module Faraday
+  class Request
+    # TokenAuthentication is a middleware that adds a 'Token' header to a
+    # Faraday request.
+    class TokenAuthentication < load_middleware(:authorization)
+      # Public
+      def self.header(token, options = nil)
+        options ||= {}
+        options[:token] = token
+        super(:Token, options)
+      end
+
+      def initialize(app, token, options = nil)
+        super(app, token, options)
+      end
+    end
+  end
+end

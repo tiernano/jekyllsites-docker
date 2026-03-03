@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1eb2756244af72818c7d5eb81097a7113b6274dcbf518ef8ca04f8d1b559366b
-size 271
+Aws.add_service(:Macie, {
+  api: "#{Aws::API_DIR}/macie/2017-12-19/api-2.json",
+  docs: "#{Aws::API_DIR}/macie/2017-12-19/docs-2.json",
+  examples: "#{Aws::API_DIR}/macie/2017-12-19/examples-1.json",
+  paginators: "#{Aws::API_DIR}/macie/2017-12-19/paginators-1.json",
+})

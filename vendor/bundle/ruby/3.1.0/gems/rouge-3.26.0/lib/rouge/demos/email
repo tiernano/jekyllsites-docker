@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:95ead46d5da513b4e6982010b881d5f7805456bf48aae57d81aab7c0ed3b0e9d
-size 246
+From: Me <me@example.com>
+To: You <you@example.com>
+Date: Tue, 21 Jul 2020 15:14:03 +0000
+Subject: A very important message
+
+> Please investigate.  Thank you.
+
+I have investigated.
+
+-- 
+This message is highly confidential and will self-destruct.

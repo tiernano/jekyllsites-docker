@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b8502ef3859a93232aaea8f3edcb0e449c0c7fc8faeebbeeffc98384acd062e8
-size 710
+# -*- coding: utf-8 -*- #
+# frozen_string_literal: true
+
+module Rouge
+  module Lexers
+    load_lexer 'c.rb'
+
+    class Slice < C
+      tag 'slice'
+      filenames '*.ice'
+      mimetypes 'text/slice'
+
+      title "Slice"
+      desc "Specification Language for Ice (doc.zeroc.com)"
+
+      def self.keywords
+        @keywords ||= Set.new %w(
+          extends implements enum interface struct class module dictionary
+          const optional out throws exception local idempotent sequence
+
+          Object LocalObject Value
+        )
+      end
+
+      def self.keywords_type
+        @keywords_type ||= Set.new %w(
+          bool string byte long float double int void short
+        )
+      end
+    end
+  end
+end

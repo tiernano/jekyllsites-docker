@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ea5945674af9bb92ef367ab00ad7a59b70c3ab14384c3b68fe33024987ece091
-size 907
+(function(document) {
+    var metas = document.getElementsByTagName('meta'),
+        changeViewportContent = function(content) {
+            for (var i = 0; i < metas.length; i++) {
+                if (metas[i].name == "viewport") {
+                    metas[i].content = content;
+                }
+            }
+        },
+        initialize = function() {
+            changeViewportContent("width=device-width, minimum-scale=1.0, maximum-scale=1.0");
+        },
+        gestureStart = function() {
+            changeViewportContent("width=device-width, minimum-scale=0.25, maximum-scale=1.6");
+        },
+        gestureEnd = function() {
+            initialize();
+        };
+
+
+    if (navigator.userAgent.match(/iPhone/i)) {
+        initialize();
+
+        document.addEventListener("touchstart", gestureStart, false);
+        document.addEventListener("touchend", gestureEnd, false);
+    }
+})(document);

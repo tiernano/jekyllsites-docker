@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7018a388928a7ffd90a36bcdd746e5f251dc0d717dfc85f571abb42a265ddf2a
-size 342
+require 'rake/testtask'
+
+Rake::TestTask.new do |t|
+  t.libs << FileList['lib/**.rb']
+  t.test_files = FileList['test/test*.rb']
+end
+
+task :default => :test
+
+begin
+  require 'rubygems'
+  require 'rubygems/package_task'
+
+  gemspec = eval(IO.read('deep_merge.gemspec'))
+  Gem::PackageTask.new(gemspec).define
+rescue LoadError
+  #okay, then
+end
+

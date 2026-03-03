@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:46ec6e9eb272236f0c5bc3bd714ba48769875957cbc42b185af11166ab829831
-size 189
+#ifndef NOKOGIRI_XML_DOCUMENT_FRAGMENT
+#define NOKOGIRI_XML_DOCUMENT_FRAGMENT
+
+#include <nokogiri.h>
+
+void init_xml_document_fragment();
+
+extern VALUE cNokogiriXmlDocumentFragment;
+#endif
+

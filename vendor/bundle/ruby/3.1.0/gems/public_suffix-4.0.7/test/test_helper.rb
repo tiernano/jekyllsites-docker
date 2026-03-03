@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f9cc3743b12659ce7f73d4c2f00d7afaad62534077ec97085473d5bf9b19ee2d
-size 272
+# frozen_string_literal: true
+
+require "minitest/autorun"
+require "minitest/reporters"
+require "mocha/minitest"
+
+Minitest::Reporters.use! Minitest::Reporters::DefaultReporter.new(color: true)
+
+$LOAD_PATH.unshift File.expand_path("../lib", __dir__)
+require "public_suffix"

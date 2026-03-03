@@ -1,3 +1,66 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8431e6c77c2773681e42dfbc660e281da0054832795eaf792352a837752ced3c
-size 1437
+require 'thread'
+require 'concurrent/collection/map/non_concurrent_map_backend'
+
+module Concurrent
+
+  # @!visibility private
+  module Collection
+
+    # @!visibility private
+    class MriMapBackend < NonConcurrentMapBackend
+
+      def initialize(options = nil)
+        super(options)
+        @write_lock = Mutex.new
+      end
+
+      def []=(key, value)
+        @write_lock.synchronize { super }
+      end
+
+      def compute_if_absent(key)
+        if NULL != (stored_value = @backend.fetch(key, NULL)) # fast non-blocking path for the most likely case
+          stored_value
+        else
+          @write_lock.synchronize { super }
+        end
+      end
+
+      def compute_if_present(key)
+        @write_lock.synchronize { super }
+      end
+
+      def compute(key)
+        @write_lock.synchronize { super }
+      end
+
+      def merge_pair(key, value)
+        @write_lock.synchronize { super }
+      end
+
+      def replace_pair(key, old_value, new_value)
+        @write_lock.synchronize { super }
+      end
+
+      def replace_if_exists(key, new_value)
+        @write_lock.synchronize { super }
+      end
+
+      def get_and_set(key, value)
+        @write_lock.synchronize { super }
+      end
+
+      def delete(key)
+        @write_lock.synchronize { super }
+      end
+
+      def delete_pair(key, value)
+        @write_lock.synchronize { super }
+      end
+
+      def clear
+        @write_lock.synchronize { super }
+      end
+    end
+  end
+end

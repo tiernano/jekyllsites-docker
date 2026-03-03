@@ -1,3 +1,66 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:934630387442d22e546dacc539d7db34088cd4cc6c59ccf7ad63d486d652349a
-size 567
+With tabs/spaces, no paras:
+
+*	item1
++   item2
+-	item3
+
+With tabs/spaces, paras:
+
+-	item1
+
+*   item2
+
++	item3
+
+With tabs/spaces, no paras:
+
+1.	item1
+20. item2
+3.	item3
+
+With tabs/spaces, paras:
+
+1.	item1
+
+2.  item2
+
+3.	item3
+
+Nested, without paras:
+
+*	item1
+    *    item2
+	     *	item3
+
+Nested, with paras:
+
++   item1
+
+	* item2
+      * item3 (level 3)
+
+Ordered, without paras:
+
+1. item1
+2. item2
+	* do
+    * it
+    * now
+3. item3
+
+Ordered, with paras:
+
+1. item1
+
+2. item2
+
+	* do
+    * it
+    * now
+
+3. item3
+
+Mixed tabs and spaces:
+
+* 	  	some text
+        * nested

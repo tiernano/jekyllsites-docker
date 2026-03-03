@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8a1137897a9e2b362f101c405bbcdb83596249b5d3500d7eaaa7ee60e53e1071
-size 252
+I have read the book
+1984. It was great
+- other say that, too!
+
+I have read the book
+1984\. It was great
+\- other say that, too!
+
+I have read the book
+  1984. It was great.
+
+I have read the book 1984.
+  - it was great!
+
+1984\. Was great!
+
+\- This too!

@@ -1,3 +1,80 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f29dc030aeaf6841125a42c7b1a9d8956350549574becc217f50e559151e1447
-size 1922
+module JMESPath
+  # @api private
+  module Nodes
+    class Comparator < Node
+      attr_reader :left, :right
+
+      def initialize(left, right)
+        @left = left
+        @right = right
+      end
+
+      def self.create(relation, left, right)
+        type = begin
+          case relation
+          when '==' then Comparators::Eq
+          when '!=' then Comparators::Neq
+          when '>' then Comparators::Gt
+          when '>=' then Comparators::Gte
+          when '<' then Comparators::Lt
+          when '<=' then Comparators::Lte
+          end
+        end
+        type.new(left, right)
+      end
+
+      def visit(value)
+        check(@left.visit(value), @right.visit(value))
+      end
+
+      def optimize
+        self.class.new(@left.optimize, @right.optimize)
+      end
+
+      private
+
+      def check(left_value, right_value)
+        nil
+      end
+    end
+
+    module Comparators
+
+      class Eq < Comparator
+        def check(left_value, right_value)
+          left_value == right_value
+        end
+      end
+
+      class Neq < Comparator
+        def check(left_value, right_value)
+          left_value != right_value
+        end
+      end
+
+      class Gt < Comparator
+        def check(left_value, right_value)
+          left_value.is_a?(Integer) && right_value.is_a?(Integer) && left_value > right_value
+        end
+      end
+
+      class Gte < Comparator
+        def check(left_value, right_value)
+          left_value.is_a?(Integer) && right_value.is_a?(Integer) && left_value >= right_value
+        end
+      end
+
+      class Lt < Comparator
+        def check(left_value, right_value)
+          left_value.is_a?(Integer) && right_value.is_a?(Integer) && left_value < right_value
+        end
+      end
+
+      class Lte < Comparator
+        def check(left_value, right_value)
+          left_value.is_a?(Integer) && right_value.is_a?(Integer) && left_value <= right_value
+        end
+      end
+    end
+  end
+end

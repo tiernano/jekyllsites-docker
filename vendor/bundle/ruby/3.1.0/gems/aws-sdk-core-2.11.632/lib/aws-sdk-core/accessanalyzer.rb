@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:81c75d44f1ad8adf0dc4416993c21cb38e449e21ca1f4c68b587333414232965
-size 316
+Aws.add_service(:AccessAnalyzer, {
+  api: "#{Aws::API_DIR}/accessanalyzer/2019-11-01/api-2.json",
+  docs: "#{Aws::API_DIR}/accessanalyzer/2019-11-01/docs-2.json",
+  examples: "#{Aws::API_DIR}/accessanalyzer/2019-11-01/examples-1.json",
+  paginators: "#{Aws::API_DIR}/accessanalyzer/2019-11-01/paginators-1.json",
+})

@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ca3c871c5d0bfd5b1b7196d9fb6c8adfaab4873b430eebc7260120294fce744b
-size 297
+module Typhoeus
+  class Hydra
+    module Cacheable
+      def add(request)
+        if request.cacheable? && response = request.cached_response
+          response.cached = true
+          request.finish(response)
+          dequeue
+        else
+          super
+        end
+      end
+    end
+  end
+end

@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a30aeb5447833c191e07fc87f99f6bfa08099bf58cbcc6a891980acdd9b0d43d
-size 321
+module ActiveSupport
+  # Returns the version of the currently loaded Active Support as a <tt>Gem::Version</tt>
+  def self.gem_version
+    Gem::Version.new VERSION::STRING
+  end
+
+  module VERSION
+    MAJOR = 4
+    MINOR = 2
+    TINY  = 9
+    PRE   = nil
+
+    STRING = [MAJOR, MINOR, TINY, PRE].compact.join(".")
+  end
+end

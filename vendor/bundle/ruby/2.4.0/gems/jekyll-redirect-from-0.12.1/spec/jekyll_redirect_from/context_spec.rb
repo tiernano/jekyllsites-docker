@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b315b002dd40a650fcfb49799c0c6cebded58f4e43262ae13a1372d0f98c4a6b
-size 316
+RSpec.describe JekyllRedirectFrom::Context do
+  subject { described_class.new(site) }
+
+  it "stores the site" do
+    expect(subject.site).to be_a(Jekyll::Site)
+  end
+
+  it "returns the register" do
+    expect(subject.registers).to have_key(:site)
+    expect(subject.registers[:site]).to be_a(Jekyll::Site)
+  end
+end

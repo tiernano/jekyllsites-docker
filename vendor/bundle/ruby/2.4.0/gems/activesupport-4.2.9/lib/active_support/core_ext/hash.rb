@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:211b552fc181792ebfbf3b9dfc8ae8641150f5c127a9ea94ef3634b36b6b9a0d
-size 450
+require 'active_support/core_ext/hash/compact'
+require 'active_support/core_ext/hash/conversions'
+require 'active_support/core_ext/hash/deep_merge'
+require 'active_support/core_ext/hash/except'
+require 'active_support/core_ext/hash/indifferent_access'
+require 'active_support/core_ext/hash/keys'
+require 'active_support/core_ext/hash/reverse_merge'
+require 'active_support/core_ext/hash/slice'
+require 'active_support/core_ext/hash/transform_values'

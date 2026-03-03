@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dab3fcc67c60452413b9f579653b10fbb340f5fc03f17af57338e1fb5a2f76a7
-size 340
+require 'spec_helper'
+
+describe Ethon::Libc do
+  describe "#getdtablesize", :if => !Ethon::Curl.windows? do
+    it "returns an integer" do
+      expect(Ethon::Libc.getdtablesize).to be_a(Integer)
+    end
+
+    it "returns bigger zero", :if => !Ethon::Curl.windows? do
+      expect(Ethon::Libc.getdtablesize).to_not be_zero
+    end
+  end
+end

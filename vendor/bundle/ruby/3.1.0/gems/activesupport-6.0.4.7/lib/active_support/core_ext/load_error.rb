@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:40b95fbcf4c887578f082b44fcc9c722f3af38f074c54189a7a5edbcadc0c6ad
-size 291
+# frozen_string_literal: true
+
+class LoadError
+  # Returns true if the given path name (except perhaps for the ".rb"
+  # extension) is the missing file which caused the exception to be raised.
+  def is_missing?(location)
+    location.sub(/\.rb$/, "") == path.to_s.sub(/\.rb$/, "")
+  end
+end

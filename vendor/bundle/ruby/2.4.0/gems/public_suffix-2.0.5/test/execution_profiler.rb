@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:09bb79b3eeb78184a29868315bdc89f84abf650b0e3435bc2f3b7cb91910b2ce
-size 361
+$LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
+
+require "memory_profiler"
+require "public_suffix"
+
+PublicSuffix::List.default
+
+report = MemoryProfiler.report do
+  PublicSuffix.domain("www.example.com")
+  PublicSuffix.domain("a.b.ide.kyoto.jp")
+end
+
+report.pretty_print
+# report.pretty_print(to_file: 'profiler-%s-%d.txt' % [ARGV[0], Time.now.to_i])

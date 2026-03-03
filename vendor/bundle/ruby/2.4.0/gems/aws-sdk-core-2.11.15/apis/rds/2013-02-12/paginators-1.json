@@ -1,3 +1,110 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:31b49bffe2df4627a5e67b723c98975a73437a2b5d0e113dd1379b5aba9d1b5d
-size 3160
+{
+  "pagination": {
+    "DescribeDBEngineVersions": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "DBEngineVersions"
+    },
+    "DescribeDBInstances": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "DBInstances"
+    },
+    "DescribeDBLogFiles": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "DescribeDBLogFiles"
+    },
+    "DescribeDBParameterGroups": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "DBParameterGroups"
+    },
+    "DescribeDBParameters": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "Parameters"
+    },
+    "DescribeDBSecurityGroups": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "DBSecurityGroups"
+    },
+    "DescribeDBSnapshots": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "DBSnapshots"
+    },
+    "DescribeDBSubnetGroups": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "DBSubnetGroups"
+    },
+    "DescribeEngineDefaultParameters": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "EngineDefaults.Marker",
+      "result_key": "EngineDefaults.Parameters"
+    },
+    "DescribeEventSubscriptions": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "EventSubscriptionsList"
+    },
+    "DescribeEvents": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "Events"
+    },
+    "DescribeOptionGroupOptions": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "OptionGroupOptions"
+    },
+    "DescribeOptionGroups": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "OptionGroupsList"
+    },
+    "DescribeOrderableDBInstanceOptions": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "OrderableDBInstanceOptions"
+    },
+    "DescribeReservedDBInstances": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "ReservedDBInstances"
+    },
+    "DescribeReservedDBInstancesOfferings": {
+      "input_token": "Marker",
+      "limit_key": "MaxRecords",
+      "output_token": "Marker",
+      "result_key": "ReservedDBInstancesOfferings"
+    },
+    "DownloadDBLogFilePortion": {
+      "input_token": "Marker",
+      "limit_key": "NumberOfLines",
+      "more_results": "AdditionalDataPending",
+      "output_token": "Marker",
+      "result_key": "LogFileData"
+    },
+    "ListTagsForResource": {
+      "result_key": "TagList"
+    }
+  }
+}

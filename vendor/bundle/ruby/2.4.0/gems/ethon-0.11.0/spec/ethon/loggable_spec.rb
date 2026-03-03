@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:65b5947e062751eda65911bbef09c0c5c28509817c3d855ba98abf0a828f3907
-size 327
+require "spec_helper"
+
+describe Ethon::Loggable do
+
+  describe "#logger=" do
+
+    let(:logger) do
+      Logger.new($stdout).tap do |log|
+        log.level = Logger::INFO
+      end
+    end
+
+    before do
+      Ethon.logger = logger
+    end
+
+    it "sets the logger" do
+      expect(Ethon.logger).to eq(logger)
+    end
+  end
+end

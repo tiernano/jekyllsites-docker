@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:74ccb06144db76d9ab51a5f22d4072fd5fc7879f9a0505b2b775dcefee6f19ee
-size 236
+/* args are passed on registers from r0 up to r11 => 12*8 bytes */
+#define REG_ARGS_SIZE (12*8)
+#define KVX_REGISTER_SIZE (8)
+#define KVX_ABI_SLOT_SIZE (KVX_REGISTER_SIZE)
+#define KVX_ABI_MAX_AGGREGATE_IN_REG_SIZE (4*KVX_ABI_SLOT_SIZE)

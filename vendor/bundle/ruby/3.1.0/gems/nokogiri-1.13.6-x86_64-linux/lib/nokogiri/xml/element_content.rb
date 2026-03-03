@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1a5c1e84ca81ad7c46a403a1afc62b5d71ac4c0ff2de699224cbab2ce242c998
-size 885
+# frozen_string_literal: true
+
+module Nokogiri
+  module XML
+    ###
+    # Represents the allowed content in an Element Declaration inside a DTD:
+    #
+    #   <?xml version="1.0"?><?TEST-STYLE PIDATA?>
+    #   <!DOCTYPE staff SYSTEM "staff.dtd" [
+    #      <!ELEMENT div1 (head, (p | list | note)*, div2*)>
+    #   ]>
+    #   </root>
+    #
+    # ElementContent represents the tree inside the <!ELEMENT> tag shown above
+    # that lists the possible content for the div1 tag.
+    class ElementContent
+      # Possible definitions of type
+      PCDATA  = 1
+      ELEMENT = 2
+      SEQ     = 3
+      OR      = 4
+
+      # Possible content occurrences
+      ONCE    = 1
+      OPT     = 2
+      MULT    = 3
+      PLUS    = 4
+
+      attr_reader :document
+
+      ###
+      # Get the children of this ElementContent node
+      def children
+        [c1, c2].compact
+      end
+    end
+  end
+end
